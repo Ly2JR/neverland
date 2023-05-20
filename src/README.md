@@ -1,48 +1,49 @@
 ---
 home: true
 layout: BlogHome
-icon: home
-title: 博客主页
-heroImage: /logo.svg
+icon: iconamoon:home-fill
+title: 主页
+heroImage: 
 heroText: Neverland
 heroFullScreen: true
 tagline: 
 projects:
-  - icon: project
-    name: 项目名称
-    desc: 项目详细描述
-    link: https://你的项目链接
+  - icon: icon-park-solid:movie
+    name: 家庭影院
+    desc: 4K资源
+    link: https://nas.ilyl.life:8091/
 
-  - icon: link
-    name: 链接名称
-    desc: 链接详细描述
-    link: https://链接地址
+  - icon: fontisto:apple-music
+    name: 音乐电台
+    desc: 无损资源
+    link: https://nas.ilyl.life:8089/music
 
-  - icon: book
-    name: 书籍名称
-    desc: 书籍详细描述
-    link: https://你的书籍链接
+  - icon: ph:book-fill
+    name: 图书馆
+    desc: 书籍资源
+    link: #
 
-  - icon: article
-    name: 文章名称
-    desc: 文章详细描述
-    link: https://你的文章链接
+  - icon: ic:baseline-photo-camera
+    name: 图床
+    desc: 4K资源
+    link: #
 
-  - icon: friend
-    name: 伙伴名称
-    desc: 伙伴详细介绍
-    link: https://你的伙伴链接
+  - icon: mdi:dot-net
+    name: .NET
+    desc: WPF、Xamarin、ABP
+    link: #
 
-  - icon: /logo.svg
-    name: 自定义项目
-    desc: 自定义详细介绍
-    link: https://你的自定义链接
+  - icon: mdi:web-box
+    name: Web
+    desc: Vue
+    link: #
+  
+  - icon: mdi:tools
+    name: 工具箱
+    desc: 疑难杂症
+    link: #
 
-footer: 自定义你的页脚文字
+footer: <a href="http://beian.miit.gov.cn" target="_blank">苏ICP备2021053735号-1</a>&nbsp;&nbsp;<img src="备案图标.png" alt="公网备案"/>&nbsp;&nbsp;<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32118302000302" target="_blank">苏公网安备32118302000302号</a>
+
+copyright: Copyright ©️ 2021-现在 ilyl.life 版权所有 支持IPv6
 ---
-
-这是一个博客主页的案例。
-
-要使用此布局，你应该在页面前端设置 `layout: BlogHome` 和 `home: true`。
-
-相关配置文档请见 [博客主页](https://theme-hope.vuejs.press/zh/guide/blog/home/)。
