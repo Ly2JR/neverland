@@ -5,16 +5,16 @@ export const zhSidebar = sidebar({
     "",
     {
       text: "梦幻岛",
-      icon: "creative",
+      icon: "fontisto:island",
       prefix: "hope/",
       link: "hope/",
       children: "structure",
     },
     {
-      text: "文章",
-      icon: "note",
-      prefix: "network/",
-      children: "structure",
+      text:'工具箱',
+      icon:'mdi:tools',
+      prefix:"network/",
+      children:"structure"
     },
     "intro",
   ],

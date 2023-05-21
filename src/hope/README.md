@@ -1,17 +1,19 @@
 ---
-title: 常用功能
+title: 梦幻岛
 index: false
-icon: discover
+icon:  fontisto:island
 category:
   - Neverland
+editLink: false
+footer: false
 ---
 
 ## 甜点
 
-- [家庭影院](markdown.md)
+- [家庭影院](https://nas.ilyl.life:8091/)
 
-- [音乐电台](page.md)
+- [音乐电台](https://nas.ilyl.life:8089/audio)
 
-- [图书馆](disable.md)
+- [网盘](https://nas.ilyl.life:8089/file/)
 
-- [图床](encrypt.md)
+- [图床](https://nas.ilyl.life:8092/default.png)

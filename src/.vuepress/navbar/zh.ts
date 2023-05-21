@@ -6,14 +6,14 @@ export const zhNavbar = navbar([
   {
     text: "博文",
     icon: "mdi:toolbox",
-    prefix: "/posts/",
+    prefix: "/",
     children: [
       {
         text: "网络",
-        icon: "edit",
-        prefix: "network/",
+        icon: "tabler:network",
+        prefix:'network/',
         children: [
-          { text: "路由器", icon: "edit", link: "router" },
+          { text: "光猫", icon: "mdi:router-network", link: "ont" },
         ],
       },
     ],

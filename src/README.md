@@ -16,21 +16,21 @@ projects:
   - icon: fontisto:apple-music
     name: 音乐电台
     desc: 无损资源
-    link: https://nas.ilyl.life:8089/music
+    link: https://nas.ilyl.life:8089/audio
 
-  - icon: ph:book-fill
-    name: 图书馆
-    desc: 书籍资源
-    link: #
+  - icon: zondicons:hard-drive
+    name: 网盘
+    desc: 书籍、文件资源
+    link: https://nas.ilyl.life:8089/file
 
   - icon: ic:baseline-photo-camera
     name: 图床
-    desc: 4K资源
-    link: #
+    desc: 4K、8K资源
+    link: https://nas.ilyl.life:8092/default.png
 
   - icon: mdi:dot-net
     name: .NET
-    desc: WPF、Xamarin、ABP
+    desc: WPF、ABP
     link: #
 
   - icon: mdi:web-box
