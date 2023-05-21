@@ -195,5 +195,16 @@ export default hopeTheme({
     //     ],
     //   },
     // },
+
+    /**
+     * 设置版权信息
+     */
+    copyright:{
+      author:'乌龙茶',
+      license:'MIT',
+      triggerWords:10,
+      disableCopy:false,
+      disableSelection:false,
+    }
   },
 });

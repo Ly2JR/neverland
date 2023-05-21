@@ -9,6 +9,7 @@ tag:
 lastUpdated: false
 editLink: false
 footer: false
+copy: true
 ---
 
 为了能够随时随地的远程访问NAS，首先办理一条宽带。
