@@ -1,21 +1,22 @@
 import { hopeTheme } from 'vuepress-theme-hope';
 import { zhNavbar } from './navbar/index.js';
 import { zhSidebar } from './sidebar/index.js';
+import { AUTHOR,HOST_NAME,E_MAIL,REPO,GITHUB,COPYRIGHT,DESCRIPTION,LICENSE } from './consts';
 
 export default hopeTheme({
-  hostname: 'https://ilyl.life',
+  hostname: HOST_NAME,
 
   author: {
-    name: '乌龙茶',
-    url: 'https://ilyl.life',
-    email:'982474256@qq.com'
+    name: AUTHOR,
+    url: HOST_NAME,
+    email:E_MAIL
   },
 
   iconAssets: 'iconify',
 
   logo: '/logo.svg',
 
-  repo: 'https://github.com/Ly2JR/neverland',
+  repo: REPO,
 
   docsDir: 'docs',
 
@@ -23,8 +24,8 @@ export default hopeTheme({
 
   blog: {
     medias: {
-      Email: 'mailto:982474256@qq.com',
-      GitHub: 'https://github.com/ly2jr',
+      Email: E_MAIL,
+      GitHub: GITHUB,
     },
   },
   locales: {
@@ -40,18 +41,17 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      footer: "<a href='http://beian.miit.gov.cn' target='_blank'>苏ICP备2021053735号-1</a>&nbsp;&nbsp;<img src='备案图标.png' alt='公网备案'/>&nbsp;&nbsp;<a href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32118302000302' target='_blank'>苏公网安备32118302000302号</a>",
+      footer: COPYRIGHT,
 
       displayFooter: true,
 
       blog: {
-        description: '一个代码搬运工',
+        description: DESCRIPTION,
       },
 
       // page meta
       metaLocales: {
         editLink: '在 GitHub 上编辑此页',
-
       },
     },
   },
@@ -164,8 +164,8 @@ export default hopeTheme({
      * 设置版权信息
      */
     copyright:{
-      author:'乌龙茶',
-      license:'MIT',
+      author:AUTHOR,
+      license:LICENSE,
       triggerWords:10,
       disableCopy:false,
       disableSelection:false,

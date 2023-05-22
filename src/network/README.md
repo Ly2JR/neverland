@@ -2,7 +2,7 @@
 title: 网络
 index: false
 icon:  tabler:network
-cover: /assets/images/cover3.jpg
+article: false
 category:
   - 网络
 editLink: false

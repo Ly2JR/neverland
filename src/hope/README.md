@@ -1,6 +1,7 @@
 ---
 title: 梦幻岛
 index: false
+cover: /assets/images/cover3.jpg
 icon:  fontisto:island
 category:
   - Neverland
