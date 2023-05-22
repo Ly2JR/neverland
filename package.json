@@ -12,7 +12,7 @@
   "scripts": {
     "docs:build": "vuepress build src",
     "docs:clean-dev": "vuepress dev src --clean-cache",
-    "docs:dev": "vuepress dev src",    
+    "docs:dev": "vuepress dev src",
     "up:theme": "pnpm up vuepress-theme-hope@latest",
     "up:vuepress": "pnpm up vuepress@next @vuepress/client@next"
   },
@@ -20,6 +20,9 @@
     "@vuepress/client": "2.0.0-beta.62",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.62",
-    "vuepress-theme-hope": "2.0.0-beta.211"
+    "vuepress-plugin-copyright2": "2.0.0-beta.212",
+    "vuepress-plugin-md-enhance": "2.0.0-beta.212",
+    "vuepress-plugin-pwa2": "2.0.0-beta.212",
+    "vuepress-theme-hope": "2.0.0-beta.212"
   }
 }

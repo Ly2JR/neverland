@@ -7,6 +7,7 @@ category:
   - 网络
 tag:
   - 路由器
+  - 小米
 lastUpdated: false
 editLink: false
 footer: false
