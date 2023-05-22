@@ -4,11 +4,15 @@
   "description": "blog",
   "license": "MIT",
   "type": "module",
-  "author": "乌龙茶",
+  "author": {
+    "name": "乌龙茶",
+    "email": "982474256@qq.com",
+    "url": "https://ilyl.life"
+  },
   "scripts": {
     "docs:build": "vuepress build src",
     "docs:clean-dev": "vuepress dev src --clean-cache",
-    "docs:dev": "vuepress dev src",
+    "docs:dev": "vuepress dev src",    
     "up:theme": "pnpm up vuepress-theme-hope@latest",
     "up:vuepress": "pnpm up vuepress@next @vuepress/client@next"
   },

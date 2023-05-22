@@ -12,7 +12,7 @@ export const zhNavbar = navbar([
         text: "网络",
         icon: "tabler:network",
         link:'network/README.md'
-      },
+      }
     ],
   },
 ]);

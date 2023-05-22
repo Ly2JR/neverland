@@ -27,8 +27,6 @@ copy: true
 
 以华为光猫，型号HG8245为例；
 
-![获取超级管理员密码](https://nas.ilyl.life:8092/tele.png)
-
 ::: tip
 `telnet`在控制面板/启用或关闭Windows功能，勾选Telnet客户端
 :::

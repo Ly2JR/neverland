@@ -27,13 +27,13 @@ export default hopeTheme({
       GitHub: 'https://github.com/ly2jr',
     },
   },
-
   locales: {
     
     /**
      * Chinese locale config
      */
     '/': {
+
       // navbar
       navbar: zhNavbar,
 
@@ -46,28 +46,19 @@ export default hopeTheme({
 
       blog: {
         description: '一个代码搬运工',
-        intro: '/intro.html',
       },
 
       // page meta
       metaLocales: {
         editLink: '在 GitHub 上编辑此页',
+
       },
     },
   },
 
-  // encrypt: {
-  //   config: {
-  //     '/demo/encrypt.html': ['1234'],
-  //   },
-  // },
 
   plugins: {
     blog: true,
-
-    comment: {
-      provider: 'Giscus',
-    },
 
     // all features are enabled for demo, only preserve features you need here
     mdEnhance: {
