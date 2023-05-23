@@ -4,7 +4,6 @@ icon:  tabler:network
 breadcrumb: false
 article: false
 index: false
-star: true
 category:
   - 网络
 editLink: false

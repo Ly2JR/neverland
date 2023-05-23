@@ -6,7 +6,7 @@ import { pwa,copyright,markdown } from './plugins/index';
 
 export default hopeTheme({
   hostname: HOST_NAME,
-
+  
   author: {
     name: AUTHOR,
     url: HOST_NAME,
@@ -57,10 +57,13 @@ export default hopeTheme({
     },
   },
 
-
   plugins: {
+    
     blog: true,
-
+    /**
+     * 禁用自动生成目录
+     */
+    autoCatalog:false,
     /**
      * 启用Markdown增强
      */
@@ -76,4 +79,9 @@ export default hopeTheme({
      */
     copyright
   },
+},{
+  /**
+   * 自定义组件启用
+   */
+  custom:true
 });

@@ -1,3 +1,4 @@
+//不影响,强迫症否则请安装该插件`pnpm add vuepress-plugin-pwa2@next -D`
 import type { PWAOptions } from 'vuepress-plugin-pwa2'
 
 export const pwa:PWAOptions={
