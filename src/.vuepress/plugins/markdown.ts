@@ -5,6 +5,7 @@ export const markdown:MarkdownEnhanceOptions={
     chart: true,
     codetabs: true,
     demo: true,
+    card:true,
     echarts: true,
     figure: true,
     flowchart: true,

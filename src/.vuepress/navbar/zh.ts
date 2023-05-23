@@ -15,4 +15,5 @@ export const zhNavbar = navbar([
       }
     ],
   },
+  { text: "关于", icon: "cib:about-me", link: "/about/" },
 ]);
