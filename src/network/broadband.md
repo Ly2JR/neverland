@@ -3,12 +3,12 @@ title: 宽带
 icon: arcticons:bsnl-broadband-data-usage-pro
 date: 2023-05-22
 dir.order: 1
+isOriginal: true
 category:
   - 网络
 tag:
   - 宽带
   - 电信
-lastUpdated: false
 editLink: false
 footer: false
 copy: true

@@ -2,14 +2,13 @@
 title: 光猫
 icon: bxs:cat
 date: 2023-05-20
+isOriginal: true
 dir.order: 2
-star: true
 category:
   - 网络
 tag:
   - 光猫
   - HG8245
-lastUpdated: false
 editLink: false
 footer: false
 copy: true

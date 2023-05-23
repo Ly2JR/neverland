@@ -12,8 +12,14 @@ export const zhSidebar = sidebar({
     },
     {
       text:'网络',
-      icon:'mdi:tools',
+      icon:'tabler:network',
       prefix:"network/",
+      children: "structure",
+    },
+    {
+      text:'VMware',
+      icon:'clarity:vm-solid',
+      prefix:"vmware/",
       children: "structure",
     },
   ],

@@ -2,13 +2,13 @@
 title: 路由器
 icon: material-symbols:router
 date: 2023-05-22
+isOriginal: true
 dir.order: 3
 category:
   - 网络
 tag:
   - 路由器
   - 小米
-lastUpdated: false
 editLink: false
 footer: false
 copy: true
