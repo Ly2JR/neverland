@@ -15,46 +15,57 @@ tag:
 
 全局更改主题色有多种方式。
 
-::: vue-demo CSS3变量
+::: vue-playground CSS3 变量
+
+@file App.vue
 
 ```vue
 <template>
-  <div data-theme="light" class="box">
-    <code>vuepress-theme-hope</code> is
+  <div ref="el" style="--color: #7fa998; color: var(--color)">
+    Sample text, {{ color }}
   </div>
-   <button @click="switchTheme">改变颜色</button>
+  <button @click="switchColor">Change Color</button>
+  <div
+    ref="elv"
+    style="--color: #7fa998; --color-one: #df8543;"
+    :style="{ color: colorVal }"
+  >
+    Sample text, {{ key }}: {{ colorVal }}
+  </div>
+  <button style="margin-left: 0;" @click="changeVar">
+    Change Color Variable
+  </button>
 </template>
-<script>
-const { ref } = Vue;
-
-export default {
-  setup() {
-    const message = ref("powerful");
-
-    const switchTheme = () => {
-      message.value = "very " + message.value;
-    };
-
-    return {
-      message,
-      switchTheme,
-    };
-  },
-};
+<script setup lang="ts">
+import { useCssVar } from "@vueuse/core";
+import { ref } from "vue";
+const el = ref(null);
+const color = useCssVar("--color", el);
+function switchColor() {
+  if (color.value === "#df8543") color.value = "#7fa998";
+  else color.value = "#df8543";
+}
+const elv = ref(null);
+const key = ref("--color");
+const colorVal = useCssVar(key, elv);
+function changeVar() {
+  if (key.value === "--color") key.value = "--color-one";
+  else key.value = "--color";
+}
 </script>
-<style>
+```
 
-html[data-them="light"]{
-    
-}
-html[data-them="dark"]{
-    
-}
+@import
 
-.box span {
-  color: red;
+```json
+{
+  "imports": {
+    "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js",
+    "@vueuse/core": "https://unpkg.com/@vueuse/core/index.mjs",
+    "@vueuse/shared": "https://unpkg.com/@vueuse/shared/index.mjs",
+    "vue-demi": "https://unpkg.com/vue-demi/lib/index.mjs"
+  }
 }
-</style>
 ```
 
 :::

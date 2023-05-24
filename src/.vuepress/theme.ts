@@ -6,7 +6,7 @@ import { pwa,copyright,markdown } from './plugins/index';
 
 export default hopeTheme({
   hostname: HOST_NAME,
-  
+
   author: {
     name: AUTHOR,
     url: HOST_NAME,

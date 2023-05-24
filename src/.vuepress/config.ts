@@ -12,7 +12,6 @@ const OriginalInfo=path.resolve(__dirname,"./components/original/index.vue")
 export default defineUserConfig({
   base: "/",
   lang:'zh-CN',
-  
   locales: {
     "/": {
       lang: "zh-CN",
