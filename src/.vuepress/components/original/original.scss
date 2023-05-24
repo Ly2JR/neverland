@@ -12,28 +12,19 @@ html[data-theme="light"]{
 }
 
 html[data-theme="dark"]{
-  --original-color:#531dab;
-  --original-background: #000000;
-  --original-border-color: #f9f0ff;
+  --original-color:#FF8000;
+  --original-background: #531dab;
+  --original-border-color: #2db7f5;
 }
 
-.nl-original-wrapper {
+.nl-original-wrap {
+  display:inline-block;
   box-sizing: border-box;
-  margin: 0 8px 0 0;
-  color: #000000d9;
-  font-variant: tabular-nums;
-  list-style: none;
-  font-feature-settings: "tnum";
-  display: inline-block;
-  height: auto;
-  padding: 0 7px;
-  font-size: 12px;
-  line-height: 20px;
-  white-space: nowrap;
-  background: #fafafa;
+  padding: 0 0.25em;
+  font-weight: bold;
+  font-size: 0.75rem !important;
   border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  opacity: 1;
+  border-radius: 0.25em;
   transition: all 0.3s;
   cursor:pointer;
 }
