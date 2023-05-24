@@ -14,6 +14,11 @@ export const zhNavbar = navbar([
         link:'network/'
       },
       {
+        text: "Web",
+        icon: "mdi:vuejs",
+        link:'web/'
+      },
+      {
         text: "VMware",
         icon: "clarity:vm-solid",
         link:'vmware/'

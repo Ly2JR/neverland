@@ -1,7 +1,7 @@
 ---
-title: VMware
-icon: clarity:vm-solid
-date: 2023-05-23
+title: Web开发
+icon: mdi:vuejs
+date: 2023-05-24
 breadcrumb: false
 article: false
 index: false
@@ -11,4 +11,4 @@ footer: false
 
 ## 清单
 
-- [启动虚拟化错误](intel_vt.md)
+- [主题色](./vue/theme.md)
