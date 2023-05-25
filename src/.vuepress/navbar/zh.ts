@@ -9,20 +9,15 @@ export const zhNavbar = navbar([
     prefix: "/",
     children: [
       {
-        text: "网络",
-        icon: "tabler:network",
-        link:'network/'
+        text: "工具箱",
+        icon: "mdi:tools",
+        link:'tools/'
       },
       {
         text: "Web",
         icon: "mdi:vuejs",
         link:'web/'
       },
-      {
-        text: "VMware",
-        icon: "clarity:vm-solid",
-        link:'vmware/'
-      }
     ],
   },
   { text: "关于", icon: "cib:about-me", link: "/about/" },

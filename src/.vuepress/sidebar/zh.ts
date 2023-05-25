@@ -11,22 +11,30 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
-      text:'网络',
-      icon:'tabler:network',
-      prefix:"network/",
-      children: "structure",
-    },
-    {
       text:'Vue',
       icon:'mdi:vuejs',
       prefix:"web/vue/",
       children: "structure",
     },
     {
-      text:'VMware',
-      icon:'clarity:vm-solid',
-      prefix:"vmware/",
-      children: "structure",
+      text:'工具箱',
+      icon:'mdi:tools',
+      prefix:'tools/',
+      link:'tools/',
+      children:[
+        {
+          text:'网络',
+          icon:'tabler:network',
+          prefix:"network/",
+          children: "structure",
+        },
+        {
+          text:'VMware',
+          icon:'clarity:vm-solid',
+          prefix:"vmware/",
+          children: "structure",
+        },
+      ]
     },
   ],
 });

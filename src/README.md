@@ -41,7 +41,7 @@ projects:
   - icon: mdi:tools
     name: 工具箱
     desc: 疑难杂症
-    link: #
+    link: /tools/README.md
 
 copyright: Copyright ©️ 2021-现在 ilyl.life 版权所有 支持IPv6
 ---
