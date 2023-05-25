@@ -1,4 +1,4 @@
-//不影响,强迫症否则请安装该插件`vuepress-plugin-md-enhance@next -D`
+//不影响,可以通过安装插件`vuepress-plugin-md-enhance@next -D`解决
 import {MarkdownEnhanceOptions} from 'vuepress-plugin-md-enhance'
 export const markdown:MarkdownEnhanceOptions={
     
