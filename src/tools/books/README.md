@@ -3,7 +3,7 @@ title: 古训·增广贤文
 index: false
 star : true
 sticky: 99999
-icon: mdi:tools
+icon: clarity:book-solid
 category:
   - 书籍
 tag:
