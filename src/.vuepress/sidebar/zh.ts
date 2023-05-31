@@ -17,6 +17,12 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
+      text:'TypeScript',
+      icon:'fluent:code-ts-16-filled',
+      prefix:"ts/",
+      children: "structure",
+    },
+    {
       text:'工具箱',
       icon:'mdi:tools',
       prefix:'tools/',

@@ -22,7 +22,7 @@
     "@vueuse/core": "^10.1.2",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.62",
-    "vuepress-theme-hope": "2.0.0-beta.215"
+    "vuepress-theme-hope": "2.0.0-beta.217"
   },
   "resolutions": {
     "vite": "4.3.9"

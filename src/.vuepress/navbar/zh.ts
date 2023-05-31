@@ -18,6 +18,11 @@ export const zhNavbar = navbar([
         icon: "mdi:vuejs",
         link:'web/'
       },
+      {
+        text: "TypeScript",
+        icon: "fluent:code-ts-16-filled",
+        link:'ts/'
+      },
     ],
   },
   { text: "关于", icon: "cib:about-me", link: "/about/" },

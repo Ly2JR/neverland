@@ -17,6 +17,35 @@ tag:
 
 关键在于使用[CSS 变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties)，定义在伪根类[`:root`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties)下，可以全局访问，并通过改变变量的值，使全局生效。
 
+- 使用[v-bind-css](https://cn.vuejs.org/api/sfc-css-features.html#v-bind-in-css)
+
+::: vue-demo v-bind-css
+
+```vue
+<script setup>
+const theme = {
+  color: 'red'
+}
+function changeVar() {
+  if (theme.color === "red") key.value = "blue";
+  else theme.color = "red";
+}
+</script>
+
+<template>
+  <p>hello</p>
+  <button @click="changeColor">Change</button>
+</template>
+
+<style>
+p {
+  color: v-bind('theme.color');
+}
+</style>
+```
+
+:::
+
 - 使用[useCssVar](https://vueuse.org/core/useCssVar/)
 
 ::: vue-playground useCssVar
