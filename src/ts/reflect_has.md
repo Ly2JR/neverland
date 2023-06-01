@@ -18,85 +18,43 @@ tag:
 
 在`ant-design-vue`树形组件中,获取节点的到`key`的值为`number[]|string[]`,反向显示部分节点时，往往通过`{Checked:[],halfChecked:[]}`来赋值，那么无选择时，获取到的数据值不在是原来的`number[]|string[]`而是变为了`{Checked:[],halfChecked:[]}`,这是可以通过`Reflect.has`或`in`来判断对象属性。
 
-<!--sfc antd 有问题,element-plus可以-->
-<!-- ::: vue-playground Reflect.has
-
-@file App.vue
+::: vue-demo 一个 Vue Option 演示
 
 ```vue
 <template>
-  <a-tree
-    v-model:expandedKeys="expandedKeys"
-    v-model:selectedKeys="selectedKeys"
-    v-model:checkedKeys="checkedKeys"
-    checkable
-    :tree-data="treeData"
-  >
-    <template #title="{ title, key }">
-      <span v-if="key === '0-0-1-0'" style="color: #1890ff">{{ title }}</span>
-      <template v-else>{{ title }}</template>
-    </template>
-  </a-tree>
+   <a-button>ant-design-vue</a-button>
 </template>
-<script lang="ts" setup>
-import type { TreeProps } from "ant-design-vue";
-import { defineComponent, ref, watch, getCurrentInstance } from "vue";
-import Antd from "antDesignVue";
-getCurrentInstance.appContext.use(Antd);
-const treeData: TreeProps["treeData"] = [
-  {
-    title: "parent 1",
-    key: "0-0",
-    children: [
-      {
-        title: "parent 1-0",
-        key: "0-0-0",
-        disabled: true,
-        children: [
-          { title: "leaf", key: "0-0-0-0", disableCheckbox: true },
-          { title: "leaf", key: "0-0-0-1" },
-        ],
-      },
-      {
-        title: "parent 1-1",
-        key: "0-0-1",
-        children: [{ key: "0-0-1-0", title: "sss" }],
-      },
-    ],
+
+<script>
+export default {
+  setup() {
+    Vue.getCurrentInstance().appContext.app.use(window.antd);
   },
-];
-const expandedKeys = ref<string[]>(["0-0-0", "0-0-1"]);
-const selectedKeys = ref<string[]>(["0-0-0", "0-0-1"]);
-const checkedKeys = ref<string[]>(["0-0-0", "0-0-1"]);
-watch(expandedKeys, () => {
-  console.log("expandedKeys", expandedKeys);
-});
-watch(selectedKeys, () => {
-  console.log("selectedKeys", selectedKeys);
-});
-watch(checkedKeys, () => {
-  console.log("checkedKeys", checkedKeys);
-});
+};
 </script>
+<style>
+@import "https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/antd.min.css";
+</style>
 ```
-
-@import
 
 ```json
 {
-  "imports": {
-    "vue": "https://play.vuejs.org/vue.runtime.esm-browser.js",
-    "antDesignVue": "https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/+esm"
-  }
+  "jsLib": [
+    "https://unpkg.com/dayjs/dayjs.min.js",
+    "https://unpkg.com/dayjs/plugin/customParseFormat.js",
+    "https://unpkg.com/dayjs/plugin/customParseFormat.js",
+    "https://unpkg.com/dayjs/plugin/weekday.js",
+    "https://unpkg.com/dayjs/plugin/localeData.js",
+    "https://unpkg.com/dayjs/plugin/weekOfYear.js",
+    "https://unpkg.com/dayjs/plugin/weekYear.js",
+    "https://unpkg.com/dayjs/plugin/advancedFormat.js",
+    "https://unpkg.com/dayjs/plugin/quarterOfYear.js",
+    "https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/antd.min.js"
+  ],
+  "cssLib":[
+    "https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/antd.min.css"
+  ]
 }
 ```
+:::
 
-@setting
-
-```json
-{
-  "showCompileOutput": true
-}
-```
-
-::: -->
