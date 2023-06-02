@@ -2,7 +2,33 @@ import { navbar } from "vuepress-theme-hope";
 
 export const zhNavbar = navbar([
   "/",
-  { text: "梦幻岛", icon: "fontisto:island", link: "/hope/" },
+  {
+    text: "梦幻岛",
+    icon: "fontisto:island",
+    link: "/hope/",
+    children: [
+      {
+        text: "影院",
+        icon: "icon-park-solid:movie",
+        link: "https://nas.ilyl.life:8091/",
+      },
+      {
+        text: "音乐",
+        icon: "fontisto:apple-music",
+        link: "https://nas.ilyl.life:8089/audio",
+      },
+      {
+        text: "网盘",
+        icon: "zondicons:hard-drive",
+        link: "https://nas.ilyl.life:8089/file",
+      },
+      {
+        text: "图床",
+        icon: "ic:baseline-photo-camera",
+        link: "https://nas.ilyl.life:8092/default.png",
+      },
+    ],
+  },
   {
     text: "博文",
     icon: "mdi:toolbox",
@@ -11,17 +37,22 @@ export const zhNavbar = navbar([
       {
         text: "工具箱",
         icon: "mdi:tools",
-        link:'tools/'
+        link: "tools/",
+      },
+      {
+        text: "桌面",
+        icon: "mdi:desktop-classic",
+        link: "cs/",
       },
       {
         text: "Web",
         icon: "mdi:vuejs",
-        link:'web/'
+        link: "web/",
       },
       {
         text: "TypeScript",
         icon: "fluent:code-ts-16-filled",
-        link:'ts/'
+        link: "ts/",
       },
     ],
   },
