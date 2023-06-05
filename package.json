@@ -14,17 +14,12 @@
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
     "up:theme": "pnpm up vuepress-theme-hope@latest",
-    "up:vuepress": "pnpm up vuepress@next @vuepress/client@next @vuepress/utils@next",
-    "prepare": "husky install",
-    "test": "vitest"
+    "up:vuepress": "pnpm up vuepress@next @vuepress/client@next @vuepress/utils@next"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
     "@vuepress/client": "2.0.0-beta.62",
     "@vuepress/utils": "2.0.0-beta.62",
     "@vueuse/core": "^10.1.2",
-    "husky": "^8.0.3",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.62",
     "vuepress-theme-hope": "2.0.0-beta.220"
