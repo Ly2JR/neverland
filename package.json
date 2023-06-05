@@ -14,12 +14,25 @@
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
     "up:theme": "pnpm up vuepress-theme-hope@latest",
-    "up:vuepress": "pnpm up vuepress@next @vuepress/client@next @vuepress/utils@next"
+    "up:vuepress": "pnpm up vuepress@next @vuepress/client@next @vuepress/utils@next",
+    "postinstall": "npx husky install"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@vuepress/client": "2.0.0-beta.62",
     "@vuepress/utils": "2.0.0-beta.62",
     "@vueuse/core": "^10.1.2",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^35.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.14.1",
+    "husky": "^8.0.3",
+    "nano-staged": "^0.8.0",
+    "prettier": "^2.8.8",
+    "stylelint": "^15.6.3",
+    "typescript": "*",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.62",
     "vuepress-theme-hope": "2.0.0-beta.220"
