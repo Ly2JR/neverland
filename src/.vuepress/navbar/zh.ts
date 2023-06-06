@@ -46,8 +46,8 @@ export const zhNavbar = navbar([
       },
       {
         text: "Web",
-        icon: "mdi:vuejs",
-        link: "web/",
+        icon: "mdi:microsoft-edge",
+        link: "web/lint.md",
       },
       {
         text: "TypeScript",

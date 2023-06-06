@@ -14,20 +14,32 @@ export const zhSidebar = sidebar({
       icon: "mdi:desktop-classic",
       prefix: "cs/",
       link: "cs/README.md",
-      children:[
+      children: [
         {
           text: "C++",
           icon: "gg:c-plus-plus",
           prefix: "cpp/",
-          link:'cpp/README.md'
-        }
-      ]
+          link: "cpp/README.md",
+        },
+      ],
     },
     {
-      text: "Vue",
-      icon: "mdi:vuejs",
-      prefix: "web/vue/",
-      children: "structure",
+      text: "Web",
+      icon: "mdi:microsoft-edge",
+      prefix: "web/",
+      children: [
+        {
+          text: "提交规范",
+          icon: "ant-design:security-scan-filled",
+          link: "lint.md",
+        },
+        {
+          text: "Vue",
+          icon: "mdi:vuejs",
+          prefix: "vue/",
+          children: "structure",
+        },
+      ],
     },
     {
       text: "TypeScript",

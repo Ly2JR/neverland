@@ -1,5 +1,5 @@
 ---
-title: Web开发
+title: VUE
 icon: mdi:vuejs
 date: 2023-05-24
 breadcrumb: false
@@ -11,6 +11,6 @@ footer: false
 
 ## 清单
 
-- [提交规范](./lint.md)
+- [主题色](./vue/theme.md)
 
-- [VUE](./vue/README.md)
+- [antd浏览器直接引入](./vue/antd.md)
