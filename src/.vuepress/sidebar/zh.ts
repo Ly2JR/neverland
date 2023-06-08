@@ -17,9 +17,15 @@ export const zhSidebar = sidebar({
       children: [
         {
           text: "C++",
-          icon: "gg:c-plus-plus",
+          icon: "vscode-icons:file-type-cpp3",
           prefix: "cpp/",
           link: "cpp/README.md",
+        },
+        {
+          text: "C#",
+          icon: "vscode-icons:file-type-csharp2",
+          prefix: "wpf/",
+          link: "wpf/README.md",
         },
       ],
     },

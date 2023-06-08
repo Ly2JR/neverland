@@ -11,6 +11,8 @@
     "docs:dev": "vuepress dev src",
     "up:theme": "pnpm up vuepress-theme-hope@latest",
     "up:vuepress": "pnpm up vuepress@next @vuepress/client@next @vuepress/utils@next",
+    "up:assist": "pnpm up @commitlint/cli@latest @commitlint/config-conventional@latest eslint@latest husky@latest nano-staged@latest prettier@latest stylelint@latest",
+    "up:vue": "pnpm up vue@latest @vueuse/core@latest",
     "postinstall": "npx husky install"
   },
   "devDependencies": {
@@ -26,6 +28,6 @@
     "stylelint": "^15.7.0",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.62",
-    "vuepress-theme-hope": "2.0.0-beta.220"
+    "vuepress-theme-hope": "2.0.0-beta.222"
   }
 }

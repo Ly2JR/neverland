@@ -1,6 +1,6 @@
 ---
 title: C++
-icon: gg:c-plus-plus
+icon: vscode-icons:file-type-cpp3
 date: 2023-06-02
 breadcrumb: false
 article: false
