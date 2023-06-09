@@ -8,37 +8,37 @@ heroText: Neverland
 heroFullScreen: true
 tagline: 
 projects:
-  - icon: icon-park-solid:movie
+  - icon: fluent-emoji-flat:film-frames
     name: 家庭影院
     desc: 4K资源
     link: https://nas.ilyl.life:8091/
 
-  - icon: fontisto:apple-music
+  - icon: noto-v1:musical-notes
     name: 音乐电台
     desc: 无损资源
     link: https://nas.ilyl.life:8089/audio
 
-  - icon: zondicons:hard-drive
+  - icon: fluent-emoji-flat:floppy-disk
     name: 网盘
     desc: 书籍、文件资源
     link: https://nas.ilyl.life:8089/file
 
-  - icon: ic:baseline-photo-camera
+  - icon: twemoji:camera
     name: 图床
     desc: 4K、8K资源
     link: https://nas.ilyl.life:8092/default.png
 
-  - icon: mdi:dot-net
+  - icon: devicon:dot-net-wordmark
     name: .NET
     desc: WPF、ABP
     link: #
 
-  - icon: mdi:web-box
+  - icon: logos:microsoft-edge
     name: Web
     desc: Vue
     link: #
   
-  - icon: mdi:tools
+  - icon: fluent-emoji-flat:toolbox
     name: 工具箱
     desc: 疑难杂症
     link: /tools/README.md

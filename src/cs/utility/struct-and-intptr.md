@@ -5,7 +5,6 @@ date: 2023-06-08
 dir.order: 2
 editLink: false
 footer: false
-isOriginal: true
 category:
   - C#
 tag:

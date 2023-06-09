@@ -11,6 +11,6 @@ footer: false
 
 ## 清单
 
-- [主题色](./vue/theme.md)
+- [主题色](theme.md)
 
-- [antd浏览器直接引入](./vue/antd.md)
+- [antd浏览器直接引入](antd.md)

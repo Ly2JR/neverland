@@ -29,7 +29,7 @@ export const zhSidebar = sidebar({
         },
         {
           text: "辅助",
-          icon: "vscode-icons:file-type-csharp2",
+          icon: "icon-park:tool",
           prefix: "utility/",
           link: "utility/README.md",
         },
@@ -42,7 +42,7 @@ export const zhSidebar = sidebar({
       children: [
         {
           text: "提交规范",
-          icon: "ant-design:security-scan-filled",
+          icon: "vscode-icons:file-type-commitlint",
           link: "lint.md",
         },
         {
