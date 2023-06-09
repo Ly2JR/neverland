@@ -9,17 +9,17 @@
     "docs:build": "vuepress build src",
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
-    "up:theme": "pnpm up vuepress-theme-hope@latest",
-    "up:vuepress": "pnpm up vuepress@next @vuepress/client@next @vuepress/utils@next",
-    "up:assist": "pnpm up @commitlint/cli@latest @commitlint/config-conventional@latest eslint@latest husky@latest nano-staged@latest prettier@latest stylelint@latest",
     "up:vue": "pnpm up vue@latest @vueuse/core@latest",
+    "up:vuepress": "pnpm up vuepress@next @vuepress/client@next @vuepress/utils@next",
+    "up:theme": "pnpm up vuepress-theme-hope@latest",
+    "up:assist": "pnpm up @commitlint/cli@latest @commitlint/config-conventional@latest eslint@latest husky@latest nano-staged@latest prettier@latest stylelint@latest",
     "postinstall": "npx husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
-    "@vuepress/client": "2.0.0-beta.62",
-    "@vuepress/utils": "2.0.0-beta.62",
+    "@vuepress/client": "2.0.0-beta.63",
+    "@vuepress/utils": "2.0.0-beta.63",
     "@vueuse/core": "^10.1.2",
     "eslint": "^8.42.0",
     "husky": "^8.0.3",
@@ -27,7 +27,7 @@
     "prettier": "^2.8.8",
     "stylelint": "^15.7.0",
     "vue": "^3.3.4",
-    "vuepress": "2.0.0-beta.62",
-    "vuepress-theme-hope": "2.0.0-beta.222"
+    "vuepress": "2.0.0-beta.63",
+    "vuepress-theme-hope": "2.0.0-beta.224"
   }
 }

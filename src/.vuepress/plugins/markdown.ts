@@ -17,6 +17,7 @@ export const markdown: MarkdownEnhanceOptions = {
   katex: false,
   mark: false,
   mermaid: true,
+  tasklist: true,
   playground: {
     presets: ["ts", "vue"],
   },
