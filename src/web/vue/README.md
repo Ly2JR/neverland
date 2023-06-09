@@ -1,6 +1,6 @@
 ---
 title: VUE
-icon: mdi:vuejs
+icon: vscode-icons:file-type-vue
 date: 2023-05-24
 breadcrumb: false
 article: false

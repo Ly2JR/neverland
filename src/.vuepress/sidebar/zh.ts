@@ -4,14 +4,14 @@ export const zhSidebar = sidebar({
   "/": [
     {
       text: "梦幻岛",
-      icon: "fontisto:island",
+      icon: "noto:desert-island",
       prefix: "hope/",
       link: "hope/",
       children: "structure",
     },
     {
       text: "桌面端",
-      icon: "mdi:desktop-classic",
+      icon: "fxemoji:personalcomputer",
       prefix: "cs/",
       link: "cs/README.md",
       children: [
@@ -27,11 +27,17 @@ export const zhSidebar = sidebar({
           prefix: "wpf/",
           children: "structure",
         },
+        {
+          text: "辅助",
+          icon: "vscode-icons:file-type-csharp2",
+          prefix: "utility/",
+          link: "utility/README.md",
+        },
       ],
     },
     {
       text: "Web",
-      icon: "mdi:microsoft-edge",
+      icon: "logos:microsoft-edge",
       prefix: "web/",
       children: [
         {
@@ -41,7 +47,7 @@ export const zhSidebar = sidebar({
         },
         {
           text: "Vue",
-          icon: "mdi:vuejs",
+          icon: "vscode-icons:file-type-vue",
           prefix: "vue/",
           children: "structure",
         },
@@ -49,13 +55,13 @@ export const zhSidebar = sidebar({
     },
     {
       text: "TypeScript",
-      icon: "fluent:code-ts-16-filled",
+      icon: "vscode-icons:file-type-typescript-official",
       prefix: "ts/",
       children: "structure",
     },
     {
       text: "工具箱",
-      icon: "mdi:tools",
+      icon: "fluent-emoji-flat:toolbox",
       prefix: "tools/",
       link: "tools/",
       children: [

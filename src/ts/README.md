@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-icon: fluent:code-ts-16-filled
+icon: vscode-icons:file-type-typescript-official
 date: 2023-05-31
 breadcrumb: false
 article: false

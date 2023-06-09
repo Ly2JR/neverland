@@ -1,6 +1,6 @@
 ---
 title: 桌面端开发
-icon: mdi:desktop-classic
+icon: fxemoji:personalcomputer
 date: 2023-06-02
 breadcrumb: false
 article: false

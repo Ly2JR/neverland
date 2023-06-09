@@ -1,6 +1,6 @@
 ---
 title: 模块化
-icon: octicon:issue-closed-16
+icon: logos:pingy
 date: 2023-06-08
 dir.order: 2
 editLink: false

@@ -41,17 +41,17 @@ export const zhNavbar = navbar([
       },
       {
         text: "桌面",
-        icon: "mdi:desktop-classic",
+        icon: "fxemoji:personalcomputer",
         link: "cs/",
       },
       {
         text: "Web",
-        icon: "mdi:microsoft-edge",
+        icon: "logos:microsoft-edge",
         link: "web/lint.md",
       },
       {
         text: "TypeScript",
-        icon: "fluent:code-ts-16-filled",
+        icon: "vscode-icons:file-type-typescript-official",
         link: "ts/",
       },
     ],

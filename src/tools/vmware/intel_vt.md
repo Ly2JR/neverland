@@ -1,6 +1,6 @@
 ---
 title: 虚拟化
-icon: octicon:issue-closed-16
+icon: logos:pingy
 date: 2023-05-23
 dir.order: 1
 editLink: false

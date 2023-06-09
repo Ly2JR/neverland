@@ -1,6 +1,6 @@
 ---
 title: Web开发
-icon: mdi:vuejs
+icon: logos:microsoft-edge
 date: 2023-05-24
 breadcrumb: false
 article: false

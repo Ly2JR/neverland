@@ -1,6 +1,6 @@
 ---
 title: 主题色
-icon: octicon:issue-closed-16
+icon: logos:pingy
 date: 2023-05-25
 dir.order: 1
 editLink: false
