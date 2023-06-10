@@ -43,7 +43,7 @@ export const zhSidebar = sidebar({
         {
           text: "提交规范",
           icon: "vscode-icons:file-type-commitlint",
-          link: "lint.md",
+          link: "lint",
         },
         {
           text: "Vue",
