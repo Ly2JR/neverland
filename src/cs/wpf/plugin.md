@@ -14,9 +14,15 @@ tag:
   - 菜单树
 ---
 
-[WPF](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/overview/?view=netdesktop-7.0)配合[Prism](https://prismlibrary.com/index.html)实现菜单模块化
+## 开发包
 
-这里有很多关于[Prism 示例](https://github.com/PrismLibrary/Prism-Samples-Wpf)，WPF 入门可以看下`深入浅出WPF`以及`WPF编程宝典`
+::: tip
+这里有很多关于[Prism 示例](https://github.com/PrismLibrary/Prism-Samples-Wpf)
+
+WPF 入门可以看下`深入浅出WPF`以及`WPF编程宝典`
+:::
+
+1. [Prism](https://prismlibrary.com/index.html)
 
 ## 数据库配置
 

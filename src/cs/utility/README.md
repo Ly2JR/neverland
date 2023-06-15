@@ -12,3 +12,4 @@ footer: false
 ## 清单
 
 - [StructLayout与Intptr转换](./struct-and-intptr.md)
+- [Intptr转换C++指针](./intptr-to-pointer.md)

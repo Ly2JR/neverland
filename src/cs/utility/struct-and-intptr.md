@@ -1,6 +1,6 @@
 ---
-title: 转换
-icon: octicon:issue-closed-16
+title: 结构和托管指针转换
+icon: logos:pingy
 date: 2023-06-08
 dir.order: 2
 editLink: false
