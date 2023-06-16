@@ -1,7 +1,7 @@
 ---
 title: 古训·增广贤文
 index: false
-star : true
+star : 99999
 sticky: 99999
 icon: clarity:book-solid
 category:

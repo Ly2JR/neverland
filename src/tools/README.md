@@ -13,6 +13,10 @@ footer: false
 
 ## 工具
 
+- [书籍](./books/README.md)
+
+- [FFMPEG](./ffmpeg/README.md)
+
 - [网络](./network/README.md)
 
 - [虚拟机](./vmware/README.md)

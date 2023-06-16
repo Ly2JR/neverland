@@ -3,7 +3,6 @@ title: 光猫
 icon: bxs:cat
 date: 2023-05-20
 isOriginal: true
-star: 1
 dir.order: 2
 category:
   - 网络
