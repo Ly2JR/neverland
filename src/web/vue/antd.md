@@ -1,8 +1,8 @@
 ---
 title: antd
-icon: devicon:antdesign
 date: 2023-06-01
 dir.order: 2
+order: 2
 editLink: false
 footer: false
 isOriginal: true

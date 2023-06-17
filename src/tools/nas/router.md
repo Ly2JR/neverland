@@ -1,6 +1,5 @@
 ---
 title: 路由
-icon: material-symbols:router
 date: 2023-05-22
 isOriginal: true
 dir.order: 3

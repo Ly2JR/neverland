@@ -1,8 +1,8 @@
 ---
 title: 数组
-icon: logos:pingy
 date: 2023-06-05
-dir.order: 2
+dir.order: 3
+order: 3
 editLink: false
 footer: false
 isOriginal: true

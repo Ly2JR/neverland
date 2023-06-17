@@ -1,6 +1,5 @@
 ---
 title: 海康视频
-icon: logos:pingy
 date: 2023-06-15
 dir.order: 1
 star : 2

@@ -1,8 +1,8 @@
 ---
-title: 虚拟化
-icon: logos:pingy
+title: 启动虚拟化错误
 date: 2023-05-23
 dir.order: 1
+order: 1
 editLink: false
 footer: false
 isOriginal: true
@@ -21,8 +21,11 @@ tag:
 ## 解决方式
 
 ::: tip
+
 1. 不同电脑进入BIOS按键不一样，常见的有`F2`、`F12`、`F10`以及它们的组合键`Fn`+`F2`...
+
 2. 不同电脑BIOS也不一样，需要自己查找，总体上是相差不大。
+
 :::
 
 1. 重启电脑,`F2`进入BIOS界面

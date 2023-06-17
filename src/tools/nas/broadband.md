@@ -1,6 +1,5 @@
 ---
 title: 宽带
-icon: ph:planet-fill
 date: 2023-05-22
 dir.order: 1
 order: 1

@@ -52,7 +52,7 @@ export const zhNavbar = navbar([
       {
         text: "TypeScript",
         icon: "vscode-icons:file-type-typescript-official",
-        link: "ts/",
+        link: "ts/reflect_has.md",
       },
     ],
   },

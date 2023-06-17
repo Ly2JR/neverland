@@ -1,6 +1,5 @@
 ---
 title: 部署
-icon: eos-icons:deploy
 date: 2023-06-17
 dir.order: 6
 order: 6

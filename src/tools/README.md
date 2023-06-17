@@ -1,22 +1,16 @@
 ---
 title: 工具箱
+breadcrumb: false
+article: false
 index: false
-icon:  mdi:tools
-category:
-  - 工具箱
-tag:
-  - 虚拟机
-  - 网络
 editLink: false
 footer: false
 ---
 
-## 工具
+## [书籍](./books/README.md)
 
-- [书籍](./books/README.md)
+## [FFMPEG](./ffmpeg/avpixelformat.md)
 
-- [FFMPEG](./ffmpeg/README.md)
+## [nas](./nas/cloud.md)
 
-- [网络](./network/README.md)
-
-- [虚拟机](./vmware/README.md)
+## [vmware](./vmware/intel_vt.md)

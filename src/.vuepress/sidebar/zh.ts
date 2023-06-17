@@ -13,7 +13,6 @@ export const zhSidebar = sidebar({
       text: "桌面端",
       icon: "fxemoji:personalcomputer",
       prefix: "cs/",
-      link: "cs/README.md",
       collapsible: true,
       children: [
         {
@@ -35,12 +34,19 @@ export const zhSidebar = sidebar({
           icon: "icon-park:tool",
           prefix: "utility/",
           collapsible: true,
-          link: "utility/README.md",
+          children: "structure",
+        },
+        {
+          text: "设计模式",
+          icon: "ic:twotone-design-services",
+          prefix: "design-pattern/",
+          collapsible: true,
+          children: "structure",
         },
       ],
     },
     {
-      text: "Web",
+      text: "Web端",
       icon: "logos:microsoft-edge",
       prefix: "web/",
       collapsible: true,
@@ -70,7 +76,6 @@ export const zhSidebar = sidebar({
       text: "工具箱",
       icon: "fluent-emoji-flat:toolbox",
       prefix: "tools/",
-      link: "tools/README.md",
       collapsible: true,
       children: [
         {
@@ -79,7 +84,6 @@ export const zhSidebar = sidebar({
           prefix: "ffmpeg/",
           children: "structure",
           collapsible: true,
-          link: "ffmpeg/README.md",
         },
         {
           text: "VMware",
@@ -87,7 +91,6 @@ export const zhSidebar = sidebar({
           prefix: "vmware/",
           children: "structure",
           collapsible: true,
-          link: "vmware/README.md",
         },
         {
           text: "私有云",
@@ -95,7 +98,6 @@ export const zhSidebar = sidebar({
           prefix: "nas/",
           children: "structure",
           collapsible: true,
-          link: "nas/README.md",
         },
       ],
     },

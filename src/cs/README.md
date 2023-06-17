@@ -1,7 +1,5 @@
 ---
-title: 桌面端开发
-icon: fxemoji:personalcomputer
-date: 2023-06-02
+title: 桌面端
 breadcrumb: false
 article: false
 index: false
@@ -9,8 +7,10 @@ editLink: false
 footer: false
 ---
 
-## 清单
+## [C++](./cpp/variable.md)
 
-- [C++](./cpp/README.md)
+## [WPF](./wpf/plugin.md)
 
-- [WPF](./wpf/README.md)
+## [设计模式](./design-pattern/singleton.md)
+
+## [辅助工具](./utility/intptr-to-pointer.md)

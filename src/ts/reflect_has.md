@@ -1,8 +1,8 @@
 ---
 title: 检查对象属性
-icon: logos:pingy
 date: 2023-05-30
 dir.order: 1
+order: 1
 editLink: false
 footer: false
 category:

@@ -1,8 +1,8 @@
 ---
 title: 规范约束
-icon: logos:pingy
 date: 2023-06-06
-dir.order: 2
+dir.order: 1
+order: 1
 editLink: false
 footer: false
 isOriginal: true

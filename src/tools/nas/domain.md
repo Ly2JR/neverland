@@ -1,6 +1,5 @@
 ---
 title: 域名
-icon: eos-icons:dns
 date: 2023-06-17
 dir.order: 4
 order: 4

@@ -1,6 +1,5 @@
 ---
-title: 桥接
-icon: carbon:wifi-bridge-alt
+title: 私有云
 date: 2023-06-17
 dir.order: 5
 order: 5
