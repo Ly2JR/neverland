@@ -1,9 +1,10 @@
 ---
-title: 路由器
+title: 路由
 icon: material-symbols:router
 date: 2023-05-22
 isOriginal: true
 dir.order: 3
+order: 3
 category:
   - 网络
 tag:
