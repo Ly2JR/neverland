@@ -7,8 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - WPF
+  - C#
 tag:
+  - WPF
   - FFMPEG
   - 海康视频
 ---

@@ -25,7 +25,7 @@ export const zhSidebar = sidebar({
         {
           text: "C#",
           icon: "vscode-icons:file-type-csharp2",
-          prefix: "wpf/",
+          prefix: "csharp/",
           collapsible: true,
           children: "structure",
         },
@@ -54,7 +54,7 @@ export const zhSidebar = sidebar({
         {
           text: "提交规范",
           icon: "vscode-icons:file-type-commitlint",
-          link: "lint.md",
+          link: "README.md",
         },
         {
           text: "Vue",

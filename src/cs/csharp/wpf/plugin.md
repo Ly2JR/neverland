@@ -6,8 +6,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - WPF
+  - C#
 tag:
+  - WPF
   - Prism
   - 插件
   - 菜单树
