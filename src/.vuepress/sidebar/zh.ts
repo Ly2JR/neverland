@@ -113,6 +113,12 @@ export const zhSidebar = sidebar({
           collapsible: true,
         },
         {
+          text: "用友U8+",
+          prefix: "yonyou/",
+          children: "structure",
+          collapsible: true,
+        },
+        {
           text: "私有云",
           icon: "mdi:nas",
           prefix: "nas/",
