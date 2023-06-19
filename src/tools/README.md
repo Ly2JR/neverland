@@ -7,10 +7,4 @@ editLink: false
 footer: false
 ---
 
-## [书籍](./books/README.md)
-
-## [FFMPEG](./ffmpeg/avpixelformat.md)
-
-## [nas](./nas/cloud.md)
-
-## [vmware](./vmware/intel_vt.md)
+日常问题记录...
