@@ -31,17 +31,14 @@ projects:
   - icon: devicon:dot-net-wordmark
     name: .NET
     desc: WPF、ABP
-    link: #
 
   - icon: logos:microsoft-edge
     name: Web
     desc: Vue
-    link: #
   
   - icon: fluent-emoji-flat:toolbox
     name: 工具箱
     desc: 疑难杂症
-    link: /tools/README.md
 
 copyright: Copyright ©️ 2021-现在 ilyl.life 版权所有 支持IPv6
 ---

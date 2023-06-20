@@ -1,6 +1,7 @@
 ---
 title: 规范约束
 date: 2023-06-06
+icon: vscode-icons:file-type-commitlint
 dir.order: 1
 order: 1
 editLink: false

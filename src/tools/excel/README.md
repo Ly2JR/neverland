@@ -1,5 +1,6 @@
 ---
-title: 读写Excel
+title: Excel
+icon: vscode-icons:file-type-excel
 date: 2023-06-19
 editLink: false
 footer: false
@@ -7,7 +8,6 @@ isOriginal: true
 category:
   - Excel
 tag:
-  - excel
   - NPOI
 ---
 

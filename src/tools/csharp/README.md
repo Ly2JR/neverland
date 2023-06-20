@@ -1,7 +1,6 @@
 ---
-title: VMware
-icon: clarity:vm-solid
-date: 2023-05-23
+title: C#
+icon: devicon:csharp
 breadcrumb: false
 article: false
 index: false

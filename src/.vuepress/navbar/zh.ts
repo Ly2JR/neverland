@@ -35,24 +35,19 @@ export const zhNavbar = navbar([
     prefix: "/",
     children: [
       {
-        text: "工具箱",
-        icon: "mdi:tools",
-        link: "tools/",
-      },
-      {
-        text: "桌面",
+        text: "桌面端",
         icon: "fxemoji:personalcomputer",
         link: "cs/",
       },
       {
-        text: "Web",
+        text: "Web端",
         icon: "logos:microsoft-edge",
         link: "web/",
       },
       {
-        text: "TypeScript",
-        icon: "vscode-icons:file-type-typescript-official",
-        link: "ts/reflect_has.md",
+        text: "工具箱",
+        icon: "openmoji:toolbox",
+        link: "tools/regular-expressions.md",
       },
     ],
   },

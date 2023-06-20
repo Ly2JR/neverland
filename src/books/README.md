@@ -7,7 +7,6 @@ icon: clarity:book-solid
 category:
   - 书籍
 tag:
-  - 书籍
   - 古训
   - 增广贤文
 editLink: false

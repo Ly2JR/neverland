@@ -1,5 +1,6 @@
 ---
 title: NAS
+icon: mdi:nas
 breadcrumb: false
 article: false
 index: false
