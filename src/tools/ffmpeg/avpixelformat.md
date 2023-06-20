@@ -14,14 +14,18 @@ tag:
 ## 参数
 
 `BitsPerPixel`：根据色度类型获取用于像素的位数
+
 `NumberOfPlanes`：获取像素平面数
+
 `Pitches`：获取每个像素平面的间距大小数组
+
 `Lines`：获取每个像素平面的扫描线（高度）数组
+
 `PlaneSizes`：获取像素平面大小的数组
 
-## 对齐类型
+## 像素格式
 
-### `AV_PIX_FMT_YUV420P
+### AV_PIX_FMT_YUV420P
 
 `I420`：与`YV12`相同，但是V和U互换
 
@@ -33,7 +37,7 @@ Lines = new int[3] { Height, Height / 2, Height / 2 };
 PlaneSizes = new int[3] { Width * Height, Width * Height / 4, Width * Height / 4 };
 ```
 
-### `AV_PIX_FMT_GRAY8
+### AV_PIX_FMT_GRAY8
 
 `Y800`：8 bits per pixel gray scale bitmap
 

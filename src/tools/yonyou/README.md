@@ -1,5 +1,5 @@
 ---
-title: 用友U8+
+title: 关于接口
 date: 2023-06-19
 dir.order: 1
 order: 1
@@ -70,15 +70,19 @@ tag:
 
 :::
 
-## 资源码
+## 资源符
 
 `create`：新增
+
 `edit`：修改
+
 `delete`：删除
+
 `verify`：审核
+
 `unverify`：弃审
 
-其他个别资源码查看对应文档
+其他个别资源符查看对应文档
 
 ## 返回参数
 

@@ -9,8 +9,8 @@ isOriginal: true
 category:
   - 数据库
 tag:
-  - MSSQL
-  - MySQL
+  - mssql
+  - mysql
 ---
 
 ## 说明

@@ -9,7 +9,7 @@ isOriginal: true
 category:
   - 数据库
 tag:
-  - MSSQL
+  - mssql
 ---
 
 ## `offset`...`rows fetch next`...`rows only`

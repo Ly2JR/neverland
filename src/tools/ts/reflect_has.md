@@ -43,16 +43,13 @@ export default {
       checked: [],
       halfChecked: [],
     };
-    const options = [
-      {
-        text: "checked",
-        value: "checked",
-      },
-      {
-        text: "demo",
-        value: "demo",
-      },
-    ];
+    const options=[{
+      text:"demo",
+      value:"demo"
+    }];
+    Object.keys(obj).forEach(it=>{
+      options.push({text:it,value:it});
+    });
     const objProperty = ref("");
     const objRet = ref("");
     const objString = JSON.stringify(obj, null, "\t");

@@ -19,27 +19,30 @@ tag:
 
 - 使用[v-bind-css](https://cn.vuejs.org/api/sfc-css-features.html#v-bind-in-css)
 
-::: vue-demo v-bind-css
+::: vue-playground v-bind
+
+@file App.vue
 
 ```vue
 <script setup>
-const theme = {
-  color: 'red'
-}
-function changeVar() {
-  if (theme.color === "red") key.value = "blue";
-  else theme.color = "red";
+import { ref } from "vue";
+const color = ref("red");
+function changeColor() {
+  if (color.value === "red") {
+    color.value = "blue";
+  } else {
+    color.value = "red";
+  }
 }
 </script>
-
 <template>
-  <p>hello</p>
+  <div class="text">hello</div>
   <button @click="changeColor">Change</button>
 </template>
 
 <style>
-p {
-  color: v-bind('theme.color');
+.text {
+  color: v-bind(color);
 }
 </style>
 ```
@@ -188,7 +191,7 @@ export default {
     const themeContainer = ref(null);
     onMounted(() => {
       themeContainer.value = document.querySelector("div[data-theme]");
-      const t=document.querySelector("h1");
+      const t = document.querySelector("h1");
     });
 
     function switchTheme() {

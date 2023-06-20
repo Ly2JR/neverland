@@ -9,8 +9,6 @@ footer: false
 isOriginal: true
 category:
   - 正则表达式
-tag:
-  - 正则表达式
 ---
 
 ## 快速参考
@@ -39,4 +37,4 @@ tag:
 |{x,y}|匹配前一项内容次数介于x和y之间|
 |\\ |特殊转义字符|
 
-## [更多](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)
+[更多](https://learn.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)
