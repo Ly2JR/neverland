@@ -14,7 +14,37 @@ export const zhSidebar = sidebar({
       icon: "fxemoji:personalcomputer",
       prefix: "cs/",
       collapsible: true,
-      children: "structure",
+      //children: "structure",
+      children: [
+        {
+          text: "设计模式",
+          icon: "ic:twotone-design-services",
+          prefix: "design-pattern/",
+          collapsible: true,
+          children: "structure",
+        },
+        {
+          text: "WPF",
+          icon: "vscode-icons:file-type-csharp2",
+          prefix: "wpf/",
+          collapsible: true,
+          children: "structure",
+        },
+        {
+          text: "C++",
+          icon: "vscode-icons:file-type-cpp3",
+          prefix: "cpp/",
+          collapsible: true,
+          children: "structure",
+        },
+        {
+          text: "Visual Basic入门三招",
+          icon: "vscode-icons:file-type-vb",
+          prefix: "vb/",
+          collapsible: true,
+          children: "structure",
+        },
+      ],
     },
     {
       text: "Web端",

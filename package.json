@@ -10,12 +10,11 @@
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
     "docs:update-package": "pnpm dlx vp-update",
-    "up:assist": "pnpm up @commitlint/cli@latest @commitlint/config-conventional@latest eslint@latest husky@latest nano-staged@latest prettier@latest stylelint@latest",
     "postinstall": "npx husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@vuepress/client": "2.0.0-beta.63",
     "@vuepress/utils": "2.0.0-beta.63",
     "@vueuse/core": "^10.2.0",
@@ -23,9 +22,9 @@
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
     "prettier": "^2.8.8",
-    "stylelint": "^15.8.0",
+    "stylelint": "^15.9.0",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.63",
-    "vuepress-theme-hope": "2.0.0-beta.226"
+    "vuepress-theme-hope": "2.0.0-beta.228"
   }
 }
