@@ -38,7 +38,7 @@ export const zhSidebar = sidebar({
           children: "structure",
         },
         {
-          text: "Visual Basic入门三招",
+          text: "Visual Basic",
           icon: "vscode-icons:file-type-vb",
           prefix: "vb/",
           collapsible: true,
