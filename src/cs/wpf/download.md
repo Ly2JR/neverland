@@ -9,6 +9,8 @@ isOriginal: true
 category:
   - C#
 tag:
+  - WPF
+  - Prism
   - 下载
 ---
 
@@ -18,7 +20,7 @@ IIS部署一个空网站，上传下载需要的文件，[源代码](https://git
 
 ```cs
 //主机地址
-private const string BASE_URL="http://localhost:9090";
+private const string BASE_URL="http://localhost:80";
 //文件大小Byte
 private const double ByteSize=1024.00D;
 //文件大小Kb
