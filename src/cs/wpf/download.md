@@ -1,8 +1,6 @@
 ---
 title: 下载
 date: 2023-06-19
-dir.order: 8
-order: 8
 editLink: false
 footer: false
 isOriginal: true
