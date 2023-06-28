@@ -12,11 +12,13 @@ tag:
   - 下载
 ---
 
-IIS部署一个空网站，上传下载需要的文件，[源代码](https://github.com/Ly2JR/wpf-samples/tree/master)
+IIS部署一个空网站，上传下载需要的文件，[示例源代码](https://github.com/Ly2JR/wpf-samples/tree/master)
+
+主要在于VM中数据快速更新时，View中数据没有实时变换，解决方式看代码高亮部分。
 
 ![下载](https://nas.ilyl.life:8092/wpf/download.gif =420x200)
 
-```cs
+```cs {80}
 //主机地址
 private const string BASE_URL="http://localhost:80";
 //文件大小Byte
