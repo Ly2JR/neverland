@@ -7,104 +7,120 @@ isOriginal: true
 category:
   - C#
 tag:
-  - WPF
-  - Prism
+  - 控制台
   - 下载
 ---
 
-IIS部署一个空网站，上传下载需要的文件，[示例源代码](https://github.com/Ly2JR/wpf-samples/tree/master)
-
-主要在于VM中数据快速更新时，View中数据没有实时变换，解决方式看代码高亮部分。
+下载时太快UI不显示时，可以加个延时，代码高亮处。
 
 ![下载](https://nas.ilyl.life:8092/wpf/download.gif =420x200)
 
-```cs {80}
+```cs {101}
 //主机地址
-private const string BASE_URL="http://localhost:80";
+const string BASE_URL = "http://localhost:80/";
 //文件大小Byte
-private const double ByteSize=1024.00D;
+const int ByteSize = 1024;
 //文件大小Kb
-private const double KByteSize=1024D*1024D;
+const int KByteSize = 1024 * 1024;
 //缓存大小
-private const int DEFAULT_BUFFER_SIZE=1024;
+const int DEFAULT_BUFFER_SIZE = 1024;
 //下载文件长度
-public string FileLength{get;set;}
+string FileLength = "";
 //已下载文件长度
-public string CurrentLength{get;set;}
+string CurrentLength = "";
 //下载文件最大进度
-public int MaxProgress{get;set;}
+int MaxProgress = 0;
 //已下载文件当前进度
-public int CurrentProgress{get;set;}
+int CurrentProgress = 0;
 
-public async void ExecuteDownFile(string fileName){
+Console.WriteLine("任意键开始下载...");
+Console.ReadKey();
 
-  var uri=new Uri($"{BASE_URL}/{fileName}");
-  var cancellationSource=new CancellationTokenSource(new TimeSpan(0,0,0,0,5000));
-  var cancellationToken=cancellationSource.Token;
+await ExecuteDownFileAsync("iisstart.png");
 
-  using(var httpClient=new HttpClient()){
+async Task ExecuteDownFileAsync(string fileName, CancellationToken token = new CancellationToken())
+{
+    var url = $"{BASE_URL}{fileName}";
+    var uri = new Uri(url);
+    using (var httpClient = new HttpClient())
+    {
+        var response = await httpClient.GetAsync(uri, token).ConfigureAwait(false);
+        if (!response.IsSuccessStatusCode) return;
+        var allFileLength = response.Content.Headers.ContentLength;
+        if (!allFileLength.HasValue) return;
 
-    var response=await httpClient.GetAsync(uri,cancellationToken);
-    if(response.IsSuccessStatusCode){
-
-      var stream=await response.Content.ReadAsStreamAsync();
-      if(stream!=null){
-        var allFileLength=stream.Length;
-
-        if(allFileLength<ByteSize){
-          FileLength=$"{allFileLength}B";
-          MaxProgress=(int)allFileLength;
+        if (allFileLength < ByteSize)
+        {
+            FileLength = $"{allFileLength}B";
+            MaxProgress = (int)allFileLength;
         }
-        else if(allFileLength>KByteSize){
-          var size=Math.Round(allFileLength/KByteSize,2);
-          FileLength=$"{size}MB";
-          MaxProgress=(int)allFileLength/1000;
-        }else{
-          var size=Math.Round(allFileLength/ByteSize,2);
-          FileLength=$"{size}KB";
-          MaxProgress=(int)allFileLength/1000;
+        else if (allFileLength > KByteSize)
+        {
+            FileLength = $"{allFileLength.Value / KByteSize:F2}MB";
+            MaxProgress = (int)allFileLength / 1000;
         }
-
-        var savePath=$"{Environment.CurrentDirectory}/{fileName}";
-        if(File.Exists(savePath)){
-          File.Delete(savePath);
+        else
+        {
+            FileLength = $"{allFileLength.Value / ByteSize:F2}KB";
+            MaxProgress = (int)allFileLength / 1000;
         }
+        var title = $"正在下载:{url}\t文件大小:{FileLength}\t";
+        Console.Write(title);
+        var savePath = $"{Environment.CurrentDirectory}/{fileName}";
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+        }
+        var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        if (stream == null) return;
+        using (var fileStream = new FileStream(savePath, FileMode.Create, FileAccess.Write))
+        {
+            using (var streamReader = new StreamReader(stream))
+            {
+                var bufferByte = new byte[DEFAULT_BUFFER_SIZE];
+                int startByte = 0;
 
-        using(var fileStream=new FileStream(savePath,FileMode.Create,FileAccess.Write)){
+                while (allFileLength > 0)
+                {
+                    var downByte = await stream.ReadAsync(bufferByte, 0, bufferByte.Length, token);
+                    if (downByte == 0) break;
 
-          using(var streamReader=new StreamReader(stream)){
-            var bufferByte=new byte[DEFAULT_BUFFER_SIZE];
-            int startByte=0;
+                    fileStream.Position = startByte;
+                    if (downByte < DEFAULT_BUFFER_SIZE)
+                    {
+                        var smallByte = new byte[downByte];
+                        await fileStream.WriteAsync(smallByte, 0, smallByte.Length, token);
+                    }
+                    else
+                    {
+                        await fileStream.WriteAsync(bufferByte, 0, bufferByte.Length, token);
+                    }
 
-            while(allFileLength>0){
+                    startByte += downByte;
+                    allFileLength -= downByte;
 
-              var downByte=await stream.ReadAsync(bufferByte,0,bufferByte.Length);
-              if(downByte==0)break;
-
-              fileStream.Position=startByte;
-              await fileStream.WriteAsync(bufferByte,0,bufferByte.Length);
-
-              startByte+=downByte;
-              allFileLength-=downByte;
-
-              if(startByte<ByteSize){
-                CurrentLength=$"{startByte}";
-                CurrentProgress=startByte;
-              }
-              else if(startByte>KByteSize){
-                CurrentLength=$"{Math.Round(startByte/KByteSize,2)}MB";
-                CurrentProgress=startByte/1000;
-              }else{
-                CurrentLength=$"{Math.Round(startByte/ByteSize,2)}KB";
-                CurrentProgress=startByte/1000;
-              }
-              await Task.Delay(1);
+                    if (startByte < ByteSize)
+                    {
+                        CurrentLength = $"{startByte}";
+                        CurrentProgress = startByte;
+                    }
+                    else if (startByte > KByteSize)
+                    {
+                        CurrentLength = $"{startByte / KByteSize:F2}MB";
+                        CurrentProgress = startByte / 1000;
+                    }
+                    else
+                    {
+                        CurrentLength = $"{startByte / ByteSize:F2}KB";
+                        CurrentProgress = startByte / 1000;
+                    }
+                    Console.SetCursorPosition(title.Length+18, 0);
+                    Console.Write($"已完成:{CurrentLength}");
+                    await Task.Delay(100);
+                }
             }
-          }
-          fileStream.Flush();
+            fileStream.Flush();
         }
-      }
     }
-  }
 }
 ```

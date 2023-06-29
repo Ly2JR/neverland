@@ -17,7 +17,7 @@
     "@commitlint/config-conventional": "^17.6.6",
     "@vuepress/client": "2.0.0-beta.63",
     "@vuepress/utils": "2.0.0-beta.63",
-    "@vueuse/core": "^10.2.0",
+    "@vueuse/core": "^10.2.1",
     "eslint": "^8.43.0",
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
