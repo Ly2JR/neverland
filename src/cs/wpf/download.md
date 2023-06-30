@@ -15,7 +15,7 @@ tag:
 
 ![下载](https://nas.ilyl.life:8092/wpf/download.gif =420x200)
 
-```cs {101}
+```cs {93}
 //主机地址
 const string BASE_URL = "http://localhost:80/";
 //文件大小Byte
@@ -86,15 +86,7 @@ async Task ExecuteDownFileAsync(string fileName, CancellationToken token = new C
                     if (downByte == 0) break;
 
                     fileStream.Position = startByte;
-                    if (downByte < DEFAULT_BUFFER_SIZE)
-                    {
-                        var smallByte = new byte[downByte];
-                        await fileStream.WriteAsync(smallByte, 0, smallByte.Length, token);
-                    }
-                    else
-                    {
-                        await fileStream.WriteAsync(bufferByte, 0, bufferByte.Length, token);
-                    }
+                    await fileStream.WriteAsync(bufferByte, 0, downByte, token);
 
                     startByte += downByte;
                     allFileLength -= downByte;
