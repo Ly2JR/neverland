@@ -49,6 +49,35 @@ tag:
 </update>
 ```
 
+[读取XML文件](../../tools/csharp/xml.md):
+
+```cs
+using System.Xml;
+
+const string UpdateUrl = "http://localhost:80/update.xml";
+var updateXml = new XmlDocument();
+updateXml.Load(UpdateUrl);
+
+var logs = updateXml.SelectNodes("update/logs/log");
+if (logs != null)
+{
+    foreach (XmlNode log in logs)
+    {
+        var logTxt = log.InnerText;
+        Console.WriteLine(logTxt);
+    }
+}
+
+var files = updateXml.SelectNodes("update/file");
+if (files == null) return;
+foreach (XmlNode file in files)
+{
+    var name = file.Attributes["name"].Value;
+    var suffix = file.Attributes["suffix"].Value;
+    Console.WriteLine($"{name}.{suffix}");
+}
+```
+
 ## 更新程序本身
 
 ## 更新程序dll
