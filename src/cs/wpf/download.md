@@ -86,15 +86,7 @@ async Task ExecuteDownFileAsync(string fileName, CancellationToken token = new C
                     if (downByte == 0) break;
 
                     fileStream.Position = startByte;
-                    if (downByte < DEFAULT_BUFFER_SIZE)
-                    {
-                        var smallByte = new byte[downByte];
-                        await fileStream.WriteAsync(smallByte, 0, smallByte.Length, token);
-                    }
-                    else
-                    {
-                        await fileStream.WriteAsync(bufferByte, 0, bufferByte.Length, token);
-                    }
+                    await fileStream.WriteAsync(bufferByte, 0, bufferByte.Length, token);
 
                     startByte += downByte;
                     allFileLength -= downByte;

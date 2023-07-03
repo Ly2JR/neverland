@@ -35,6 +35,8 @@ tag:
 
 ## 配置文件
 
+配置文件按实际需求进行额外扩展。
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <update>
@@ -79,6 +81,90 @@ foreach (XmlNode file in files)
 ```
 
 ## 更新程序本身
+
+![更新自身](https://nas.ilyl.life:8092/wpf/update1.gif =420x200)
+
+将`update`项目文件拷贝到需要更新的程序目录下，这里为`WindowsFormsApp1`项目的Bin目录下。[源码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/WindowsFormsApp1)
+
+::: tip
+`Environment.Exit(0);` 用于退出程序
+
+`ProcessStartInfo` 用于启动其他程序
+:::
+
+### 调整配置文件
+
+1. 添加`delete`属性，用来判断当前下载的文件是覆盖还是累加。
+2. 添加`autorun`属性，用来判断下载的文件在全部下载完成之后是否自动启动，并退出下载器
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<update>
+  <file name="WindowsFormsApp1" suffix="exe" delete="1" autorun="1"/>
+  <logs>
+    <log>1.更新主程序</log>
+  </logs>
+</update>
+```
+
+### 调整下载器
+
+默认是手动点击执行的，需要扩展下，支持自动执行和实现自动启动及退出功能。
+
+因为下载器是用WPF开发，所以需要在`App.xaml.cs`文件里，重写`OnStartup`方法，用来接受启动参数，这里为`adl`。
+
+下载器用来接受参数部分
+
+```cs{6}
+protected override void OnStartup(StartupEventArgs e)
+{
+    if (e.Args != null && e.Args.Length>0)
+    {
+        var args = e.Args;
+        Consts.AutoDownLoad = args.Contains(Consts.AutoDownloadArg);
+    }
+    base.OnStartup(e);
+}
+```
+
+`MainWindowViewModel.cs`用于自动下载和自动启动并退出自身，额外声明了一个`FindishedList`属性用来存储已经下载完成的记录，用于判别文件是否全部下载完成，自动启动并退出自身需要在全部下载完成之后执行。
+
+```cs{1,6,10}
+public ObservableCollection<string> FinishedList = new ObservableCollection<string>();
+
+public MainWindowViewModel()
+{
+    Operations = new ObservableCollection<CountUrlBytesViewModel>();
+    FinishedList.CollectionChanged += FinishedList_CollectionChanged;
+    RunCommand = new DelegateComand(Run);
+    if (Consts.AutoDownLoad)
+    {
+        Task.Factory.StartNew(Run);
+    }
+}
+```
+
+当已经下载完成的记录等于需要下载的文件记录，则启动程序并退出自身
+
+```cs {5,8-12,14}
+private void FinishedList_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+{
+    if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+    {
+        if (!autoRun) return;
+        if (FinishedList.Count == Operations.Count)
+        {
+            var info = new ProcessStartInfo
+            {
+                FileName = $"{AppDomain.CurrentDomain.BaseDirectory}/{name}.{suffix}",
+            };
+            Process.Start(info);
+
+            Environment.Exit(0);
+        }
+    }
+}
+```
 
 ## 更新程序dll
 
