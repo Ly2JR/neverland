@@ -2368,7 +2368,11 @@ packages:
       postcss: 8.4.24
       postcss-load-config: 4.0.1(postcss@8.4.24)(ts-node@10.9.1)
       rollup: 3.26.0
+<<<<<<< HEAD
       vite: 4.3.9(@types/node@20.3.3)
+=======
+      vite: 4.3.9(@types/node@20.3.2)
+>>>>>>> f6c0893e63eb77d103ff2b42d6e6065186da238e
       vue: 3.3.4
       vue-router: 4.2.2(vue@3.3.4)
     transitivePeerDependencies:
@@ -2947,7 +2951,11 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
+<<<<<<< HEAD
       caniuse-lite: 1.0.30001511
+=======
+      caniuse-lite: 1.0.30001509
+>>>>>>> f6c0893e63eb77d103ff2b42d6e6065186da238e
       electron-to-chromium: 1.4.447
       node-releases: 2.0.12
       update-browserslist-db: 1.0.11(browserslist@4.21.9)
@@ -3947,7 +3955,11 @@ packages:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.44.0)
       '@eslint-community/regexpp': 4.5.1
       '@eslint/eslintrc': 2.1.0
+<<<<<<< HEAD
       '@eslint/js': 8.44.0
+=======
+      '@eslint/js': 8.43.0
+>>>>>>> f6c0893e63eb77d103ff2b42d6e6065186da238e
       '@humanwhocodes/config-array': 0.11.10
       '@humanwhocodes/module-importer': 1.0.1
       '@nodelib/fs.walk': 1.2.8

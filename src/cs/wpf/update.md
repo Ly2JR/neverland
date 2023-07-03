@@ -11,7 +11,7 @@ tag:
   - 异步编程
 ---
 
-之前一篇[下载](./download.md)用控制台演示了下载的功能，而本次更新是在这基础上加了UI界面实现软件更新的功能，[源代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/update)。
+之前一篇[下载](./download.md)用控制台演示了下载的功能，而本次更新是在这基础上加了UI界面实现软件更新的功能，[源代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/update)。
 
 受[异步编程](https://learn.microsoft.com/zh-cn/archive/msdn-magazine/2014/april/async-programming-patterns-for-asynchronous-mvvm-applications-commands)启发，借用了大量代码。
 
@@ -80,7 +80,9 @@ foreach (XmlNode file in files)
 }
 ```
 
-## 更新程序本身
+## 主程序exe本身
+
+对应场景一，就一个主程序。
 
 ![更新自身](https://nas.ilyl.life:8092/wpf/update1.gif =420x200)
 
@@ -166,6 +168,14 @@ private void FinishedList_CollectionChanged(object? sender, System.Collections.S
 }
 ```
 
-## 更新程序dll
+## 模块化文件
 
-## 启动器，更新dll
+对应场景二，主程序就是一个exe显示，其他业务逻辑或者资源文件分开，只更新这些文件即可。
+
+::: tip
+正常来说主程序exe也可以更新，但是通常不这么做，如有可能还是用场景三的方式来更新。
+:::
+
+## 启动器，更新主程序及模块化文件
+
+对应场景三，是场景二的升级版本,既更新了主程序也更新了其他文件。
