@@ -80,7 +80,7 @@ foreach (XmlNode file in files)
 }
 ```
 
-## 主程序exe本身
+## 更新本身
 
 对应场景一，就一个主程序。
 
@@ -168,7 +168,33 @@ private void FinishedList_CollectionChanged(object? sender, System.Collections.S
 }
 ```
 
-## 模块化文件
+下载部分，新增了是删除文件还是重命名文件的判断，根据配置文件`delete`来区分
+
+```cs
+private async Task<string> DownloadAndCountBytesAsync(string name,string suffix,CancellationToken token = new CancellationToken(),bool deleteOld=false)
+{
+  ...
+  var savePath = Environment.CurrentDirectory;
+  var saveFileName = FileName;
+  if (!deleteOld)
+  {
+      var files = Directory.GetFiles(savePath, searchPattern, SearchOption.TopDirectoryOnly);
+      var hasFiles = files.Count();
+      if (hasFiles > 0)
+      {
+          saveFileName = $"{name}({hasFiles}).{suffix}";
+      }
+  }
+  else
+  {
+      File.Delete($"{savePath}/{FileName}");
+  }
+  savePath += $"/{saveFileName}";
+  ...
+}
+```
+
+## 更新模块化文件
 
 对应场景二，主程序就是一个exe显示，其他业务逻辑或者资源文件分开，只更新这些文件即可。
 

@@ -1,0 +1,30 @@
+{
+  "name": "neverland",
+  "version": "1.0.0",
+  "description": "blog",
+  "license": "MIT",
+  "type": "module",
+  "author": "乌龙茶 <982474256@qq.com> (https://ilyl.life)",
+  "scripts": {
+    "docs:build": "vuepress build src",
+    "docs:clean-dev": "vuepress dev src --clean-cache",
+    "docs:dev": "vuepress dev src",
+    "docs:update-package": "pnpm dlx vp-update",
+    "postinstall": "npx husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@vuepress/client": "2.0.0-beta.63",
+    "@vuepress/utils": "2.0.0-beta.63",
+    "@vueuse/core": "^10.2.1",
+    "eslint": "^8.44.0",
+    "husky": "^8.0.3",
+    "nano-staged": "^0.8.0",
+    "prettier": "^2.8.8",
+    "stylelint": "^15.9.0",
+    "vue": "^3.3.4",
+    "vuepress": "2.0.0-beta.63",
+    "vuepress-theme-hope": "2.0.0-beta.229"
+  }
+}
