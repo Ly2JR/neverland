@@ -269,7 +269,7 @@ private void OpenTabItem(string menuCode){
 
 ### 入口
 
-自定义一个类继承`IModule`
+项目名称为`Demo.Plugin`,自定义一个类继承`IModule`
 
 ```cs
 public void RegisterTypes(IContainerRegistry containerRegistry) {
@@ -278,8 +278,14 @@ public void RegisterTypes(IContainerRegistry containerRegistry) {
 }
 ```
 
+## 自动更新
+
+使用了[更新](./update.md)功能，在启动时检查是否有新的DLL文件需要更新，如果有则更新，[更新代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/update)
+
+![自动更新](https://nas.ilyl.life:8092/wpf/update2.gif =420x200)
+
 ## 结语
 
 至此，一个基本的可配置化插件开发完成，稍微进行扩展就能实现更多功能
 
-[完整项目地址](https://github.com/Ly2JR/WPF-Prism-Demo)
+[完整项目地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/demo)

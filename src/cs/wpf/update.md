@@ -17,6 +17,23 @@ tag:
 
 ![更新](https://nas.ilyl.life:8092/wpf/update.gif =420x200)
 
+[x] 更新日志说明
+[x] 显示进度条
+[x] 显示文件大小
+[x] 显示下载速度
+[x] 显示下载时间
+[x] 支持批量更新文件
+[x] 支持文件下载重命名
+[x] 支持文件下载后删除重名文件
+[x] 支持相同文件重复下载自动重命名
+[ ] 更多功能扩展`update.xml`配置文件
+
+::: tip
+`Environment.Exit(0);` 用于退出程序
+
+`Process` 用于启动其他程序
+:::
+
 虽说是更新，本质还是下载，更新又跟程序设计有关，例如：
 
 1. 本身就一个exe程序
@@ -87,12 +104,6 @@ foreach (XmlNode file in files)
 ![更新自身](https://nas.ilyl.life:8092/wpf/update1.gif =420x200)
 
 将`update`项目文件拷贝到需要更新的程序目录下，这里为`WindowsFormsApp1`项目的Bin目录下。[源码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/WindowsFormsApp1)
-
-::: tip
-`Environment.Exit(0);` 用于退出程序
-
-`ProcessStartInfo` 用于启动其他程序
-:::
 
 ### 调整配置文件
 
@@ -196,7 +207,11 @@ private async Task<string> DownloadAndCountBytesAsync(string name,string suffix,
 
 ## 更新模块化文件
 
-对应场景二，主程序就是一个exe显示，其他业务逻辑或者资源文件分开，只更新这些文件即可。
+对应场景二，主程序就是一个exe显示，其他业务逻辑或者资源文件分开，只更新这些文件即可。[源代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/demo)
+
+![更新模块化文件](https://nas.ilyl.life:8092/wpf/update2.gif =420x200)
+
+因为Prism模块，在已经加载模块化文件后无法卸载，这是无解的。所以在程序启动时进行检查。
 
 ::: tip
 正常来说主程序exe也可以更新，但是通常不这么做，如有可能还是用场景三的方式来更新。
