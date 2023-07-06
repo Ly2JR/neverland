@@ -205,7 +205,7 @@ Application.Current.MainWindow = mainView;
 
 为了使`DemoCore.Contract`同时`.NET Core`和`.NET Framework`，默认新建的是.NET Core类库项目。
 
-在[.NET Core与.Net Core Com调用](#net-core与net-core)部分添加了`UseWPF`使其支持WPF，继续`编辑项目文件`，
+在[.NET Core与.Net Core Com调用](#net-core与-net-core)部分添加了`UseWPF`使其支持WPF，继续`编辑项目文件`，
 
 将`<TargetFramework>net7.0-windows</TargetFramework>`
 
