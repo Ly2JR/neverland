@@ -37,6 +37,17 @@ Lines = new int[3] { Height, Height / 2, Height / 2 };
 PlaneSizes = new int[3] { Width * Height, Width * Height / 4, Width * Height / 4 };
 ```
 
+[I420AVideoFrame](https://wiki.videolan.org/YUV/#I420)转换，来源格式`AV_PIX_FMT_YUV420P`,目标格式`AV_PIX_FMT_BGRA`
+
+```cs
+aVFrame.linesize[0] = videoFrame.strideY;
+aVFrame.linesize[1] = videoFrame.strideU;
+aVFrame.linesize[2] = videoFrame.strideV;
+aVFrame.data[0] = (byte*)videoFrame.dataY;
+aVFrame.data[1] = (byte*)videoFrame.dataU;
+aVFrame.data[2] = (byte*)videoFrame.dataV;
+```
+
 ### AV_PIX_FMT_GRAY8
 
 `Y800`：8 bits per pixel gray scale bitmap
