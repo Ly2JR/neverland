@@ -29,14 +29,14 @@ tag:
 1. `DemoWin.Client`：NetFramework Winform客户端，调用`DemoWin.Contract`和`DemoCore.Contract`服务
 2. `DemoVB.Client`：VB客户端，调用`DemoWin.Contract`服务
 3. `DemoWin.Contract`：Net Framework公开服务
-4. `DemoWin.Plugin`：Net Framework服务实现
+4. `DemoWin.Plugin`：Net Framework和NET Core服务实现
 5. `DemoCore.Client`：NetCore WPF客户端
 6. `DemoCore.Contract`：NetCore和Net Framework公开服务
 7. `DemoCore.Plugin`：NetCore和Net Framework服务实现
 
 ## VB与.NET Framework
 
-![VB与NetFramework](https://nas.ilyl.life:8092/com/com1.gif =420x200)
+![VB调用.NET Framework](https://nas.ilyl.life:8092/com/com1.gif =420x200)
 
 ### 定义GUID
 
@@ -197,7 +197,7 @@ Application.Current.MainWindow = mainView;
 
 ## .NET Framework与.NET Core
 
-![NETFramework与NETCore](https://nas.ilyl.life:8092/com/com3.gif =420x200)
+![.Net Framework调用.Net Core](https://nas.ilyl.life:8092/com/com3.gif =420x200)
 
 无法使用.NET Core与.NET Core代理的方式调用，但是可以使用反射
 
@@ -220,4 +220,19 @@ var active = System.Activator.CreateInstance(comType) as DemoCore.Contract.IServ
 //MessageBox.Show(sum.ToString());
 var mainView=active.StartCore();
 mainView.ShowDialog();
+```
+
+## VB与.NET Core
+
+因为.NET Core Com是带WPF界面的，所以VB无法直接调用，使用[.NET Framework与.NET Core](#net-framework与-net-core)，进行包装一下
+
+![VB调用.NET Core](https://nas.ilyl.life:8092/com/com4.gif =420x200)
+
+```vb
+Dim obj As Object
+
+Set obj = CreateObject("DemoWin.Plugin.Server")
+obj.StartWpfCore
+
+Set obj = Nothing
 ```
