@@ -12,7 +12,7 @@ tag:
   - c#
 ---
 
-互操作是将代码进行抽象分离，供其它地方及语言使用
+[互操作](https://learn.microsoft.com/zh-cn/previous-versions/dotnet/articles/ms973800(v=msdn.10)?redirectedfrom=MSDN)是将代码进行抽象分离，供其它地方及语言使用，更多说明见[COM](../../tools/csharp/com.md)
 
 这里以C#调用VB为例
 
