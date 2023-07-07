@@ -26,15 +26,15 @@ tag:
 
 反射和直接引用都可以，[示例源代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/ComDemo)
 
-1. `DemoWin.Client`：.NETFramework Winform客户端
-2. `DemoVB.Client`：VB客户端
+1. `DemoVB.Client`：VB客户端
+2. `DemoWin.Client`：.NETFramework Winform客户端
 3. `DemoWin.Contract`：.NETFramework公开服务
 4. `DemoWin.Plugin`：.NETFramework和.NET Core服务实现
 5. `DemoCore.Client`：.NETCore WPF客户端
 6. `DemoCore.Contract`：.NETCore和.NETFramework公开服务
 7. `DemoCore.Plugin`：.NET Core和.Net Framework服务实现
-8. `Demo.Plugin`：模块插件
-9. `update`：更新程序
+8. [Demo.Plugin](../../cs/wpf/plugin.md)：模块插件
+9. [update](../../cs/wpf/update.md)：更新程序
 
 ```mermaid
 ---
