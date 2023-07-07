@@ -221,4 +221,4 @@ private async Task<string> DownloadAndCountBytesAsync(string name,string suffix,
 
 对应场景三，是场景二的升级版本,既更新了主程序也更新了其他文件，详情参考[COM](../../tools/csharp/com.md)。
 
-![VB调用.NET Core](https://nas.ilyl.life:8092/com/com4.gif =420x200)
+![VB调用.NET Core](https://nas.ilyl.life:8092/wpf/update3.gif =420x200)
