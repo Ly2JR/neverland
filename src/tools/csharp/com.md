@@ -135,7 +135,7 @@ flowchart TD
 
 1. 更新程序需要放在对应的客户端目录下，因为是从当前客户端查找的...
 
-2. 不在UI的COM很容易，带UI的COM比较复杂，特别是在IOC的UI...
+2. 不带UI的COM调用很容易，带UI的COM比较复杂，特别是带IOC的UI...
 
 :::
 
@@ -143,7 +143,7 @@ flowchart TD
 
 ::: tip
 
-VB客户端放在哪里都无所谓，通过COM找到，即使通过`tlb`引入。
+VB客户端放在哪里都无所谓，通过COM CLSID找到，即使通过`tlb`引入。
 
 :::
 
@@ -219,15 +219,17 @@ set obj=Nothing
 
 ### .Net Core支持多框架
 
-为了使`DemoCore.Contract`同时`.NET Core`和`.NET Framework`，默认新建的是.NET Core类库项目。
+为了使`DemoCore.Contract`同时支持`.NET Core`和`.NET Framework`。
 
-在[.NET Core与.Net Core Com调用](#net-core与-net-core)部分添加了`UseWPF`使其支持WPF，继续`编辑项目文件`，
+默认新建的是.NET Core类库项目，
 
-将`<TargetFramework>net7.0-windows</TargetFramework>`
+`编辑项目文件`，将`<TargetFramework>net7.0-windows</TargetFramework>`
 
 改成`<TargetFrameworks>net7.0-windows;net48</TargetFrameworks>`，
 
-关闭项目，重新打开即可，与上诉流程类型，部分差异。
+关闭项目，重新打开即可。
+
+步骤与上诉流程类似，部分差异。
 
 ### 公开服务接口差异
 
@@ -262,7 +264,7 @@ public interface IServer
 
 `编辑项目文件`添加`<EnableRegFreeCom>true</EnableRegFreeCom>`，生成`XXXX..X.manifest`清单文件。
 
-另外加了一个带`Prism`的启动，需要将`App.xml`文件右击属性调整为`页`。
+另外加了一个带`Prism`的启动，需要将`App.xml`文件右击属性，将生成操作调整为`页`。
 
 ::: tip
 
@@ -352,7 +354,7 @@ namespace Activation
 
 ![.Net Framework调用.Net Core](https://nas.ilyl.life:8092/wpf/com3.gif =420x200)
 
-无法使用.NET Core与.NET Core代理的方式调用，但是可以使用COM CLSID 找到。
+无法使用COM 激活的方式调用，但是可以使用COM CLSID 找到。
 
 ```cs
 var comType = Type.GetTypeFromCLSID(Guid.Parse(DemoCore.Contract.ContractGuids.ServerClass));
@@ -363,9 +365,21 @@ var mainView=active.StartCore();
 mainView.ShowDialog();
 ```
 
+### .NET Framework Prism
+
+.NET Framewrok客户端`DemoWin.Client`，调用.NET Core的WPF程序，并带Prism插件。
+
+1. 由于`DemoCore.Plugin`支持.NET Cor和.NET Framework，在通过上述调用时，`DemoCore.Plugin.comhost.dll`需要`Regsvr32`注册。
+
+2. 另外客户端是.NET Framework，虽然提供的服务是.NET Core，但是对应的`Demo.Plugin`需要是.NET Framework版本。
+
+3. 最后还需要将`DemoCore.Plugin`生成的.NET Framework版本拷贝到`DemoWin.Client`目录下。
+
+既`DemoWin.Client`目录下应包含`DemoCore.Plugin`的.NET Framework版本、`Demo.Plugin`的.NET Framework版本、`update.exe`、以及它们对应的`Prism`依赖。最后别忘了需要注册`DemoCore.Plugin.comhost.dll`文件。
+
 ## .NET Framework与.NET Framework
 
-这种用的不多，同一种语言，直接引用就行，或者也是用反射，或者通过COM CLSID
+这种通过COM CLSID用的不多，同一种语言，直接引用，或者用反射。
 
 ![.NET Framework调用.NET Framework](https://nas.ilyl.life:8092/wpf/com4.gif =420x200)
 
@@ -387,3 +401,11 @@ obj.StartWpfCore
 
 Set obj = Nothing
 ```
+
+### VB Prism
+
+![VB调用.NET Core Prism](https://nas.ilyl.life:8092/wpf/update3.gif =420x200)
+
+因为直接调用`DemoCore.Plugin.Server`服务，而它是.NET Core，更新的插件既`Demo.Plugin`也应该是.NET Core，不能使用`.NET Framwrok`，否则提示找不到的问题。
+
+另外，更新`update.exe`程序是找当前目录的，所有`vb`客户端也需要放到当前目录下才行。
