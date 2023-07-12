@@ -28,17 +28,5 @@ projects:
     desc: 4K、8K资源
     link: https://nas.ilyl.life:8092/default.png
 
-  - icon: devicon:dot-net-wordmark
-    name: .NET
-    desc: WPF、ABP
-
-  - icon: logos:microsoft-edge
-    name: Web
-    desc: Vue
-  
-  - icon: fluent-emoji-flat:toolbox
-    name: 工具箱
-    desc: 疑难杂症
-
 copyright: Copyright ©️ 2021-现在 ilyl.life 版权所有 支持IPv6
 ---
