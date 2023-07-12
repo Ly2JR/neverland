@@ -225,7 +225,7 @@ set obj=Nothing
 
 `编辑项目文件`，将`<TargetFramework>net7.0-windows</TargetFramework>`
 
-改成`<TargetFrameworks>net7.0-windows;net48</TargetFrameworks>`，
+改成<TargetFramework`s`>net7.0-windows`;net48`</TargetFramework`s`>，
 
 关闭项目，重新打开即可。
 
@@ -367,7 +367,7 @@ mainView.ShowDialog();
 
 ### .NET Framework Prism
 
-.NET Framewrok客户端`DemoWin.Client`，调用.NET Core的WPF程序，并带Prism插件。
+.NET Framework客户端`DemoWin.Client`，调用.NET Core的WPF程序，并带Prism插件。
 
 1. 由于`DemoCore.Plugin`支持.NET Cor和.NET Framework，在通过上述调用时，`DemoCore.Plugin.comhost.dll`需要`Regsvr32`注册。
 
@@ -406,6 +406,6 @@ Set obj = Nothing
 
 ![VB调用.NET Core Prism](https://nas.ilyl.life:8092/wpf/update3.gif =420x200)
 
-因为直接调用`DemoCore.Plugin.Server`服务，而它是.NET Core，更新的插件既`Demo.Plugin`也应该是.NET Core，不能使用`.NET Framwrok`，否则提示找不到的问题。
+因为直接调用`DemoCore.Plugin.Server`服务，而它是.NET Core，更新的插件既`Demo.Plugin`也应该是.NET Core，不能使用`.NET Framework`，否则提示找不到的问题。
 
 另外，更新`update.exe`程序是找当前目录的，所有`vb`客户端也需要放到当前目录下才行。
