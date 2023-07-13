@@ -72,6 +72,13 @@ export const zhSidebar = sidebar({
           collapsible: true,
         },
         {
+          text: "Docker",
+          icon: "vscode-icons:file-type-docker2",
+          prefix: "docker/",
+          children: "structure",
+          collapsible: true,
+        },
+        {
           text: "TypeScript",
           icon: "vscode-icons:file-type-typescript-official",
           prefix: "ts/",
