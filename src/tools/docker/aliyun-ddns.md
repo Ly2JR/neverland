@@ -25,10 +25,8 @@ tag:
 - [x] 添加阿里云解析记录
 - [x] 强签名
 - [x] 支持Docker
-- [ ] 新增IPv6记录
-- [ ] 新增Docker环境变量配置
-- [ ] 新增记录修改
-- [ ] 新增网络变换监听
+- [x] 新增Docker环境变量配置
+- [x] 新增记录修改
 
 ## 资料
 
@@ -42,7 +40,7 @@ tag:
 
 [.NET 官方镜像](https://mcr.microsoft.com/en-us/catalog?page=1)
 
-### 获取本机外网IP
+## 公网IP
 
 有很多种获取外网IP的方式，这里选用[ip-api](https://ip-api.com/)，个人够用，利用`http://ip-api.com/json/?lang=zh-CN&fields=status,query`获取到公网地址。
 
@@ -90,7 +88,7 @@ record class IPModelResult
 }
 ```
 
-### 获取环境变量参数
+## 环境变量
 
 使用`Environment.GetEnvironmentVariable`获取环境变量，一是因为阿里账号问题，二是Docker运行需要配置
 
@@ -98,39 +96,86 @@ record class IPModelResult
 Environment.GetEnvironmentVariable("XXX");
 ```
 
-### 添加云解析
+### Visual Studio
+
+项目`属性`，`调试`，打开`调试启动配置文件UI`
+
+### Docker
+
+1. 在Dockerfile文件里添加`env <VarName>={VarValue}`
+2. 使用`docker run -e vername=varvalue`命令
+
+## 云解析
+
+::: tabs
+
+@tab 客户端
 
 ```cs
-using AlibabaCloud.OpenApiClient.Models;
-using AlibabaCloud.SDK.Alidns20150109;
-using AlibabaCloud.SDK.Alidns20150109.Models;
-using AlibabaCloud.TeaUtil.Models;
-using Tea;
-
-private static Client CreateClient(string accessKeyId, string accessKeySecret)
+Client CreateClient(string accessKey, string accessKeySecret)
 {
-  Config config = new Config
-  {
-    // 必填，您的 AccessKey ID
-    AccessKeyId = accessKeyId,
-    // 必填，您的 AccessKey Secret
-    AccessKeySecret = accessKeySecret,
-  };
-  // Endpoint 请参考 https://api.aliyun.com/product/Alidns
-  config.Endpoint =Contracts.DEFAULT_ALIBABA_ENDPOINT;
-  return new Client(config);
+    Config config = new Config
+    {
+        // 必填，您的 AccessKey ID
+        AccessKeyId = accessKey,
+        // 必填，您的 AccessKey Secret
+        AccessKeySecret = accessKeySecret,
+    };
+    // Endpoint 请参考 https://api.aliyun.com/product/Alidns
+    config.Endpoint = Contracts.DEFAULT_ALIBABA_ENDPOINT;
+    return new Client(config);
 }
+```
 
-private static void Add(string accessKeyId, string accessKeySecret, string domain,string ip,int ttl = 600)
+@tab 查询云解析记录
+
+```cs
+DescribeDomainRecordsResponse? QueryDns(Client client, string domain = Contracts.DEBUG_ALIBABA_DOMAIN, string type = Contracts.DEFAULT_ALIBABA_REQUEST_TYPE_4)
 {
-    var client = CreateClient(accessKeyId, accessKeySecret);
+    DescribeDomainRecordsRequest describeDomainRecordsRequest = new DescribeDomainRecordsRequest()
+    {
+        DomainName = domain,
+        Type = type
+    };
+    RuntimeOptions runtime = new RuntimeOptions();
+    try
+    {
+        // 复制代码运行请自行打印 API 的返回值
+        var response = client.DescribeDomainRecordsWithOptions(describeDomainRecordsRequest, runtime);
+        return response;
+    }
+    catch (TeaException error)
+    {
+        // 如有需要，请打印 error
+        var msg = Common.AssertAsString(error.Message);
+
+    }
+    catch (Exception _error)
+    {
+        TeaException error = new TeaException(new Dictionary<string, object>
+                {
+                    { "message", _error.Message }
+                });
+        // 如有需要，请打印 error
+        var msg = Common.AssertAsString(error.Message);
+        Console.WriteLine($"{Contracts.TITLE}查询云解析失败,{msg}");
+    }
+    return null;
+}
+```
+
+@tab 新增云解析记录
+
+```cs
+AddDomainRecordResponse? AddDns(Client client, string newIp, string domain = Contracts.DEBUG_ALIBABA_DOMAIN, int ttl = Contracts.DEFAULT_ALIBABA_REQUEST_TTL)
+{
     //参数
     AddDomainRecordRequest addDomainRecordRequest = new AddDomainRecordRequest()
     {
         DomainName = domain,//域名名称
-        RR = "*",//主机记录
-        Type = "A",//解析记录类型
-        Value = ip,//记录值
+        RR = Contracts.DEFAULT_ALIBABA_REQUEST_RR,//主机记录
+        Type = Contracts.DEFAULT_ALIBABA_REQUEST_TYPE_4,//解析记录类型
+        Value = newIp,//记录值
         TTL = ttl
     };
     //运行时高级配置
@@ -138,21 +183,70 @@ private static void Add(string accessKeyId, string accessKeySecret, string domai
     try
     {
         // 复制代码运行请自行打印 API 的返回值
-        client.AddDomainRecordWithOptions(addDomainRecordRequest, runtime);
+        var response = client.AddDomainRecordWithOptions(addDomainRecordRequest, runtime);
+        return response;
     }
     catch (TeaException error)
     {
         // 如有需要，请打印 error
-        Common.AssertAsString(error.Message);
+        var msg = Common.AssertAsString(error.Message);
+        Console.WriteLine($"{Contracts.TITLE}新增云解析失败,{msg}");
     }
     catch (Exception _error)
     {
         TeaException error = new TeaException(new Dictionary<string, object>
-        {
-            { "message", _error.Message }
-        });
+                {
+                    { "message", _error.Message }
+                });
         // 如有需要，请打印 error
-        Common.AssertAsString(error.Message);
+        var msg = Common.AssertAsString(error.Message);
+        Console.WriteLine($"{Contracts.TITLE}新增云解析失败,{msg}");
     }
+    return null;
 }
 ```
+
+@tab 更新云解析记录
+
+```cs
+UpdateDomainRecordResponse? UpdateDns(Client client, string recordId, string newIp, string RR = Contracts.DEFAULT_ALIBABA_REQUEST_RR, string type = Contracts.DEFAULT_ALIBABA_REQUEST_TYPE_4)
+{
+    UpdateDomainRecordRequest updateDomainRecordRequest = new UpdateDomainRecordRequest()
+    {
+        RecordId = recordId,
+        RR = RR,
+        Type = type,
+        Value = newIp,
+    };
+    RuntimeOptions runtime = new RuntimeOptions();
+    try
+    {
+        // 复制代码运行请自行打印 API 的返回值
+        var response = client.UpdateDomainRecordWithOptions(updateDomainRecordRequest, runtime);
+        return response;
+    }
+    catch (TeaException error)
+    {
+        // 如有需要，请打印 error
+        var msg = Common.AssertAsString(error.Message);
+        Console.WriteLine($"{Contracts.TITLE}修改云解析失败,{msg}");
+    }
+    catch (Exception _error)
+    {
+        TeaException error = new TeaException(new Dictionary<string, object>
+                {
+                    { "message", _error.Message }
+                });
+        // 如有需要，请打印 error
+        var msg = Common.AssertAsString(error.Message);
+        Console.WriteLine($"{Contracts.TITLE}修改云解析失败,{msg}");
+    }
+    return null;
+}
+```
+
+:::
+
+## 部署
+
+映像:`ali.ddns-image`，容器:`neverland/ali.ddns`
