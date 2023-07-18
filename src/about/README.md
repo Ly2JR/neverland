@@ -30,3 +30,42 @@ link: https://theme-hope.vuejs.press/zh/
 ```
 
 :::
+
+## 赞赏支持
+
+<!-- markdownlint-disable -->
+
+<div class="image-preview">
+  <img src="https://nas.ilyl.life:8092/wechat.jpg" />
+  <img src="https://nas.ilyl.life:8092/alipay.jpg" />
+</div>
+
+<style>
+  .image-preview {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .image-preview > img {
+     box-sizing: border-box;
+     width: 33.3% !important;
+     padding: 9px;
+     border-radius: 16px;
+  }
+
+  @media (max-width: 719px){
+    .image-preview > img {
+      width: 50% !important;
+    }
+  }
+
+  @media (max-width: 419px){
+    .image-preview > img {
+      width: 100% !important;
+    }
+  }
+</style>
+
+<!-- markdownlint-restore -->

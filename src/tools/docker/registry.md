@@ -18,7 +18,7 @@ tag:
 
 容器:`neverland/ali.ddns`
 
-## [Docker Registry](https://docs.docker.com/registry/)
+## [Docker Registry](https://docs.docker.com/registry/deploying/)
 
 ::: tip
 存储位置：`/var/lib/registry/`
@@ -68,7 +68,7 @@ ParsedHtml        : System.__ComObject
 RawContentLength  : 25
 ```
 
-### 修改配置
+### [修改配置](https://docs.docker.com/registry/insecure/)
 
 打开`daemon.json`文件或者在Docker Desktop的`Docker Engine`添加如下配置
 
