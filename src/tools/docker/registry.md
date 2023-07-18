@@ -12,42 +12,65 @@ tag:
   - Registry
 ---
 
-为了部署使用自己开发的[阿里云解析](aliyun-ddns.md)而做，映像:`ali.ddns-image`，容器:`neverland/ali.ddns`
+为了部署使用自己开发的[阿里云解析](aliyun-ddns.md)而做，解决无法登录，及无法发布到Hub Docker的问题。
 
-## 私有Docker库
+映像:`ali.ddns-image`
 
-[registry](https://docs.docker.com/registry/)，存储位置`/var/lib/registry/`，证书`/certs/`
+容器:`neverland/ali.ddns`
+
+## [Docker Registry](https://docs.docker.com/registry/)
+
+::: tip
+存储位置：`/var/lib/registry/`
+
+证书位置：`/certs/`
+
+跨域配置：-e REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin="['*']"
+:::
 
 ### 拉取Registry
 
-```.NET CLI
-docker pull registry
+```command prompt
+docker pull registry:latest
 ```
 
 ### 启动Registry
 
-```.NET CLI
-docker run -d -p 5000:5000 --restart=always --name registry registry:latest
+```command prompt
+docker run -d -p 5000:5000 -e REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin="['*']" --restart=always --name registry registry:latest
 ```
 
 ### 预览Registry
 
-打开浏览器输入`127.0.0.1:5000`或`127.0.0.1:5000/v2_catalog`
+```command prompt
+curl http://127.0.0.1:5000/v2/_catalog
+```
 
-::: tip
-127.0.0.1:5000: 不显示任何东西
+返回:
 
-127.0.0.1:5000/v2_catalog :
-`{
-    "repositories": []
-}`
-:::
+```text{3}
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"repositories":[]}
 
-因此有了`Docker Registry uI`
+RawContent        : HTTP/1.1 200 OK
+                    Docker-Distribution-Api-Version: registry/2.0
+                    X-Content-Type-Options: nosniff
+                    Content-Length: 25
+                    Content-Type: application/json; charset=utf-8
+                    Date: ... GMT...
+Forms             : {}
+Headers           : {[Docker-Distribution-Api-Version, registry/2.0], [X-Content-Type-Options, nosniff], [Content-Length, 25], [Content-Type, application/json; charset=utf-8]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : System.__ComObject
+RawContentLength  : 25
+```
 
 ### 修改配置
 
-打开`daemon.json`文件或者在Docker Desktop的`Docker Engine`天下如下配置
+打开`daemon.json`文件或者在Docker Desktop的`Docker Engine`添加如下配置
 
 ```json
 "insecure-registries": [
@@ -55,48 +78,84 @@ docker run -d -p 5000:5000 --restart=always --name registry registry:latest
 ],
 ```
 
+## [Docker Registry UI](https://helm.joxit.dev/charts/docker-registry-ui/)
+
+### 拉取Docker Registry UI
+
+```command prompty
+docker pull joxit/docker-registry-ui
+```
+
+### 启动Docker Registry UI
+
+```command prompty
+docker run -d -p 8080:80 -e REGISTRY_URL=http://localhost:5000 --name docker-registry-ui joxit/docker-registry-ui
+```
+
+### 预览Docker Registry UI
+
+浏览器输入`http//localhost:8080`
+
+![docker-registry-ui](https://nas.ilyl.life:8092/docker/docker-registry-ui.png =420x200)
+
+## 上传映像
+
 ### 标记映像
 
 [Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
 
-```.NET CLI
-docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns:v1
+```command prompt
+docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns-image:v1
 ```
 
 ### 推送镜像
 
-将本地映像推送到`registry`仓库中
+[Docker push](https://docs.docker.com/engine/reference/commandline/push/)，将本地映像推送到`registry`仓库中
 
-[Docker push](https://docs.docker.com/engine/reference/commandline/push/)
-
-```.NET CLI
-docker push 127.0.0.1:5000/ali.ddns:v1
-```
-
-验证：浏览器输入[http://127.0.0.1:5000/v2/_catalog](http://127.0.0.1:5000/v2/_catalog)
-
-返回：
-
-```json
-{
-    "repositories": [
-        "ali.ddns"
-    ]
-}
+```command prompt
+docker push 127.0.0.1:5000/ali.ddns-image:v1
 ```
 
 ### 拉取映像
 
 删除本地已有映像，从私有仓库拉取
 
-```.NET CLI
-docker pull 127.0.0.1:5000/ali.ddns:v1
+```command prompt
+docker pull 127.0.0.1:5000/ali.ddns-image:v1
 ```
 
-## Docker Registry UI
+## 验证
 
-### 拉取Registry UI
+### Docker Registry
 
-### 启动Registry UI
+```command prompt
+curl http://127.0.0.1:5000/v2/_catalog
+```
 
-### 预览Registry UI
+返回：
+
+```text{3}
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"repositories":["ali.ddns-image"]}
+
+RawContent        : HTTP/1.1 200 OK
+                    Docker-Distribution-Api-Version: registry/2.0
+                    X-Content-Type-Options: nosniff
+                    Content-Length: 25
+                    Content-Type: application/json; charset=utf-8
+                    Date: ... GMT...
+Forms             : {}
+Headers           : {[Docker-Distribution-Api-Version, registry/2.0], [X-Content-Type-Options, nosniff], [Content-Length, 25], [Content-Type, application/json; charset=utf-8]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : System.__ComObject
+RawContentLength  : 25
+```
+
+### Docker-Registry-UI
+
+浏览器输入`http//localhost:8080`
+
+![docker-registry-ui](https://nas.ilyl.life:8092/docker/docker-registry-ui2.png =420x200)

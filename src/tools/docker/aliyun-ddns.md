@@ -102,8 +102,8 @@ Environment.GetEnvironmentVariable("XXX");
 
 ### Docker
 
-1. 在Dockerfile文件里添加`env <VarName>={VarValue}`
-2. 使用`docker run -e vername=varvalue`命令
+1. `不推荐`在Dockerfile文件里添加`env <VarName>={VarValue}`的方式。
+2. `推荐`使用`docker run -e vername=varvalue`命令。
 
 ## 云解析
 

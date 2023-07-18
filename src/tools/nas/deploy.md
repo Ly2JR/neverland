@@ -110,4 +110,22 @@ Https默认443端口可以不输入，其他端口需要加上端口号
 
 ## NAS端docker部署
 
-待续...
+NAS里没有IIS，用的Window系统除外，在NAS里找到Docker，下载NGINX映像。
+
+::: tip
+主要是关于`NGINX`的配置，可以现在桌面端或者是Docker里配置完成之后，在进入NAS里进行配置。
+:::
+
+### Docker部署普通网站
+
+1. 添加容器选择`Nginx`
+2. 将网站目录添加到对应`Nginx`配置目录
+3. 映射端口
+4. 配置NAS端口防火墙
+5. 配置光猫或者路由器转口转发
+
+### Docker部署SSL网站
+
+准备好证书文件，从哪里申请的就从哪里下载，关于[NGINX SSL配置](https://nginx.org/en/docs/http/ngx_http_ssl_module.html)。
+
+步骤同上`Docker部署普通网站`，额外调整`*.conf`配置文件。
