@@ -26,6 +26,8 @@ FROM nginx:latest as production-stage
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 # 配置nginx
 COPY --from=build-stage /neverland/nginx.conf /etc/nginx/nginx.conf
+# 加载SSL证书
+COPY --from=build-stage /neverland/certs /usr/share/ssl
 # 提供服务端口
-EXPOSE 80
+EXPOSE 80 443
 RUN echo "🎉 架 🎉 设 🎉 成 🎉 功 🎉"
