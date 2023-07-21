@@ -23,11 +23,6 @@ export default defineUserConfig({
       hm.src = "https://hm.baidu.com/hm.js?e0f4e638f3c9bb2b41419a3b473edbc4";
       var s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
-
-      var hm1 = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?481113a321ae3a0c070f99fdffba4319";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm1, s);
     })();
     `,
     ],
