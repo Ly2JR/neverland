@@ -14,20 +14,21 @@ RUN npm config set registry https://registry.npm.taobao.org
 # 设置--max-old-space-size
 ENV NODE_OPTIONS=--max-old-space-size=16384
 # 设置阿里镜像、pnpm、依赖
-RUN npm install pnpm -g \
-    && pnpm install
+RUN npm install pnpm -g && \
+    pnpm install  && \
+    pnpm docs:build
 # 编译
-CMD ["pnpm", "run", "docs:build"]
+# CMD ["pnpm", "run", "docs:build"]
 # node部分结束
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 # nginx 部署
 FROM nginx:latest as production-stage
-# 拷贝编译后的文件
+# # 拷贝编译后的文件
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 # 配置nginx
 COPY --from=build-stage /neverland/nginx.conf /etc/nginx/nginx.conf
 # 加载SSL证书
-COPY --from=build-stage /neverland/certs /usr/share/ssl
+COPY --from=build-stage /neverland/certs /usr/share/certs
 # 提供服务端口
-EXPOSE 80 443
+EXPOSE 80
 RUN echo "🎉 架 🎉 设 🎉 成 🎉 功 🎉"
