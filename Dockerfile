@@ -15,10 +15,9 @@ RUN npm config set registry https://registry.npm.taobao.org
 ENV NODE_OPTIONS=--max-old-space-size=16384
 # 设置阿里镜像、pnpm、依赖
 RUN npm install pnpm -g && \
-    pnpm install  && \
-    pnpm docs:build
+    pnpm install
 # 编译
-# CMD ["pnpm", "run", "docs:build"]
+CMD ["pnpm", "run", "docs:build"]
 # node部分结束
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 # nginx 部署
