@@ -8,8 +8,6 @@ category:
   - C#
 tag:
   - WPF
-  - StringFormat
-  - ContentStringFormat
 ---
 
 [StringFormat](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.bindingbase.stringformat?view=windowsdesktop-7.0)和[ContentStringFormat](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.contentcontrol.contentstringformat?view=windowsdesktop-7.0)的区别，示例代码高亮显示。

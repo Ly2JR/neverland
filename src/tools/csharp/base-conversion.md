@@ -7,9 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - 进制转换
+  - C#
 ---
 
 ## 二进制与十六进制

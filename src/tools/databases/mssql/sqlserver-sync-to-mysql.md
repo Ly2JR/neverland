@@ -7,10 +7,10 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - 数据库
+  - 工具箱
 tag:
-  - mssql
-  - mysql
+  - MSSQL
+  - MYSQL
 ---
 
 ## 说明

@@ -7,10 +7,10 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - Intptr
-  - 指针
+  - C#
+  - C++
 ---
 
 [Intptr](https://learn.microsoft.com/zh-cn/dotnet/api/system.intptr?view=net-7.0)与[指针](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/unsafe-code)转换，涉及两个方法[Marshal.AllocHGlobal](https://learn.microsoft.com/zh-cn/dotnet/api/system.runtime.interopservices.marshal.allochglobal?view=net-6.0)和[Marshal.FreeHGlobal](https://learn.microsoft.com/zh-cn/dotnet/api/system.runtime.interopservices.marshal.freehglobal?view=net-6.0#system-runtime-interopservices-marshal-freehglobal(system-intptr))，他们成对出现。

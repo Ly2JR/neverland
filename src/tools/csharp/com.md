@@ -7,9 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - COM
+  - C#
 ---
 
 [Com激活说明](https://github.com/dotnet/runtime/blob/main/docs/design/features/COM-activation.md)

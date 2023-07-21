@@ -7,12 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - Wince
-  - WebService
-  - VS2008
-  - 移动端
+  - C#
 ---
 
 VS2008是最后一版支持Wince移动端开发，用在条码设备上开发条码应用。

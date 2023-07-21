@@ -7,9 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - 机器码
+  - C#
 ---
 
 [Stackoverflow](https://stackoverflow.com/questions/99880/generating-a-unique-machine-id)

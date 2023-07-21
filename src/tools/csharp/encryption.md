@@ -7,9 +7,10 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - 加密解密
+  - C#
+  - JAVA
 ---
 
 ## AES

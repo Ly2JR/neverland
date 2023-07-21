@@ -7,9 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - Docker
+  - 工具箱
 tag:
-  - Registry
+  - DOCKER
 ---
 
 为了部署使用自己开发的[阿里云解析](aliyun-ddns.md)而做，解决无法登录，及无法发布到Hub Docker的问题。

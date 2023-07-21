@@ -7,8 +7,7 @@ isOriginal: true
 category:
   - C#
 tag:
-  - 控制台
-  - 下载
+  - WPF
 ---
 
 下载时太快UI不显示时，可以加个延时，代码高亮处。

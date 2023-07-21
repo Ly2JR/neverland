@@ -10,8 +10,6 @@ category:
 tag:
   - WPF
   - Prism
-  - 插件
-  - 菜单树
 ---
 
 ## 开发包

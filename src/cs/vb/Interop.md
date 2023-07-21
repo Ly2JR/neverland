@@ -8,8 +8,8 @@ footer: false
 category:
   - VB
 tag: 
-  - vb
-  - c#
+  - VB
+  - C#
 ---
 
 [互操作](https://learn.microsoft.com/zh-cn/previous-versions/dotnet/articles/ms973800(v=msdn.10)?redirectedfrom=MSDN)是将代码进行抽象分离，供其它地方及语言使用，更多说明见[COM](../../tools/csharp/com.md)

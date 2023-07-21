@@ -5,7 +5,7 @@ dir.order: 4
 order: 4
 isOriginal: true
 category:
-  - NAS
+  - 工具箱
 tag:
   - 域名
   - SSL

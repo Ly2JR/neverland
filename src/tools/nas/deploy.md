@@ -5,10 +5,9 @@ dir.order: 6
 order: 6
 isOriginal: true
 category:
-  - NAS
+  - 工具箱
 tag:
-  - 域名
-  - SSL
+  - 部署
 editLink: false
 footer: false
 copy: true

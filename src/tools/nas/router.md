@@ -5,10 +5,9 @@ isOriginal: true
 dir.order: 3
 order: 3
 category:
-  - 网络
+  - 工具箱
 tag:
   - 路由器
-  - 小米
 editLink: false
 footer: false
 copy: true

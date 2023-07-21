@@ -5,10 +5,9 @@ isOriginal: true
 dir.order: 2
 order: 2
 category:
-  - 网络
+  - 工具箱
 tag:
   - 光猫
-  - HG8245
 editLink: false
 footer: false
 copy: true

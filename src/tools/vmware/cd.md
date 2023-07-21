@@ -7,7 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - VMware
+  - 工具箱
+tag: 
+  - VMWARE
 ---
 
 在`编辑虚拟机设置`,`CD/DVD(SATA)`高级选项里`SATA`选择`SATA 0:0`

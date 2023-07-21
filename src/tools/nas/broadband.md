@@ -5,10 +5,9 @@ dir.order: 1
 order: 1
 isOriginal: true
 category:
-  - 网络
+  - 工具箱
 tag:
-  - 宽带
-  - 电信
+  - 公网
 editLink: false
 footer: false
 copy: true

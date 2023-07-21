@@ -7,9 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - 声音
+  - C#
 ---
 
 Nuget下载[System.Speech](https://www.nuget.org/packages/System.Speech)，这里有相关[文档](https://learn.microsoft.com/zh-cn/dotnet/api/system.speech.synthesis.speechsynthesizer?view=netframework-4.8)

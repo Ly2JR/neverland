@@ -8,8 +8,7 @@ footer: false
 category:
   - 设计模式
 tag:
-  - 中介者模式
-  - 行为模式
+  - 设计模式
 ---
 
 

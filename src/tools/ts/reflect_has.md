@@ -6,10 +6,9 @@ order: 1
 editLink: false
 footer: false
 category:
-  - TypeScript
+  - 工具箱
 tag:
   - TS
-  - JS
 ---
 
 在`ts`中使用[`Reflect.has`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/has)方法来检查对象属性,同[`in`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in)。

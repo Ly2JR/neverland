@@ -8,8 +8,6 @@ category:
   - C#
 tag:
   - WPF
-  - INotifyPropertyChanged
-  - CallerMemberName
 ---
 
 WPF的VM中常用到[INotifyPropertyChanged](https://learn.microsoft.com/zh-cn/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-7.0)接口，来通知属性变更，但需要填写具体属性名。

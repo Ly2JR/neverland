@@ -6,9 +6,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - FFMPEG
+  - 工具箱
 tag:
-  - AVPixelFormat
+  - FFMPEG
 ---
 
 ## 参数

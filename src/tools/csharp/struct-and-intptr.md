@@ -7,10 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - C#
+  - 工具箱
 tag:
-  - StructLayout
-  - Intptr
+  - C#
 ---
 
 [Intptr](https://learn.microsoft.com/zh-cn/dotnet/api/system.intptr?view=net-7.0)与[StructLayout](https://learn.microsoft.com/zh-cn/dotnet/api/system.runtime.interopservices.structlayoutattribute?view=net-6.0)转换

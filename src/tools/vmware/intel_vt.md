@@ -7,7 +7,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - VMware
+  - 工具箱
+tag:
+  - VMWARE
 ---
 
 启动虚拟机出现"此主机支持Intel VT-x,但Intel VT-x处于禁用状态"
