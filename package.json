@@ -12,19 +12,21 @@
     "docs:update-package": "pnpm dlx vp-update",
     "postinstall": "npx husky install"
   },
+  "dependencies":{
+    "vue": "^3.3.4",
+    "vuepress": "2.0.0-beta.66",
+    "vuepress-theme-hope": "2.0.0-beta.233",
+    "@vuepress/client": "2.0.0-beta.66",
+    "@vuepress/utils": "2.0.0-beta.66",
+    "@vueuse/core": "^10.2.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
-    "@vuepress/client": "2.0.0-beta.66",
-    "@vuepress/utils": "2.0.0-beta.66",
-    "@vueuse/core": "^10.2.1",
     "eslint": "^8.45.0",
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
     "prettier": "^2.8.8",
-    "stylelint": "^15.10.2",
-    "vue": "^3.3.4",
-    "vuepress": "2.0.0-beta.66",
-    "vuepress-theme-hope": "2.0.0-beta.233"
+    "stylelint": "^15.10.2"
   }
 }
