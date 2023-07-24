@@ -1,5 +1,5 @@
 ---
-title: 古训·增广贤文
+title: 增广贤文
 index: false
 star : 99999
 sticky: 99999
