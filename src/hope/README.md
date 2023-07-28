@@ -11,12 +11,15 @@ editLink: false
 footer: false
 ---
 
-## [家庭影院](https://nas.ilyl.life:8091/)
+- [x] [家庭影院](https://nas.ilyl.life:8091/)
 
-## [音乐电台](https://nas.ilyl.life:8089/audio)
+- [x] [音乐电台](https://nas.ilyl.life:8089/audio)
 
-## [网盘](https://nas.ilyl.life:8089/file/)
+- [x] [网盘](https://nas.ilyl.life:8089/file/)
 
-## [图床](https://nas.ilyl.life:8092/default.png)
+- [x] [图床](https://nas.ilyl.life:8092/default.png)
 
-## [私有Docker仓库 UI](https://docker.ilyl.life:8094)
+- [x] [私有Docker仓库 UI](https://docker.ilyl.life:8094)
+
+- [ ] NAS接口
+- [ ] 基于NAS接口的移动端APP

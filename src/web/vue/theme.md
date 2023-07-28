@@ -1,8 +1,8 @@
 ---
 title: 主题色
 date: 2023-05-25
-dir.order: 2
-order: 2
+dir.order: 3
+order: 3
 editLink: false
 footer: false
 isOriginal: true
