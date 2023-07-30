@@ -25,7 +25,7 @@ FROM nginx:1.25.1-alpine as production-stage
 # # 拷贝编译后的文件
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 # 配置nginx
-COPY --from=build-stage /neverland/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build-stage /neverland/nginx.conf /etc/nginx/conf.d/default.conf
 # 加载SSL证书
 COPY --from=build-stage /neverland/certs /usr/share/certs
 # 提供服务端口

@@ -18,10 +18,6 @@
 
 [Docker](https://www.docker.com/)
 
-### 部署工具
-
-NAS
-
 ## 安装使用
 
 - 获取代码
@@ -50,19 +46,55 @@ pnpm docs:dev
 pnpm docs:build
 ```
 
-## docker
+## docker部署
 
-dockerFile位于项目根目录下，支持差异化部署
+1. 生成部署文件
 
-nginx.conf位于项目更目录下，支持差异化部署
+    ```command
+    pnpm docs:build
+    ```
 
-### SSL
+2. 将自己的SSL证书放在`certs`目录下。`没有SSL跳过`
 
-1. 将`*.key`和`*.pem`的证书放在当前目录`certs`下
-2. 将`nginx.conf`下的443端口对应的`server_name`改为自己的域名
+3. 更改`nginx.conf`配置，替换成自己的域名
 
-### 构建镜像
+    ```conf{3,18}
+    server {
+        listen 443 ssl; #侦听443端口，用于SSL
+        server_name blog.ilyl.life;  # 自己的域名
+        # 注意证书文件名字和位置，是从/etc/nginx/下开始算起的
+        ssl_certificate /usr/share/certs/blog.pem;
+        ssl_certificate_key /usr/share/certs/blog.key;
+        ssl_session_timeout 5m;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+        ssl_prefer_server_ciphers on;
 
-```command
-docker build -t neverland -f Docker .
-```
+        client_max_body_size 1024m;
+
+        location / {
+        root /usr/share/nginx/html;
+        index index.html;
+        }
+    }
+
+    server {
+    listen 80;
+    location /  {
+        # Force HTTPS
+        return 301 https://blog.ilyl.life:8088;
+    }
+    }
+    ```
+
+4. 构建镜像
+
+    ```command
+    docker build -t neverland:1.0.0 -f Docker .
+    ```
+
+5. 启动
+
+    ```command
+    docker run -p 8088:80 neverland-host neverland:1.0.0
+    ```

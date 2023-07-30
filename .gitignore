@@ -5,3 +5,4 @@ src/.vuepress/dist/*
 src/.vuepress/dist.*
 certs/*.key
 certs/*.pem
+certs/*.crt

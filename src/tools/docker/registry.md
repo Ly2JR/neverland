@@ -36,7 +36,7 @@ tag:
 
 |变量|值|说明|
 |:-|:-|:-|
-|`REGISTRY_HTTP_ADDR`|0.0.0.0:443|SSL需要|
+|`REGISTRY_HTTP_ADDR`|`0.0.0.0:443`|SSL需要|
 |`REGISTRY_HTTP_TLS_CERTIFICATE`|挂载后的文件|SSL需要|
 |`REGISTRY_HTTP_TLS_KEY`|挂载在后的文件|SSL需要|
 |`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin`|`['`<自定义UI地址>`']`|Docker Resitry UI需要，或者`*`|
