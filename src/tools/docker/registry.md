@@ -10,23 +10,60 @@ category:
   - 工具箱
 tag:
   - DOCKER
+  - DOCKER REGISTRY
+  - DOCKER REGISTRY UI
 ---
 
-为了部署使用自己开发的[阿里云解析](aliyun-ddns.md)而做，解决无法登录，及无法发布到Hub Docker的问题。
+为了部署使用自己开发的[阿里云解析](aliyun-ddns.md)而做，解决无法登录，以及无法发布到Hub Docker的问题。
 
-映像:`ali.ddns-image`
+## 完整配置示例
 
-容器:`neverland/ali.ddns`
+该配置包括SSL、基本认证、Docker Registry UI内容。
+
+更多的配置可在[Docker Resistry](https://docs.docker.com/registry/deploying/)和[Docker Resistry UI](https://github.com/Joxit/docker-registry-ui)找到
+
+### Docker Registry
+
+- 文件挂载
+
+|宿主路径|容器路径|说明|
+|:-|:-|:-|
+|<自定义仓库目录>|`/var/lib/registry`|Docker Registry 仓库目录,挂载到宿主目录下|
+|<自定义SSL证书目录>|`/certs`|Docker Registry SSL证书存放位置|
+|<自定义认证目录>|`/auth`|Docker Registry 身份安装存放位置|
+
+- Docker环境变量
+
+|变量|值|说明|
+|:-|:-|:-|
+|`REGISTRY_HTTP_ADDR`|0.0.0.0:443|SSL需要|
+|`REGISTRY_HTTP_TLS_CERTIFICATE`|挂载后的文件|SSL需要|
+|`REGISTRY_HTTP_TLS_KEY`|挂载在后的文件|SSL需要|
+|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin`|`['`<自定义UI地址>`']`|Docker Resitry UI需要，或者`*`|
+|`REGISTRY_AUTH`|`htpasswd`|身份验证需要|
+|`REGISTRY_AUTH_HTPASSWD_REALM`|`Registry Realm`|身份验证需要|
+|`REGISTRY_AUTH_HTPASSWD_PATH`|`/auth/htpasswd`|身份验证需要,自定义认证挂载的Docker目录|
+|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods`|`[HEAD,GET,OPTIONS,DELETE]`|Docker Resitry UI需要|
+|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials`|`[true]`|Docker Resitry UI需要|
+|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers-Control-Allow-Headers`|`[Authorization,Accept,Cache-Control]`|Docker Resitry UI需要|
+|`REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers`|`[Docker-Content-Digest]`|Docker Resitry UI需要|
+
+### Docker Registry UI
+
+- 文件挂载
+
+|宿主路径|容器路径|说明|
+|:-|:-|:-|
+|<自定义nginx.conf配置文件>|`/etc/nginx/conf.d/default.conf`|Docker Registry UI配置文件,[参考文件](#添加docker-registry-ui-ssl)|
+|<自定义SSL证书目录>|`/etc/nginx/certs`|Docker Registry UI SSL证书存放位置|
+
+- Docker环境变量
+
+|变量|值|说明|
+|:-|:-|:-|
+|`REGISTRY_URL`|<Docker Registry 地址>|Docker Resitry访问地址|
 
 ## [Docker Registry](https://docs.docker.com/registry/deploying/)
-
-::: tip
-存储位置：`/var/lib/registry/`
-
-证书位置：`/certs/`
-
-跨域配置：-e REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin="['*']"
-:::
 
 ### 拉取Registry
 
@@ -72,7 +109,7 @@ ParsedHtml        : System.__ComObject
 RawContentLength  : 25
 ```
 
-### [修改配置](https://docs.docker.com/registry/insecure/)
+### [修改配置(`不安全`)](https://docs.docker.com/registry/insecure/)
 
 打开`daemon.json`文件或者在Docker Desktop的`Docker Engine`添加如下配置，SSL无需此配置。
 
@@ -108,6 +145,12 @@ docker run -d \
 
 ### [添加认证](https://docs.docker.com/registry/deploying/#restricting-access)
 
+::: tip
+
+只用Docker界面配置时，可以将保存的用户密码文件`auth`目录挂载即可。
+
+:::
+
 步骤按官网如下:
 
 1. 为用户创建一个密码文件，其中包含一个条目，密码：testusertestpassword
@@ -133,7 +176,7 @@ docker run -d \
 
 3. 使用基本身份验证启动注册表。
 
-    ```command prompt{5,-8}
+    ```command prompt{5-8}
     docker run -d \
       -p 5000:5000 \
       --restart=always \
@@ -148,7 +191,7 @@ docker run -d \
       registry:2
     ```
 
-4. 尝试从注册表中提取映像，或将映像推送到注册表。 这些命令失败。
+4. 尝试从注册表中提取镜像，或将镜像推送到注册表。 这些命令失败。
 
 5. 登录到注册表。
 
@@ -158,7 +201,7 @@ docker run -d \
 
     提供第一步中的用户名和密码。
 
-    测试您现在可以从注册表中提取映像或将映像推送到 注册表
+    测试您现在可以从注册表中提取镜像或将镜像推送到 注册表
 
 ## [Docker Registry UI](https://github.com/Joxit/docker-registry-ui)
 
@@ -221,13 +264,9 @@ server {
 }
 ```
 
-### 更多配置
+## 上传镜像
 
-更多的配置可在github找到
-
-## 上传映像
-
-### 标记映像
+### 标记镜像
 
 [Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
 
@@ -237,15 +276,15 @@ docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns-image:v1
 
 ### 推送镜像
 
-[Docker push](https://docs.docker.com/engine/reference/commandline/push/)，将本地映像推送到`registry`仓库中
+[Docker push](https://docs.docker.com/engine/reference/commandline/push/)，将本地镜像推送到`registry`仓库中
 
 ```command prompt
 docker push 127.0.0.1:5000/ali.ddns-image:v1
 ```
 
-### 拉取映像
+### 拉取镜像
 
-删除本地已有映像，从私有仓库拉取
+删除本地已有镜像，从私有仓库拉取
 
 ```command prompt
 docker pull 127.0.0.1:5000/ali.ddns-image:v1

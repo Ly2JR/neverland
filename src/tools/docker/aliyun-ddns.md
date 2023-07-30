@@ -247,4 +247,4 @@ UpdateDomainRecordResponse? UpdateDns(Client client, string recordId, string new
 
 ## 部署
 
-映像:`ali.ddns-image`，容器:`neverland/ali.ddns`
+镜像:`ali.ddns-image`，容器:`neverland/ali.ddns`

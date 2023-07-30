@@ -109,7 +109,7 @@ Https默认443端口可以不输入，其他端口需要加上端口号
 
 ## NAS端docker部署
 
-NAS里没有IIS，用的Window系统除外，在NAS里找到Docker，下载NGINX映像。
+NAS里没有IIS，用的Window系统除外，在NAS里找到Docker，下载NGINX镜像。
 
 ::: tip
 主要是关于`NGINX`的配置，可以现在桌面端或者是Docker里配置完成之后，在进入NAS里进行配置。

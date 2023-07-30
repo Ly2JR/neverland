@@ -10,11 +10,11 @@ footer: false
 
 [Docker Cli](https://docs.docker.com/engine/reference/commandline/docker/)
 
-以[阿里云解析](aliyun-ddns.md)为例，映像:`ali.ddns-image`，容器:`neverland/ali.ddns`
+以[阿里云解析](aliyun-ddns.md)为例，镜像:`ali.ddns-image`，容器:`neverland/ali.ddns`
 
 ## 常用命令
 
-### 生成映像
+### 生成镜像
 
 [docker build](https://docs.docker.com/engine/reference/commandline/build/)
 
@@ -70,19 +70,19 @@ docker stop neverland/ali.ddns
 docker rm neverland/ali.ddns
 ```
 
-### 删除映像
+### 删除镜像
 
 [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/)
 
 ::: tabs
 
-@tab 删除云解析映像
+@tab 删除云解析镜像
 
 ```.NET CLI
 docker rmi ali.ddns-image
 ```
 
-@tab 删除.NET 映像
+@tab 删除.NET 镜像
 
 ```.NET CLI
 docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
@@ -92,7 +92,7 @@ docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
 
 ## 私有仓库
 
-### 标记映像
+### 标记镜像
 
 [Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
 
@@ -100,7 +100,7 @@ docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
 docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns:v1
 ```
 
-### 上传映像
+### 上传镜像
 
 [Docker push](https://docs.docker.com/engine/reference/commandline/push/)
 
