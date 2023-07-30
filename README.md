@@ -58,30 +58,28 @@ pnpm docs:build
 
 3. 更改`nginx.conf`配置，替换成自己的域名
 
-    ```conf{3,18}
+    ```conf
     server {
-        listen 443 ssl; #侦听443端口，用于SSL
-        server_name blog.ilyl.life;  # 自己的域名
-        # 注意证书文件名字和位置，是从/etc/nginx/下开始算起的
-        ssl_certificate /usr/share/certs/blog.pem;
+        listen 443 ssl; 
+        #更改自己的域名
+        server_name blog.ilyl.life;  
+        ssl_certificate /usr/share/certs/blog.pem;  
         ssl_certificate_key /usr/share/certs/blog.key;
         ssl_session_timeout 5m;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
         ssl_prefer_server_ciphers on;
 
-        client_max_body_size 1024m;
-
         location / {
-        root /usr/share/nginx/html;
-        index index.html;
+            root /usr/share/nginx/html;
+            index index.html;
         }
     }
 
     server {
     listen 80;
     location /  {
-        # Force HTTPS
+        # Force HTTPS,更改自己的域名
         return 301 https://blog.ilyl.life:8088;
     }
     }
