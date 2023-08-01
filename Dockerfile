@@ -1,7 +1,7 @@
 # node 构建
-FROM node:20-alpine as build-stage
+FROM node:20.5.0-alpine as build-stage
 # 署名
-LABEL maintainer="Neverland <982474256@qq.com>"
+LABEL maintainer="乌龙茶有点甜 <982474256@qq.com>"
 # 指定目录
 WORKDIR /neverland
 # 安装nginx
@@ -17,7 +17,7 @@ ENV NODE_OPTIONS=--max-old-space-size=16384
 RUN npm install pnpm -g && \
     pnpm install
 # 编译
-#CMD ["pnpm", "run", "docs:build"]
+CMD ["pnpm", "run", "docs:build"]
 # node部分结束
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 # nginx 部署

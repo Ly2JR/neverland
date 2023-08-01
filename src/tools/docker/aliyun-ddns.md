@@ -7,8 +7,6 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - 工具箱
-tag:
   - DOCKER
 ---
 
@@ -20,11 +18,9 @@ tag:
 
 - [x] 获取公网地址
 - [x] 获取环境变量参数
-- [x] 添加阿里云解析记录
+- [x] 阿里云解析记录
 - [x] 强签名
-- [x] 支持Docker
-- [x] 新增Docker环境变量配置
-- [x] 新增记录修改
+- [x] 支持Docker部署
 
 ## 资料
 
@@ -47,61 +43,67 @@ tag:
 ```cs
 using (var client = new HttpClient())
 {
+    client.BaseAddress = new Uri(Contracts.QUERY_IPADDRESS_URL);
+
     //不使用这个是因为有使用限制,https://ip-api.com/docs/api:json
     //var query = await client.GetFromJsonAsync<IPModelResult>(Contracts.QUERY_IPADDRESS_RESOURCE, cancelllationToken)
     //     .ConfigureAwait(false);
 
-    using var response = await client.GetAsync("http://ip-api.com/json/?lang=zh-CN&fields=status,query", cancelllationToken)
-          .ConfigureAwait(false);
-    response.EnsureSuccessStatusCode().WriteRequestToConsole();
-
-    //检查受限情况
-    var ri = response.Headers.FirstOrDefault(it => it.Key == Contracts.QUERY_IPADDRESS_HEADER_RI).Value;
-    if (ri != null)
+    try
     {
-        if (ri.ElementAt(0) == "0")
+        using var response = await client.GetAsync(Contracts.QUERY_IPADDRESS_RESOURCE, cancelllationToken)
+            .ConfigureAwait(false);
+        response.EnsureSuccessStatusCode().WriteRequestToConsole();
+        //检查受限情况
+        var ri = response.Headers.FirstOrDefault(it => it.Key == Contracts.QUERY_IPADDRESS_HEADER_RI).Value;
+        if (ri != null)
         {
-            var ttl = response.Headers.FirstOrDefault(it => it.Key == Contracts.QUERY_IPADDRESS_HEADER_TTL).Value;
-            Console.WriteLine($"{Contracts.TITLE}ip地址查询受限,等待{ttl.ElementAt(0)}秒后重试");
-            return string.Empty;
+            if (ri.ElementAt(0) == "0")
+            {
+                var ttl = response.Headers.FirstOrDefault(it => it.Key == Contracts.QUERY_IPADDRESS_HEADER_TTL).Value;
+                Console.WriteLine($"{Contracts.TITLE}ip地址查询受限,等待{ttl.ElementAt(0)}秒后重试");
+                return string.Empty;
+            }
+        }
+        var jsonResponse = await response.Content.ReadFromJsonAsync<IPModelResult>();
+        if (jsonResponse != null)
+        {
+            if (jsonResponse.Status != null && jsonResponse.Status == "success") {
+                var networkIp = jsonResponse.Query!;
+                Console.WriteLine($"公网IP:{networkIp}");
+                return networkIp;
+            } 
         }
     }
-    var jsonResponse = await response.Content.ReadFromJsonAsync<IPModelResult>();
-    if (jsonResponse != null)
+    catch (TaskCanceledException ex) when (ex.InnerException is TimeoutException tex)
     {
-        if (jsonResponse.Status != null && jsonResponse.Status == "success") return jsonResponse.Query!;
+        Console.WriteLine($"Timed out: {ex.Message}, {tex.Message}");
+    }
+    catch (HttpRequestException ex) when (ex is { StatusCode: HttpStatusCode.NotFound })
+    {
+        Console.WriteLine($"Not found: {ex.Message}");
+    }
+    catch (HttpRequestException ex) when (ex is { StatusCode: null })
+    {
+        Console.WriteLine($"网络连接失败: {ex.Message}");
     }
 }
-
-record class IPModelResult
-{
-    public IPModelResult(string? status=null,string? query=null) {
-        this.Status= status; 
-        this.Query = query;   
-    }
-    //[JsonPropertyName("status")]
-    public string? Status { get; set; }
-
-    public string? Query { get; set; }
-}
+return string.Empty;
 ```
 
 ## 环境变量
 
 使用`Environment.GetEnvironmentVariable`获取环境变量，一是因为阿里账号问题，二是Docker运行需要配置
 
-```cs
-Environment.GetEnvironmentVariable("XXX");
-```
-
-### Visual Studio
+::: tip
 
 项目`属性`，`调试`，打开`调试启动配置文件UI`
 
-### Docker
+:::
 
-1. `不推荐`在Dockerfile文件里添加`env <VarName>={VarValue}`的方式。
-2. `推荐`使用`docker run -e vername=varvalue`命令。
+```cs
+Environment.GetEnvironmentVariable("XXX");
+```
 
 ## 云解析
 
@@ -146,7 +148,7 @@ DescribeDomainRecordsResponse? QueryDns(Client client, string domain = Contracts
     {
         // 如有需要，请打印 error
         var msg = Common.AssertAsString(error.Message);
-
+        Console.WriteLine($"{Contracts.TITLE}查询云解析失败,{msg}");
     }
     catch (Exception _error)
     {
@@ -244,7 +246,3 @@ UpdateDomainRecordResponse? UpdateDns(Client client, string recordId, string new
 ```
 
 :::
-
-## 部署
-
-镜像:`ali.ddns-image`，容器:`neverland/ali.ddns`

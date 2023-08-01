@@ -6,6 +6,8 @@ article: false
 index: false
 editLink: false
 footer: false
+category:
+  - DOCKER
 ---
 
 [Docker Cli](https://docs.docker.com/engine/reference/commandline/docker/)

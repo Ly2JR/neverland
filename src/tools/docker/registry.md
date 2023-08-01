@@ -7,11 +7,7 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - 工具箱
-tag:
   - DOCKER
-  - DOCKER REGISTRY
-  - DOCKER REGISTRY UI
 ---
 
 为了部署使用自己开发的[阿里云解析](aliyun-ddns.md)而做，解决无法登录，以及无法发布到Hub Docker的问题。
