@@ -86,6 +86,12 @@ export const zhSidebar = sidebar({
           children: "structure",
         },
         {
+          text: "科大讯飞",
+          prefix: "xunfei/",
+          children: "structure",
+          collapsible: true,
+        },
+        {
           text: "FFMPEG",
           icon: "logos:ffmpeg-icon",
           prefix: "ffmpeg/",

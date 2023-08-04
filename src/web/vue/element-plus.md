@@ -12,7 +12,7 @@ tag:
   - element-plus
 ---
 
-::: vue-playground pointer-events
+::: vue-playground Element-Plus
 
 @file App.vue
 
