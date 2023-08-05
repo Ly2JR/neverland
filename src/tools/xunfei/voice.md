@@ -12,11 +12,11 @@ tag:
   - 语音合成
 ---
 
-[语音合成文档](https://www.xfyun.cn/doc/tts/online_tts/API.html)
+将讯飞语音合成集成到VUE项目`Vite+TS`中，其中有一点点变化，作此记录。
 
-[WebApi示例:`es6`](https://www.xfyun.cn/doc/tts/online_tts/API.html#%E8%B0%83%E7%94%A8%E7%A4%BA%E4%BE%8B)
+- [语音合成文档](https://www.xfyun.cn/doc/tts/online_tts/API.html)
 
-将讯飞语音合成集成到VUE项目`Vite+TS`中，其中有一点点变化``，作此记录。
+- [WebApi示例:`es6`](https://www.xfyun.cn/doc/tts/online_tts/API.html#%E8%B0%83%E7%94%A8%E7%A4%BA%E4%BE%8B)
 
 ## 前提
 
@@ -48,21 +48,23 @@ tag:
 
 ```vue
 <script setup>
-import { ref, getCurrentInstance } from 'vue'
+import { ref, getCurrentInstance,reactive } from 'vue'
 import ElementPlus from 'element-plus' 
 import TtsRecorder from './audio.js'
-import { downloadMP3, downloadPCM, downloadWAV } from './download.js'
 getCurrentInstance().appContext.app.use(ElementPlus)
 
-const key={
+const key=reactive({
     APPID:'',
     APISecret:'',
     APIKey:'',
-}
+});
 
  const ttsRecord = new TtsRecorder();
       function handleStart() {
         ttsRecord.setParams({
+          APPID:key.APPID,
+          APISecret:key.APISecret,
+          APIKey:key.APIKey,
           text: '你好，世界',
           speed: 50,
           voice: 50,
@@ -73,34 +75,11 @@ const key={
       function handlePause() {
         ttsRecord.stop();
       }
-
-      function handleDownloadPcm() {
-        if (ttsRecord.rawAudioData.length) {
-          downloadPCM(new Int16Array(ttsRecord.rawAudioData));
-        } else {
-          alert('请先合成');
-        }
-      }
-
-      function handleDownloadWav() {
-        if (ttsRecord.rawAudioData.length) {
-          downloadWAV(new DataView(new Int16Array(ttsRecord.rawAudioData).buffer), 16000, 16);
-        } else {
-          alert('请先合成');
-        }
-      }
-      function handleDownloadMP3() {
-        if (ttsRecord.rawAudioData.length) {
-          downloadMP3(new DataView(new Int16Array(ttsRecord.rawAudioData).buffer), 16000, 16);
-        } else {
-          alert('请先合成');
-        }
-      }
-
-
 </script>
 
 <template>
+  <el-alert title="因为演示隔离问题,存在部分差异,但实际一样" type="info" effect="dark" />
+  <el-alert title="输入讯飞接口鉴权即可合成" type="success" effect="dark" />
     <el-row>
         <el-space direction="vertical">
             <el-input v-model="key.APPID" placeholder="Please input APPID" />
@@ -111,11 +90,6 @@ const key={
     <el-row>
         <el-button type="primary" @click="handleStart">开始合成</el-button>
         <el-button type="primary" @click="handlePause">停止播放</el-button>
-    </el-row>
-    <el-row>
-        <el-button type="info" @click="handleDownloadPcm">下载PCM</el-button>
-        <el-button type="info" @click="handleDownloadWav">下载WAV</el-button>
-        <el-button type="info" @click="handleDownloadMP3">下载MP3</el-button>
     </el-row>
 </template>
 
@@ -130,12 +104,10 @@ const key={
 ```js
 import CryptoJS from 'crypto-js';
 import { Base64 } from 'js-base64';
-const transWorker = new Worker('./transcode.worker.js');
-//APPID，APISecret，APIKey在控制台-我的应用-语音合成（流式版）页面获取
-const APPID = '';
-const API_SECRET = '';
-const API_KEY = '';
-
+const transWorker = new Worker('/assets/js/transcode.worker.js');
+let APPID = "";
+let API_SECRET = "";
+let API_KEY = "";
 function getWebsocketUrl() {
   return new Promise((resolve, reject) => {
     var apiKey = API_KEY;
@@ -156,15 +128,19 @@ function getWebsocketUrl() {
 }
 class TTSRecorder {
   constructor({
+    apiSecret='',
+    apiKey='',
     speed = 50,
     voice = 50,
     pitch = 50,
     voiceName = 'xiaoyan',
-    appId = APPID,
+    appId = '',
     text = '',
     tte = 'UTF8',
     defaultText = '请输入您要合成的文本',
   } = {}) {
+    this.apiSecret=apiSecret;
+    this.apiKey=apiKey;
     this.speed = speed;
     this.voice = voice;
     this.pitch = pitch;
@@ -188,13 +164,19 @@ class TTSRecorder {
     this.status = status;
   }
   // 设置合成相关参数
-  setParams({ speed, voice, pitch, text, voiceName, tte }) {
+  setParams({APPID,APISecret,APIKey,speed, voice, pitch, text, voiceName, tte }) {
+    APPID !== undefined && (this.appId = APPID);
+    APISecret !== undefined && (this.apiSecret = APISecret);
+    APIKey !== undefined && (this.apiKey = APIKey);
     speed !== undefined && (this.speed = speed);
     voice !== undefined && (this.voice = voice);
     pitch !== undefined && (this.pitch = pitch);
     text && (this.text = text);
     tte && (this.tte = tte);
     voiceName && (this.voiceName = voiceName);
+    APPID=APPID;
+    API_SECRET=APISecret;
+    API_KEY=APIKey;
     this.resetAudio();
   }
   // 连接websocket
@@ -237,7 +219,7 @@ class TTSRecorder {
   webSocketSend() {
     var params = {
       common: {
-        app_id: this.appId, // APPID
+        app_id: this.appId,
       },
       business: {
         aue: 'raw',
@@ -383,171 +365,6 @@ class TTSRecorder {
 }
 
 export default TTSRecorder;
-```
-
-@file download.js
-
-```js
-function writeString(data, offset, str) {
-  for (var i = 0; i < str.length; i++) {
-    data.setUint8(offset + i, str.charCodeAt(i));
-  }
-}
-
-/**
- * 加wav头
- * @param {音频arrayBuffer} bytes
- * @param {采样率} sampleRate
- * @param {声道数} numChannels
- * @param {sampleBits} oututSampleBits
- * @param {小端字节} littleEdian
- */
-function encodeWAV(bytes, sampleRate, numChannels, oututSampleBits, littleEdian = true) {
-  let sampleBits = oututSampleBits;
-  let buffer = new ArrayBuffer(44 + bytes.byteLength);
-  let data = new DataView(buffer);
-  let channelCount = numChannels;
-  let offset = 0;
-  // 资源交换文件标识符
-  writeString(data, offset, 'RIFF');
-  offset += 4;
-  // 下个地址开始到文件尾总字节数,即文件大小-8
-  data.setUint32(offset, 36 + bytes.byteLength, true);
-  offset += 4;
-  // WAV文件标志
-  writeString(data, offset, 'WAVE');
-  offset += 4;
-  // 波形格式标志
-  writeString(data, offset, 'fmt ');
-  offset += 4;
-  // 过滤字节,一般为 0x10 = 16
-  data.setUint32(offset, 16, true);
-  offset += 4;
-  // 格式类别 (PCM形式采样数据)
-  data.setUint16(offset, 1, true);
-  offset += 2;
-  // 通道数
-  data.setUint16(offset, channelCount, true);
-  offset += 2;
-  // 采样率,每秒样本数,表示每个通道的播放速度
-  data.setUint32(offset, sampleRate, true);
-  offset += 4;
-  // 波形数据传输率 (每秒平均字节数) 单声道×每秒数据位数×每样本数据位/8
-  data.setUint32(offset, channelCount * sampleRate * (sampleBits / 8), true);
-  offset += 4;
-  // 快数据调整数 采样一次占用字节数 单声道×每样本的数据位数/8
-  data.setUint16(offset, channelCount * (sampleBits / 8), true);
-  offset += 2;
-  // 每样本数据位数
-  data.setUint16(offset, sampleBits, true);
-  offset += 2;
-  // 数据标识符
-  writeString(data, offset, 'data');
-  offset += 4;
-  // 采样数据总数,即数据总大小-44
-  data.setUint32(offset, bytes.byteLength, true);
-  offset += 4;
-
-  // 给wav头增加pcm体
-  for (let i = 0; i < bytes.byteLength; ) {
-    data.setUint8(offset, bytes.getUint8(i), true);
-    offset++;
-    i++;
-  }
-
-  return data;
-}
-
-function downloadWAV(audioData, sampleRate, oututSampleBits) {
-  let wavData = encodeWAV(audioData, sampleRate || 44100, 1, oututSampleBits || 16);
-  let blob = new Blob([wavData], {
-    type: 'audio/wav',
-  });
-  let defaultName = new Date().getTime();
-  let node = document.createElement('a');
-  node.href = window.URL.createObjectURL(blob);
-  node.download = `${defaultName}.wav`;
-  node.click();
-  node.remove();
-}
-
-function downloadPCM(audioData) {
-  let blob = new Blob([audioData], {
-    type: 'audio/pcm',
-  });
-  let defaultName = new Date().getTime();
-  let node = document.createElement('a');
-  node.href = window.URL.createObjectURL(blob);
-  node.download = `${defaultName}.pcm`;
-  node.click();
-  node.remove();
-}
-
-function downloadMP3(audioData, sampleRate, oututSampleBits) {
-  let wavData = encodeWAV(audioData, sampleRate || 44100, 1, oututSampleBits || 16);
-  let blob = new Blob([wavData], {
-    type: 'audio/mp3',
-  });
-  let defaultName = new Date().getTime();
-  let node = document.createElement('a');
-  node.href = window.URL.createObjectURL(blob);
-  node.download = `${defaultName}.mp3`;
-  node.click();
-  node.remove();
-}
-export { downloadMP3, downloadPCM, downloadWAV };
-```
-
-@file transcode.worker.js
-
-```js
-self.onmessage = function (e) {
-  transcode.transToAudioData(e.data);
-};
-let transcode = {
-  transToAudioData: function (audioDataStr, fromRate = 16000, toRate = 22505) {
-    let outputS16 = transcode.base64ToS16(audioDataStr);
-    let output = transcode.transS16ToF32(outputS16);
-    output = transcode.transSamplingRate(output, fromRate, toRate);
-    output = Array.from(output);
-    self.postMessage({
-      data: output,
-      rawAudioData: Array.from(outputS16),
-    });
-  },
-  transSamplingRate: function (data, fromRate = 44100, toRate = 16000) {
-    var fitCount = Math.round(data.length * (toRate / fromRate));
-    var newData = new Float32Array(fitCount);
-    var springFactor = (data.length - 1) / (fitCount - 1);
-    newData[0] = data[0];
-    for (let i = 1; i < fitCount - 1; i++) {
-      var tmp = i * springFactor;
-      var before = Math.floor(tmp).toFixed();
-      var after = Math.ceil(tmp).toFixed();
-      var atPoint = tmp - before;
-      newData[i] = data[before] + (data[after] - data[before]) * atPoint;
-    }
-    newData[fitCount - 1] = data[data.length - 1];
-    return newData;
-  },
-  transS16ToF32: function (input) {
-    var tmpData = [];
-    for (let i = 0; i < input.length; i++) {
-      var d = input[i] < 0 ? input[i] / 0x8000 : input[i] / 0x7fff;
-      tmpData.push(d);
-    }
-    return new Float32Array(tmpData);
-  },
-  base64ToS16: function (base64AudioData) {
-    base64AudioData = atob(base64AudioData);
-    //base64AudioData = Buffer.from(base64AudioData, 'base64');
-    const outputArray = new Uint8Array(base64AudioData.length);
-    for (let i = 0; i < base64AudioData.length; ++i) {
-      outputArray[i] = base64AudioData.charCodeAt(i);
-    }
-    return new Int16Array(new DataView(outputArray.buffer).buffer);
-  },
-};
 ```
 
 @import

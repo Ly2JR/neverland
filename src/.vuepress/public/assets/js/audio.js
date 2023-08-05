@@ -33,9 +33,9 @@ const transWorker = new Worker(
   new URL("./transcode.worker.js", import.meta.url)
 );
 //APPID，APISecret，APIKey在控制台-我的应用-语音合成（流式版）页面获取
-const APPID = "5d256d8c";
-const API_SECRET = "713c955cb55153a28553b81f5ec84608";
-const API_KEY = "71c875088486f228d3941a82b97be7c7";
+const APPID = "";
+const API_SECRET = "";
+const API_KEY = "";
 
 function getWebsocketUrl() {
   return new Promise((resolve, reject) => {
