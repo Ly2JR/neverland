@@ -10,15 +10,68 @@ category:
   - DOCKER
 ---
 
-为了部署使用自己开发的[阿里云解析](aliyun-ddns.md)而做，解决无法登录，以及无法发布到Hub Docker的问题。
+为了使用自己开发的[阿里云解析](aliyun-ddns.md)而生。
 
-## 完整配置示例
+同时解决无法登录及发布Docker Hub的问题。
 
-该配置包括SSL、基本认证、Docker Registry UI内容。
+包括SSL、基本认证、Docker Registry UI内容。
 
-更多的配置可在[Docker Resistry](https://docs.docker.com/registry/deploying/)和[Docker Resistry UI](https://github.com/Joxit/docker-registry-ui)找到
+更多的配置可在[Docker Resistry](https://docs.docker.com/registry/deploying/)和[Docker Resistry UI](https://github.com/Joxit/docker-registry-ui)找到。
 
-### Docker Registry
+## docker-compose.yml
+
+```yml
+version: '3.8'
+
+services:
+  registry-ui:
+    container_name: REGISTRY_UI
+    image: 'joxit/docker-registry-ui:2.5.2'
+    volumes:
+      - <SSL证书目录>:/etc/nginx/certs
+      - <nginx的conf.d配置目录>:/etc/nginx/conf.d/
+    ports:
+      - 443:443
+     environment:
+      - REGISTRY_URL=<REGISTRY的URL>
+      - SHOW_CATALOG_NB_TAGS=true
+      - DELETE_IMAGES=true
+      - REGISTRY_TITLE=Neverland
+      - SINGLE_REGISTRY=true
+      - CATALOG_MIN_BRANCHES=1
+      - CATALOG_MAX_BRANCHES=1
+      - CATALOG_ELEMENTS_LIMIT=1000
+      - SHOW_CONTENT_DIGEST=true
+      - TAGLIST_PAGE_SIZE=100
+    depends_on:
+      - registry
+  registry:
+    container_name: REGISTRY
+    image: 'registry:2.8.2'
+    volumes:
+      - <Registry存储目录>:/var/lib/registry
+      - <Registry SSL证书目录>:/certs
+      - <Registry 用户认证目录>:/auth
+    environment:
+      - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin=[<Docker Registry UI地址>]
+      - REGISTRY_HTTP_ADDR=0.0.0.0:443
+      - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/docker.pem
+      - REGISTRY_HTTP_TLS_KEY=/certs/docker.key
+      - REGISTRY_AUTH=htpasswd
+      - REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm
+      - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+      - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods=['HEAD', 'GET', 'OPTIONS', 'DELETE']
+      - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials=[true]
+      - REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers=['Docker-Content-Digest']
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
+      - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers-Control-Allow-Headers=['Authorization', 'Accept', 'Cache-Control']
+      - REGISTRY_HTTP_HEADERS_X-Content-Type-Options=[nosniff]
+      - Access-Control-Max-Age=[1728000]
+    ports:
+      - 443:443  
+```
+
+### Docker Registry 配置说明
 
 - 文件挂载
 
@@ -44,7 +97,7 @@ category:
 |`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers-Control-Allow-Headers`|`[Authorization,Accept,Cache-Control]`|Docker Resitry UI需要|
 |`REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers`|`[Docker-Content-Digest]`|Docker Resitry UI需要|
 
-### Docker Registry UI
+### Docker Registry UI 配置说明
 
 - 文件挂载
 

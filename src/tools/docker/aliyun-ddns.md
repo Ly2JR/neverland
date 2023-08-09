@@ -10,8 +10,6 @@ category:
   - DOCKER
 ---
 
-## 缘由
-
 在[NAS自动同步DDNS](../nas/cloud.md#私有云动态ip问题)上使用的是[chenhw2/aliyun-ddns-cli:latest](chenhw2/aliyun-ddns-cli:latest)，使用的是Go。
 
 作为一名普通的C#开发者，有必要自己来实现，以及顺便学习下Docker，[原代码地址](https://github.com/Ly2JR/aliyun.ddns)。
@@ -24,19 +22,21 @@ category:
 
 ## 资料
 
-[Dokcer](https://docs.docker.com/language/dotnet/)
+- [Dokcer](https://docs.docker.com/language/dotnet/)
 
-[阿里云OPENAPI](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09&language=csharp-tea&tab=primer-doc)
+- [阿里云OPENAPI](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09&language=csharp-tea&tab=primer-doc)
 
-[.NET 微服务](https://dotnet.microsoft.com/zh-cn/learn/aspnet/microservice-tutorial/intro)
+- [.NET 微服务](https://dotnet.microsoft.com/zh-cn/learn/aspnet/microservice-tutorial/intro)
 
-[Docker与.NET Core](https://learn.microsoft.com/zh-cn/dotnet/core/docker/introduction)
+- [Docker与.NET Core](https://learn.microsoft.com/zh-cn/dotnet/core/docker/introduction)
 
-[.NET 官方镜像](https://mcr.microsoft.com/en-us/catalog?page=1)
+- [.NET 官方镜像](https://mcr.microsoft.com/en-us/catalog?page=1)
 
 ## 公网IP
 
-有很多种获取外网IP的方式，这里选用[ip-api](https://ip-api.com/)，个人够用，利用`http://ip-api.com/json/?lang=zh-CN&fields=status,query`获取到公网地址。
+有很多种获取外网IP的方式，这里选用[ip-api](https://ip-api.com/)，个人够用。
+
+利用`http://ip-api.com/json/?lang=zh-CN&fields=status,query`获取到公网地址。
 
 [测试当前公网IP](http://ip-api.com/json/?lang=zh-CN&fields=status,query)
 
@@ -93,17 +93,21 @@ return string.Empty;
 
 ## 环境变量
 
-使用`Environment.GetEnvironmentVariable`获取环境变量，一是因为阿里账号问题，二是Docker运行需要配置
+使用[Environment.GetEnvironmentVariable](https://learn.microsoft.com/zh-cn/dotnet/api/system.environment.getenvironmentvariable?view=net-6.0)获取环境变量
+
+一是因为账号安全问题
+
+二是Docker运行配置
 
 ::: tip
 
 项目`属性`，`调试`，打开`调试启动配置文件UI`
 
-:::
-
 ```cs
 Environment.GetEnvironmentVariable("XXX");
 ```
+
+:::
 
 ## 云解析
 
@@ -246,3 +250,73 @@ UpdateDomainRecordResponse? UpdateDns(Client client, string recordId, string new
 ```
 
 :::
+
+## Dockerfile
+
+```tip
+最简单的方式是使用VS2022，添加Docker支持，自动生成
+```
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/runtime:7.0 AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["neverland.aliyun.ddns.csproj", "."]
+RUN dotnet restore "./neverland.aliyun.ddns.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "neverland.aliyun.ddns.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "neverland.aliyun.ddns.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+
+LABEL MAINTAINER=乌龙茶有点甜<982474256@qq.com>
+
+ENV DOTNET_EnableDiagnostics=0
+
+ENTRYPOINT ["dotnet", "neverland.aliyun.ddns.dll"]
+
+ENV ALIKID= \
+    ALIKSCT= \
+    ALIDOMAIN=ilyl.life \
+    ALITTL=600
+```
+
+## docker-compose.yml
+
+```yml
+version: '3.4'
+
+services:
+  neverland.aliyun.ddns:
+    image: ${DOCKER_REGISTRY-}ali.ddns:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+```
+
+### docker-compose.override.yml
+
+```yml
+version: '3.8'
+
+services:
+  neverland.aliyun.ddns:
+    container_name: ALIYUN-DDNS
+    networks:
+      - product-network
+    environment:
+      - ALIKID=
+      - ALIKSCT=
+      - ALIDOMAIN=ilyl.life
+      - ALITTL=600
+networks:
+  product-network:
+    driver: bridge
+```
