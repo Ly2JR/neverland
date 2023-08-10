@@ -32,6 +32,76 @@ category:
 
 - [.NET 官方镜像](https://mcr.microsoft.com/en-us/catalog?page=1)
 
+## docker-compose.yml
+
+```yml
+version: '3.4'
+
+services:
+  neverland.aliyun.ddns:
+    image: ${DOCKER_REGISTRY-}ali.ddns:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+```
+
+### docker-compose.override.yml
+
+```yml
+version: '3.8'
+
+services:
+  neverland.aliyun.ddns:
+    container_name: ALIYUN-DDNS
+    networks:
+      - product-network
+    environment:
+      - ALIKID=
+      - ALIKSCT=
+      - ALIDOMAIN=ilyl.life
+      - ALITTL=600
+networks:
+  product-network:
+    driver: bridge
+```
+
+## Dockerfile
+
+::: tip
+最简单的方式是使用VS2022，添加Docker支持，自动生成
+:::
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/runtime:7.0 AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["neverland.aliyun.ddns.csproj", "."]
+RUN dotnet restore "./neverland.aliyun.ddns.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "neverland.aliyun.ddns.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "neverland.aliyun.ddns.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+
+LABEL MAINTAINER=乌龙茶有点甜<982474256@qq.com>
+
+ENV DOTNET_EnableDiagnostics=0
+
+ENTRYPOINT ["dotnet", "neverland.aliyun.ddns.dll"]
+
+ENV ALIKID= \
+    ALIKSCT= \
+    ALIDOMAIN=ilyl.life \
+    ALITTL=600
+```
+
 ## 公网IP
 
 有很多种获取外网IP的方式，这里选用[ip-api](https://ip-api.com/)，个人够用。
@@ -101,12 +171,8 @@ return string.Empty;
 
 ::: tip
 
-项目`属性`，`调试`，打开`调试启动配置文件UI`
-
-```cs
-Environment.GetEnvironmentVariable("XXX");
-```
-
+1. 项目`属性`，`调试`，打开`调试启动配置文件UI`
+2. 通过[Environment.SetEnvironmentVariable](https://learn.microsoft.com/zh-cn/dotnet/api/system.environment.setenvironmentvariable?view=net-7.0)配合`#if DEBUG`条件编译设置环境变量
 :::
 
 ## 云解析
@@ -250,73 +316,3 @@ UpdateDomainRecordResponse? UpdateDns(Client client, string recordId, string new
 ```
 
 :::
-
-## Dockerfile
-
-```tip
-最简单的方式是使用VS2022，添加Docker支持，自动生成
-```
-
-```dockerfile
-FROM mcr.microsoft.com/dotnet/runtime:7.0 AS base
-WORKDIR /app
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
-COPY ["neverland.aliyun.ddns.csproj", "."]
-RUN dotnet restore "./neverland.aliyun.ddns.csproj"
-COPY . .
-WORKDIR "/src/."
-RUN dotnet build "neverland.aliyun.ddns.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "neverland.aliyun.ddns.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-
-LABEL MAINTAINER=乌龙茶有点甜<982474256@qq.com>
-
-ENV DOTNET_EnableDiagnostics=0
-
-ENTRYPOINT ["dotnet", "neverland.aliyun.ddns.dll"]
-
-ENV ALIKID= \
-    ALIKSCT= \
-    ALIDOMAIN=ilyl.life \
-    ALITTL=600
-```
-
-## docker-compose.yml
-
-```yml
-version: '3.4'
-
-services:
-  neverland.aliyun.ddns:
-    image: ${DOCKER_REGISTRY-}ali.ddns:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile
-```
-
-### docker-compose.override.yml
-
-```yml
-version: '3.8'
-
-services:
-  neverland.aliyun.ddns:
-    container_name: ALIYUN-DDNS
-    networks:
-      - product-network
-    environment:
-      - ALIKID=
-      - ALIKSCT=
-      - ALIDOMAIN=ilyl.life
-      - ALITTL=600
-networks:
-  product-network:
-    driver: bridge
-```

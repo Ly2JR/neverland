@@ -20,7 +20,15 @@ category:
 
 ## docker-compose.yml
 
-```yml
+- `第8行`: Registry UI的域名SSL证书目录
+- `第9行`: 自己的Nginx配置文件
+- `第13行`: Registry的URL地址
+- `第29行`: Registry的仓库存储目录
+- `第30行`: Registry的域名SSL证书目录
+- `第31行`: Registry的基本认证目录
+- `第33行`: Registry允许跨域访问的地址
+
+```yml{8-9,13,29-31,33}
 version: '3.8'
 
 services:
@@ -61,7 +69,7 @@ services:
       - REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm
       - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
       - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods=['HEAD', 'GET', 'OPTIONS', 'DELETE']
-      - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials=[true]
+      - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials=['true']
       - REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers=['Docker-Content-Digest']
       - REGISTRY_STORAGE_DELETE_ENABLED=true
       - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers-Control-Allow-Headers=['Authorization', 'Accept', 'Cache-Control']
@@ -70,47 +78,6 @@ services:
     ports:
       - 443:443  
 ```
-
-### Docker Registry 配置说明
-
-- 文件挂载
-
-|宿主路径|容器路径|说明|
-|:-|:-|:-|
-|<自定义仓库目录>|`/var/lib/registry`|Docker Registry 仓库目录,挂载到宿主目录下|
-|<自定义SSL证书目录>|`/certs`|Docker Registry SSL证书存放位置|
-|<自定义认证目录>|`/auth`|Docker Registry 身份安装存放位置|
-
-- Docker环境变量
-
-|变量|值|说明|
-|:-|:-|:-|
-|`REGISTRY_HTTP_ADDR`|`0.0.0.0:443`|SSL需要|
-|`REGISTRY_HTTP_TLS_CERTIFICATE`|挂载后的文件|SSL需要|
-|`REGISTRY_HTTP_TLS_KEY`|挂载在后的文件|SSL需要|
-|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin`|`['`<自定义UI地址>`']`|Docker Resitry UI需要，或者`*`|
-|`REGISTRY_AUTH`|`htpasswd`|身份验证需要|
-|`REGISTRY_AUTH_HTPASSWD_REALM`|`Registry Realm`|身份验证需要|
-|`REGISTRY_AUTH_HTPASSWD_PATH`|`/auth/htpasswd`|身份验证需要,自定义认证挂载的Docker目录|
-|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods`|`[HEAD,GET,OPTIONS,DELETE]`|Docker Resitry UI需要|
-|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials`|`[true]`|Docker Resitry UI需要|
-|`REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers-Control-Allow-Headers`|`[Authorization,Accept,Cache-Control]`|Docker Resitry UI需要|
-|`REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers`|`[Docker-Content-Digest]`|Docker Resitry UI需要|
-
-### Docker Registry UI 配置说明
-
-- 文件挂载
-
-|宿主路径|容器路径|说明|
-|:-|:-|:-|
-|<自定义nginx.conf配置文件>|`/etc/nginx/conf.d/default.conf`|Docker Registry UI配置文件,[参考文件](#添加docker-registry-ui-ssl)|
-|<自定义SSL证书目录>|`/etc/nginx/certs`|Docker Registry UI SSL证书存放位置|
-
-- Docker环境变量
-
-|变量|值|说明|
-|:-|:-|:-|
-|`REGISTRY_URL`|<Docker Registry 地址>|Docker Resitry访问地址|
 
 ## [Docker Registry](https://docs.docker.com/registry/deploying/)
 
