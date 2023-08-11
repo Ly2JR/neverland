@@ -6,6 +6,9 @@ star : 2
 editLink: false
 footer: false
 isOriginal: true
+dir:
+    order: 7
+order: 7
 category:
   - C#
 tag:

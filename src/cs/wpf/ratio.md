@@ -5,6 +5,9 @@ dir.order: 1
 editLink: false
 footer: false
 isOriginal: true
+dir:
+    order: 8
+order: 8
 category:
   - C#
 tag:
