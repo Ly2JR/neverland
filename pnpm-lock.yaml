@@ -2265,8 +2265,8 @@ packages:
       '@vue/shared': 3.3.4
     dev: false
 
-  /@vue/repl@2.5.7:
-    resolution: {integrity: sha512-Hf9pnrJC8zAlOqfGJ32poHVV+Q8frggQY6NCZfD9UFT2geiDu9InrYmqlhw7rSkRp5bXH0Ed9Cp3J+9J0mfjeQ==}
+  /@vue/repl@2.5.8:
+    resolution: {integrity: sha512-IvOlNhka4VKDQZS9FIceFFWyPibzqAUHyjHOoe8cMZmeP7H3H7mfMqvzQ0l1wjMAqqeEcgpFhSzMWsTEL4XZeA==}
     requiresBuild: true
     dev: false
 
@@ -7225,7 +7225,7 @@ packages:
       '@mdit/plugin-uml': 0.4.8
       '@types/js-yaml': 4.0.5
       '@types/markdown-it': 12.2.3
-      '@vue/repl': 2.5.7
+      '@vue/repl': 2.5.8
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66
