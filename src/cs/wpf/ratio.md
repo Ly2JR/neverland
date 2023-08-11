@@ -1,5 +1,5 @@
 ---
-title: 画面比例
+title: 屏幕比
 date: 2023-08-10
 dir.order: 1
 editLink: false

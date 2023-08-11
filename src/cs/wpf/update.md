@@ -1,5 +1,5 @@
 ---
-title: 更新
+title: 软件更新
 date: 2023-06-28
 editLink: false
 footer: false

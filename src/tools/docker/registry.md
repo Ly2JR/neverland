@@ -14,7 +14,7 @@ category:
 
 同时解决无法登录及发布Docker Hub的问题。
 
-包括SSL、基本认证、Docker Registry UI内容。
+包括SSL、基本认证、Docker Registry UI、删除镜像内容。
 
 更多的配置可在[Docker Resistry](https://docs.docker.com/registry/deploying/)和[Docker Resistry UI](https://github.com/Joxit/docker-registry-ui)找到。
 
@@ -41,8 +41,8 @@ services:
     ports:
       - 443:443
      environment:
-      - REGISTRY_URL=<REGISTRY的URL>
-      - SHOW_CATALOG_NB_TAGS=true
+      - NGINX_PROXY_PASS_URL=<REGISTRY的URL>
+      - SHOW_CATALOG_NB_TAGS=false
       - DELETE_IMAGES=true
       - REGISTRY_TITLE=Neverland
       - SINGLE_REGISTRY=true

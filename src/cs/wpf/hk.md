@@ -14,8 +14,6 @@ tag:
   - 海康视频
 ---
 
-## 环境
-
 默认都是最新的版本
 
 - [Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/downloads/)
@@ -75,7 +73,7 @@ WPF控件没有句柄,通过[WindowsFormsIntegration](https://learn.microsoft.co
 
 3. 添加`PictureBox`控件
 
-    ```xaml
+    ```xml
     <wfi:WindowsFormsHost>
         <wf:PictureBox x:Name="videoPictureBox"/>
     </wfi:WindowsFormsHost>
@@ -85,7 +83,7 @@ WPF控件没有句柄,通过[WindowsFormsIntegration](https://learn.microsoft.co
 
     这里使用Wpf中的`behaviors`,将`PictureBox`控件本身当作参数传递即可。
 
-    ```xaml
+    ```xml
      <Button Content="句柄预览">
           <i:Interaction.Triggers>
               <i:EventTrigger EventName="Click">
@@ -156,7 +154,7 @@ Winform则通过[Control.InvokeRequired](https://learn.microsoft.com/zh-cn/dotne
 3. 通过FFmpeg提供的`sws_scale`进行转换
 
     ::: warning
-    虽然`FFmpeg.AutoGen`提供了C#版本，但是FFmpeg参数问题还需要自己处理，例如常见的[Intptr与指针转换](../utility/intptr-to-pointer.md)
+    虽然`FFmpeg.AutoGen`提供了C#版本，但是FFmpeg参数问题还需要自己处理，例如常见的[Intptr与指针转换](../../tools/csharp/intptr-to-pointer.md)
 
     别忘了释放指针，否则 :bomb:
     :::

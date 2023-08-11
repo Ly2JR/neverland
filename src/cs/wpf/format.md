@@ -1,5 +1,5 @@
 ---
-title: 字符格式化
+title: 格式化
 date: 2023-06-28
 editLink: false
 footer: false
