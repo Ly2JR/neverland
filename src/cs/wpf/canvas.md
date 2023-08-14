@@ -13,7 +13,7 @@ tag:
   - WPF
 ---
 
-WPF提供[数字墨迹](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/getting-started-with-ink?view=netframeworkdesktop-4.8),简单几行代码就可以运行
+WPF提供[数字墨迹](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/getting-started-with-ink?view=netframeworkdesktop-4.8)，简单几行代码就可以运行，[源代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/InkCanvasDemo)
 
 ```xml
  <Grid>
@@ -43,9 +43,7 @@ WPF提供[数字墨迹](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/adv
 
 ![放大](https://nas.ilyl.life:8092/wpf/canvas_2.gif =420x200)
 
-## 编辑模式
-
-[EditingModel](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.inkcanvas.editingmode?view=windowsdesktop-7.0)提供编辑模式
+## [编辑模式](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.inkcanvas.editingmode?view=windowsdesktop-7.0)
 
 ```xml
 <Window.Resources>
@@ -157,16 +155,12 @@ public class NameList:ObservableCollection<string>{
     <ListBox
         Name="lbDrawingAttributes"
         Grid.Column="0"
-        Canvas.Left="450"
-        Canvas.Top="150"
         Width="100"
         Height="100"
         ItemsSource="{StaticResource MyDrawingAttributes}" />
     <ListBox
         Name="lbEditingMode"
         Grid.Column="1"
-        Canvas.Left="450"
-        Canvas.Top="0"
         Width="100"
         Height="100"
         ItemsSource="{StaticResource MyEditingModes}" />
@@ -179,4 +173,44 @@ public class NameList:ObservableCollection<string>{
 </Grid>
 ```
 
-![DrawingAttributes](https://nas.ilyl.life:8092/wpf/canvas_4.gif =420x200)
+![画笔](https://nas.ilyl.life:8092/wpf/canvas_4.gif =420x200)
+
+## [手写识别](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/handwriting-recognition?view=netframeworkdesktop-4.8)
+
+::: tip
+`Microsoft.Ink.dll`在`\Program Files\Common Files\Microsoft Shared\Ink`中找到
+:::
+
+```cs
+using Microsoft.Ink;
+
+using (MemoryStream ms = new MemoryStream())
+{
+    theInkCanvas.Strokes.Save(ms);
+    var myInkCollector = new InkCollector();
+    var ink = new Ink();
+    ink.Load(ms.ToArray());
+
+    using (RecognizerContext context = new RecognizerContext())
+    {
+        if (ink.Strokes.Count > 0)
+        {
+            context.Strokes = ink.Strokes;
+            RecognitionStatus status;
+
+            var result = context.Recognize(out status);
+
+            if (status == RecognitionStatus.NoError)
+                textBox1.Text = result.TopString;
+            else
+                MessageBox.Show("Recognition failed");
+        }
+        else
+        {
+            MessageBox.Show("No stroke detected");
+        }
+    }
+}
+```
+
+![手写识别](https://nas.ilyl.life:8092/wpf/canvas_5.gif =420x200)
