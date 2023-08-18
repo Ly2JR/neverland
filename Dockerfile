@@ -1,5 +1,5 @@
 # node 构建
-FROM node:20.5.0-alpine as build-stage
+FROM node:20.5.1-alpine as build-stage
 # 署名
 LABEL maintainer="乌龙茶有点甜 <982474256@qq.com>"
 # 指定目录
@@ -21,7 +21,7 @@ CMD ["pnpm", "run", "docs:build"]
 # node部分结束
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 # nginx 部署
-FROM nginx:1.25.1-alpine as production-stage
+FROM nginx:1.25.2-alpine as production-stage
 # # 拷贝编译后的文件
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 # 配置nginx

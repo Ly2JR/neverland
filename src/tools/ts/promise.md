@@ -9,15 +9,11 @@ tag:
   - TS
 ---
 
-[Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-
-## 场景
-
 前端需要把数据多次提交给后端，然后返回的数据填充到真正的数据，在提交给后端。
 
 正常数据由后端处理，但是放在了前端。
 
-另外使用`Promise.all`没有问题，但是有问题的在于后端不支持并发，比如多次提交文件等耗时作业。
+另外使用[Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)没有问题，但是有问题的在于后端不支持并发，比如多次提交文件等耗时作业。
 
 这时需要将Promise调整为队列，依次提交处理，然后在一并最终提交给后端。
 
