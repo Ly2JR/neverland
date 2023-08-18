@@ -24,3 +24,11 @@ using (SpeechSynthesizer speech = new SpeechSynthesizer())
     speech.Speak("HelloWorld");
 }
 ```
+
+## [科大讯飞语音合成](../ifly/voice.md)
+
+## [NAudio](https://github.com/naudio/NAudio)
+
+[音频转换文章](https://www.codeproject.com/Articles/501521/How-to-convert-between-most-audio-formats-in-NET)
+
+## [FFMpeg](https://ffmpeg.org/)

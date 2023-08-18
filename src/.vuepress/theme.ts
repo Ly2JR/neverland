@@ -9,9 +9,8 @@ import {
   GITHUB,
   COPYRIGHT,
   DESCRIPTION,
-  LICENSE,
 } from "./consts";
-import { pwa, copyright, markdown } from "./plugins/index";
+import { pwa, copyright, markdown, autoCatalog } from "./plugins/index";
 
 export default hopeTheme(
   {
@@ -70,7 +69,7 @@ export default hopeTheme(
       /**
        * 禁用自动生成目录
        */
-      autoCatalog: false,
+      autoCatalog: autoCatalog,
       /**
        * 启用Markdown增强
        */

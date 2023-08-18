@@ -24,6 +24,13 @@ export const zhSidebar = sidebar({
           children: "structure",
         },
         {
+          text: "MAUI",
+          icon: "vscode-icons:file-type-csharp2",
+          prefix: "maui/",
+          collapsible: true,
+          children: "structure",
+        },
+        {
           text: "WPF",
           icon: "vscode-icons:file-type-csharp2",
           prefix: "wpf/",
@@ -87,7 +94,7 @@ export const zhSidebar = sidebar({
         },
         {
           text: "科大讯飞",
-          prefix: "xunfei/",
+          prefix: "ifly/",
           children: "structure",
           collapsible: true,
         },

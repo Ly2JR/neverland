@@ -40,8 +40,6 @@ tag:
 
 ## 演示
 
-## 简单分析
-
 ::: vue-playground 语音合成
 
 @file App.vue
@@ -382,6 +380,8 @@ export default TTSRecorder;
 ```
 
 :::
+
+## 简单分析
 
 ### index.vue
 
@@ -939,3 +939,208 @@ let transcode = {
 };
 // })();
 ```
+
+## Dotnet 示例
+
+没有提供关于C#的代码示例...[源代码地址](https://github.com/ly2jr/iflytts)
+
+### 基本参数
+
+```cs
+const string HOST_URL = "https://tts-api.xfyun.cn/v2/tts";
+const string HEADERS = "host date request-line";
+const string APP_ID = "";
+const string API_SECRET = "";
+const string API_KEY = "";
+const string TEXT = "Hello,World";
+```
+
+### Json转换
+
+::: tip
+.NET 8 Support JsonNamingPolicy.SnakeCaseLower
+:::
+
+```cs
+
+var jsonOption = new JsonSerializerOptions()
+{
+    PropertyNamingPolicy = new LowerCaseNamingPolicy(),//.NET 8 Support JsonNamingPolicy.SnakeCaseLower
+};
+
+internal class LowerCaseNamingPolicy : JsonNamingPolicy
+{
+    public override string ConvertName(string name)
+    {
+        return name.ToLower();
+    }
+}
+```
+
+### 鉴权认证
+
+```cs
+using System.Security.Cryptography;
+using System.Text;
+
+string AuthUrl(string hostUrl, string apiKey, string apiSecret)
+{
+    Uri uri = new Uri(hostUrl);
+    //签名时间,RFC1123格式(Thu, 01 Aug 2019 01:53:21 GMT)。
+    var date = DateTime.Now.ToUniversalTime().ToString("r");
+    //参与签名的字段host,date,
+    var signatureOrigin = $"host: {uri.Host}\ndate: {date}\nGET {uri.LocalPath} HTTP/1.1"; 
+    //签名结果
+    var signature = "";
+    var secretByte = Encoding.UTF8.GetBytes(apiSecret);
+    using (HMACSHA256 hmac = new HMACSHA256(secretByte))
+    {
+        var signatureByte = Encoding.UTF8.GetBytes(signatureOrigin);
+        byte[] hashValue = hmac.ComputeHash(signatureByte);
+        signature=Convert.ToBase64String(hashValue);
+    }
+    //构建请求参数
+    var key = $"api_key=\"{apiKey}\", algorithm=\"hmac-sha256\", headers=\"{HEADERS}\", signature=\"{signature}\"";
+    var keyBytes= Encoding.UTF8.GetBytes(key);
+    var authorization = Convert.ToBase64String(keyBytes);
+    return $"wss://{uri.Host}{uri.LocalPath}?authorization={authorization}&date={date}&host={uri.Host}";
+}
+```
+
+### 发送语音
+
+::: tabs
+
+@tab 发送
+
+```cs
+using System.Net.WebSockets;
+
+var url=AuthUrl(HOST_URL, API_KEY, API_SECRET);
+Console.WriteLine(url);
+var uri = new Uri(url);
+
+var sendText = new SendTest(APP_ID, TEXT);
+var sendByte = JsonSerializer.SerializeToUtf8Bytes(sendText,jsonOption);
+
+using ClientWebSocket ws = new();
+await ws.ConnectAsync(uri, default);
+
+Console.WriteLine($"发送数据:{TEXT}");
+await ws.SendAsync(sendByte, WebSocketMessageType.Binary, true, default);
+```
+
+@tab SendTest.cs
+
+具体请求参数查看官网文档
+
+```cs
+class SendTest{
+    public SendTest(string appId, string text){
+        var sendBytes = Encoding.UTF8.GetBytes(text);
+        Common = new Common(){
+            App_Id = appId,
+        };
+        Business = new Business(){
+            Aue = "raw",
+            Vcn = "xiaoyan",
+            Pitch = 50,
+            Speed = 50,
+        };
+        Data = new SendData(){
+            Status = 2,
+            Text = Convert.ToBase64String(sendBytes)
+        };
+    }
+    public Common Common { get; set; }
+    public Business Business { get; set; }
+    public SendData Data { get; set; }
+}
+
+class Common{
+    public string? App_Id { get; set; }
+}
+
+class Business{
+    public string? Aue { get; set; }
+    public string? Vcn { get; set; }
+    public int Pitch { get; set; }
+    public int Speed { get; set; }
+}
+
+class SendData{
+    public int Status { get; set; }
+    public string? Text { get; set; }
+}
+```
+
+:::
+
+### 接收语音
+
+::: tabs
+
+@tab 接收
+
+```cs
+//接受数据
+var sb = new StringBuilder();
+var bytes = new byte[1024];
+var result = await ws.ReceiveAsync(bytes, default);
+var res = Encoding.UTF8.GetString(bytes, 0, result.Count);
+sb.Append(res);
+while (!result.EndOfMessage)
+{
+    result = await ws.ReceiveAsync(bytes, default);
+    res = Encoding.UTF8.GetString(bytes, 0, result.Count);
+    sb.Append(res);
+}
+Console.WriteLine($"响应数据:{sb}");
+```
+
+@tab 保存文件
+
+```cs
+var receiceData = JsonSerializer.Deserialize<ReceiveData>(sb.ToString(),jsonOption);
+if (receiceData.Code == 0 && receiceData.Data != null)
+{
+    var audioBase64String = receiceData.Data.Audio;
+    var encoderBytes = Convert.FromBase64String(audioBase64String!);
+
+    var path = GetCurrentProjectPath();
+    var savePath = $"{path}/files/{DateTime.Now.Ticks}.pcm";
+    using (FileStream outStream = new FileStream(savePath, FileMode.Create, FileAccess.Write))
+    {
+        await outStream.WriteAsync(encoderBytes);
+    }
+}
+```
+
+@tab ReceiveData.cs
+
+```cs
+ internal class ReceiveData{
+     public int Code { get; set; }
+     public string Message { get; set; }
+     public string? Sid { get; set;}
+     public Data? Data { get; set; }
+
+ }
+ class Data{
+     public string? Audio { get; set; }
+     public string? Ced { get; set; }
+     public int Status { get; set; }
+ }
+```
+
+:::
+
+### 语音转码
+
+- [FFmpeg](https://github.com/ly2jr/iflytts)
+
+  ```cmd
+  ffmpeg -y -f s16le -ac 1 -ar 16000 -acodec pcm_s16le -i test.pcm test.mp3
+  ```
+
+- [NAudio](https://www.codeproject.com/Articles/501521/How-to-convert-between-most-audio-formats-in-NET)
