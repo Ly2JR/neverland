@@ -1,5 +1,5 @@
 ---
-title: MYSQL常用命令
+title: MYSQL
 date: 2023-06-19
 dir.order: 1
 order: 1

@@ -128,6 +128,7 @@ export const zhSidebar = sidebar({
         },
         {
           text: "用友U8+",
+          icon: "/assets/svg/yonyou.svg",
           prefix: "yonyou/",
           children: "structure",
           collapsible: true,
