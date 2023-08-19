@@ -1,6 +1,6 @@
 ---
 title: 关于
-icon: cib:about-me
+icon: /assets/svg/me.svg
 date: 2023-05-23
 dir.order: 1
 lastUpdated: false

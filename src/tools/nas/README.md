@@ -1,6 +1,6 @@
 ---
 title: NAS
-icon: mdi:nas
+icon: /assets/svg/nas.svg
 breadcrumb: false
 article: false
 index: false

@@ -1,6 +1,6 @@
 ---
 title: FFMPEG
-icon: logos:ffmpeg-icon
+icon: /assets/svg/ffmpeg.svg
 breadcrumb: false
 article: false
 index: false

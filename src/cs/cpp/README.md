@@ -1,6 +1,6 @@
 ---
 title: C++
-icon: vscode-icons:file-type-cpp3
+icon: /assets/svg/cpp.svg
 breadcrumb: false
 article: false
 index: false

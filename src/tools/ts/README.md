@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-icon: vscode-icons:file-type-typescript-official
+icon: /assets/svg/ts.svg
 breadcrumb: false
 article: false
 index: false

@@ -1,6 +1,6 @@
 ---
 title: 概述
-icon: vscode-icons:file-type-csharp2
+icon: /assets/svg/csharp2.svg
 breadcrumb: false
 article: false
 index: false

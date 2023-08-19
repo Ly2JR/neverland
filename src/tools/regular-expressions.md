@@ -1,7 +1,7 @@
 ---
 title: 正则表达式
 date: 2023-06-19
-icon: material-symbols:regular-expression
+icon: /assets/svg/regular-expression.svg
 dir.order: 1
 order: 1
 editLink: false

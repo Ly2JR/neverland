@@ -2,9 +2,7 @@
 title: 梦幻岛
 index: false
 cover: /assets/images/cover3.jpg
-icon:  fontisto:island
-star : 99998
-sticky: 99998
+icon: /assets/svg/island2.svg
 category:
   - Neverland
 editLink: false
@@ -19,7 +17,7 @@ footer: false
 
 - [x] [图床](https://nas.ilyl.life:8092/default.png)
 
-- [x] [私有Docker仓库 UI](https://docker.ilyl.life:8094)
+- [x] [Docker私库](https://docker.ilyl.life:8094)
 
 - [ ] NAS接口
 - [ ] 基于NAS接口的移动端APP

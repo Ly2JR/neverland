@@ -1,6 +1,6 @@
 ---
 title: C#
-icon: devicon:csharp
+icon: /assets/svg/csharp.svg
 breadcrumb: false
 article: false
 index: false

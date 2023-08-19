@@ -3,7 +3,7 @@ title: 增广贤文
 index: false
 star : 99999
 sticky: 99999
-icon: clarity:book-solid
+icon: /assets/svg/book.svg
 category:
   - 书籍
 tag:

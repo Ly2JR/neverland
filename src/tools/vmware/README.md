@@ -1,6 +1,6 @@
 ---
 title: VMware
-icon: clarity:vm-solid
+icon: /assets/svg/vmware.svg
 date: 2023-05-23
 breadcrumb: false
 article: false
