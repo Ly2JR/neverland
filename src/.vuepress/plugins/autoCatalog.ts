@@ -7,6 +7,6 @@ export const autoCatalog: AutoCatalogOptions = {
     if (dir_config?.index) {
       return dir_config.order;
     }
-    return -new Date(page.date).getTime();
+    return new Date(page.date).getTime();
   },
 };
