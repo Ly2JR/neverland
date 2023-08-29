@@ -39,6 +39,7 @@ export default defineApplicationConfig({
 
 [IIS反向代理](https://learn.microsoft.com/en-us/iis/extensions/url-rewrite-module/reverse-proxy-rule-template)
 [IIS出站规则](https://learn.microsoft.com/en-us/iis/extensions/url-rewrite-module/creating-outbound-rules-for-url-rewrite-module)
+[跨域](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS)
 
 ## IIS反向代理
 
