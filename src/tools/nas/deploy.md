@@ -128,3 +128,33 @@ NAS里没有IIS，用的Window系统除外，在NAS里找到Docker，下载NGINX
 准备好证书文件，从哪里申请的就从哪里下载，关于[NGINX SSL配置](https://nginx.org/en/docs/http/ngx_http_ssl_module.html)。
 
 步骤同上`Docker部署普通网站`，额外调整`*.conf`配置文件。
+
+本网站Docker示例：
+
+```conf
+server {
+    listen 443 ssl; 
+    # 更改自己的域名
+    server_name blog.ilyl.life;  
+    ssl_certificate /usr/share/certs/blog.pem;
+    ssl_certificate_key /usr/share/certs/blog.key;
+    ssl_session_timeout 5m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+    ssl_prefer_server_ciphers on;
+
+    location / {
+       root /usr/share/nginx/html;
+       index index.html;
+    }
+}
+
+server {
+  listen 80;
+  location /  {
+
+    # Force HTTPS,更改自己的域名
+    return 301 https://blog.ilyl.life:8088;
+  }
+}
+```
