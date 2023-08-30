@@ -23,12 +23,13 @@ tag:
 
 1. 公钥需要完整的包括头部`-----BEGIN PUBLIC KEY-----`和尾部`-----END PUBLIC KEY-----`
 2. 公钥是有换行的，需要在每个换行处添加`\n`
+3. RSA加解密针对汉字都使用了URL转码处理
 
 :::
 
 ## 演示
 
-::: vue-playground RSA加解密
+::: vue-playground RSA公钥解密
 
 @file App.vue
 
