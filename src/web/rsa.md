@@ -36,17 +36,47 @@ tag:
 <script setup>
 import { ref, getCurrentInstance,reactive } from 'vue'
 import ElementPlus from 'element-plus' 
-import {encrpt,decrypt} from './rsa.js'
+import {decrypt} from './rsa.js'
 getCurrentInstance().appContext.app.use(ElementPlus);
 const data=reactive({
-    originData:'',
-    Data:'',
-    pubikKey:'',
+    encryptData:'hvr/B465hsEzjwBzVoh2k1Vwoq7TvZQlTDQAIeVn1wUlW+e7rMFyI5ZpYkRxXt7DuCBO821yOPOauHHcvBlNeK5/fFQA6eLTOHtfZhIvk5eeBlY/1MeLOS5dQZAlFQiJx52Br4GItmrERNJeC7xRx+N05/1r7JJPP6ThlzB1BYg=',
+    decryptData:'',
+    publicKey:'-----BEGIN PUBLIC KEY-----\n'+
+'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/Lr3oyc+rxFXbz2dvaoMI6N0R\n'+
+'mlijWYB8+g11hWvhzeQaWk6RYeaPPdqJoe/6qVnDp2vx5m7n7afo6azZHg3turQo\n'+
+'yvx8dnIl6JaIGx9DmPz2l92cCJjR09qSJ/TCQ+mnXKJVrbDmqC9aqp72PdtBn1uV\n'+
+'rANBIox9o3tqdVWqMQIDAQAB\n'+
+'-----END PUBLIC KEY-----'
 });
+
+function handleDecrypt(){
+  const encryptData=decrypt(data.encryptData,data.publicKey);
+  data.decryptData=encryptData;
+}
 </script>
 
 <template>
-  <el-button type="primary" @click="handleStart">解密</el-button>
+ <el-alert title="私钥和公钥为JSEncrypt里的DEMO" type="success" effect="dark"/>
+<el-input
+    v-model="data.publicKey"
+    :rows="3"
+    type="textarea"
+    placeholder="公钥"
+  />
+      <el-input
+    v-model="data.encryptData"
+    :rows="3"
+    type="textarea"
+    placeholder="密文"
+  />
+  <el-input
+    v-model="data.decryptData"
+    :rows="3"
+    type="textarea"
+    placeholder="明文"
+  />
+<el-button type="primary" @click="handleDecrypt">公钥解密</el-button>
+
 </template>
 
 <style>
@@ -59,15 +89,7 @@ const data=reactive({
 ```js
 import JSEncrypt from '/assets/js/jsencryptlong.js';
 
-const publicKey =
-  '-----BEGIN PUBLIC KEY-----\n'
-  'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN\n'
-  'FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76\n'
-  'xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4\n'
-  'gwQco1KRMDSmXSMkDwIDAQAB\n'
-  '-----END PUBLIC KEY-----';
-
-export function encrypt(data) {
+export function encrypt(data,publicKey) {
   const jsEncrypt = new JSEncrypt();
   jsEncrypt.setPublicKey(publicKey);
   const enData = encodeURIComponent(data);
@@ -75,7 +97,7 @@ export function encrypt(data) {
   return result;
 }
 
-export function decrypt(data) {
+export function decrypt(data,publicKey) {
   const jsEncrypt = new JSEncrypt();
   jsEncrypt.setPublicKey(publicKey);
   const result = jsEncrypt.decryptUnicodeLong(data);
@@ -169,9 +191,9 @@ pnpm patch-commit 补丁制作有问题，占时没有使用该方法
 
     ```js
     // (function (global, factory) {
-    // 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    // 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    // 	(factory((global.JSEncrypt = {})));
+    //  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+    //  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+    //  (factory((global.JSEncrypt = {})));
     // }(this, (function (exports) { 'use strict';
     ```
 
@@ -356,7 +378,7 @@ pnpm patch-commit 补丁制作有问题，占时没有使用该方法
     };
     ```
 
-8.  中文解密
+8. 中文解密
 
     ```js
     // 分段解密，支持中文
