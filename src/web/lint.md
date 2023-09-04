@@ -1,7 +1,6 @@
 ---
 title: 规范约束
 date: 2023-06-06
-icon: /assets/svg/commitlint.svg
 dir.order: 1
 order: 1
 editLink: false
