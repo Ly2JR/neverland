@@ -74,7 +74,14 @@ if (root !== null) {
 const orders = document.querySelectorAll('.ant-upload-list-item-image');
 const fileSort = [];
 orders.forEach((o, index) => {
-    const i = fileList.value?.findIndex((f) => f.name == o.alt);
+    let name = '';
+    if (o.src.startsWith('data')) {//新上传文件，base64图片预览
+        name = o.alt;
+    } else if (o.src.startsWith('http')) {//已上传文件
+        const arr = o.src.split('/');
+        name = arr[arr.length - 1];
+    }
+    const i = fileList.value?.findIndex((f) => f.name == name);
     if (i !== undefined && i > -1) {
         let url = '';
         if (fileList.value[i].response) {
