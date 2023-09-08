@@ -13,6 +13,7 @@ category:
 1. vue获取不到上传组件的实例，即`ref`始终为null。
 2. sortablejs有排序效果，但是vue绑定的图片数据未变动。
 3. 在sortablejs里添加事件处理图片数据顺序，但是排序效果失效。
+4. 上传成功显示的预览图片，很小又模糊，除非再次点击预览。
 
 为了解决这些问题，使用`document`对象操作。
 
@@ -42,6 +43,45 @@ category:
     });
     ```
 
+4. 禁用预览
+
+   ```vue
+    <a-upload
+        ...
+        :show-upload-list="{ showPreviewIcon: false }"
+    />
+   ```
+
+5. 上传成功显示高清
+
+   ```vue
+    <a-upload
+        ...
+        :customRequest="uploadRequest"
+    />
+   ```
+
+   ```js{10}
+    const uploadReqeust = async (file) => {
+        const post = {
+          file: file.file,
+        };
+        await uploadApi(post)
+          .then((res) => {
+            if (res.data.code === 0) {
+              file.url = res.data.url;
+              file.status = 'done';
+              file.file.thumbUrl=res.data.url;
+              file.onSuccess(res.data.url, file.file);
+            }
+          })
+          .catch((_error) => {
+            file.onError('上传失败');
+            file.status = 'removed';
+          });
+      };
+   ```
+
 ## 完整的上传组件与排序功能
 
 ```js
@@ -55,20 +95,35 @@ if (root !== null) {
 }
 ```
 
-## 解决图片排序与图片数据不一致
+## 解决图片排序时，图片与数据不一致
 
-需要明确的有两点：
+需要明确的有：
 
 1. `fileList`对象存储的是图片上传成功的数据。
-2. sortablejs已经实现了排序效果，只是对应的数据排序。
+2. sortablejs已经实现了排序效果，只是对应的数据未排序。
+3. 数据未排序是因为VUE未识别到数字变动，但是如果通过删除或者添加数据，能变动，但是与排序起冲突，根本原因是上传组件的问题。
 
-在实时处理排序数据时，出现各种问题，但是这与最终需要提交的数据看似一致，其实有步骤差异。
+因此，在实时处理排序数据时，出现的各种问题。
 
-即只要保证最终提交的数据是排序的效果即可，不一定非要实时排序及实时调整数据。
+但只要保证最终提交的数据是排序的效果即可，不一定非要实时排序及实时调整数据。
 
-还是通过`domcument`来解决排序问题。
+还是通过`domcument`来解决问题。
 
 ### 获取上传组件排序数据
+
+上传成功预览高清时:
+
+```js
+const orders = document.querySelectorAll('.ant-upload-list-item-image');
+const fileSort = [];
+orders.forEach((o, index) => {
+    const arr = o.src.split('/');
+    const name = arr[arr.length - 1];
+    fileSort.push({ url: o.src, sort: index + 1,name:name });
+});
+```
+
+上传成功预览模糊时：
 
 ```js
 const orders = document.querySelectorAll('.ant-upload-list-item-image');
@@ -81,18 +136,7 @@ orders.forEach((o, index) => {
         const arr = o.src.split('/');
         name = arr[arr.length - 1];
     }
-    name=decodeURIComponent(name);//汉字需要转码...
-    const i = fileList.value?.findIndex((f) => f.name == name);
-    if (i !== undefined && i > -1) {
-        let url = '';
-        if (fileList.value[i].response) {
-            url = fileList.value[i].response;
-        }
-        if (fileList.value[i].url) {
-            url = fileList.value[i].url;
-        }
-        fileSort.push({ url: url, sort: index + 1 });
-    }
+    fileSort.push({ url: o.src, sort: index + 1,name:name });
 });
 ```
 
