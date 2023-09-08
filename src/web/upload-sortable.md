@@ -81,6 +81,7 @@ orders.forEach((o, index) => {
         const arr = o.src.split('/');
         name = arr[arr.length - 1];
     }
+    name=decodeURIComponent(name);//汉字需要转码...
     const i = fileList.value?.findIndex((f) => f.name == name);
     if (i !== undefined && i > -1) {
         let url = '';
