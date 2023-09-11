@@ -148,14 +148,23 @@ export default defineApplicationConfig({
 
     ![Access-Control-Allow-Methods](<https://nas.ilyl.life:8092/deploy/iis_proxy11.png> =420x200)
 
+6. 新建`Access-Control-Expose-Headers`出站规则
+   1. 匹配范围:`服务器变量`
+   2. 变量名称：`RESPONSE_Access-Control-Expose-Headers`
+   3. 使用(S):`通配符`
+   4. 模式(T):`*`
+   5. 操作属性值:`content-disposition`
+
+    ![Access-Control-Expose-Headers](<https://nas.ilyl.life:8092/deploy/iis_proxy11.png> =420x200)
+
 ### 快捷方式
 
-1. 修改`11行代码高亮处`替换成需要代理的网站
+1. 修改`8行代码高亮处`替换成需要代理的网站
 2. 将以下xml文件保存为`web.config`
 3. 直接替换新建网站或者本地网址目录下的`web.config`文件
 4. 重启IIS
 
-```xml{11}
+```xml{8}
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <system.webServer>
@@ -186,6 +195,10 @@ export default defineApplicationConfig({
                 <rule name="Max-Age" patternSyntax="Wildcard">
                     <match serverVariable="RESPONSE_Access-Control-Max-Age" pattern="*" />
                     <action type="Rewrite" value="3600" />
+                </rule>
+                <rule name="Expose-Headers" patternSyntax="Wildcard">
+                    <match serverVariable="RESPONSE_Access-Control-Expose-Headers" pattern="*" />
+                    <action type="Rewrite" value="Content-Disposition" />
                 </rule>
             </outboundRules>
         </rewrite>

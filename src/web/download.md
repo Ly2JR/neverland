@@ -1,5 +1,5 @@
 ---
-title: 下载
+title: Web下载
 date: 2023-08-30
 editLink: false
 footer: false
@@ -14,6 +14,7 @@ category:
 
 1. 设置`MIME类型`
 2. 设置网站权限
+3. 设置文件大小
 
 :::
 
@@ -97,9 +98,15 @@ export function downloadByUrl({
 ## 后端提供文件流
 
 ::: tip
-如果存在下载的文件无法打开的时,
 
-需要在`Axios`里设置`responseType`:`blob`
+1. 下载的文件无法打开
+
+   在`Axios`里设置`responseType`:`blob`
+
+2. 生产环境无法下载也不报错
+
+   后端添加标头`Access-Control-Expose-Headers:Content-Disposition`，或者使用[反向代理](./proxy.md)
+
 :::
 
 关键在于[BLOB](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)

@@ -2318,7 +2318,7 @@ packages:
       connect-history-api-fallback: 2.0.0
       postcss: 8.4.29
       postcss-load-config: 4.0.1(postcss@8.4.29)(ts-node@10.9.1)
-      rollup: 3.29.0
+      rollup: 3.29.1
       vite: 4.4.9(@types/node@20.4.7)
       vue: 3.3.4
       vue-router: 4.2.4(vue@3.3.4)
@@ -2745,8 +2745,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /artalk@2.6.0:
-    resolution: {integrity: sha512-O/lW48J0WKhPzF6tr020Hh3HmAT95P3y42gEepPIQTYMjDbvk8wCKCLZBFeeeZuLPoBFs4oWXDZfDsFJo/uNwg==}
+  /artalk@2.6.1:
+    resolution: {integrity: sha512-Hrt6IYxSy0ojXBjDcwdsDJsjVNU9lHydClIkwQbqn+W6EyMxm38ZvDPQa/PoxtyX5GXjbad+qBFAm6Km5UzFxg==}
     dependencies:
       abortcontroller-polyfill: 1.7.5
       hanabi: 0.4.0
@@ -6137,8 +6137,8 @@ packages:
       fsevents: 2.3.3
     dev: false
 
-  /rollup@3.29.0:
-    resolution: {integrity: sha512-nszM8DINnx1vSS+TpbWKMkxem0CDWk3cSit/WWCBVs9/JZ1I/XLwOsiUglYuYReaeWWSsW9kge5zE5NZtf/a4w==}
+  /rollup@3.29.1:
+    resolution: {integrity: sha512-c+ebvQz0VIH4KhhCpDsI+Bik0eT8ZFEVZEYw0cGMVqIP8zc+gnwl7iXCamTw7vzv2MeuZFZfdx5JJIq+ehzDlg==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -6711,8 +6711,8 @@ packages:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: false
 
-  /twikoo@1.6.19:
-    resolution: {integrity: sha512-y1uHso/Q1mvBuonROG13k/Fa0z97yotcXS4jp36htQsrl0d7YhBKXEu5K4zbEf3dtlaDSzYSeWlAa9cBjLtWNA==}
+  /twikoo@1.6.20:
+    resolution: {integrity: sha512-SsGxR/TcxK4Exl+aQ70NKkBrsMaUgzOZTXUsMB0HJmCtSyxkgeBvWdFpcUErh2JIvMaKPF0rUbDESk5CzmhsyQ==}
     dev: false
 
   /type-check@0.4.0:
@@ -6956,7 +6956,7 @@ packages:
       '@types/node': 20.4.7
       esbuild: 0.18.20
       postcss: 8.4.29
-      rollup: 3.29.0
+      rollup: 3.29.1
     optionalDependencies:
       fsevents: 2.3.3
     dev: false
@@ -7079,9 +7079,9 @@ packages:
       '@vuepress/shared': 2.0.0-beta.67
       '@vuepress/utils': 2.0.0-beta.67
       '@waline/client': 2.15.7
-      artalk: 2.6.0
+      artalk: 2.6.1
       giscus: 1.3.0
-      twikoo: 1.6.19
+      twikoo: 1.6.20
       vue: 3.3.4
       vue-router: 4.2.4(vue@3.3.4)
       vuepress: 2.0.0-beta.67(@types/node@20.4.7)(@vuepress/client@2.0.0-beta.67)(ts-node@10.9.1)(vue@3.3.4)
