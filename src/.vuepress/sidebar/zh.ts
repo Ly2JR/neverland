@@ -93,12 +93,6 @@ export const zhSidebar = sidebar({
           children: "structure",
         },
         {
-          text: "科大讯飞",
-          prefix: "ifly/",
-          children: "structure",
-          collapsible: true,
-        },
-        {
           text: "FFMPEG",
           icon: "/assets/svg/ffmpeg.svg",
           prefix: "ffmpeg/",
@@ -123,6 +117,18 @@ export const zhSidebar = sidebar({
           text: "数据库",
           icon: "/assets/svg/database.svg",
           prefix: "databases/",
+          children: "structure",
+          collapsible: true,
+        },
+        {
+          text: "科大讯飞",
+          prefix: "ifly/",
+          children: "structure",
+          collapsible: true,
+        },
+        {
+          text: "安装包",
+          prefix: "installer/",
           children: "structure",
           collapsible: true,
         },
