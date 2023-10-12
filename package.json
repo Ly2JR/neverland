@@ -18,7 +18,7 @@
     "@vueuse/core": "^10.5.0",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.67",
-    "vuepress-theme-hope": "2.0.0-beta.237"
+    "vuepress-theme-hope": "2.0.0-beta.238"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
