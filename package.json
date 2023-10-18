@@ -22,12 +22,12 @@
     "vuepress-theme-hope": "2.0.0-beta.238"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.2",
-    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/cli": "^17.8.0",
+    "@commitlint/config-conventional": "^17.8.0",
     "eslint": "^8.51.0",
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
     "prettier": "^2.8.8",
-    "stylelint": "^15.10.3"
+    "stylelint": "^15.11.0"
   }
 }
