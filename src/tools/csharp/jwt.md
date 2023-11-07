@@ -176,50 +176,49 @@ public class UserDto
 实现`GetUser`方法
 
 ```cs
-var result = new TokenResult<UserDto>()
+public TokenResult<UserDto> GetUser(LoginInput input)
 {
-    Bearer = new TokenDto()
+    var result = new TokenResult<UserDto>();
+    var user= _users.FirstOrDefault(it => it.UserName == input.UserName&&it.Password==input.Password);
+    if (user == null) {
+        result.ErrCode = 1;
+        result.ErrMsg = "用户名或密码错误";
+        return result;
+    };
+    result.Bearer = new TokenDto()
     {
         Expires = DateTime.UtcNow.AddMinutes(_jwtOption.AccessExpiration),
-    }
-};
-var user= _users.FirstOrDefault(it => it.UserName == input.UserName&&it.Password==input.Password);
-if (user == null) {
-    result.ErrCode = 1;
-    result.ErrMsg = "用户名或密码错误";
-    return result;
-};
+    };
+    result.Data = user;
+    
+    var issuer = _jwtOption.Issuer;
+    var audience = _jwtOption.Audience;
+    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOption.Secret));
 
-result.Data = user;
-
-var issuer = _jwtOption.Issuer;
-var audience = _jwtOption.Audience;
-var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOption.Secret));
-
-var jwtTokenHandler = new JwtSecurityTokenHandler();
-var key = Encoding.ASCII.GetBytes(_jwtOption.Secret);
-var tokenDescriptor = new SecurityTokenDescriptor()
-{
-    Subject = new ClaimsIdentity(new[]
+    var jwtTokenHandler = new JwtSecurityTokenHandler();
+    var key = Encoding.ASCII.GetBytes(_jwtOption.Secret);
+    var tokenDescriptor = new SecurityTokenDescriptor()
     {
-        new Claim(ClaimTypes.NameIdentifier,user.Id),
-        new Claim(ClaimTypes.Name,user.UserName),
-        new Claim(ClaimTypes.Email,user.Email),
-        new Claim(ClaimTypes.Gender,user.Gender),
-        new Claim(ClaimTypes.StreetAddress,user.Address),
-        new Claim(ClaimTypes.NameIdentifier,user.Id),
-        new Claim("wx",user.Wx),
-        new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
-    }),
-    Expires = result.Bearer.Expires,
-    Audience = audience,
-    Issuer = issuer,
-    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
-};
-var token = jwtTokenHandler.CreateToken(tokenDescriptor);
-var jwtToken = jwtTokenHandler.WriteToken(token);
-result.Bearer.Token = jwtToken;
-return result;
+        Subject = new ClaimsIdentity(new[]
+        {
+            new Claim(ClaimTypes.NameIdentifier,user.Id),
+            new Claim(ClaimTypes.Name,user.UserName),
+            new Claim(ClaimTypes.Email,user.Email),
+            new Claim(ClaimTypes.Gender,user.Gender),
+            new Claim(ClaimTypes.StreetAddress,user.Address),
+            new Claim("wx",user.Wx),
+            new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
+        }),
+        Expires = result.Bearer.Expires,
+        Audience = audience,
+        Issuer = issuer,
+        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
+    };
+    var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+    var jwtToken = jwtTokenHandler.WriteToken(token);
+    result.Bearer.Token = jwtToken;
+    return result;
+}
 ```
 
 ## 注入用户服务
