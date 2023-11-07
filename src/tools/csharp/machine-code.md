@@ -1,8 +1,6 @@
 ---
 title: 机器码
 date: 2023-06-19
-dir.order: 5
-order: 5
 editLink: false
 footer: false
 isOriginal: true

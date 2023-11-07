@@ -1,8 +1,6 @@
 ---
 title: 结构和托管指针转换
 date: 2023-06-08
-dir.order: 3
-order: 3
 editLink: false
 footer: false
 isOriginal: true

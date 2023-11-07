@@ -1,8 +1,6 @@
 ---
 title: 播放声音
 date: 2023-06-19
-dir.order: 4
-order: 4
 editLink: false
 footer: false
 isOriginal: true

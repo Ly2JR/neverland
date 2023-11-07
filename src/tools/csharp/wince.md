@@ -1,8 +1,6 @@
 ---
 title: WINCE
 date: 2023-06-18
-dir.order: 99
-order: 99
 editLink: false
 footer: false
 isOriginal: true

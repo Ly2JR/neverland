@@ -1,8 +1,6 @@
 ---
 title: XML
 date: 2023-06-19
-dir.order: 98
-order: 98
 editLink: false
 footer: false
 isOriginal: true
