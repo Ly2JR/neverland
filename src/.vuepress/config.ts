@@ -10,7 +10,7 @@ const __dirname = getDirname(import.meta.url);
 const OriginalInfo = path.resolve(__dirname, "./components/original/index.ts");
 
 export default defineUserConfig({
-  base: "/",
+  base: "/neverland.github.io/",
   lang: "zh-CN",
   head: [
     [
