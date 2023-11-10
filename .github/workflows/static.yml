@@ -20,6 +20,11 @@ jobs:
           fetch-depth: 0
           # 如果你文档需要 Git 子模块，取消注释下一行
           # submodules: true
+        env:
+          ACCESS_TOKEN: ${{ github.token }}
+        run: |
+          git remote add target https://github.com/ly2jr/neverland.github.io
+          git push target HEAD:refs/heads/main
 
       - name: 安装 pnpm
         uses: pnpm/action-setup@v2
