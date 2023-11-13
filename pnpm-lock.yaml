@@ -22,7 +22,7 @@ dependencies:
     version: 2.0.0-beta.68(@types/node@20.5.1)(@vuepress/client@2.0.0-beta.68)(ts-node@10.9.1)(typescript@5.2.2)(vue@3.3.8)
   vuepress-theme-hope:
     specifier: 2.0.0-beta.250
-    version: 2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.6.3)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68)
+    version: 2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.7.0)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68)
 
 devDependencies:
   '@commitlint/cli':
@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^17.8.1
     version: 17.8.1
   '@vue/repl':
-    specifier: ^2.6.3
-    version: 2.6.3
+    specifier: ^2.7.0
+    version: 2.7.0
   eslint:
     specifier: ^8.53.0
     version: 8.53.0
@@ -2385,8 +2385,8 @@ packages:
       '@vue/shared': 3.3.8
     dev: false
 
-  /@vue/repl@2.6.3:
-    resolution: {integrity: sha512-iUlgIMJtZ3+HUqkZhYw8WH0MTfElCEVu5Inr/LyqnpkoSDkZJk8nMFR3AV+xrDC6+HDwiRYnnTmDux84GJUP7A==}
+  /@vue/repl@2.7.0:
+    resolution: {integrity: sha512-zzyb+tVvzmOePv8Gp4sefP/7CKidx4WiJDfKPP698b9bN5jSFtmSOg4nvPoJEE1ICKeAEgdRKVneYJ8Mp7C/WA==}
 
   /@vue/runtime-core@3.3.8:
     resolution: {integrity: sha512-qurzOlb6q26KWQ/8IShHkMDOuJkQnQcTIp1sdP4I9MbCf9FJeGVRXJFr2mF+6bXh/3Zjr9TDgURXrsCr9bfjUw==}
@@ -4089,14 +4089,14 @@ packages:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
-      flat-cache: 3.1.1
+      flat-cache: 3.2.0
     dev: true
 
   /file-entry-cache@7.0.1:
     resolution: {integrity: sha512-uLfFktPmRetVCbHe5UPuekWrQ6hENufnA46qEGbfACkK5drjTTdQYUragRgMjHldcbYG+nslUerqMPjbBSHXjQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      flat-cache: 3.1.1
+      flat-cache: 3.2.0
     dev: true
 
   /filelist@1.0.4:
@@ -4126,9 +4126,9 @@ packages:
       path-exists: 4.0.0
     dev: true
 
-  /flat-cache@3.1.1:
-    resolution: {integrity: sha512-/qM2b3LUIaIgviBQovTLvijfyOQXPtSRnRK26ksj2J7rzPIecePUIpJsZ4T02Qg+xiAEKIs5K8dsHEd+VaKa/Q==}
-    engines: {node: '>=12.0.0'}
+  /flat-cache@3.2.0:
+    resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
+    engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       flatted: 3.2.9
       keyv: 4.5.4
@@ -7041,7 +7041,7 @@ packages:
       - typescript
     dev: false
 
-  /vuepress-plugin-md-enhance@2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.6.3)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68):
+  /vuepress-plugin-md-enhance@2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.7.0)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68):
     resolution: {integrity: sha512-EpJvK8YfEDNAuaItILyH8405W80qdTYSenn40T2vqmcemHhMnNuCY1vbZNa2GoHO+XiFXptRjwAueeTlMaa/dg==}
     engines: {node: '>=18.16.0', npm: '>=8', pnpm: '>=7', yarn: '>=2'}
     peerDependencies:
@@ -7110,7 +7110,7 @@ packages:
       '@mdit/plugin-uml': 0.6.5(markdown-it@13.0.2)
       '@types/js-yaml': 4.0.9
       '@types/markdown-it': 13.0.6
-      '@vue/repl': 2.6.3
+      '@vue/repl': 2.7.0
       '@vuepress/client': 2.0.0-beta.68(typescript@5.2.2)
       '@vuepress/shared': 2.0.0-beta.68
       '@vuepress/utils': 2.0.0-beta.68
@@ -7370,7 +7370,7 @@ packages:
       - typescript
     dev: false
 
-  /vuepress-theme-hope@2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.6.3)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68):
+  /vuepress-theme-hope@2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.7.0)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68):
     resolution: {integrity: sha512-yHaMXI57iyzD5ctuYl1Jsn0RjUeuHhfXvjpAu9KKHeRujQEws1z6550EbOfPkqJ9CmBPqPniQTyreNNUFWU4lw==}
     engines: {node: '>=18.16.0', npm: '>=8', pnpm: '>=7', yarn: '>=2'}
     peerDependencies:
@@ -7416,7 +7416,7 @@ packages:
       vuepress-plugin-copy-code2: 2.0.0-beta.250(typescript@5.2.2)(vuepress@2.0.0-beta.68)
       vuepress-plugin-copyright2: 2.0.0-beta.250(typescript@5.2.2)(vuepress@2.0.0-beta.68)
       vuepress-plugin-feed2: 2.0.0-beta.250(typescript@5.2.2)(vuepress@2.0.0-beta.68)
-      vuepress-plugin-md-enhance: 2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.6.3)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68)
+      vuepress-plugin-md-enhance: 2.0.0-beta.250(@types/js-yaml@4.0.9)(@vue/repl@2.7.0)(mathjax-full@3.2.2)(mermaid@10.6.1)(typescript@5.2.2)(vuepress@2.0.0-beta.68)
       vuepress-plugin-photo-swipe: 2.0.0-beta.250(typescript@5.2.2)(vuepress@2.0.0-beta.68)
       vuepress-plugin-pwa2: 2.0.0-beta.250(typescript@5.2.2)(vuepress@2.0.0-beta.68)
       vuepress-plugin-reading-time2: 2.0.0-beta.250(typescript@5.2.2)(vuepress@2.0.0-beta.68)

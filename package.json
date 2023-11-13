@@ -23,7 +23,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
-    "@vue/repl": "^2.6.3",
+    "@vue/repl": "^2.7.0",
     "eslint": "^8.53.0",
     "husky": "^8.0.3",
     "mathjax-full": "^3.2.2",
