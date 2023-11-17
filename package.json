@@ -10,7 +10,8 @@
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
     "docs:update-package": "pnpm dlx vp-update",
-    "postinstall": "npx husky install"
+    "postinstall": "npx husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
     "@vuepress/client": "2.0.0-rc.0",
@@ -23,13 +24,21 @@
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
+    "@commitlint/cz-commitlint": "^18.4.2",
     "@vue/repl": "^2.7.0",
+    "commitizen": "^4.3.0",
     "eslint": "^8.53.0",
     "husky": "^8.0.3",
+    "inquirer": "^8.2.6",
     "mathjax-full": "^3.2.2",
     "mermaid": "^10.6.1",
     "nano-staged": "^0.8.0",
     "prettier": "^2.8.8",
     "stylelint": "^15.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
