@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content="VuePress 2.0.0-beta.68" />
-    <meta name="theme" content="VuePress Theme Hope 2.0.0-beta.251" />
+    <meta name="generator" content="VuePress 2.0.0-rc.0" />
+    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.0" />
     <style>
       html {
-        background: #fff;
+        background: var(--bg-color, #fff);
       }
 
       html[data-theme="dark"] {
-        background: #1d1e1f;
+        background: var(--bg-color, #1d1e1f);
       }
 
       body {
@@ -37,8 +37,8 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script><link rel="icon" href="/favicon.ico"><link rel="icon" href="/assets/icon/chrome-mask-512.png" type="image/png" sizes="512x512"><link rel="icon" href="/assets/icon/chrome-mask-192.png" type="image/png" sizes="192x192"><link rel="icon" href="/assets/icon/chrome-512.png" type="image/png" sizes="512x512"><link rel="icon" href="/assets/icon/chrome-192.png" type="image/png" sizes="192x192"><link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials"><meta name="theme-color" content="#46bd87"><link rel="apple-touch-icon" href="/assets/icon/apple-icon-152.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><title>凭证 | 乌龙茶有点甜</title><meta name="description" content="凭证 资源符 voucher 操作符 create 参数说明 参数 类型 参数路径 是否必填 描述 voucher_type string 是 凭证类别 fiscal_year number 是 凭证所属的会计年度，不填写取当前年 accounting_period number 是 所属的会计期间，不填写取当前月份 voucher_id string 否 凭证号 date date 否 制单日期 enter string 否 制单人名称 cashier string 否 出纳名称 attachment_number number 否 附单据数 voucher_making_system string 否 外部系统类型 reserve2 string 否 外部凭证业务号 account_code string entry 否 科目编码 abstract string entry 否 摘要 currency string entry 否 币种，默认人民币 unit_price number entry 否 单价,在科目有数量核算时，填写此项 exchange_rate1 number entry 否 汇率1，主辅币核算时使用，NC用户使用 exchange_rate2 number entry 否 汇率2，折本汇率，U8用户使用 quantity number entry 否 借方数量,在科目有数量核算时，填写此项 primary_amount number entry 否 原币借方发生额 secondary_amount number entry 否 辅币借方发生额 natural_currency number entry 是 本币借方发生额*与本币贷方发生额不能同时为空 dept_id string entry/auxiliary 否 部门 personnel_id string entry/auxiliary 否 人员 cust_id string entry/auxiliary 否 客户 supplier_id string entry/auxiliary 否 供应商 item_class string entry/auxiliary 否 项目大类 item_id string entry/auxiliary 否 项目档案 operator string entry/auxiliary 否 业务员 self_define1 string entry/auxiliary 否 自定义字段1 self_define2 string entry/auxiliary 否 自定义字段2 self_define3 string entry/auxiliary 否 自定义字段3 self_define4 string entry/auxiliary 否 自定义字段4 self_define5 string entry/auxiliary 否 自定义字段5 self_define6 string entry/auxiliary 否 自定义字段6 self_define7 string entry/auxiliary 否 自定义字段7 self_define8 string entry/auxiliary 否 自定义字段8 self_define9 string entry/auxiliary 否 自定义字段9 self_define10 string entry/auxiliary 否 自定义字段10 self_define11 string entry/auxiliary 否 自定义字段11 self_define12 string entry/auxiliary 否 自定义字段12 self_define13 string entry/auxiliary 否 自定义字段13 self_define14 string entry/auxiliary 否 自定义字段14 self_define15 string entry/auxiliary 否 自定义字段15 self_define16 string entry/auxiliary 否 自定义字段16 cexch_name number entry/cash_flow 否 币种 RowGuid string entry/cash_flow 否 行标识 iYPeriod date entry/cash_flow 否 年期间 iyear date entry/cash_flow 否 年 csign number entry/cash_flow 否 凭证类别字 nd_s number entry/cash_flow 否 数量借方 md_f number entry/cash_flow 否 外币借方 ccode number entry/cash_flow 否 科目编码 md number entry/cash_flow 否 借方金额 cCashItem string entry/cash_flow 否 现金项目 cash_item string entry/cash_flow 否 现金项目 natural_currency string entry/cash_flow 是 本币借方发生额*与本币贷方发生额不能同时为空 cdept_id string entry/cash_flow 否 部门 cperson_id string entry/cash_flow 否 人员 ccus_id string entry/cash_flow 否 客户 csup_id string entry/cash_flow 否 供应商 citem_class string entry/cash_flow 否 项目大类 citem_id string entry/cash_flow 否 项目档案 cDefine1 string entry/cash_flow 否 自定义字段1 cDefine2 string entry/cash_flow 否 自定义字段2 cDefine3 string entry/cash_flow 否 自定义字段3 cDefine4 string entry/cash_flow 否 自定义字段4 cDefine5 string entry/cash_flow 否 自定义字段5 cDefine6 string entry/cash_flow 否 自定义字段6 cDefine7 string entry/cash_flow 否 自定义字段7 cDefine8 string entry/cash_flow 否 自定义字段8 cDefine9 string entry/cash_flow 否 自定义字段9 cDefine10 string entry/cash_flow 否 自定义字段10 cDefine11 string entry/cash_flow 否 自定义字段11 cDefine12 string entry/cash_flow 否 自定义字段12 cDefine13 string entry/cash_flow 否 自定义字段13 cDefine14 string entry/cash_flow 否 自定义字段14 cDefine15 string entry/cash_flow 否 自定义字段15 cDefine16 string entry/cash_flow 否 自定义字段16">
-    <link rel="preload" href="/assets/style-269bd3d6.css" as="style"><link rel="stylesheet" href="/assets/style-269bd3d6.css">
-    <link rel="modulepreload" href="/assets/app-b046f98d.js"><link rel="modulepreload" href="/assets/voucher.html-d8b05d82.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-c27b6911.js"><link rel="modulepreload" href="/assets/voucher.html-37f5895b.js">
+    <link rel="preload" href="/assets/style-Xd6ZAKyG.css" as="style"><link rel="stylesheet" href="/assets/style-Xd6ZAKyG.css">
+    <link rel="modulepreload" href="/assets/app-FacI78ax.js"><link rel="modulepreload" href="/assets/voucher.html-HL1C7MqA.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-x3n3nnut.js"><link rel="modulepreload" href="/assets/voucher.html-xcI0-_6x.js">
     
   </head>
   <body>
@@ -140,6 +140,6 @@
     <span class="token property">&quot;tradeid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;3eb76146-c94b-4b4b-87ef-40ac1087f9ba&quot;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div></div><!--[--><!----><!--]--><footer class="page-meta"><!----><div class="meta-item git-info"><div class="update-time"><span class="label">上次编辑于: </span><!----></div><div class="contributors"><span class="label">贡献者: </span><!--[--><!--[--><span class="contributor" title="email: 982474256@qq.com">乌龙茶</span><!--]--><!--]--></div></div></footer><nav class="vp-page-nav"><!----><a aria-label="固定资产变动单" class="vp-link nav-link next nav-link next" href="/tools/yonyou/financial/capital-vouchers.html"><div class="hint">下一页<span class="arrow end"></span></div><div class="link">固定资产变动单<!----></div></a></nav><!----><!--[--><!----><!--]--><!--]--></main><!--]--><!----></div><!--]--><!--]--><!----><!----><!--]--></div>
-    <script type="module" src="/assets/app-b046f98d.js" defer></script>
+    <script type="module" src="/assets/app-FacI78ax.js" defer></script>
   </body>
 </html>
