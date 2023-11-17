@@ -13,19 +13,10 @@ module.exports = {
       "always",
       [
         "feat",
-        "fix",
-        "perf",
         "style",
         "docs",
-        "test",
-        "refactor",
-        "build",
-        "ci",
         "chore",
-        "revert",
-        "wip",
-        "workflow",
-        "types",
+        "build",
         "release",
       ],
     ],
@@ -33,103 +24,78 @@ module.exports = {
   prompt: {
     settings: {},
     messages: {
-      skip: ':skip',
-      max: 'upper %d chars',
-      min: '%d chars at least',
-      emptyWarning: 'can not be empty',
-      upperLimitWarning: 'over limit',
-      lowerLimitWarning: 'below limit'
+      skip: ':跳过',
+      max: '最大 %d 字符',
+      min: '至少 %d 字符',
+      emptyWarning: '不能为空',
+      upperLimitWarning: '超过限制',
+      lowerLimitWarning: '低于限制'
     },
     questions: {
       type: {
         description: "Select the type of change that you're committing:",
         enum: {
           feat: {
-            description: 'A new feature',
+            description: '新功能',
             title: 'Features',
             emoji: '✨',
           },
-          fix: {
-            description: 'A bug fix',
-            title: 'Bug Fixes',
-            emoji: '🐛',
-          },
           docs: {
-            description: 'Documentation only changes',
+            description: '仅文档更改',
             title: 'Documentation',
             emoji: '📚',
           },
           style: {
-            description: 'Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)',
+            description: '不影响代码含义的更改(空格,格式,缺少分号等)',
             title: 'Styles',
             emoji: '💎',
           },
-          refactor: {
-            description: 'A code change that neither fixes a bug nor adds a feature',
-            title: 'Code Refactoring',
-            emoji: '📦',
-          },
-          perf: {
-            description: 'A code change that improves performance',
-            title: 'Performance Improvements',
-            emoji: '🚀',
-          },
-          test: {
-            description: 'Adding missing tests or correcting existing tests',
-            title: 'Tests',
-            emoji: '🚨',
-          },
           build: {
-            description: 'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
+            description: '影响生成系统或外部依赖项的更改(例如:gulp、broccoli,npm)',
             title: 'Builds',
             emoji: '🛠',
           },
-          ci: {
-            description: 'Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)',
-            title: 'Continuous Integrations',
-            emoji: '⚙️',
-          },
           chore: {
-            description: "Other changes that don't modify src or test files",
+            description: "不包含src或test文件的其他更改",
             title: 'Chores',
             emoji: '♻️',
           },
-          revert: {
-            description: 'Reverts a previous commit',
-            title: 'Reverts',
-            emoji: '🗑',
-          },
+          release:{
+            description: '发包',
+            title: 'Releases',
+            emoji: '🚀',
+          }
         },
       },
       scope: {
         description:
-          'What is the scope of this change (e.g. component or file name)',
+          '此更改的范围是什么（例如组件或文件名）',
       },
       subject: {
-        description: 'Write a short, imperative tense description of the change',
+        description: '写一个简短的、祈使式的时态描述变化',
       },
       body: {
-        description: 'Provide a longer description of the change',
+        description: '提供更改的更长说明',
       },
       isBreaking: {
-        description: 'Are there any breaking changes?',
+        description: '是否有任何重大更改？',
       },
       breakingBody: {
         description:
-          'A BREAKING CHANGE commit requires a body. Please enter a longer description of the commit itself',
+          '中断性变更提交需要正文。请输入提交本身的详细描述',
       },
       breaking: {
-        description: 'Describe the breaking changes',
+        description: '描述中断性变更',
       },
       isIssueAffected: {
-        description: 'Does this change affect any open issues?',
+        description: '此更改是否会影响任何未解决的问题？',
       },
       issuesBody: {
         description:
-          'If issues are closed, the commit requires a body. Please enter a longer description of the commit itself',
+          '如果问题已关闭，则提交需要一个正文。请输入提交本身的详细描述',
       },
       issues: {
-        description: 'Add issue references (e.g. "fix #123", "re #123".)',
+        description: '添加问题引用(e.g. "fix #123", "re #123".)',
       },
     },
   }
