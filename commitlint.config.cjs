@@ -5,7 +5,9 @@ module.exports = {
     "body-leading-blank": [2, "always"],
     "footer-leading-blank": [1, "always"],
     "header-max-length": [2, "always", 108],
-    "subject-empty": [2, "never"],
+    "subject-empty": [2, "never",10],
+    "scope-max-length":[2,"always",40],
+    "subject-max-length":[2,"always",10],
     "type-empty": [2, "never"],
     "subject-case": [0],
     "type-enum": [
