@@ -27,7 +27,7 @@
     "@commitlint/cz-commitlint": "^18.4.2",
     "@vue/repl": "^2.7.0",
     "commitizen": "^4.3.0",
-    "eslint": "^8.53.0",
+    "eslint": "^8.54.0",
     "husky": "^8.0.3",
     "inquirer": "^8.2.6",
     "mathjax-full": "^3.2.2",
