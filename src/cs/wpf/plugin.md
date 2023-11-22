@@ -90,9 +90,9 @@ private const List<MenuLink> DefautlLinks = new List<MenuLink>(){
 首先要确认的事，数据库设计可以配置无数层，但是 WPF 界面显示，深度不应太深，`MAX_LEVEL`属性进行控制
 
 ```text
-| -A  |
-| --- |  |A1
-|---|A12
+| --A         
+| ----A1     
+| ------A12
 ```
 
 其中树形菜单的第一层为`SubSystem`的值。二三层对应`SubMenu`数据值
