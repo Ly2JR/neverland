@@ -155,7 +155,7 @@ Tab页VM子类:
 
 如果没有提取公共类，那么通过`IEventAggregator`的`Subscribe`和`Unsubscribe`即可。
 
-如果提取了功能类，`Subscribe`重载方法进行消息过滤即可。
+如果提取了公共类，`Subscribe`重载方法进行消息过滤即可。
 
 消息载体:
 
