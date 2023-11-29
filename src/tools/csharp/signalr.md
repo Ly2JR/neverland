@@ -12,14 +12,246 @@ tag:
 
 [SignalR](https://learn.microsoft.com/zh-cn/aspnet/core/signalr/introduction?view=aspnetcore-8.0)是一个很好的实时应用。
 
-并且提供Android和IOS以及Web相关包。
+并且提供Android和IOS以及Web相关包。但是文档有点抽象，除非自己下手写才能更深的理解，这里疏浅的总结几个点，更快的理解SignalR，并配上示例代码。
+
+## 要点
+
+::: tip
+Hub抽象代理，对参数名，参数类型需要完全一致
+:::
+
+SignalR通信围绕`Hub`展开，高度抽象，包括几个方面
+
+### 中心
+
+```mermaid
+---
+title: 流程
+---
+flowchart TD
+
+  Hub <-.-> PC客户端
+  Hub <-.-> Android客户端
+  Hub <-.-> IOS客户端
+```
+
+`Hub`提供两个代理方法,
+
+- 发消息`SendAsync`
+- 发消息以及响应`InvokeAsnyc`
+
+不同点:
+
+`InvokeAsnyc`可以接收客户端的响应，而`SendAsync`只管发。
+
+`Hub`主要使用流程大体分为三种
+
+- 一端发消息、一端收消息
+
+- 一端发消息，并直接响应、一端只收消息
+
+- 一端发消息，并得到另一个端的实时响应
+
+   1. 第一种是通过一端只发一端只收，改成即发也收，人为参与的情况。
+
+   2. 第二种是发完消息后需要立马得到客户端的响应，比如`自动唤醒`。
+
+那么又如何区分谁向谁发，谁来接收的问题？
+
+在于Clients.[客户端对象](https://learn.microsoft.com/zh-cn/aspnet/core/signalr/hubs?view=aspnetcore-8.0#the-clients-object)。
+
+常见的有:
+
+发起者客户端:`Clients.Caller`
+
+除发起者外的所有客户端：`Clients.Others`
+
+指定客户端：`Clients.Client(ConnectionId)`
+
+### 客户端
+
+客户端都是通过代理调用`Hub`方法实现。
+
+客户端除了`Hub`有的`SendAsync`和`InvokeAsync`之外还有，`On`方法。
+
+- 客户端A向客户端B发消息
+
+    ```mermaid
+    ---
+    title: 一端发，一端收
+    ---
+    flowchart LR
+    客户端A-.发消息.->Hub
+    Hub -.接收消息.-> 客户端B
+    ```
+
+    涉及三端`Hub`、`客户端A`、`客户端B`
+
+  - Hub端
+
+    ```cs{1,2}
+    public Task SendToClientB(string msg){
+        await Clients.Others.SendAsync("ReceiveClientAMessage",msg)
+    }
+    ```
+
+  - PC客户端A`发起者`
+
+    ```cs
+    HubConnection.SendAsync("SendToClientB","Hello");
+    ```
+
+    客户端A向客户端B发送消息，调用`Hub`中心的`SendToClientB`方法，发送内容为`Hello`
+
+  - PC客户端B`接收者`
+
+    ```cs
+    HubConnection.On<string>("ReceiveClientAMessage",(msg)=>{
+        Console.WriteLine(msg);
+    });
+    ```
+
+    客户端B接收消息，监听`ReceiveClientAMessage`方法，并带有一个`string`参数。
+
+    ::: tip
+    这里任何客户端调用`HubConnection.SendAsync("SendToClientB","Hello");`，客户端B都能收到消息。
+
+    除非在`Hub`的`SendToClientB`方法里将`Clients.Others`改为指定客户端B的连接才行`Clients.Client(ClientB.ConnectedId)`
+    :::
+
+- 客户端A向客户端B发消息，同时客户端A确认已接收消息
+
+    ```mermaid
+    ---
+    title: 一端发消息，并直接响应、一端只收消息
+    ---
+    flowchart LR
+    客户端A -.发消息.-> Hub
+    Hub -.接收消息.-> 客户端B
+    Hub -.发送成功.->客户端A
+    ```
+
+    涉及三端`Hub`、`客户端A`、`客户端B`
+
+  - Hub端
+
+    ```cs{1,3}
+    public Task<string> SendToClientB(string msg){
+        await Clients.Others.SendAsync("ReceiveClientAMessage",msg)
+        return "已收到"；
+    }
+    ```
+
+  - PC客户端A`发起者`
+
+    ```cs
+    var clientB= HubConnection.InvokeAsync("SendToClientB","Hello");
+    Console.WriteLine(clientB);
+    ```
+
+    客户端A向客户端B发送消息，调用`Hub`中心的`SendToClientB`方法，发送内容为`Hello`,并接收`Hub`的响应。
+
+  - PC客户端B`接收者`
+
+    ```cs
+    HubConnection.On<string>("ReceiveClientAMessage",(msg)=>{
+        Console.WriteLine(msg);
+    });
+    ```
+
+- 客户端A向客户端B发消息，客户端B收到消息后，向客户端A发送它的反馈
+
+     ```mermaid
+    ---
+    title: 一端发消息，并得到另一个端的实时响应
+    ---
+    flowchart LR
+    客户端A -.发消息.-> Hub
+    Hub -.接收消息.-> 客户端B
+    客户端B -.确认已接收.-> Hub
+    Hub -.接收客户端B消息.->客户端A
+    ```
+
+    涉及三端`Hub`、`客户端A`、`客户端B`
+
+  - Hub端
+
+    ```cs{1,2}
+    public Task<string> GetClientMsg(){
+        var ret= await Clients.Caller.InvokeAsync("GetMessage")
+        return ret;
+    }
+    ```
+
+  - PC客户端A`响应者`
+
+    ```cs
+    HubConnection.On<string>("GetMessage",()=>{
+       retrun "客户端A已收到";
+    });
+    ```
+
+    客户端A订阅`Hub`中的`GetMessage`方法,并返回结果。
+
+  - PC客户端B`接收者`
+
+    ```cs
+    HubConnection.On<string>("GetMessage",()=>{
+       retrun "客户端B已收到";
+    });
+    ```
+
+    客户端B订阅`Hub`中的`GetMessage`方法,并返回结果。
+
+### [强类型中心](https://learn.microsoft.com/zh-cn/aspnet/core/signalr/hubs?view=aspnetcore-8.0#strongly-typed-hubs)
+
+提供了`Hub<T>`接口用于解决`Hub`中的硬编码问题。
+
+```cs
+public interface IHubChat{
+    Task ReceiveClientAMessage(string msg);
+    Task ReceiveClientBMessage(string msg);
+    Task<string> GetMessage();
+}
+```
+
+```cs
+public class ChatHub:Hub<IChatHub>
+{
+}
+```
+
+硬编码
+
+```cs
+//发消息
+await Clients.Others.SendAsync("ReceiveClientAMessage",msg)
+//发消息
+await Clients.Others.InvokeAsync("ReceiveClientBMessage",msg)
+//发消息并接收消息
+await Clients.Caller.InvokeAsync<string>("GetMessage")
+```
+
+强中心
+
+```cs
+//发消息
+await Clients.Others.ReceiveClientAMessage(msg)
+//发消息
+await Clients.Others.ReceiveClientBMessage(msg)
+//发消息冰接收消息
+await Clients.Caller.GetMessage(msg)
+```
+
+## 实时通信示例
 
 以一个简单的聊天对话为例，包含以下功能
 
+- [x] 强类型中心
 - [x] 实时通信
+- [x] 唤醒
 - [x] SignalR日志
 - [x] 通过API使用SignalR
-- [x] 通过WebSocket使用SignalR
 
 ![聊天](https://nas.ilyl.life:8092/dotnet/signalr.gif =420x200)
 
@@ -29,24 +261,30 @@ tag:
 在工具\选项\调试\常规\对ASP.NET启用JavaScript调试(Chrome、Edge和IE)中，取消即可。
 :::
 
-::: warning
-`SendAsync`、`InvokeAsync`对方法名或者参数类型必须完成一致才行。
-:::
+- 定义强类型接口
 
-## 实时通信
+```cs
+public interface IChatHub
+{
+    //接收消息
+    Task GetHubMessage(string clientId, string message);
 
-引用`Microsoft.AspNetCore.SignalR`
+    //接收指定客户端
+    Task<string> InvokeClientMessage(CancellationToken token=default);
+}
+```
+
+- 引用`Microsoft.AspNetCore.SignalR`
 
 ```cs
 using Microsoft.AspNetCore.SignalR;
 ```
 
-继承`Hub`
+- 继承`Hub<T>`
 
 ```cs
-public class ChatHub:Hub
+public class ChatHub:Hub<IChatHub>
 {
-
 }
 ```
 
@@ -77,15 +315,41 @@ public class ChatHub:Hub
 
   接收消息与发送消息类似，具体示例放在API部分。
 
-### 中心
+### 日志
 
-通过上下文得知，客户端连接时会自动携带一个唯一ID`id=r22i63i8cd9xALATOW9HhA`。
+添加`Serilog`日志记录所有情况
+
+引用`Serilog`、`Serilog.AspNetCore`、`Serilog.Sinks.Async`、`Serilog.Sinks.File`四个包
+
+将以下代码放在`Program`顶层
+
+```cs
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.Async(f => f.File("Logs\\log-.txt",
+    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz}[{Level:u3}] {Message:lj}{NewLine}{Exception}",
+    rollingInterval: RollingInterval.Day))
+    .MinimumLevel.Information()
+    .CreateLogger();
+```
+
+启用日志
+
+```cs
+builder.Host.UseSerilog();//日志
+...
+app.UseSerilogRequestLogging();
+```
+
+### ChatHub
+
+通过上下文得知，客户端连接时会自动携带一个唯一ID，例如`id=r22i63i8cd9xALATOW9HhA`。
 
 因此，继续新增两个属性`user`标识身份，`type`标识身份类型`0:普通客户端`,`1:管理员客户端`，作为简单身份验证。
 
 为了统一管理，新建`ChatManager`类，记录所有客户端的连接断开情况。
 
-- 客户端类
+- 客户端用户类
 
 ```cs
 public class User
@@ -115,60 +379,60 @@ public class User
 ```cs
 public class ChatManager
 {
-private readonly ConcurrentDictionary<string, User> _chatRoom;
-private readonly ILogger<ChatManager> _logger;
-private const string TimeFormat = "HH:mm:ss";
-public ChatManager(ILogger<ChatManager> logger, ConcurrentDictionary<string, User> chatRoom)
-{
-    _logger = logger;
-    _chatRoom = chatRoom;
-}
-
-public User? this[string connectionId]
-{ get { return _chatRoom[connectionId]; } }
-
-public User? Get(string userId)
-{
-    return _chatRoom.Values.FirstOrDefault(u => u.UserId == userId);
-}
-
-
-public List<User> GetAll()
-{
-    var onlineUsers = _chatRoom.Values.OrderBy(o => o.InTime);
-    return onlineUsers.ToList();
-}
-
-public void AddOrUpdate(string connectionId, string userId, uint type = 0)
-{
-    _chatRoom.AddOrUpdate(connectionId, new User()
+    private readonly ConcurrentDictionary<string, User> _chatRoom;
+    private readonly ILogger<ChatManager> _logger;
+    private const string TimeFormat = "HH:mm:ss";
+    public ChatManager(ILogger<ChatManager> logger, ConcurrentDictionary<string, User> chatRoom)
     {
-        UserId = userId,
-        ConnectionId = connectionId,
-        UserType = type,
-        InTime = DateTime.Now.ToString(TimeFormat),
-    }, (k, o) =>
-    {
-        o.UserId = userId;
-        o.ConnectionId = connectionId;
-        o.UserType = type;
-        o.InTime = DateTime.Now.ToString(TimeFormat);
-        return new User() { ConnectionId = connectionId, UserType = type };
-    });
-    _logger.LogInformation($"房间管理:用户ID:{userId},用户类型:{type}进入房间");
-}
-
-public void Remove(string connectionId)
-{
-    if (_chatRoom.TryRemove(connectionId, out var v))
-    {
-        _logger.LogInformation($"房间管理:移除用户ID:{v.UserId},用户类型:{v.UserType},进入时间:{v.InTime},离开时间:{DateTime.Now.ToString(TimeFormat)}");
+        _logger = logger;
+        _chatRoom = chatRoom;
     }
-    else
+
+    public User? this[string connectionId]
+    { get { return _chatRoom[connectionId]; } }
+
+    public User? Get(string userId)
     {
-        _logger.LogInformation($"房间管理:移除用户失败");
+        return _chatRoom.Values.FirstOrDefault(u => u.UserId == userId);
     }
-}
+
+
+    public List<User> GetAll()
+    {
+        var onlineUsers = _chatRoom.Values.OrderBy(o => o.InTime);
+        return onlineUsers.ToList();
+    }
+
+    public void AddOrUpdate(string connectionId, string userId, uint type = 0)
+    {
+        _chatRoom.AddOrUpdate(connectionId, new User()
+        {
+            UserId = userId,
+            ConnectionId = connectionId,
+            UserType = type,
+            InTime = DateTime.Now.ToString(TimeFormat),
+        }, (k, o) =>
+        {
+            o.UserId = userId;
+            o.ConnectionId = connectionId;
+            o.UserType = type;
+            o.InTime = DateTime.Now.ToString(TimeFormat);
+            return new User() { ConnectionId = connectionId, UserType = type };
+        });
+        _logger.LogInformation($"房间管理:用户ID:{userId},用户类型:{type}进入房间");
+    }
+
+    public void Remove(string connectionId)
+    {
+        if (_chatRoom.TryRemove(connectionId, out var v))
+        {
+            _logger.LogInformation($"房间管理:移除用户ID:{v.UserId},用户类型:{v.UserType},进入时间:{v.InTime},离开时间:{DateTime.Now.ToString(TimeFormat)}");
+        }
+        else
+        {
+            _logger.LogInformation($"房间管理:移除用户失败");
+        }
+    }
 }
 ```
 
@@ -222,39 +486,52 @@ public override Task OnDisconnectedAsync(Exception? exception)
 }
 ```
 
-- 向其他客户端发送消息
+- 向其他客户端发送消息,并返回结果
 
-通过`user`指定用户
+`6行`:获取调用者用户,通过`user`指定用户
 
-客户端A向客户端发消息时，客户端B不在线时,需要告知客户端A，`17行`高亮处。
+`9行`:没法用户直接返回
 
-当客户端B成功消息时,`21行`高亮处。
+`17`:通过重写`OnConnectedAsync`获取到当前用户的ID并且管理起来
 
-```cs{3,9,17,21}
-public async Task SendToClient(string clientId, string message)
+`21`:客户端A向客户端发消息时，客户端B不在线时,需要告知客户端A。
+
+`23`:向客户端B发送消息
+
+`27`:当客户端B接收消息并返回它的消息
+
+```cs{6,9,17,21,23,27}
+public async Task<string> SendToClientAndReceive(string clientId, string message)
 {
     var ctx = Context.GetHttpContext();
     if (ctx != null)
     {
-        if (!ctx.Request.Query.TryGetValue("user", out var oName))
+        if (!ctx.Request.Query.TryGetValue(Contracts.FLAG_NAME, out var oName))
         {
             _logger.LogInformation($"非法用户向客户端发送消息：{message}");
-            await Clients.Client(Context.ConnectionId).SendAsync("ReceiveClientMessage", "unknown", 999);
+            return "非法用户";
         }
         else
         {
+            var cancelTokenSource = new CancellationTokenSource();
+            cancelTokenSource.CancelAfter(3000);
+
             var currentClientUser = oName.FirstOrDefault();
             var host = _chatManager.Get(clientId);
             if (host is null)
             {
-                await Clients.Client(Context.ConnectionId).SendAsync("ReceiveClientMessage", clientId, 8);
-                _logger.LogInformation($"客户端用户[{currentClientUser}]向其他客户端[{clientId}]发送消息：{message},但其他客户端不在线");
-                return;
+                _logger.LogInformation($"客户端用户[{currentClientUser}]向客户端[{clientId}]发送消息：{message},但客户端[{clientId}]不在线");
+                return $"客户端[{clientId}]不在线";
             }
-            await Clients.Client(host.ConnectionId!).SendAsync("ReceiveHostMessage", currentClientUser, message);
-            _logger.LogInformation($"客户端A用户[{currentClientUser}]成功向其他客户端B[{clientId}]发送消息：{message}");
+            await Clients.Client(host.ConnectionId!).GetHubMessage(currentClientUser, message);
+            _logger.LogInformation($"客户端用户[{currentClientUser}]向成功客户端[{clientId}]发送消息：{message}");
+            
+            //来自客户端的响应
+            var msg = await Clients.Caller.InvokeClientMessage(cancelTokenSource.Token);
+            return msg;
         }
     }
+    return "非法用户";
 }
 ```
 
@@ -283,33 +560,9 @@ app.MapHub<ChatHub>("/chathub", options =>
 app.UseCors("SignalR");
 ```
 
-## 日志
+### 完整Program
 
-添加`Serilog`日志记录所有情况
-
-引用`Serilog`、`Serilog.AspNetCore`、`Serilog.Sinks.Async`、`Serilog.Sinks.File`四个包
-
-将以下代码放在`Program`顶层
-
-```cs
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .WriteTo.Async(f => f.File("Logs\\log-.txt",
-    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz}[{Level:u3}] {Message:lj}{NewLine}{Exception}",
-    rollingInterval: RollingInterval.Day))
-    .MinimumLevel.Information()
-    .CreateLogger();
-```
-
-启用日志
-
-```cs
-builder.Host.UseSerilog();//日志
-...
-app.UseSerilogRequestLogging();
-```
-
-完整`Program`
+完整`Program.cs`
 
 ```cs
 using Microsoft.AspNetCore.Http.Connections;
@@ -371,22 +624,22 @@ finally
 [JsonSerializable(typeof(List<User>))]
 internal partial class AppJsonSerializerContext : JsonSerializerContext
 {
-
 }
 ```
 
-## 客户端
+### 客户终端
 
 - 主程序
 
 ```cs
 using Microsoft.AspNetCore.SignalR.Client;
 
-HubConnection connection = null;
-await ConnectAsync();
-
-ConsoleKeyInfo pressKey;
+HubConnection connection=null;
+string temp=string.Empty;
 Console.Clear();
+var suc=await ConnectAsync();
+if (!suc) return;
+ConsoleKeyInfo pressKey;
 Console.CancelKeyPress += Console_CancelKeyPress;
 
 void Console_CancelKeyPress(object? sender, ConsoleCancelEventArgs e)
@@ -399,20 +652,21 @@ do
     Console.WriteLine("按Q键退出程序，或CTRL+C中断操作");
     pressKey = Console.ReadKey(true);
 
-    Console.Write("向客户端A发送消息:");
+    Console.Write("向客户端B发送消息:");
     var msg = Console.ReadLine();
     if (connection != null)
     {
-        await connection.InvokeAsync("SendToClient", "clientA", msg);
+        var clientB =await connection.InvokeAsync<string>("SendToClientAndReceive", "clientB", msg);
+        Console.WriteLine(clientB);
     }
-} while (pressKey.Key!=ConsoleKey.Q);
+} while (pressKey.Key != ConsoleKey.Q);
 await CloseConnectionAsync();
 ```
 
 - 连接
 
 ```cs
-async Task ConnectAsync()
+async Task<bool> ConnectAsync()
 {
     try
     {
@@ -420,43 +674,23 @@ async Task ConnectAsync()
         .WithUrl("http://localhost:5214/chathub?user=clientB&type=1")
         .WithAutomaticReconnect()
         .Build();
-        connection.On<string, string>("ReceiveHostMessage", (userId, message) =>
+        connection.On<string, string>("GetHubMessage", (userId, msg) =>
         {
-            Receive(userId, message);
+            Console.WriteLine($"来自客户端B[{userId}]消息:{msg}");
+        });
+        connection.On("InvokeClientMessage", () =>
+        {
+            return "客户端B已收到";
         });
         await connection.StartAsync();
         Console.WriteLine("客户端[clientB]成功连接到chathub");
+        return true;
     }
     catch (Exception ex)
     {
-        throw new Exception(ex.Message);
+        Console.WriteLine($"启动异常:{ex.Message}");
     }
-}
-```
-
-- 接收消息
-
-```cs
-void Receive(string userId, string msg)
-{
-    Console.WriteLine();
-    Console.Write($"来自客户端A[{userId}]消息:");
-    switch (msg)
-    {
-        case "6":
-            Console.Write("在线");
-            break;
-        case "7":
-            Console.Write("未在规定时间内响应");
-            break;
-        case "8":
-            Console.Write("不在线");
-            break;
-        default:
-            Console.Write(msg);
-            break;
-    }
-    Console.WriteLine();
+    return false;
 }
 ```
 
@@ -477,14 +711,19 @@ async Task CloseConnectionAsync()
 }
 ```
 
-## API调用
+### API调用
 
 虽然使用了`SignalR`,并且也提供了其他平台的支持，但是也可以对`SignalR`部分封装，通过API的方式使用。
+
+- 消息载体
+
+```cs
+public record PostMsg(string receiver, string sender, string sendMsg);
+```
 
 - 查看所有在线客户端
 
 ```cs
-//查询所有在线客户端
 var chatApi = app.MapGroup("/chat");
 chatApi.MapGet("/", ([FromServices] ChatManager chatManager) =>Results.Ok(chatManager.GetAll()));
 ```
@@ -494,19 +733,40 @@ chatApi.MapGet("/", ([FromServices] ChatManager chatManager) =>Results.Ok(chatMa
 - 向指定客户端发送消息
 
 ```cs
-//向指定用户发送消息
-chatApi.MapGet("/SendTo", async (string user,uint msg, [FromServices] IHubContext<ChatHub> ctx, [FromServices] ChatManager chatManager) =>
-{
-    var host = chatManager.Get(user);
-    if (host is not null)
-    {
-        await ctx.Clients.Client(host.ConnectionId!).SendAsync("ReceiveHostMessage", user, msg);
-        return Results.Ok("Ok");
-    }
-    return Results.Ok("Offline");
-});
+ chatApi.MapPost("/SendTo", async (PostMsg msg, [FromServices] IHubContext<ChatHub> ctx, [FromServices] ChatManager chatManager) =>
+ {
+     var host = chatManager.Get(msg.receiver);
+     if (host is not null)
+     {
+         await ctx.Clients.Client(host.ConnectionId!).SendAsync(Contracts.SendClientMessage, msg.sender, msg.sendMsg);
+         return Results.Ok("Ok");
+     }
+     return Results.Ok("Offline");
+ });
 ```
 
 ![api发送消息](https://nas.ilyl.life:8092/dotnet/signalr2.gif =420x200)
 
 - 向指定客户端发送消息并接收客户端响应消息
+
+```cs
+ chatApi.MapPost("/SendAndReceive", async (PostMsg msg, [FromServices] IHubContext<ChatHub> ctx, [FromServices] ChatManager chatManager) =>
+ {
+     var host = chatManager.Get(msg.receiver);
+     if (host is not null)
+     {
+         await ctx.Clients.Client(host.ConnectionId!).SendAsync(Contracts.SendClientMessage, msg.sender, msg.sendMsg);
+         var cancelTokenSource = new CancellationTokenSource();
+         cancelTokenSource.CancelAfter(3000);
+         var ret = await ctx.Clients.Client(host.ConnectionId!).InvokeAsync<string>(Contracts.GetClientMessage,cancelTokenSource.Token);
+         return Results.Ok(ret);
+     }
+     return Results.Ok("Offline");
+ });
+```
+
+![api发送消息并接收客户端响应](https://nas.ilyl.life:8092/dotnet/signalr3.gif =420x200)
+
+## 其他
+
+[示例源代码地址](https://github.com/ly2jr/SignalrApi)
