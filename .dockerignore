@@ -1,0 +1,10 @@
+# 忽略github
+.github
+# 忽略配置文件
+.husky
+# 忽略vs
+.vscode
+# 忽略github文件
+.gitignore
+# 忽略安装包文件
+node_modules

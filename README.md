@@ -34,33 +34,27 @@ cd neverland
 pnpm install
 ```
 
-- 运行
+- 开发预览
 
 ```command
 pnpm docs:dev
 ```
 
-- 打包
+- 打包部署
 
 ```command
 pnpm docs:build
 ```
 
-## docker部署
+## docker
 
-1. 生成部署文件
+### 开发预览
 
-    ```command
-    pnpm docs:build
-    ```
+```command
+docker compose up
+```
 
-2. 启动
-
-    ```command
-    docker compose up
-    ```
-
-### SSL
+### 生产部署
 
 - 将SSL证书拷贝到`certs`目录下
 
@@ -93,3 +87,9 @@ pnpm docs:build
     }
  }
  ```
+
+- 生成docker
+
+```command
+docker build -t blog -f Dockerfile .
+```
