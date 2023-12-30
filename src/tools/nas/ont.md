@@ -41,7 +41,7 @@ copy: true
 
 显示`WAP(Doprea Linux) #`,输入`cd /mnt/jffs2`;
 
-显示`WAP(Doprea Linux) #`,输入`grep telecomadmin hw_tree.xml`;
+显示`WAP(Doprea Linux) #`,输入`grep telecomadmin hw_ctree.xml`;
 
 显示`.....Password="XXXXXXX".....`;
 
