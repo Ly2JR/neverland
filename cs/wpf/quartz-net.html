@@ -38,7 +38,7 @@
     })();
     </script><title>Quartz.net | 乌龙茶有点甜</title><meta name="description" content="在WPF项目，使用Prism和Quartz.net搭配时，发现IJob，无法注入IContainerExtension。 此时需要自己实现IJobFactory接口即可。 以定时生成CSV文件的Job为例 实现IJobFactory public class CsvJobFactory:IJobFactory { private readonly IContainerExtension _container; public CsvJobFactory(IContainerExtension container) { _container=container; } public IJob NewJob(TriggerFiredBundle bundle，IScheduler scheduler) { return container.Resolve(bundle.JobDetail.JobType) as IJob; } public void ReturnJob(IJob job) { var disposable = job as IDisposable; if (disposable != nul1){ disposable.Dispose() } } }">
     <link rel="preload" href="/assets/style-NkKdaM7E.css" as="style"><link rel="stylesheet" href="/assets/style-NkKdaM7E.css">
-    <link rel="modulepreload" href="/assets/app-kIzIh1Dx.js"><link rel="modulepreload" href="/assets/quartz-net.html--Et_Wkd_.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-x3n3nnut.js"><link rel="modulepreload" href="/assets/quartz-net.html-hkmNXwwD.js">
+    <link rel="modulepreload" href="/assets/app-XVs1WBNR.js"><link rel="modulepreload" href="/assets/quartz-net.html-X3GLnBAv.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-x3n3nnut.js"><link rel="modulepreload" href="/assets/quartz-net.html-hkmNXwwD.js">
     
   </head>
   <body>
@@ -81,6 +81,6 @@ containerRegistry<span class="token punctuation">.</span><span class="token gene
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!----><!--]--><footer class="page-meta"><!----><div class="meta-item git-info"><div class="update-time"><span class="label">上次编辑于: </span><!----></div><div class="contributors"><span class="label">贡献者: </span><!--[--><!--[--><span class="contributor" title="email: 982474256@qq.com">乌龙茶</span><!--]--><!--]--></div></div></footer><nav class="vp-page-nav"><a aria-label="ComboBox" class="vp-link nav-link prev nav-link prev" href="/cs/wpf/combobx.html"><div class="hint"><span class="arrow start"></span>上一页</div><div class="link"><!---->ComboBox</div></a><a aria-label="TabControl" class="vp-link nav-link next nav-link next" href="/cs/wpf/TabControl.html"><div class="hint">下一页<span class="arrow end"></span></div><div class="link">TabControl<!----></div></a></nav><!----><!--[--><!----><!--]--><!--]--></main><!--]--><!----></div><!--]--><!--]--><!----><!--]--></div>
-    <script type="module" src="/assets/app-kIzIh1Dx.js" defer></script>
+    <script type="module" src="/assets/app-XVs1WBNR.js" defer></script>
   </body>
 </html>
