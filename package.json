@@ -38,6 +38,8 @@
     "prettier": "^2.8.8",
     "stylelint": "^15.11.0",
     "vuepress-plugin-blog2": "2.0.0-rc.10",
+    "vuepress-plugin-copyright2": "2.0.0-rc.10",
+    "vuepress-plugin-pwa2": "2.0.0-rc.10",
     "vuepress-plugin-reading-time2": "2.0.0-rc.10"
   },
   "config": {
