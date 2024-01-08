@@ -58,3 +58,17 @@ copy: true
 `repository.dontpanic-0.2.6-1.zip`安装好之后，找到`repository.dontpanic-0.2.6-1.zip`插件，点击等待下载
 
 `dontpanic`下载完成，打开，从这里选择最新的plex安装即可。
+
+## 启动plex
+
+首次启动plex时，需要登录关联,电脑端打开`https://plex.tv/link`即可，输入电视端的4位验证码
+
+## 关于plex找不到电视节目问题
+
+查看[命名规则](https://support.plex.tv/articles/naming-and-organizing-your-movie-media-files/)
+
+放在`/TV Shows`文件夹下,以最近的电视剧`繁华`第一集举例。
+
+`/TV Shows/繁华/繁华S01E01.mkv`
+
+在PLEX服务端添加媒体库，选择电视节目，选择`/TV Shows`目录。
