@@ -17,15 +17,15 @@
     "@vuepress/client": "2.0.0-rc.0",
     "@vuepress/utils": "2.0.0-rc.0",
     "@vueuse/core": "^10.7.1",
-    "vue": "^3.4.4",
+    "vue": "^3.4.3",
     "vuepress": "2.0.0-rc.0",
-    "vuepress-theme-hope": "2.0.0-rc.10"
+    "vuepress-theme-hope": "2.0.0-rc.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@commitlint/cz-commitlint": "^18.4.3",
-    "@vue/repl": "^3.2.0",
+    "@vue/repl": "^3.1.1",
     "@vuepress/plugin-external-link-icon": "2.0.0-rc.0",
     "@vuepress/plugin-theme-data": "2.0.0-rc.0",
     "commitizen": "^4.3.0",
@@ -37,10 +37,10 @@
     "nano-staged": "^0.8.0",
     "prettier": "^2.8.8",
     "stylelint": "^15.11.0",
-    "vuepress-plugin-blog2": "2.0.0-rc.10",
-    "vuepress-plugin-copyright2": "2.0.0-rc.10",
-    "vuepress-plugin-pwa2": "2.0.0-rc.10",
-    "vuepress-plugin-reading-time2": "2.0.0-rc.10"
+    "vuepress-plugin-blog2": "2.0.0-rc.11",
+    "vuepress-plugin-copyright2": "2.0.0-rc.11",
+    "vuepress-plugin-pwa2": "2.0.0-rc.11",
+    "vuepress-plugin-reading-time2": "2.0.0-rc.11"
   },
   "config": {
     "commitizen": {
