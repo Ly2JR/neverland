@@ -31,6 +31,13 @@ export const zhSidebar = sidebar({
           children: "structure",
         },
         {
+          text: "WPF主题控件",
+          icon: "/assets/svg/csharp2.svg",
+          prefix: "wpf-theme/",
+          collapsible: true,
+          children: "structure",
+        },
+        {
           text: "WPF",
           icon: "/assets/svg/csharp2.svg",
           prefix: "wpf/",
