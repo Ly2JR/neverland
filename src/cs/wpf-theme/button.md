@@ -143,7 +143,7 @@ Button 按钮全局生效
 
 ## 文字按钮
 
-没有边框和背景色的按钮。
+### 没有边框和背景色的按钮
 
 ![istext](https://nas.ilyl.life:8092/wpf-theme/button/button-istext.gif =800x50)
 
@@ -164,4 +164,148 @@ Button 按钮全局生效
 <Button nl:ButtonElementAttached.IsText="True"
         nl:ButtonElementAttached.Type="Danger"
         Content="Danger" />
+```
+
+### 背景色总是存在
+
+![istextbg](https://nas.ilyl.life:8092/wpf-theme/button/button-istext-background-always-on.gif =800x50)
+
+```xml
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.IsTextBg="True"
+         Content="Default" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.IsTextBg="True"
+         nl:ButtonElementAttached.Type="Primary"
+         Content="Primary" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.IsTextBg="True"
+         nl:ButtonElementAttached.Type="Success"
+         Content="Success" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.IsTextBg="True"
+         nl:ButtonElementAttached.Type="Info"
+         Content="Info" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.IsTextBg="True"
+         nl:ButtonElementAttached.Type="Warning"
+         Content="Warning" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.IsTextBg="True"
+         nl:ButtonElementAttached.Type="Danger"
+         Content="Danger" />
+```
+
+### 禁用文本按钮
+
+![IsEnabled](https://nas.ilyl.life:8092/wpf-theme/button/button-istext-disabled.gif =800x50)
+
+```xml
+ <Button nl:ButtonElementAttached.IsText="True"
+         Content="Default"
+         IsEnabled="False" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.Type="Primary"
+         Content="Primary"
+         IsEnabled="False" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.Type="Success"
+         Content="Success"
+         IsEnabled="False" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.Type="Info"
+         Content="Info"
+         IsEnabled="False" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.Type="Warning"
+         Content="Warning"
+         IsEnabled="False" />
+ <Button nl:ButtonElementAttached.IsText="True"
+         nl:ButtonElementAttached.Type="Danger"
+         Content="Danger"
+         IsEnabled="False" />
+```
+
+## 图标按钮
+
+### 图标
+
+![icon](https://nas.ilyl.life:8092/wpf-theme/button/button-icon.gif =800x50)
+
+```xml
+<Button nl:ButtonElementAttached.Icon="{StaticResource query_icon}" />
+<Button nl:ButtonElementAttached.Icon="{StaticResource edit_icon}"
+        nl:ButtonElementAttached.IconColor="Red"
+        nl:ButtonElementAttached.Type="Primary" />
+<Button nl:ButtonElementAttached.Icon="{StaticResource right_icon}" nl:ButtonElementAttached.Type="Success" />
+<Button nl:ButtonElementAttached.Icon="{StaticResource message_icon}" nl:ButtonElementAttached.Type="Info" />
+<Button nl:ButtonElementAttached.Icon="{StaticResource star_icon}" nl:ButtonElementAttached.Type="Warning" />
+<Button nl:ButtonElementAttached.Icon="{StaticResource delete_icon}" nl:ButtonElementAttached.Type="Danger" />
+```
+
+### 图标和文字
+
+![icon-text](https://nas.ilyl.life:8092/wpf-theme/button/button-icon-text.gif =800x50)
+
+```xml
+ <Button nl:ButtonElementAttached.Icon="{StaticResource query_icon}" Content="Default" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource edit_icon}"
+         nl:ButtonElementAttached.IconColor="Red"
+         nl:ButtonElementAttached.Type="Primary"
+         Content="Primary" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource right_icon}"
+         nl:ButtonElementAttached.Type="Success"
+         Content="Success" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource message_icon}"
+         nl:ButtonElementAttached.Type="Info"
+         Content="Info" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource star_icon}"
+         nl:ButtonElementAttached.Type="Warning"
+         Content="Warning" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource delete_icon}"
+         nl:ButtonElementAttached.Type="Danger"
+         Content="Danger" />
+```
+
+## 调整尺寸
+
+除了默认的大小，按钮组件还提供了几种额外的尺寸可供选择，以便适配不同的场景。
+
+使用 size 属性额外配置尺寸，可使用 large和small两种值
+
+![size](https://nas.ilyl.life:8092/wpf-theme/button/button-size.gif =800x50)
+
+![size](https://nas.ilyl.life:8092/wpf-theme/button/button-size2.gif =800x50)
+
+```xml
+ <Button nl:ButtonElementAttached.Icon="{StaticResource query_icon}"
+         nl:ButtonElementAttached.IsCircle="True"
+         nl:ButtonElementAttached.Size="Large" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource query_icon}"
+         nl:ButtonElementAttached.IsCircle="True"
+         nl:ButtonElementAttached.Size="Default" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource query_icon}"
+         nl:ButtonElementAttached.IsCircle="True"
+         nl:ButtonElementAttached.Size="Small" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource query_icon}"
+         nl:ButtonElementAttached.Size="Large"
+         Content="Default" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource edit_icon}"
+         nl:ButtonElementAttached.IconColor="Red"
+         nl:ButtonElementAttached.Size="Default"
+         nl:ButtonElementAttached.Type="Primary"
+         Content="Primary" />
+ <Button nl:ButtonElementAttached.Icon="{StaticResource right_icon}"
+         nl:ButtonElementAttached.Size="Small"
+         nl:ButtonElementAttached.Type="Success"
+         Content="Success" />
+ <Button nl:ButtonElementAttached.Size="Large"
+         nl:ButtonElementAttached.Type="Info"
+         Content="Info" />
+ <Button nl:ButtonElementAttached.Size="Default"
+         nl:ButtonElementAttached.Type="Warning"
+         Content="Warning" />
+ <Button nl:ButtonElementAttached.Size="Small"
+         nl:ButtonElementAttached.Type="Danger"
+         Content="Danger" />
 ```
