@@ -273,7 +273,7 @@ Button 按钮全局生效
 
 使用 size 属性额外配置尺寸，可使用 large和small两种值
 
-![size](https://nas.ilyl.life:8092/wpf-theme/button/button-size.gif =800x50)
+![size](https://nas.ilyl.life:8092/wpf-theme/button/button-size.gif =400x50)
 
 ![size](https://nas.ilyl.life:8092/wpf-theme/button/button-size2.gif =800x50)
 
