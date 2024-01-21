@@ -2,7 +2,6 @@
 title: 海康视频
 date: 2023-06-15
 dir.order: 1
-star : 2
 editLink: false
 footer: false
 isOriginal: true

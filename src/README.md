@@ -16,7 +16,7 @@ projects:
   - icon: /assets/svg/docker.svg
     name: Docker
     desc: 私有仓库
-    link: https://docker.ilyl.life:8094
+    link: https://nas.ilyl.life:8094
   
   - icon: /assets/svg/bitwarden.svg
     name: 密码管理
