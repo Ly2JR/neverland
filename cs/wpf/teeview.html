@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content="VuePress 2.0.0-rc.0" />
-    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.11" />
+    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.12" />
     <style>
       html {
         background: var(--bg-color, #fff);
@@ -38,7 +38,7 @@
     })();
     </script><link rel="icon" href="/favicon.ico"><link rel="icon" href="/assets/icon/chrome-64.png" type="image/png" sizes="64x64"><link rel="icon" href="/assets/icon/chrome-128.png" type="image/png" sizes="128x128"><link rel="icon" href="/assets/icon/chrome-192.png" type="image/png" sizes="192x192"><link rel="icon" href="/assets/icon/chrome-512.png" type="image/png" sizes="512x512"><link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials"><meta name="theme-color" content="#46bd87"><link rel="apple-touch-icon" href="/assets/icon/apple-icon-152.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><title>自定义控件TreeView | 乌龙茶有点甜</title><meta name="description" content="自带的TreeView没有Checkbox，需要自定义设计实现效果 自定义TreeView 定义模型 定义需要显示的数据ViewModel public class TreeItemViewModel : INotifyPropertyChanged { public required string Name { get; set; } public Visibility HasPath { get { if (Parent == null) return Visibility.Collapsed; return Visibility.Visible; } } private bool _isChecked = false; public bool IsChecked { get { return _isChecked; } set { _isChecked = value; OnPropertyChanged(nameof(IsChecked)); } } public TreeItemViewModel? Parent { get; set; } public List&lt;TreeItemViewModel&gt;? Children { get; set; } public event PropertyChangedEventHandler? PropertyChanged; private void OnPropertyChanged(string propName) { if (this.PropertyChanged != null) { this.PropertyChanged(this, new PropertyChangedEventArgs(propName)); } } }">
     <link rel="preload" href="/assets/style-WEdjRePX.css" as="style"><link rel="stylesheet" href="/assets/style-WEdjRePX.css">
-    <link rel="modulepreload" href="/assets/app-2Xs9Fhdv.js"><link rel="modulepreload" href="/assets/teeview.html-4WZpidb6.js"><link rel="modulepreload" href="/assets/teeview.html-fQ7gIzAP.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-x3n3nnut.js">
+    <link rel="modulepreload" href="/assets/app-eFt5v8ru.js"><link rel="modulepreload" href="/assets/teeview.html-fDnEYku4.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-x3n3nnut.js"><link rel="modulepreload" href="/assets/teeview.html-4WZpidb6.js">
     
   </head>
   <body>
@@ -378,6 +378,6 @@
      <span class="token punctuation">}</span>
  <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!----><!--]--><footer class="page-meta"><!----><div class="meta-item git-info"><div class="update-time"><span class="label">上次编辑于: </span><!----></div><div class="contributors"><span class="label">贡献者: </span><!--[--><!--[--><span class="contributor" title="email: 982474256@qq.com">乌龙茶</span><!--]--><!--]--></div></div></footer><nav class="vp-page-nav"><a aria-label="自定义Checkbox" class="vp-link nav-link prev nav-link prev" href="/cs/wpf/checkbox.html"><div class="hint"><span class="arrow start"></span>上一页</div><div class="link"><!---->自定义Checkbox</div></a><a aria-label="设计时数据" class="vp-link nav-link next nav-link next" href="/cs/wpf/design.html"><div class="hint">下一页<span class="arrow end"></span></div><div class="link">设计时数据<!----></div></a></nav><!----><!--[--><!----><!--]--><!--]--></main><!--]--><!----></div><!--]--><!--]--><!----><!----><!--]--></div>
-    <script type="module" src="/assets/app-2Xs9Fhdv.js" defer></script>
+    <script type="module" src="/assets/app-eFt5v8ru.js" defer></script>
   </body>
 </html>
