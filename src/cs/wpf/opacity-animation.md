@@ -1,17 +1,14 @@
 ---
-title: 动画
+title: 透明度动画
 date: 2023-10-19
-dir.order: 1
 editLink: false
 footer: false
 isOriginal: true
-dir:
-    order: 12
-order: 12
 category:
   - C#
 tag:
   - WPF
+  - 动画
 ---
 
 WPF可以样式里添加触发器和动画，实现更好的效果。

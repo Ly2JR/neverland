@@ -1,13 +1,9 @@
 ---
 title: 屏幕比
 date: 2023-08-10
-dir.order: 1
 editLink: false
 footer: false
 isOriginal: true
-dir:
-    order: 8
-order: 8
 category:
   - C#
 tag:

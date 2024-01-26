@@ -1,13 +1,9 @@
 ---
 title: Prism多Shell
 date: 2023-10-18
-dir.order: 1
 editLink: false
 footer: false
 isOriginal: true
-dir:
-    order: 11
-order: 11
 category:
   - C#
 tag:

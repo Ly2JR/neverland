@@ -4,9 +4,6 @@ date: 2023-06-28
 editLink: false
 footer: false
 isOriginal: true
-dir:
-    order: 5
-order: 5
 category:
   - C#
 tag:
