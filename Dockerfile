@@ -1,5 +1,5 @@
 # node 构建
-FROM node:21.6.1-alpine as build-stage
+FROM node:21.6.0-alpine as build-stage
 # 署名
 LABEL maintainer="乌龙茶有点甜 <982474256@qq.com>"
 # 指定目录
@@ -7,7 +7,7 @@ WORKDIR /neverland
 # 将当前所有目录拷贝到工作目录
 COPY . /neverland
 # 设置 node 阿里镜像
-RUN npm config set registry https://registry.npm.taobao.org
+RUN npm config set registry https://registry.npmmirror.com
 # 设置--max-old-space-size
 ENV NODE_OPTIONS=--max-old-space-size=16384
 # 设置阿里镜像、pnpm、依赖、编译
