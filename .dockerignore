@@ -8,3 +8,5 @@
 .gitignore
 # 忽略安装包文件
 node_modules
+# 忽略外部编译文件
+src/.vuepress/dist
