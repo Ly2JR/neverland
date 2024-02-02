@@ -310,3 +310,26 @@ Button 按钮全局生效
          nl:ButtonElementAttached.Type="Danger"
          Content="Danger" />
 ```
+
+## 虚线边框
+
+![isdash](https://nas.ilyl.life:8092/wpf-theme/button/button-isdash.gif =800x50)
+
+```xml
+<Button nl:ButtonElementAttached.IsDash="True" Content="Default" />
+<Button nl:ButtonElementAttached.IsDash="True"
+        nl:ButtonElementAttached.Type="Primary"
+        Content="Primary" />
+<Button nl:ButtonElementAttached.IsDash="True"
+        nl:ButtonElementAttached.Type="Success"
+        Content="Success" />
+<Button nl:ButtonElementAttached.IsDash="True"
+        nl:ButtonElementAttached.Type="Info"
+        Content="Info" />
+<Button nl:ButtonElementAttached.IsDash="True"
+        nl:ButtonElementAttached.Type="Warning"
+        Content="Warning" />
+<Button nl:ButtonElementAttached.IsDash="True"
+        nl:ButtonElementAttached.Type="Danger"
+        Content="Danger" />
+```
