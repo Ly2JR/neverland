@@ -13,23 +13,21 @@ copy: true
 
 ## 服务支持
 
-::: card
-
-```card
-logo: https://vuepress.vuejs.org/hero.png
+```component VPCard
 title: VuePress
+logo: https://vuepress.vuejs.org/hero.png
 desc: Vue 驱动的静态网站生成器
 link: https://v2.vuepress.vuejs.org/zh/
+background: rgba(253, 230, 138, 0.15)
 ```
 
-```card
-logo: https://theme-hope.vuejs.press/logo.png
+```component VPCard
 title: VuePress Theme Hope
+logo: https://theme-hope.vuejs.press/logo.png
 desc: 一个具有强大功能的 vuepress 主题✨
 link: https://theme-hope.vuejs.press/zh/
+background: rgba(253, 230, 138, 0.15)
 ```
-
-:::
 
 ## 赞赏支持
 

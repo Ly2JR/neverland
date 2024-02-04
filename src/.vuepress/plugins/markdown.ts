@@ -6,7 +6,6 @@ export const markdown: MarkdownEnhanceOptions = {
   chart: false,
   codetabs: true,
   demo: true,
-  card: true,
   echarts: false,
   figure: true,
   flowchart: false,
@@ -18,11 +17,9 @@ export const markdown: MarkdownEnhanceOptions = {
   mark: false,
   mermaid: true,
   tasklist: true,
+  component: true,
   playground: {
     presets: ["ts", "vue"],
-  },
-  presentation: {
-    plugins: ["highlight", "math", "search", "notes", "zoom"],
   },
   stylize: [
     {

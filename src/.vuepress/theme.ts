@@ -10,7 +10,7 @@ import {
   COPYRIGHT,
   DESCRIPTION,
 } from "./consts";
-import { pwa, copyright, markdown, autoCatalog } from "./plugins/index";
+import { pwa, copyright, markdown, componentOptions } from "./plugins/index";
 
 export default hopeTheme(
   {
@@ -67,9 +67,9 @@ export default hopeTheme(
     plugins: {
       blog: true,
       /**
-       * 禁用自动生成目录
+       * 组件
        */
-      autoCatalog: autoCatalog,
+      components: componentOptions,
       /**
        * 启用Markdown增强
        */
