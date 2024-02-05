@@ -6,8 +6,8 @@
     <link>https://ilyl.life/</link>
     <description>乌龙茶有点甜的博客</description>
     <language>zh-CN</language>
-    <pubDate>Sun, 04 Feb 2024 03:28:43 GMT</pubDate>
-    <lastBuildDate>Sun, 04 Feb 2024 03:28:43 GMT</lastBuildDate>
+    <pubDate>Mon, 05 Feb 2024 08:49:34 GMT</pubDate>
+    <lastBuildDate>Mon, 05 Feb 2024 08:49:34 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>C#</category>
@@ -28,10 +28,15 @@
       <link>https://ilyl.life/cs/wpf-theme/border.html</link>
       <guid>https://ilyl.life/cs/wpf-theme/border.html</guid>
       <source url="https://ilyl.life/rss.xml">Border 边框</source>
-      <description>圆角 我们提供了以下几种圆角样式，以供选择。 RadiusRadius 另外提供AutoRoundRadius选择，根据高度自动计算 AutoRoundAutoRound 虚拟边框 使用BorderColor更改虚拟边框颜色 DashDash 阴影 提供了以下几种投影样式，以供选择。 ShadowShadow </description>
+      <description>仿Element Plus的一款WPF主题控件。 提示 需要应用BorderDefaultStyle样式生效 圆角 我们提供了以下几种圆角样式，以供选择。 RadiusRadius 另外提供AutoRoundRadius选择，根据高度自动计算 AutoRoundAutoRound 虚拟边框 使用BorderColor更改虚拟边框颜色 DashDash ...</description>
       <category>C#</category>
       <pubDate>Fri, 02 Feb 2024 05:05:17 GMT</pubDate>
-      <content:encoded><![CDATA[<h2>圆角</h2>
+      <content:encoded><![CDATA[<p>仿<a href="https://element-plus.org/zh-CN/component/border.html" target="_blank" rel="noopener noreferrer">Element Plus</a>的一款WPF主题控件。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">提示</p>
+<p>需要应用<code>BorderDefaultStyle</code>样式生效</p>
+</div>
+<h2>圆角</h2>
 <p>我们提供了以下几种圆角样式，以供选择。</p>
 <table>
 <thead>
@@ -1075,10 +1080,6 @@
         <span class="token attr-name"><span class="token namespace">nl:</span>ButtonElementAttached.Type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Danger<span class="token punctuation">"</span></span>
         <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Danger<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
 </code></pre></div><h2>禁用状态</h2>
-<div class="hint-container info">
-<p class="hint-container-title">相关信息</p>
-<p><code>IsEnabled</code>禁用时，鼠标的光标效果未实现，待解决</p>
-</div>
 <p>你可以使用原生的<code>IsEnabled</code>属性来定义按钮是否被禁用。</p>
 <p>使用<code>IsEnabled</code>属性来控制按钮是否为禁用状态。 该属性接受一个 Boolean 类型的值。</p>
 <figure><img src="https://nas.ilyl.life:8092/wpf-theme/button/button-isenabled.gif" alt="isenabled属性" width="800" height="50" tabindex="0" loading="lazy"><figcaption>isenabled属性</figcaption></figure>
