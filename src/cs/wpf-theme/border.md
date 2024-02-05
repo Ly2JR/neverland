@@ -13,6 +13,13 @@ tag:
   - 主题控件
 ---
 
+
+仿[Element Plus](https://element-plus.org/zh-CN/component/border.html)的一款WPF主题控件。
+
+::: tip
+需要应用`BorderDefaultStyle`样式生效
+:::
+
 ## 圆角
 
 我们提供了以下几种圆角样式，以供选择。
