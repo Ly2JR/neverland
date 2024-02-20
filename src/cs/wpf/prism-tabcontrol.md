@@ -138,9 +138,9 @@ private void TabControlHandler(int i)
 Tab页VM子类:
 
 ```cs
- public ViewAViewModel(IEventAggregator eventAggregator, IRegionManager regionManager) : base(eventAggregator,regionManager)
- {
- }
+public ViewAViewModel(IEventAggregator eventAggregator, IRegionManager regionManager) : base(eventAggregator,regionManager)
+{
+}
 ```
 
 ## 多个Tab页同时接收消息
