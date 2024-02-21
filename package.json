@@ -28,7 +28,7 @@
     "@vuepress/plugin-feed": "2.0.0-rc.15",
     "@vuepress/plugin-pwa": "2.0.0-rc.16",
     "@vuepress/plugin-theme-data": "2.0.0-rc.15",
-    "@vueuse/core": "^10.7.2",
+    "@vueuse/core": "^10.8.0",
     "commitizen": "^4.3.0",
     "eslint": "^8.56.0",
     "husky": "^8.0.3",
