@@ -17,7 +17,7 @@ RUN npm install pnpm -g && \
 # node部分结束
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 # nginx 部署
-FROM nginx:1.25.3-alpine as production-stage
+FROM nginx:1.25.4-alpine as production-stage
 # 拷贝编译后的文件
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 # 配置nginx
