@@ -14,7 +14,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^8.15.3",
+    "pnpm": "^8.15.4",
     "vue": "^3.4.19",
     "vuepress": "2.0.0-rc.8"
   },
@@ -30,7 +30,7 @@
     "@vuepress/plugin-theme-data": "2.0.0-rc.15",
     "@vueuse/core": "^10.8.0",
     "commitizen": "^4.3.0",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "husky": "^8.0.3",
     "inquirer": "^8.2.6",
     "mathjax-full": "^3.2.2",
