@@ -67,6 +67,14 @@ HelloCPlusPlusDll int __stdcall Add(int, int);
 
 extern "C" {
     HelloCPlusPlusDll  int __stdcall Sub(int, int);
+
+    HelloCPlusPlusDll const wchar_t* __stdcall ReadString();
+
+    HelloCPlusPlusDll void __stdcall Reset();
+
+    HelloCPlusPlusDll const wchar_t* __stdcall WriteString(const wchar_t* input);
+
+    HelloCPlusPlusDll const char* __stdcall WriteString2(const char* input);
 }
 
 class HelloCPlusPlusDll C
@@ -91,6 +99,7 @@ public:
 ```c++
 #include "HelloCPlusPlus.h"
 #include <iostream>
+#include <wchar.h>
 
 using namespace std;
 
@@ -100,6 +109,32 @@ int Add(int a, int b) {
 
 int Sub(int a, int b) {
     return a - b;
+}
+
+wchar_t Hello[16]=L"Hello";
+char Hello2[16] = "Hello";
+
+const wchar_t* ReadString()
+{
+    return Hello;
+}
+
+void  Reset()
+{
+    fill(begin(Hello)+5,end(Hello),0);
+    fill(begin(Hello2) + 5, end(Hello2), 0);
+}
+
+const wchar_t* WriteString(const wchar_t* input)
+{
+    wcscat_s(Hello,16,input);
+    return Hello;
+}
+
+const char* WriteString2(const char* input)
+{
+    strcat_s(Hello2,16, input);
+    return Hello2;
 }
 
 int C::Mul(int a, int b) {
@@ -126,6 +161,10 @@ int S::Div(int a, int b) {
 发现通过`extern "C"`导出的名称与定义一致，这也是C#调用C++提升找不到入口点的原因之一
 
 ## 调用
+
+::: warning
+C++字符串以`\0`结尾，多占一位
+:::
 
 ### CPlusPlus调用
 
@@ -159,6 +198,17 @@ int main()
     S helloS;
     int a3 = helloS.Div(4, 2);
     cout << "4/2=" <<a3 << endl;
+
+    const wchar_t* str= ReadString();
+    wcout << "ReadString:" << str << endl;
+
+    const wchar_t* input1 = L" World";
+    const wchar_t* str1 = WriteString(input1);
+    wcout << "WriteString:" << str1 <<" Length:" << wcslen(str1) << endl;
+
+    const char input2[] = " World1234";
+    const char* str2 = WriteString2(input2);
+    cout << "WriteString2:" << str2 << " Length:" << strnlen_s(str2,16) << endl;
 }
 
 //输出
@@ -166,6 +216,9 @@ int main()
 //2-1=1
 //2*3=6
 //4/2=2
+//ReadString:Hello
+//WriteString:Hello World Length:11
+//WriteString2:Hello World1234 Length:15
 ```
 
 ### CSharp调用
@@ -176,6 +229,7 @@ int main()
 
 ```cs
 using System.Runtime.InteropServices;
+using System.Text;
 
 short a = Add(1, 2);
 Console.WriteLine($"1+2={a}");
@@ -189,22 +243,78 @@ Console.WriteLine($"2*3={a2}");
 short a3 = Div(4, 2);
 Console.WriteLine($"4/2={a3}");
 
+IntPtr readPtr1 = ReadString();
+//方式一：指针转换字符串
+var readValue1 = Marshal.PtrToStringUni(readPtr1); 
+//方式二：通过字节数组转换
+//byte[] bytes1 = new byte[16];
+//Marshal.Copy(readPtr1, bytes1, 0, 16);
+//var readValue1 = Encoding.Unicode.GetString(bytes1);
+Console.WriteLine("ReadString:"+readValue1);
+
+//方式一:通过指针转换
+//var writeValue2 = " World";
+//var writePtr2=Marshal.StringToHGlobalUni(writeValue2);
+//方式二:通过字节转换，末尾需要`\0`
+var writeValue2 = " World\0";
+var byteStr2 = Encoding.Unicode.GetBytes(writeValue2);
+IntPtr writePtr2 = Marshal.AllocHGlobal(byteStr2.Length);
+Marshal.Copy(byteStr2, 0, writePtr2, byteStr2.Length);
+IntPtr readPtr2 = WriteString(writePtr2);
+var readValue2 = Marshal.PtrToStringUni(readPtr2);
+Console.WriteLine("WriteString:" + readValue2 + " Length:"+readValue2.Length);
+
+//WriteStringAs和WriteString使用同一个操作进行拼接，超出上限需要重置
+Reset();
+
+string writeValue3 = " World12";
+var readValuePtr3 = WriteStringAs(writeValue3);
+var readValue3 = Marshal.PtrToStringUni(readValuePtr3);
+Console.WriteLine("WriteString:" + readValue3 + " Length:"+readValue2.Length);
+
+var writeValue4 = " World1234";
+var writeValuePtr4 = Marshal.StringToHGlobalAnsi(writeValue4);
+IntPtr readValuePtr4 = WriteString2(writeValuePtr4);
+var readValue4 = Marshal.PtrToStringAnsi(readValuePtr4);
+Console.WriteLine("WriteString2:" + readValue4 + " Length:"+readValue2.Length);
+
+Marshal.FreeHGlobal(readPtr1);
+Marshal.FreeHGlobal(readPtr2);
+Marshal.FreeHGlobal(readValuePtr3);
+Marshal.FreeHGlobal(readValuePtr4);
+
 
 [DllImport(@".\lib\Project1.dll",CharSet =CharSet.Unicode, EntryPoint = "?Add@@YAHHH@Z")]
 static extern short Add(short a, short b);
 [DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode)]
 static extern short Sub(short a, short b);
-[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode, EntryPoint = "?Mul@C@@SAHHH@Z", CallingConvention = CallingConvention.Cdecl)]
+[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode, EntryPoint = "?Mul@C@@SAHHH@Z")]
 static extern short Mul(short a, short b);
-[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode, EntryPoint = "?Div@S@@QEAAHHH@Z", CallingConvention = CallingConvention.Cdecl)]
+[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode, EntryPoint = "?Div@S@@QEAAHHH@Z")]
 static extern short Div(short a, short b);
+[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode)]
+static extern IntPtr ReadString();
+[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode)]
+static extern IntPtr WriteString(IntPtr input);
+[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode,EntryPoint = "WriteString")]
+static extern IntPtr WriteStringAs(string input);
+[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode)]
+static extern IntPtr WriteString2(IntPtr input);
+[DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode)]
+static extern void Reset();
 
 //输出
 //1+2=3
 //2-1=1
 //2*3=6
 //4/2=0
+//ReadString:Hello
+//WriteString:Hello World Length:11
+//WriteString:Hello World12 Length:13
+//WriteString2:Hello World1234 Length:15
 ```
+
+C#的`WriteString`和`WriteStringAs`方法都是调用C++的`WriteString`，通过[EntryPoint](https://learn.microsoft.com/zh-cn/dotnet/framework/interop/specifying-an-entry-point)更改入口点名称。它们唯一的区别在于形参参数传递，一个通过`IntPtr`，一个通过`string`，返回结果`string`无效。
 
 发现`Div`函数输出结果不正确，[调试C#与C++代码](https://learn.microsoft.com/zh-cn/visualstudio/debugger/how-to-debug-managed-and-native-code?view=vs-2022)发现传递两个参数，结果C++代码接收的参数多一个，调整代码
 
@@ -219,4 +329,4 @@ static extern short Div(short i,short a, short b);
 //4/2=2
 ```
 
-结果按预期输出，为什么多加一个参数可以?。
+结果按预期输出，C#是无法直接调用C++类，需要进行包装处理，但是为什么多加一个参数可以? 。

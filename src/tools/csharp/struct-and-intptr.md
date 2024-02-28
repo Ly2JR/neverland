@@ -8,6 +8,7 @@ category:
   - 工具箱
 tag:
   - C#
+  - C++
 ---
 
 [Intptr](https://learn.microsoft.com/zh-cn/dotnet/api/system.intptr?view=net-7.0)与[StructLayout](https://learn.microsoft.com/zh-cn/dotnet/api/system.runtime.interopservices.structlayoutattribute?view=net-6.0)转换
