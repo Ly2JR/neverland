@@ -1,5 +1,5 @@
 ---
-title: vs2017u5 exists,deleting.
+title: VS调试Docker
 date: 2024-01-16
 editLink: false
 footer: false
@@ -11,7 +11,7 @@ tag:
   - Docker
 ---
 
-VS进行Docker调试时，半天卡住不动，查看日志显示
+VS进行Docker调试时，半天卡住不动，查看日志显示`vs2017u5 exists,deleting.`
 
 ```cmd
 >Info: Using vsdbg version '17.8.11212.2'
