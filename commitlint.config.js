@@ -1,13 +1,13 @@
+// .commitlintrc.js
+/** @type {import('cz-git').UserConfig} */
 export default {
-  extends: ["@commitlint/config-conventional"],
-  parserPreset: "conventional-changelog-conventionalcommits",
   rules: {
     "body-leading-blank": [2, "always"],
     "footer-leading-blank": [1, "always"],
     "header-max-length": [2, "always", 108],
-    "subject-empty": [2, "never", 10],
+    "subject-empty": [2, "never", 20],
     "scope-max-length": [2, "always", 40],
-    "subject-max-length": [2, "always", 10],
+    "subject-max-length": [2, "never", 60],
     "type-empty": [2, "never"],
     "subject-case": [0],
     "type-enum": [
@@ -17,80 +17,111 @@ export default {
     ],
   },
   prompt: {
-    settings: {},
+    alias: { fd: "docs: fix typos" },
     messages: {
-      skip: ":跳过",
-      max: "最大 %d 字符",
-      min: "至少 %d 字符",
-      emptyWarning: "不能为空",
-      upperLimitWarning: "超过限制",
-      lowerLimitWarning: "低于限制",
+      type: "选择你要提交的类型 :",
+      scope: "选择一个提交范围（可选）:",
+      customScope: "请输入自定义的提交范围 :",
+      subject: "填写简短精炼的变更描述 :\n",
+      body: '填写更加详细的变更描述（可选）。使用 "|" 换行 :\n',
+      breaking: '列举非兼容性重大的变更（可选）。使用 "|" 换行 :\n',
+      footerPrefixesSelect: "选择关联issue前缀（可选）:",
+      customFooterPrefix: "输入自定义issue前缀 :",
+      footer: "列举关联issue (可选) 例如: #31, #I3244 :\n",
+      confirmCommit: "是否提交或修改commit ?",
     },
-    questions: {
-      type: {
-        description: "Select the type of change that you're committing:",
-        enum: {
-          feat: {
-            description: "新功能",
-            title: "Features",
-            emoji: "✨",
-          },
-          docs: {
-            description: "仅文档更改",
-            title: "Documentation",
-            emoji: "📚",
-          },
-          style: {
-            description: "不影响代码含义的更改(空格,格式,缺少分号等)",
-            title: "Styles",
-            emoji: "💎",
-          },
-          build: {
-            description:
-              "影响生成系统或外部依赖项的更改(例如:gulp、broccoli,npm)",
-            title: "Builds",
-            emoji: "🛠",
-          },
-          chore: {
-            description: "不包含src或test文件的其他更改",
-            title: "Chores",
-            emoji: "♻️",
-          },
-          release: {
-            description: "发包",
-            title: "Releases",
-            emoji: "🚀",
-          },
-        },
+    types: [
+      {
+        value: "feat",
+        name: "feat:     ✨ 新增功能 | A new feature",
+        emoji: ":sparkles:",
       },
-      scope: {
-        description: "此更改的范围是什么（例如组件或文件名）",
+      {
+        value: "fix",
+        name: "fix:      🐛 修复缺陷 | A bug fix",
+        emoji: ":bug:",
       },
-      subject: {
-        description: "写一个简短的、祈使式的时态描述变化",
+      {
+        value: "docs",
+        name: "docs:     📝 文档更新 | Documentation only changes",
+        emoji: ":memo:",
       },
-      body: {
-        description: "提供更改的更长说明",
+      {
+        value: "style",
+        name: "style:    💄 代码格式 | Changes that do not affect the meaning of the code",
+        emoji: ":lipstick:",
       },
-      isBreaking: {
-        description: "是否有任何重大更改？",
+      {
+        value: "refactor",
+        name: "refactor: ♻️  代码重构 | A code change that neither fixes a bug nor adds a feature",
+        emoji: ":recycle:",
       },
-      breakingBody: {
-        description: "中断性变更提交需要正文。请输入提交本身的详细描述",
+      {
+        value: "perf",
+        name: "perf:     ⚡️ 性能提升 | A code change that improves performance",
+        emoji: ":zap:",
       },
-      breaking: {
-        description: "描述中断性变更",
+      {
+        value: "test",
+        name: "test:     ✅ 测试相关 | Adding missing tests or correcting existing tests",
+        emoji: ":white_check_mark:",
       },
-      isIssueAffected: {
-        description: "此更改是否会影响任何未解决的问题？",
+      {
+        value: "build",
+        name: "build:    📦️ 构建相关 | Changes that affect the build system or external dependencies",
+        emoji: ":package:",
       },
-      issuesBody: {
-        description:
-          "如果问题已关闭，则提交需要一个正文。请输入提交本身的详细描述",
+      {
+        value: "ci",
+        name: "ci:       🎡 持续集成 | Changes to our CI configuration files and scripts",
+        emoji: ":ferris_wheel:",
       },
-      issues: {
-        description: '添加问题引用(e.g. "fix #123", "re #123".)',
+      {
+        value: "chore",
+        name: "chore:    🔨 其他修改 | Other changes that do not modify src or test files",
+        emoji: ":hammer:",
       },
-    },
+      {
+        value: "revert",
+        name: "revert:   ⏪️ 回退代码 | Revert to a commit",
+        emoji: ":rewind:",
+      },
+    ],
+    useEmoji: true,
+    emojiAlign: "center",
+    useAI: false,
+    aiNumber: 1,
+    themeColorCode: "",
+    scopes: [],
+    allowCustomScopes: true,
+    allowEmptyScopes: true,
+    customScopesAlign: "bottom",
+    customScopesAlias: "custom",
+    emptyScopesAlias: "empty",
+    upperCaseSubject: false,
+    markBreakingChangeMode: false,
+    allowBreakingChanges: ["feat", "fix"],
+    breaklineNumber: 100,
+    breaklineChar: "|",
+    skipQuestions: [],
+    issuePrefixes: [
+      // 如果使用 gitee 作为开发管理
+      { value: "link", name: "link:     链接 ISSUES 进行中" },
+      { value: "closed", name: "closed:   标记 ISSUES 已完成" },
+    ],
+    customIssuePrefixAlign: "top",
+    emptyIssuePrefixAlias: "skip",
+    customIssuePrefixAlias: "custom",
+    allowCustomIssuePrefix: true,
+    allowEmptyIssuePrefix: true,
+    confirmColorize: true,
+    maxHeaderLength: Infinity,
+    maxSubjectLength: Infinity,
+    minSubjectLength: 0,
+    scopeOverrides: undefined,
+    defaultBody: "",
+    defaultIssues: "",
+    defaultScope: "",
+    defaultSubject: "",
   },
 };
