@@ -40,8 +40,8 @@
     "patch-package": "^8.0.0",
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
-    "vuepress-plugin-components": "2.0.0-rc.27",
-    "vuepress-theme-hope": "2.0.0-rc.27"
+    "vuepress-plugin-components": "2.0.0-rc.29",
+    "vuepress-theme-hope": "2.0.0-rc.29"
   },
   "config": {
     "commitizen": {
