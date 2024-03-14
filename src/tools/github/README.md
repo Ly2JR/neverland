@@ -32,4 +32,4 @@ tag:
     右击属性\安全\添加当前角色
     :::
 
-5. 打开`cmd`，运行`ipconfg/flushdns`
+5. 打开`cmd`，运行`ipconfig/flushdns`
