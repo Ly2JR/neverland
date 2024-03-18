@@ -1,5 +1,5 @@
 # node 构建
-FROM node:21.7.0-alpine as build-stage
+FROM node:21.7.1-alpine as build-stage
 # 署名
 LABEL maintainer="乌龙茶有点甜 <982474256@qq.com>"
 # 指定目录
