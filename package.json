@@ -16,14 +16,14 @@
   "dependencies": {
     "pnpm": "^8.15.5",
     "vue": "^3.4.21",
-    "vuepress": "2.0.0-rc.8"
+    "vuepress": "2.0.0-rc.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@vue/repl": "^4.1.1",
-    "@vuepress/bundler-vite": "2.0.0-rc.8",
+    "@vuepress/bundler-vite": "2.0.0-rc.9",
     "@vuepress/plugin-external-link-icon": "2.0.0-rc.18",
     "@vuepress/plugin-feed": "2.0.0-rc.19",
     "@vuepress/plugin-pwa": "2.0.0-rc.20",
