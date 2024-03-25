@@ -39,7 +39,7 @@
     "nano-staged": "^0.8.0",
     "patch-package": "^8.0.0",
     "prettier": "^3.2.5",
-    "stylelint": "^16.2.1",
+    "stylelint": "^16.3.0",
     "vuepress-plugin-components": "2.0.0-rc.31",
     "vuepress-theme-hope": "2.0.0-rc.31"
   },
