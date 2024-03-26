@@ -1,7 +1,7 @@
 ---
 title: Border 边框
 date: 2024-02-2
-star: 3
+star: 2
 dir.order: 2
 editLink: false
 footer: false
