@@ -146,7 +146,7 @@ $end$]]>
             <Title>propaonly</Title>
             <Shortcut>propaonly</Shortcut>
             <Description>只读附加依赖属性</Description>
-            <Author>Nevlerland</Author>
+            <Author>Neverland</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
             </SnippetTypes>
@@ -187,13 +187,127 @@ $end$]]>
                         obj.SetValue($property$PropertyKey, value);
                     }
 
-                    // Using a readonly DependencyPropertyKey as the backing store for $property$.  This enables animation, styling, binding, etc...
+                    // Using a readonly DependencyPropertyKey as the backing store for $property$PropertyKey.  This enables animation, styling, binding, etc...
                     internal static readonly DependencyPropertyKey $property$PropertyKey =
                         DependencyProperty.RegisterAttachedReadOnly("$property$", typeof($type$), typeof($ownerclass$), new PropertyMetadata($defaultvalue$));
 
                     public static readonly DependencyProperty $property$Property = $property$PropertyKey.DependencyProperty;
 
                     $end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+```
+
+## 附加事件代码片段
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>eventa</Title>
+            <Shortcut>eventa</Shortcut>
+            <Description>附加事件</Description>
+            <Author>Neverland</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>eventName</ID>
+                    <ToolTip>事件名称</ToolTip>
+                    <Default>MyEvent</Default>
+                </Literal>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>拥有该属性的类</ToolTip>
+                    <Default>ownerclass</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+                
+                   public static readonly RoutedEvent $eventName$Event = EventManager.RegisterRoutedEvent("$eventName$", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof($ownerclass$));
+
+                    public static void Add$eventName$Handler(DependencyObject dependencyObject,RoutedEventHandler handler)
+                    {
+                        if (dependencyObject is not UIElement uiElement) return;
+                        uiElement.AddHandler($eventName$Event, handler);
+                    }
+
+                    public static void Remove$eventName$Handler(DependencyObject dependencyObject,RoutedEventHandler handler)
+                    {
+                        if (dependencyObject is not UIElement uiElement) return;
+                        uiElement.RemoveHandler($eventName$Event, handler);
+                    }
+
+                $end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+```
+
+## 路由事件代码片段
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>eventdp</Title>
+            <Shortcut>eventdp</Shortcut>
+            <Description>路由事件</Description>
+            <Author>Neverland</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>eventName</ID>
+                    <ToolTip>事件名称</ToolTip>
+                    <Default>MyEvent</Default>
+                </Literal>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>拥有该属性的类</ToolTip>
+                    <Default>ownerclass</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+                
+                   public ICommand $eventName$
+                    {
+                        get { return (ICommand)GetValue($eventName$Property); }
+                        set { SetValue($eventName$Property, value); }
+                    }
+
+                    // Using a DependencyProperty as the backing store for $eventName$Property.  This enables animation, styling, binding, etc...
+                    public static readonly DependencyProperty $eventName$Property =
+                        DependencyProperty.Register("$eventName$", typeof(ICommand), typeof($ownerclass$), new PropertyMetadata(default(ICommand), null));
+
+
+                    public static readonly RoutedEvent $eventName$Event = EventManager.RegisterRoutedEvent("$eventName$", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof($ownerclass$));
+
+                    public event RoutedEventHandler $eventName$EventClick
+                    {
+                        add { AddHandler($eventName$Event, value); }
+                        remove { RemoveHandler($eventName$Event, value); }
+                    }
+
+                    void Raise$eventName$RoutedEvent()
+                    {
+                        RoutedEventArgs routedEventArgs = new($eventName$Event, this);
+                        RaiseEvent(routedEventArgs);
+                    }
+                $end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>
