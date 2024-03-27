@@ -184,7 +184,7 @@ $end$]]>
 
                     internal static void Set$property$(DependencyObject obj, $type$ value)
                     {
-                        obj.SetValue($property$Property, value);
+                        obj.SetValue($property$PropertyKey, value);
                     }
 
                     // Using a readonly DependencyPropertyKey as the backing store for $property$.  This enables animation, styling, binding, etc...
