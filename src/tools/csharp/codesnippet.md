@@ -135,3 +135,67 @@ $end$]]>
     </CodeSnippet>
 </CodeSnippets>
 ```
+
+## 只读依赖代码片段
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>propaonly</Title>
+            <Shortcut>propaonly</Shortcut>
+            <Description>只读附加依赖属性</Description>
+            <Author>Nevlerland</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>属性类型</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>属性名称</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>拥有该属性的类</ToolTip>
+                    <Default>ownerclass</Default>
+                </Literal>
+                <Literal>
+                    <ID>defaultvalue</ID>
+                    <ToolTip>该属性的默认值</ToolTip>
+                    <Default>0</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+                
+                    public static $type$ Get$property$(DependencyObject obj)
+                    {
+                        return ($type$)obj.GetValue($property$Property);
+                    }
+
+                    internal static void Set$property$(DependencyObject obj, $type$ value)
+                    {
+                        obj.SetValue($property$Property, value);
+                    }
+
+                    // Using a readonly DependencyPropertyKey as the backing store for $property$.  This enables animation, styling, binding, etc...
+                    internal static readonly DependencyPropertyKey $property$PropertyKey =
+                        DependencyProperty.RegisterAttachedReadOnly("$property$", typeof($type$), typeof($ownerclass$), new PropertyMetadata($defaultvalue$));
+
+                    public static readonly DependencyProperty $property$Property = $property$PropertyKey.DependencyProperty;
+
+                    $end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+```
