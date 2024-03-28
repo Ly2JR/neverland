@@ -13,7 +13,7 @@ tag:
 
 自带的TreeView没有Checkbox，需要自定义设计实现效果
 
-![自定义TreeView](https://nas.ilyl.life:8092/wpf/treeview.gif =240x280)
+![自定义TreeView](https://nas.ilyl.life:8092/wpf/treeview.gif)
 
 ## 定义模型
 

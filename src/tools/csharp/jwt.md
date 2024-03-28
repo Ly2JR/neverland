@@ -266,6 +266,6 @@ builder.Services.ConfigureHttpJsonOptions(options => {
 
 ## 验证
 
-![登录认证](https://nas.ilyl.life:8092/dotnet/jwt1.gif =420x200)
+![登录认证](https://nas.ilyl.life:8092/dotnet/jwt1.gif)
 
-![数据授权](https://nas.ilyl.life:8092/dotnet/jwt2.gif =420x200)
+![数据授权](https://nas.ilyl.life:8092/dotnet/jwt2.gif)

@@ -19,4 +19,4 @@ d:DataContext="{d:DesignInstance Type={x:Type vm:MainWindowViewModel},
                                  IsDesignTimeCreatable=True}"
 ```
 
-![design](https://nas.ilyl.life:8092/wpf/design.png =420x200)
+![design](https://nas.ilyl.life:8092/wpf/design.png)

@@ -43,23 +43,23 @@ tag:
 
 1. `Stretch="None"`：Image比输出源区域小，不能完整的显示视频源大小
 
-    ![Stretch="None"](https://nas.ilyl.life:8092/wpf/none.gif =420x200)
+    ![Stretch="None"](https://nas.ilyl.life:8092/wpf/none.gif)
 
 2. `Stretch="Fill"`：Image能完整的显示视频源大小，但是区分不了屏幕比
 
-    ![Stretch="Fill"](https://nas.ilyl.life:8092/wpf/fill.gif =420x200)
+    ![Stretch="Fill"](https://nas.ilyl.life:8092/wpf/fill.gif)
 
 3. `Stretch="Uniform"`：Image能完整的显示视频源大小，也能区分屏幕比，但是需要调整视频源大小
 
-    ![Stretch="Uniform"](https://nas.ilyl.life:8092/wpf/uniform.gif =420x200)
+    ![Stretch="Uniform"](https://nas.ilyl.life:8092/wpf/uniform.gif)
 
 4. `Stretch="UniformToFill"`：Image能完整的显示视频源大小，但是区分不了屏幕比
 
-    ![Stretch="UniformToFill"](https://nas.ilyl.life:8092/wpf/uniformtofill.gif =420x200)
+    ![Stretch="UniformToFill"](https://nas.ilyl.life:8092/wpf/uniformtofill.gif)
 
 这里通过布局的方式，完成最终屏蔽比显示
 
-![屏幕比](https://nas.ilyl.life:8092/wpf/ratio.gif =420x200)
+![屏幕比](https://nas.ilyl.life:8092/wpf/ratio.gif)
 
 ### 布局
 
@@ -76,7 +76,7 @@ tag:
 
 其中，黑色部分是显示的区域，绿色部分为视频输出显示的区域。
 
-![屏幕比布局](https://nas.ilyl.life:8092/wpf/ratio_layout.gif =420x200)
+![屏幕比布局](https://nas.ilyl.life:8092/wpf/ratio_layout.gif)
 
 关键在于[Decorator](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.decorator?view=windowsdesktop-7.0)装饰器
 

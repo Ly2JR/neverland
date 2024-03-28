@@ -93,7 +93,7 @@ WPF控件没有句柄,通过[WindowsFormsIntegration](https://learn.microsoft.co
 
 ### Image方式
 
-![WPF无句柄预览](https://nas.ilyl.life:8092/wpf/hk_p2.gif =420x200)
+![WPF无句柄预览](https://nas.ilyl.life:8092/wpf/hk_p2.gif)
 
 #### 关键点
 
@@ -165,11 +165,11 @@ Winform则通过[Control.InvokeRequired](https://learn.microsoft.com/zh-cn/dotne
 
 1. 放大缩小窗体时，出现白色闪烁问题。
 
-    ![WPF句柄预览缩放问题](https://nas.ilyl.life:8092/wpf/hk_p1.gif =420x200)
+    ![WPF句柄预览缩放问题](https://nas.ilyl.life:8092/wpf/hk_p1.gif)
 
 2. 使用WPF控件无法放在PictureBox顶层。
 
-    ![WPF句柄预览叠加问题](https://nas.ilyl.life:8092/wpf/hk_issue2.png =420x200)
+    ![WPF句柄预览叠加问题](https://nas.ilyl.life:8092/wpf/hk_issue2.png)
 
 为了解决这两个问题，使用Image方式是一种更好的方法。
 

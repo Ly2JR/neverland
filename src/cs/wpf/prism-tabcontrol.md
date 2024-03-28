@@ -19,11 +19,11 @@ tag:
 - [x] 如何指定Tab页接收消息？
 - [x] 关闭Tab页后消息为何还能接收？
 
-![TabControl](https://nas.ilyl.life:8092/wpf/tabcontrol.gif =420x200)
+![TabControl](https://nas.ilyl.life:8092/wpf/tabcontrol.gif)
 
 ## TabControl如何添加Tab页
 
-![添加](https://nas.ilyl.life:8092/wpf/tabcontrol1.gif =420x200)
+![添加](https://nas.ilyl.life:8092/wpf/tabcontrol1.gif)
 
 实现TabControl动态添加，需要用到Prism的区域管理
 
@@ -80,7 +80,7 @@ tag:
 
 ## TabControl如何删除Tab页
 
-![删除](https://nas.ilyl.life:8092/wpf/tabcontrol2.gif =420x200)
+![删除](https://nas.ilyl.life:8092/wpf/tabcontrol2.gif)
 
 ::: tip
 在ItemContainerStyle设置关闭和在用户控件里添加关闭有什么区别?
@@ -104,7 +104,7 @@ private void CloseTab(object obj)
 
 ## IsNavigationTarget的用途
 
-![IsNavigationTarget](https://nas.ilyl.life:8092/wpf/tabcontrol3.gif =420x200)
+![IsNavigationTarget](https://nas.ilyl.life:8092/wpf/tabcontrol3.gif)
 
 当IsNavigationTarget为`True`时，无论请求导航多少次,View和ViewModel始终为同一个实例。
 
@@ -112,7 +112,7 @@ private void CloseTab(object obj)
 
 ## 如何关闭全部Tab页
 
-![全部关闭](https://nas.ilyl.life:8092/wpf/tabcontrol4.gif =420x200)
+![全部关闭](https://nas.ilyl.life:8092/wpf/tabcontrol4.gif)
 
 `IRegion`接口提供`RemoveAll`方法
 
@@ -145,13 +145,13 @@ public ViewAViewModel(IEventAggregator eventAggregator, IRegionManager regionMan
 
 ## 多个Tab页同时接收消息
 
-![同时接收消息](https://nas.ilyl.life:8092/wpf/tabcontrol5.gif =420x200)
+![同时接收消息](https://nas.ilyl.life:8092/wpf/tabcontrol5.gif)
 
 如全部关闭Tab页类型，提取为公共基类，通过`IEventAggregator`订阅公共消息。
 
 ## 指定Tab页接收消息
 
-![指定接收消息](https://nas.ilyl.life:8092/wpf/tabcontrol6.gif =420x200)
+![指定接收消息](https://nas.ilyl.life:8092/wpf/tabcontrol6.gif)
 
 如果没有提取公共类，那么通过`IEventAggregator`的`Subscribe`和`Unsubscribe`即可。
 

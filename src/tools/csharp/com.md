@@ -145,7 +145,7 @@ VB客户端放在哪里都无所谓，通过COM CLSID找到，即使通过`tlb`�
 
 :::
 
-![VB调用.NET Framework](https://nas.ilyl.life:8092/wpf/com1.gif =420x200)
+![VB调用.NET Framework](https://nas.ilyl.life:8092/wpf/com1.gif)
 
 ### 定义GUID
 
@@ -213,7 +213,7 @@ set obj=Nothing
 
 [官网示例NET Core Com](https://learn.microsoft.com/zh-cn/dotnet/core/native-interop/expose-components-to-com#sample)
 
-![NETCore与NETCore](https://nas.ilyl.life:8092/wpf/com2.gif =420x200)
+![NETCore与NETCore](https://nas.ilyl.life:8092/wpf/com2.gif)
 
 ### .Net Core支持多框架
 
@@ -350,7 +350,7 @@ namespace Activation
 
 ## .NET Framework与.NET Core
 
-![.Net Framework调用.Net Core](https://nas.ilyl.life:8092/wpf/com3.gif =420x200)
+![.Net Framework调用.Net Core](https://nas.ilyl.life:8092/wpf/com3.gif)
 
 无法使用COM 激活的方式调用，但是可以使用COM CLSID 找到。
 
@@ -379,7 +379,7 @@ mainView.ShowDialog();
 
 这种通过COM CLSID用的不多，同一种语言，直接引用，或者用反射。
 
-![.NET Framework调用.NET Framework](https://nas.ilyl.life:8092/wpf/com4.gif =420x200)
+![.NET Framework调用.NET Framework](https://nas.ilyl.life:8092/wpf/com4.gif)
 
 ```cs
 var comType = Type.GetTypeFromCLSID(Guid.Parse(ContractGuids.ServerClass));
@@ -389,7 +389,7 @@ active.StartWin();
 
 ## VB与.NET Core
 
-![VB调用.NET Core](https://nas.ilyl.life:8092/wpf/com5.gif =420x200)
+![VB调用.NET Core](https://nas.ilyl.life:8092/wpf/com5.gif)
 
 ```vb
 Dim obj As Object
@@ -402,7 +402,7 @@ Set obj = Nothing
 
 ### VB Prism
 
-![VB调用.NET Core Prism](https://nas.ilyl.life:8092/wpf/update3.gif =420x200)
+![VB调用.NET Core Prism](https://nas.ilyl.life:8092/wpf/update3.gif)
 
 因为直接调用`DemoCore.Plugin.Server`服务，而它是.NET Core，更新的插件既`Demo.Plugin`也应该是.NET Core，不能使用`.NET Framework`，否则提示找不到的问题。
 

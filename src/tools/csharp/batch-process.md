@@ -166,4 +166,4 @@ private void button2_Click(object sender, EventArgs e)
 }
 ```
 
-![批量处理](https://nas.ilyl.life:8092/dotnet/winform3.gif =420x200)
+![批量处理](https://nas.ilyl.life:8092/dotnet/winform3.gif)

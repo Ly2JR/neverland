@@ -14,7 +14,7 @@ tag:
 
 升级改造，利用触发器实现相同效果
 
-![watermark](https://nas.ilyl.life:8092/wpf/watermark.gif =420x200)
+![watermark](https://nas.ilyl.life:8092/wpf/watermark.gif)
 
 ```xml
  <TextBox>

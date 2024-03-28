@@ -12,7 +12,7 @@ tag:
 
 通过[DynamicResource](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/dynamicresource-markup-extension?view=netframeworkdesktop-4.8)可以实现本地资源的替换，实现多语切换或者主题切换功能。
 
-![动态资源](https://nas.ilyl.life:8092/wpf/dynamic-resource.gif =200x200)
+![动态资源](https://nas.ilyl.life:8092/wpf/dynamic-resource.gif)
 
 ## 定义资源文件
 

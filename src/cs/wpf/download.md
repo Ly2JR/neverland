@@ -12,7 +12,7 @@ tag:
 
 下载时太快UI不显示时，可以加个延时，代码高亮处。
 
-![下载](https://nas.ilyl.life:8092/wpf/download.gif =420x200)
+![下载](https://nas.ilyl.life:8092/wpf/download.gif)
 
 ```cs {93}
 //主机地址

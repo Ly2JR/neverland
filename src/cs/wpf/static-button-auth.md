@@ -15,7 +15,7 @@ tag:
 
 除了通过后台或者代码的方式实现之外，也可以使用转换器的方式实现，对于按钮不多的时候非常适用。
 
-![按钮权限切换](https://nas.ilyl.life:8092/wpf/button-group-auth.gif =420x200)
+![按钮权限切换](https://nas.ilyl.life:8092/wpf/button-group-auth.gif)
 
 以常见的操作按钮`新增`、`修改`、`删除`、`保存`、`查询`五个按钮为例。
 

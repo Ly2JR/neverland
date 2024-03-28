@@ -12,7 +12,7 @@ tag:
 
 [StringFormat](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.bindingbase.stringformat?view=windowsdesktop-7.0)和[ContentStringFormat](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.contentcontrol.contentstringformat?view=windowsdesktop-7.0)的区别，示例代码高亮显示。
 
-![格式显示](https://nas.ilyl.life:8092/wpf/stringformat.png =420x200)
+![格式显示](https://nas.ilyl.life:8092/wpf/stringformat.png)
 
 代码示例:
 

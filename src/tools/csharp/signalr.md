@@ -253,7 +253,7 @@ await Clients.Caller.GetMessage(msg)
 - [x] SignalR日志
 - [x] 通过API使用SignalR
 
-![聊天](https://nas.ilyl.life:8092/dotnet/signalr.gif =420x200)
+![聊天](https://nas.ilyl.life:8092/dotnet/signalr.gif)
 
 ::: tip
 提示"发生一个或多个错误，未能启动调试适配器。可以在输出窗口中查看额外的信息。"时
@@ -728,7 +728,7 @@ var chatApi = app.MapGroup("/chat");
 chatApi.MapGet("/", ([FromServices] ChatManager chatManager) =>Results.Ok(chatManager.GetAll()));
 ```
 
-![在线](https://nas.ilyl.life:8092/dotnet/signalr1.png =420x200)
+![在线](https://nas.ilyl.life:8092/dotnet/signalr1.png)
 
 - 向指定客户端发送消息
 
@@ -745,7 +745,7 @@ chatApi.MapGet("/", ([FromServices] ChatManager chatManager) =>Results.Ok(chatMa
  });
 ```
 
-![api发送消息](https://nas.ilyl.life:8092/dotnet/signalr2.gif =420x200)
+![api发送消息](https://nas.ilyl.life:8092/dotnet/signalr2.gif)
 
 - 向指定客户端发送消息并接收客户端响应消息
 
@@ -765,7 +765,7 @@ chatApi.MapGet("/", ([FromServices] ChatManager chatManager) =>Results.Ok(chatMa
  });
 ```
 
-![api发送消息并接收客户端响应](https://nas.ilyl.life:8092/dotnet/signalr3.gif =420x200)
+![api发送消息并接收客户端响应](https://nas.ilyl.life:8092/dotnet/signalr3.gif)
 
 ## 其他
 

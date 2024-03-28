@@ -34,9 +34,9 @@ copy: true
 
 进入`管理`，万网购买的默认`vip1.alidns.com/vip2.alidns.com`，非万网DNS自己配置。
 
-![域名](https://nas.ilyl.life:8092/network/domain1.png =420x200)
+![域名](https://nas.ilyl.life:8092/network/domain1.png)
 
-![域名DNS](https://nas.ilyl.life:8092/network/domain2.png =420x200)
+![域名DNS](https://nas.ilyl.life:8092/network/domain2.png)
 
 ### 解析IP地址
 
@@ -54,7 +54,7 @@ TTL：也就是这个时间之后才能知道，域名是否能访问你的公�
 
 记录值：填写[公网地址](https://www.test-ipv6.com/)，根据记录类型写入相应的IPv6或IPv4
 
-![IP解析](https://nas.ilyl.life:8092/network/domain3.png =420x200)
+![IP解析](https://nas.ilyl.life:8092/network/domain3.png)
 
 ### 验证
 
@@ -68,7 +68,7 @@ TTL：也就是这个时间之后才能知道，域名是否能访问你的公�
 免费SSL证书每年20个，对个人来说足够使用
 :::
 
-![SSL证书](https://nas.ilyl.life:8092/network/ssl1.png =420x200)
+![SSL证书](https://nas.ilyl.life:8092/network/ssl1.png)
 
 在[数字证书管理服务](https://yundun.console.aliyun.com/)里SSL证书,选择`免费证书`,申请通过即可。
 

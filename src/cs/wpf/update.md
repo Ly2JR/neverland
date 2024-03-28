@@ -15,7 +15,7 @@ tag:
 
 受[异步编程](https://learn.microsoft.com/zh-cn/archive/msdn-magazine/2014/april/async-programming-patterns-for-asynchronous-mvvm-applications-commands)启发，借用了大量代码。
 
-![更新](https://nas.ilyl.life:8092/wpf/update.gif =420x200)
+![更新](https://nas.ilyl.life:8092/wpf/update.gif)
 
 - [x] 更新日志说明
 - [x] 显示进度条
@@ -101,7 +101,7 @@ foreach (XmlNode file in files)
 
 对应场景一，就一个主程序。
 
-![更新自身](https://nas.ilyl.life:8092/wpf/update1.gif =420x200)
+![更新自身](https://nas.ilyl.life:8092/wpf/update1.gif)
 
 将`update`项目文件拷贝到需要更新的程序目录下，这里为`WindowsFormsApp1`项目的Bin目录下。[源码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/WindowsFormsApp1)
 
@@ -209,7 +209,7 @@ private async Task<string> DownloadAndCountBytesAsync(string name,string suffix,
 
 对应场景二，主程序就是一个exe显示，其他业务逻辑或者资源文件分开，只更新这些文件即可。[源代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/demo)
 
-![更新模块化文件](https://nas.ilyl.life:8092/wpf/update2.gif =420x200)
+![更新模块化文件](https://nas.ilyl.life:8092/wpf/update2.gif)
 
 因为Prism模块，在已经加载模块化文件后无法卸载，这是无解的。所以在程序启动时进行检查。
 
@@ -221,4 +221,4 @@ private async Task<string> DownloadAndCountBytesAsync(string name,string suffix,
 
 对应场景三，是场景二的升级版本,既更新了主程序也更新了其他文件，详情参考[COM](../../tools/csharp/com.md)。
 
-![VB调用.NET Core](https://nas.ilyl.life:8092/wpf/update3.gif =420x200)
+![VB调用.NET Core](https://nas.ilyl.life:8092/wpf/update3.gif)
