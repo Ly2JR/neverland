@@ -282,18 +282,6 @@ $end$]]>
             </Declarations>
             <Code Language="csharp">
                 <![CDATA[
-                
-                   public ICommand $eventName$
-                    {
-                        get { return (ICommand)GetValue($eventName$Property); }
-                        set { SetValue($eventName$Property, value); }
-                    }
-
-                    // Using a DependencyProperty as the backing store for $eventName$Property.  This enables animation, styling, binding, etc...
-                    public static readonly DependencyProperty $eventName$Property =
-                        DependencyProperty.Register("$eventName$", typeof(ICommand), typeof($ownerclass$), new PropertyMetadata(default(ICommand), null));
-
-
                     public static readonly RoutedEvent $eventName$Event = EventManager.RegisterRoutedEvent("$eventName$", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof($ownerclass$));
 
                     public event RoutedEventHandler $eventName$EventClick
