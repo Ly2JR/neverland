@@ -12,9 +12,6 @@ tag:
   - WPF主题控件
 ---
 
-
-仿[Element Plus](https://element-plus.org/zh-CN/component/border.html)的一款WPF主题控件。
-
 ::: tip
 需要应用`BorderDefaultStyle`样式生效
 :::

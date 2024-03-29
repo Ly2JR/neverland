@@ -12,8 +12,6 @@ tag:
   - WPF主题控件
 ---
 
-添加`xmlns:nl="http://ilyl.life"`声明
-
 ## 按钮样式
 
 ::: tip
@@ -74,7 +72,7 @@ tag:
 
 ### 文字描述
 
-使用`ActiveText`属性与`InactiveText`属性来设置开关的文字描述。 
+使用`ActiveText`属性与`InactiveText`属性来设置开关的文字描述。
 
 ![text](https://nas.ilyl.life:8092/wpf-theme/toggle-button/togglebutton-text.gif)
 
@@ -130,7 +128,7 @@ tag:
 
 ### 显示自定义图标
 
-使用`InactiveIcon`和`ActiveIcon`属性来添加图标。 使用 inline-prompt 属性来控制图标显示在点内。
+使用`InactiveIcon`和`ActiveIcon`属性来添加图标。 使用`InlinePrompt`属性来控制图标显示在点内。
 
 ![icon](https://nas.ilyl.life:8092/wpf-theme/toggle-button/togglebutton-icon.gif)
 

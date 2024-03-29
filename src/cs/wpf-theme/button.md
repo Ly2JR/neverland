@@ -12,9 +12,6 @@ tag:
   - WPF主题控件
 ---
 
-
-仿[Element Plus](https://element-plus.org/zh-CN/component/button.html)的一款WPF主题控件。
-
 ::: tip
 Button 按钮全局生效
 :::

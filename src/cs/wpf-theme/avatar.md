@@ -38,7 +38,7 @@ tag:
 
 ## 展示类型
 
-支持使用图片，图标或者文字作为 Avatar。
+支持使用图片，图标或者文字作为Avatar。
 
 ![type](https://nas.ilyl.life:8092/wpf-theme/avatar/avatar-type.png)
 

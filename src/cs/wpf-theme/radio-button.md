@@ -12,8 +12,6 @@ tag:
   - WPF主题控件
 ---
 
-添加`xmlns:nl="http://ilyl.life"`声明
-
 ## 按钮样式
 
 ```xml
