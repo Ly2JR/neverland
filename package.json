@@ -14,7 +14,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^8.15.5",
+    "pnpm": "^8.15.6",
     "vue": "^3.4.21",
     "vuepress": "2.0.0-rc.9"
   },
@@ -25,8 +25,8 @@
     "@vue/repl": "^4.1.1",
     "@vuepress/bundler-vite": "2.0.0-rc.9",
     "@vuepress/plugin-external-link-icon": "2.0.0-rc.21",
-    "@vuepress/plugin-feed": "2.0.0-rc.21",
-    "@vuepress/plugin-pwa": "2.0.0-rc.21",
+    "@vuepress/plugin-feed": "2.0.0-rc.23",
+    "@vuepress/plugin-pwa": "2.0.0-rc.23",
     "@vuepress/plugin-theme-data": "2.0.0-rc.21",
     "@vueuse/core": "^10.9.0",
     "commitizen": "^4.3.0",
@@ -40,8 +40,8 @@
     "patch-package": "^8.0.0",
     "prettier": "^3.2.5",
     "stylelint": "^16.3.1",
-    "vuepress-plugin-components": "2.0.0-rc.32",
-    "vuepress-theme-hope": "2.0.0-rc.32"
+    "vuepress-plugin-components": "2.0.0-rc.33",
+    "vuepress-theme-hope": "2.0.0-rc.33"
   },
   "config": {
     "commitizen": {
