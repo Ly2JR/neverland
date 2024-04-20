@@ -14,13 +14,13 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^8.15.6",
-    "vue": "^3.4.21",
+    "pnpm": "^9.0.4",
+    "vue": "^3.4.23",
     "vuepress": "2.0.0-rc.9"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.2.1",
-    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/cli": "^19.2.2",
+    "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@vue/repl": "^4.1.1",
     "@vuepress/bundler-vite": "2.0.0-rc.9",
@@ -31,9 +31,9 @@
     "@vueuse/core": "^10.9.0",
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.1",
-    "eslint": "^8.57.0",
+    "eslint": "^9.1.0",
     "husky": "^9.0.11",
-    "inquirer": "^9.2.18",
+    "inquirer": "^9.2.19",
     "mathjax-full": "^3.2.2",
     "mermaid": "^10.9.0",
     "nano-staged": "^0.8.0",
