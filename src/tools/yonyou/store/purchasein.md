@@ -302,7 +302,7 @@ tag:
 
 ### 新增示例
 
-::: tab
+::: tabs
 @tab 默认
 
 ```json
