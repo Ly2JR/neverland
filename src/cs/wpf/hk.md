@@ -152,7 +152,7 @@ Winform则通过[Control.InvokeRequired](https://learn.microsoft.com/zh-cn/dotne
 3. 通过FFmpeg提供的`sws_scale`进行转换
 
     ::: warning
-    虽然`FFmpeg.AutoGen`提供了C#版本，但是FFmpeg参数问题还需要自己处理，例如常见的[Intptr与指针转换](../../tools/csharp/intptr-to-pointer.md)
+    虽然`FFmpeg.AutoGen`提供了C#版本，但是FFmpeg参数问题还需要自己处理，例如常见的[Intptr与指针转换](../../tools/csharp/intptr-and-pointer.md)
 
     别忘了释放指针，否则 :bomb:
     :::

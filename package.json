@@ -14,8 +14,8 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^9.0.5",
-    "vue": "^3.4.24",
+    "pnpm": "^9.0.6",
+    "vue": "^3.4.25",
     "vuepress": "2.0.0-rc.9"
   },
   "devDependencies": {
