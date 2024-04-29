@@ -56,22 +56,13 @@ Tag 组件提供除了默认值以外的三种尺寸，可以在不同场景下�
 ![size](https://nas.ilyl.life:8092/wpf-theme/tag/tag-size.png)
 
 ```xml
-<nl:Tag
-    IsClosable="True"
-    Size="Large"
-    Type="Primary">
+<nl:Tag IsClosable="True" Size="Large" Type="Primary">
     Tag 1
 </nl:Tag>
-<nl:Tag
-    IsClosable="True"
-    Size="Default"
-    Type="Success">
+<nl:Tag IsClosable="True" Size="Default" Type="Success">
     Tag 2
 </nl:Tag>
-<nl:Tag
-    IsClosable="True"
-    Size="Small"
-    Type="Info">
+<nl:Tag IsClosable="True" Size="Small" Type="Info">
     Tag 3
 </nl:Tag>
 ```
@@ -85,53 +76,23 @@ Tag 组件提供了三个不同的主题：dark、light 和 plain。
 ![theme](https://nas.ilyl.life:8092/wpf-theme/tag/tag-theme.png)
 
 ```xml
-<nl:Tag Theme="Dark" Type="Primary">
-    Tag 1
-</nl:Tag>
-<nl:Tag Theme="Dark" Type="Success">
-    Tag 2
-</nl:Tag>
-<nl:Tag Theme="Dark" Type="Info">
-    Tag 3
-</nl:Tag>
-<nl:Tag Theme="Dark" Type="Warning">
-    Tag 4
-</nl:Tag>
-<nl:Tag Theme="Dark" Type="Danger">
-    Tag 5
-</nl:Tag>
+<nl:Tag Theme="Dark" Type="Primary">Tag 1</nl:Tag>
+<nl:Tag Theme="Dark" Type="Success">Tag 2</nl:Tag>
+<nl:Tag Theme="Dark" Type="Info">Tag 3</nl:Tag>
+<nl:Tag Theme="Dark" Type="Warning">Tag 4</nl:Tag>
+<nl:Tag Theme="Dark" Type="Danger">Tag 5</nl:Tag>
 
-<nl:Tag Type="Primary">
-    Tag 1
-</nl:Tag>
-<nl:Tag Type="Success">
-    Tag 2
-</nl:Tag>
-<nl:Tag Type="Info">
-    Tag 3
-</nl:Tag>
-<nl:Tag Type="Warning">
-    Tag 4
-</nl:Tag>
-<nl:Tag Type="Danger">
-    Tag 5
-</nl:Tag>
+<nl:Tag Type="Primary">Tag 1</nl:Tag>
+<nl:Tag Type="Success">Tag 2</nl:Tag>
+<nl:Tag Type="Info">Tag 3</nl:Tag>
+<nl:Tag Type="Warning">Tag 4</nl:Tag>
+<nl:Tag Type="Danger">Tag 5</nl:Tag>
 
-<nl:Tag Theme="Plain" Type="Primary">
-    Tag 1
-</nl:Tag>
-<nl:Tag Theme="Plain" Type="Success">
-    Tag 2
-</nl:Tag>
-<nl:Tag Theme="Plain" Type="Info">
-    Tag 3
-</nl:Tag>
-<nl:Tag Theme="Plain" Type="Warning">
-    Tag 4
-</nl:Tag>
-<nl:Tag Theme="Plain" Type="Danger">
-    Tag 5
-</nl:Tag>
+<nl:Tag Theme="Plain" Type="Primary">Tag 1</nl:Tag>
+<nl:Tag Theme="Plain" Type="Success">Tag 2</nl:Tag>
+<nl:Tag Theme="Plain" Type="Info">Tag 3</nl:Tag>
+<nl:Tag Theme="Plain" Type="Warning">Tag 4</nl:Tag>
+<nl:Tag Theme="Plain" Type="Danger">Tag 5</nl:Tag>
 ```
 
 ## 圆形标签
@@ -143,79 +104,21 @@ Tag 可以向按钮组件一样变为完全圆形。
 ![isround](https://nas.ilyl.life:8092/wpf-theme/tag/tag-isround.png)
 
 ```xml
-<nl:Tag
-    IsRound="True"
-    Theme="Dark"
-    Type="Primary">
-    Tag 1
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Dark"
-    Type="Success">
-    Tag 2
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Dark"
-    Type="Info">
-    Tag 3
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Dark"
-    Type="Warning">
-    Tag 4
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Dark"
-    Type="Danger">
-    Tag 5
-</nl:Tag>
-<nl:Tag IsRound="True" Type="Primary">
-    Tag 1
-</nl:Tag>
-<nl:Tag IsRound="True" Type="Success">
-    Tag 2
-</nl:Tag>
-<nl:Tag IsRound="True" Type="Info">
-    Tag 3
-</nl:Tag>
-<nl:Tag IsRound="True" Type="Warning">
-    Tag 4
-</nl:Tag>
-<nl:Tag IsRound="True" Type="Danger">
-    Tag 5
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Plain"
-    Type="Primary">
-    Tag 1
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Plain"
-    Type="Success">
-    Tag 2
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Plain"
-    Type="Info">
-    Tag 3
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Plain"
-    Type="Warning">
-    Tag 4
-</nl:Tag>
-<nl:Tag
-    IsRound="True"
-    Theme="Plain"
-    Type="Danger">
-    Tag 5
-</nl:Tag>
+<nl:Tag IsRound="True" Theme="Dark" Type="Primary">Tag 1</nl:Tag>
+<nl:Tag IsRound="True" Theme="Dark" Type="Success">Tag 2</nl:Tag>
+<nl:Tag IsRound="True" Theme="Dark" Type="Info">Tag 3</nl:Tag>
+<nl:Tag IsRound="True" Theme="Dark" Type="Warning">Tag 4</nl:Tag>
+<nl:Tag IsRound="True" Theme="Dark" Type="Danger">Tag 5</nl:Tag>
+
+<nl:Tag IsRound="True" Type="Primary">Tag 1</nl:Tag>
+<nl:Tag IsRound="True" Type="Success">Tag 2</nl:Tag>
+<nl:Tag IsRound="True" Type="Info">Tag 3</nl:Tag>
+<nl:Tag IsRound="True" Type="Warning">Tag 4</nl:Tag>
+<nl:Tag IsRound="True" Type="Danger">Tag 5</nl:Tag>
+
+<nl:Tag IsRound="True" Theme="Plain" Type="Primary">Tag 1</nl:Tag>
+<nl:Tag IsRound="True" Theme="Plain" Type="Success">Tag 2</nl:Tag>
+<nl:Tag IsRound="True" Theme="Plain" Type="Info">Tag 3</nl:Tag>
+<nl:Tag IsRound="True" Theme="Plain" Type="Warning">Tag 4</nl:Tag>
+<nl:Tag IsRound="True" Theme="Plain" Type="Danger">Tag 5</nl:Tag>
 ```

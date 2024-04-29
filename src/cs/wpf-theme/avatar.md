@@ -27,13 +27,9 @@ tag:
 ![square](https://nas.ilyl.life:8092/wpf-theme/avatar/avatar-square.png)
 
 ```xml
-<nl:Avatar Shape="Square"
-          Size="Large"
-          Src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
+<nl:Avatar Shape="Square" Size="Large" Src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
 <nl:Avatar Shape="Square" Src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
-<nl:Avatar Shape="Square"
-          Size="Small"
-          Src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
+<nl:Avatar Shape="Square" Size="Small" Src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
 ```
 
 ## 展示类型

@@ -56,7 +56,7 @@ tag:
 
 ## 精度
 
-设置`Precision`属性可以控制数值的精度，接受一个`double`
+设置`Precision`属性可以控制数值的精度，接受一个`int`,默认`0`
 
 ![precision](https://nas.ilyl.life:8092/wpf-theme/input-number/input-number-precision.gif)
 
@@ -72,9 +72,7 @@ tag:
 
 ```xml
 <nl:InputNumber Width="150" Size="Large" Text="1" />
-
 <nl:InputNumber Width="150" Text="2" />
-
 <nl:InputNumber Width="150" Size="Small" Text="3" />
 ```
 
@@ -86,9 +84,7 @@ tag:
 
 ```xml
 <nl:InputNumber Width="150" ControlsPosition="Right" Size="Large" Text="1" />
-
 <nl:InputNumber Width="150" ControlsPosition="Right" Text="2" />
-
 <nl:InputNumber Width="150" ControlsPosition="Right" Size="Small" Text="3" />
 ```
 

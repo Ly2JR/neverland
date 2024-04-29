@@ -19,8 +19,8 @@ tag:
 :::
 
 ```xml
-<ToggleButton nl:ButtonAssist.Type="Primary"
-              Content="Primary"
+<ToggleButton nl:ButtonAssist.Type="Primary" 
+              Content="Primary" 
               Style="{StaticResource ToggleButtonAsButtonStyle}" />
 ```
 
@@ -59,10 +59,12 @@ tag:
               nl:ToggleButtonAssist.Size="Large"
               IsChecked="True"
               Style="{StaticResource ToggleButtonAsSwitchStyle}" />
+
 <ToggleButton nl:ToggleButtonAssist.ActiveText="Open"
               nl:ToggleButtonAssist.InactiveText="Close"
               IsChecked="True"
               Style="{StaticResource ToggleButtonAsSwitchStyle}" />
+
 <ToggleButton nl:ToggleButtonAssist.ActiveText="Open"
               nl:ToggleButtonAssist.InactiveText="Close"
               nl:ToggleButtonAssist.Size="Small"

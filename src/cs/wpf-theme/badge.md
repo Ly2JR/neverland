@@ -82,31 +82,16 @@ tag:
 ![isdot](https://nas.ilyl.life:8092/wpf-theme/badge/badge-isdot.png)
 
 ```xml
-<nl:Tag
-    nl:Badge.IsDot="True"
-    nl:Badge.IsShow="True"
-    Type="Danger">
+<nl:Tag nl:Badge.IsDot="True" nl:Badge.IsShow="True" Type="Danger">
     Danger
 </nl:Tag>
-<nl:Tag
-    nl:Badge.IsDot="True"
-    nl:Badge.IsShow="True"
-    nl:Badge.Type="Primary"
-    Type="Primary">
+<nl:Tag nl:Badge.IsDot="True" nl:Badge.IsShow="True" nl:Badge.Type="Primary" Type="Primary">
     Primary
 </nl:Tag>
-<nl:Tag
-    nl:Badge.IsDot="True"
-    nl:Badge.IsShow="True"
-    nl:Badge.Type="Success"
-    Type="Success">
+<nl:Tag nl:Badge.IsDot="True" nl:Badge.IsShow="True" nl:Badge.Type="Success" Type="Success">
     Success
 </nl:Tag>
-<nl:Tag
-    nl:Badge.IsDot="True"
-    nl:Badge.IsShow="True"
-    nl:Badge.Type="Warning"
-    Type="Warning">
+<nl:Tag nl:Badge.IsDot="True" nl:Badge.IsShow="True" nl:Badge.Type="Warning" Type="Warning">
     Warning
 </nl:Tag>
 ```
@@ -118,10 +103,7 @@ tag:
 ![offset](https://nas.ilyl.life:8092/wpf-theme/badge/badge-offset.png)
 
 ```xml
-<Button
-    nl:Badge.IsDot="True"
-    nl:Badge.IsShow="True"
-    nl:Badge.Offset="10,5">
+<Button nl:Badge.IsDot="True" nl:Badge.IsShow="True" nl:Badge.Offset="10,5">
     Offset
 </Button>
 ```
