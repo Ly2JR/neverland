@@ -4,7 +4,7 @@
   "description": "blog",
   "license": "MIT",
   "type": "module",
-  "author": "乌龙茶 <982474256@qq.com> (https://ilyl.life)",
+  "author": "乌龙茶 <ly2@ilyl.life> (https://ilyl.life)",
   "scripts": {
     "docs:build": "vuepress-vite build src",
     "docs:clean-dev": "vuepress-vite dev src --clean-cache",
