@@ -4244,8 +4244,8 @@ packages:
       '@vuepress/bundler-webpack':
         optional: true
 
-  watermark-js-plus@1.4.24:
-    resolution: {integrity: sha512-tKgP/StyzPlaTQELbzMKLtaVUhPSYB1SMba9ENAQC8pCl4aGsBrnsbIR9m1AKmIv/uVBSB1/rEwugR7w51AwDA==}
+  watermark-js-plus@1.4.25:
+    resolution: {integrity: sha512-KAhRw0IvNhUKSr180DFLrWexHW2wvB/DIfxGCPyoykOE5pTQyH6zPOhpK7NeuW+aO8g4bOATEbByc3Ox4/fd8Q==}
     engines: {node: '>=16.0.0'}
 
   wcwidth@1.0.1:
@@ -6150,7 +6150,7 @@ snapshots:
       '@vuepress/helper': 2.0.0-rc.28(typescript@5.4.5)(vuepress@2.0.0-rc.9(@vuepress/bundler-vite@2.0.0-rc.9(@types/node@20.12.11)(jiti@1.21.0)(sass@1.77.1)(terser@5.31.0)(typescript@5.4.5))(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)))
       vue: 3.4.27(typescript@5.4.5)
       vuepress: 2.0.0-rc.9(@vuepress/bundler-vite@2.0.0-rc.9(@types/node@20.12.11)(jiti@1.21.0)(sass@1.77.1)(terser@5.31.0)(typescript@5.4.5))(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
-      watermark-js-plus: 1.4.24
+      watermark-js-plus: 1.4.25
     transitivePeerDependencies:
       - typescript
 
@@ -9007,7 +9007,7 @@ snapshots:
       - supports-color
       - typescript
 
-  watermark-js-plus@1.4.24: {}
+  watermark-js-plus@1.4.25: {}
 
   wcwidth@1.0.1:
     dependencies:
