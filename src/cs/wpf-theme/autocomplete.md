@@ -38,7 +38,51 @@ tag:
     IsTriggerOnFocus="False"
     ItemsSource="{Binding Items}"
     Placeholder="Please Input"
-    SelectedValuePath="Key" />
+    SelectedValuePath="Key" >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="FeatchSuggestions">
+            <i:InvokeCommandAction Command="{Binding SuggestionsCommand}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+</nl:Autocomplete>
+```
+
+```cs
+public ObservableCollection<KeyValuePair<string,string>> Items { get; set; } = new ObservableCollection<KeyValuePair<string, string>>();
+
+[ObservableProperty]
+private bool isLoading;
+
+private readonly List<KeyValuePair<string, string>> Datas = new List<KeyValuePair<string, string>>()
+{
+    new KeyValuePair<string, string>("Wpf Data", "Hello1 Wpf Data"),
+    new KeyValuePair<string, string>("Winform Data", "Hello2 Winform Data"),
+    new KeyValuePair<string, string>("WCF Data", "Hello3 WCF Data"),
+    new KeyValuePair<string, string>("MVC Data", "Hello4 MVC Data"),
+    new KeyValuePair<string, string>("ASP.NET Data", "Hello5 ASP.NET Data"),
+};
+
+[RelayCommand(AllowConcurrentExecutions = true)]
+private async Task OnSuggestionsAsync(AutocompleteEventArgs? arg)
+{
+    if (arg is null) return;
+    Items.Clear();
+    if (string.IsNullOrEmpty(arg.QueryString))
+    {
+        foreach(var data in Datas)
+        {
+            Items.Add(data);
+        }
+    }
+    else
+    {
+        var finds= Datas.FindAll(item => item.Key.Contains(arg.QueryString,System.StringComparison.CurrentCultureIgnoreCase));
+        foreach (var data in finds)
+        {
+            Items.Add(data);
+        }
+    }
+}
 ```
 
 ## 自定义模板
@@ -93,6 +137,8 @@ Nuget:[Microsoft.Xaml.Behaviors.Wpf](https://www.nuget.org/packages/Microsoft.Xa
 xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
 :::
 
+![loading](https://nas.ilyl.life:8092/wpf-theme/autocomplete/autocomplete-loading.gif)
+
 ```xml
 <nl:Autocomplete
     IsClearable="True"
@@ -110,43 +156,43 @@ xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
 ```
 
 ```cs
- public ObservableCollection<KeyValuePair<string,string>> Items { get; set; } = new ObservableCollection<KeyValuePair<string, string>>();
+public ObservableCollection<KeyValuePair<string,string>> Items { get; set; } = new ObservableCollection<KeyValuePair<string, string>>();
 
- [ObservableProperty]
- private bool isLoading;
+[ObservableProperty]
+private bool isLoading;
 
- private readonly List<KeyValuePair<string, string>> Datas = new List<KeyValuePair<string, string>>()
- {
-     new KeyValuePair<string, string>("Wpf Data", "Hello1 Wpf Data"),
-     new KeyValuePair<string, string>("Winform Data", "Hello2 Winform Data"),
-     new KeyValuePair<string, string>("WCF Data", "Hello3 WCF Data"),
-     new KeyValuePair<string, string>("MVC Data", "Hello4 MVC Data"),
-     new KeyValuePair<string, string>("ASP.NET Data", "Hello5 ASP.NET Data"),
- };
+private readonly List<KeyValuePair<string, string>> Datas = new List<KeyValuePair<string, string>>()
+{
+    new KeyValuePair<string, string>("Wpf Data", "Hello1 Wpf Data"),
+    new KeyValuePair<string, string>("Winform Data", "Hello2 Winform Data"),
+    new KeyValuePair<string, string>("WCF Data", "Hello3 WCF Data"),
+    new KeyValuePair<string, string>("MVC Data", "Hello4 MVC Data"),
+    new KeyValuePair<string, string>("ASP.NET Data", "Hello5 ASP.NET Data"),
+};
 
- [RelayCommand(AllowConcurrentExecutions = true)]
- private async Task OnSuggestionsAsync(AutocompleteEventArgs? arg)
- {
-     if (arg is null) return;
-     IsLoading = true;
-     Items.Clear();
-     if (string.IsNullOrEmpty(arg.QueryString))
-     {
-         foreach(var data in Datas)
-         {
-             Items.Add(data);
-         }
-     }
-     else
-     {
-         var finds= Datas.FindAll(item => item.Key.Contains(arg.QueryString,System.StringComparison.CurrentCultureIgnoreCase));
-         foreach (var data in finds)
-         {
-             Items.Add(data);
-         }
-     }
-     
-     await Task.Delay(Random.Shared.Next(1200,3000));
-     IsLoading = false;
+[RelayCommand(AllowConcurrentExecutions = true)]
+private async Task OnSuggestionsAsync(AutocompleteEventArgs? arg)
+{
+    if (arg is null) return;
+    IsLoading = true;
+    Items.Clear();
+    if (string.IsNullOrEmpty(arg.QueryString))
+    {
+        foreach(var data in Datas)
+        {
+            Items.Add(data);
+        }
+    }
+    else
+    {
+        var finds= Datas.FindAll(item => item.Key.Contains(arg.QueryString,System.StringComparison.CurrentCultureIgnoreCase));
+        foreach (var data in finds)
+        {
+            Items.Add(data);
+        }
+    }
+    
+    await Task.Delay(Random.Shared.Next(1200,3000));
+    IsLoading = false;
 }
 ```
