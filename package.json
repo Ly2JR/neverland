@@ -39,9 +39,9 @@
     "nano-staged": "^0.8.0",
     "patch-package": "^8.0.0",
     "prettier": "^3.2.5",
-    "stylelint": "^16.6.0",
-    "vuepress-plugin-components": "2.0.0-rc.44",
-    "vuepress-theme-hope": "2.0.0-rc.44"
+    "stylelint": "^16.6.1",
+    "vuepress-plugin-components": "2.0.0-rc.45",
+    "vuepress-theme-hope": "2.0.0-rc.46"
   },
   "config": {
     "commitizen": {
