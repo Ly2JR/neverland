@@ -154,7 +154,7 @@ ItemsSource 绑定的是`TreeMenu`数据源，注意使用`ObservableCollection`
 
 4. `IsGrouping`属性来判断子/父节点，父节点则用`TextBlock`显示本身，子节点就用`Button`来显示
 
-```xaml
+```xml
 <HierarchicalDataTemplate x:Key="TreeItemStyle" ItemsSource="{Binding Children}">
 <Grid>
     <StackPanel x:Name="ParentMenu" Visibility="{Binding IsGrouping, Converter={StaticResource BoolToVisible}}">
@@ -172,7 +172,7 @@ ItemsSource 绑定的是`TreeMenu`数据源，注意使用`ObservableCollection`
 </HierarchicalDataTemplate>
 ```
 
-```xaml
+```xml
 <TreeView
     Grid.Column="0"
     ItemTemplate="{StaticResource TreeItemStyle}"
@@ -183,7 +183,7 @@ ItemsSource 绑定的是`TreeMenu`数据源，注意使用`ObservableCollection`
 
 这里用上了`Prism`的`Regions`实现控件的添加
 
-```xaml
+```xml
 <TabControl
     Grid.Column="1"
     prism:RegionManager.RegionName="TabRegion"/>

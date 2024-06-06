@@ -44,7 +44,7 @@ WPF中[Binding](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/data/?view=
 
 ## 静态绑定
 
-```tip
+```xml
 xmlns:sys="clr-namespace:System;assembly=mscorlib"
 ```
 

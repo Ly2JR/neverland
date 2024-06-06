@@ -83,13 +83,13 @@ services:
 
 ### 拉取Registry
 
-```command prompt
+```bash
 docker pull registry:latest
 ```
 
 ### 启动Registry
 
-```command prompt
+```bash
 docker run -d \
   --restart=always \
   --name registry \
@@ -99,7 +99,7 @@ docker run -d \
 
 ### 预览Registry
 
-```command prompt
+```bash
 curl http://127.0.0.1:5000/v2/_catalog
 ```
 
@@ -137,7 +137,7 @@ RawContentLength  : 25
 
 ### 跨域
 
-```command prompt
+```bash
 -e REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin="['*']"
 ```
 
@@ -147,7 +147,7 @@ RawContentLength  : 25
 
 `.crt`证书大部分包含中间证书,所以这里用`.pem`来代替
 
-```command prompt {4-7}
+```bash {4-7}
 docker run -d \
   --restart=always \
   --name registry \
@@ -171,7 +171,7 @@ docker run -d \
 
 1. 为用户创建一个密码文件，其中包含一个条目，密码：testusertestpassword
 
-    ```command prompt
+    ```bash
     mkdir auth
     docker run \
       --entrypoint htpasswd \
@@ -180,19 +180,19 @@ docker run -d \
 
     在 Windows 上，请确保输出文件已正确编码：
 
-    ```command prompt
+    ```bash
     docker run --rm --entrypoint htpasswd httpd:2 -Bbn testuser testpassword | Set-Content -Encoding ASCII auth/htpasswd
     ```
 
 2. 停止注册表。
 
-    ```command prompt
+    ```bash
     docker container stop registry
     ```
 
 3. 使用基本身份验证启动注册表。
 
-    ```command prompt{5-8}
+    ```bash {5-8}
     docker run -d \
       -p 5000:5000 \
       --restart=always \
@@ -211,7 +211,7 @@ docker run -d \
 
 5. 登录到注册表。
 
-    ```command prompt
+    ```bash
     docker login myregistrydomain.com:5000
     ```
 
@@ -223,13 +223,13 @@ docker run -d \
 
 ### 拉取Docker Registry UI
 
-```command prompty
+```bash
 docker pull joxit/docker-registry-ui
 ```
 
 ### 启动Docker Registry UI
 
-```command prompty
+```bash
 docker run -d -p 8080:80 -e REGISTRY_URL=http://localhost:5000 --name docker-registry-ui joxit/docker-registry-ui
 ```
 
@@ -249,7 +249,7 @@ docker run -d -p 8080:80 -e REGISTRY_URL=http://localhost:5000 --name docker-reg
 
 `26行`:对应Docker Registry UI访问地址
 
-```conf {5-6,18,26}
+```bash {5-6,18,26}
 server {
   listen              443 ssl;
   ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
@@ -286,7 +286,7 @@ server {
 
 [Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
 
-```command prompt
+```bash
 docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns-image:v1
 ```
 
@@ -294,7 +294,7 @@ docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns-image:v1
 
 [Docker push](https://docs.docker.com/engine/reference/commandline/push/)，将本地镜像推送到`registry`仓库中
 
-```command prompt
+```bash
 docker push 127.0.0.1:5000/ali.ddns-image:v1
 ```
 
@@ -302,13 +302,13 @@ docker push 127.0.0.1:5000/ali.ddns-image:v1
 
 删除本地已有镜像，从私有仓库拉取
 
-```command prompt
+```bash
 docker pull 127.0.0.1:5000/ali.ddns-image:v1
 ```
 
 ### Docker Registry
 
-```command prompt
+```bash
 curl http://127.0.0.1:5000/v2/_catalog
 ```
 

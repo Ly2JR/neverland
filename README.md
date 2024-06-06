@@ -22,13 +22,13 @@
 
 - 获取代码
 
-```command
+```bash
 git clone https://github.com/ly2jr/neverland.git
 ```
 
 - 安装依赖
 
-```command
+```bash
 cd neverland
 
 pnpm install
@@ -36,13 +36,13 @@ pnpm install
 
 - 开发预览
 
-```command
+```bash
 pnpm docs:dev
 ```
 
 - 打包部署
 
-```command
+```bash
 pnpm docs:build
 ```
 
@@ -50,7 +50,7 @@ pnpm docs:build
 
 ### 开发预览
 
-```command
+```bash
 docker compose up
 ```
 
@@ -60,7 +60,7 @@ docker compose up
 
 - 更改`nginx.conf`配置，替换成自己的域名
 
- ```conf
+ ```bash
  server {
      listen 443 ssl; 
      #更改自己的域名
@@ -90,6 +90,6 @@ docker compose up
 
 - 生成docker
 
-```command
+```bash
 docker build -t blog -f Dockerfile .
 ```

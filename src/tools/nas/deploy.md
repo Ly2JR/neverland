@@ -131,7 +131,7 @@ NAS里没有IIS，用的Window系统除外，在NAS里找到Docker，下载NGINX
 
 本网站Docker示例：
 
-```conf
+```bash
 server {
     listen 443 ssl; 
     # 更改自己的域名

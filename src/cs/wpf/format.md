@@ -16,7 +16,7 @@ tag:
 
 代码示例:
 
-```xaml {34,36}
+```xml {34,36}
 <Window
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     ...>

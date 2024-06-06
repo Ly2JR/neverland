@@ -219,7 +219,7 @@ export default defineApplicationConfig({
 
 接口调用`localhost/b.php`即可
 
-```conf{56-58}
+```bash {56-58}
 #user  nobody;
 worker_processes  1;
 

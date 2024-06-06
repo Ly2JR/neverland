@@ -56,7 +56,7 @@ WPF控件没有句柄,通过[WindowsFormsIntegration](https://learn.microsoft.co
 
 1. 引用程序集`System.Windows.Forms`和`WindowsFormsIntegration`
 
-    ```xaml
+    ```xml
     xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
     ```
@@ -65,7 +65,7 @@ WPF控件没有句柄,通过[WindowsFormsIntegration](https://learn.microsoft.co
 
     添加行为[命名空间](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/xaml-namespaces-and-namespace-mapping-for-wpf-xaml?view=netframeworkdesktop-4.8)
 
-    ```xaml
+    ```xml
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     ```
 
@@ -116,7 +116,7 @@ Winform则通过[Control.InvokeRequired](https://learn.microsoft.com/zh-cn/dotne
 
     @tab Views
 
-    ```xaml
+    ```xml
     <Image
           RenderOptions.BitmapScalingMode="HighQuality"
           Source="{Binding VedioSource}"

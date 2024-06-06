@@ -14,13 +14,13 @@ category:
 
 ## 注销登录
 
-```.NET CLI
+```bash
 docker logout
 ```
 
 ## 登录
 
-```.NET CLi
+```bash
 docker login XXX
 ```
 
@@ -28,7 +28,7 @@ docker login XXX
 
 [docker build](https://docs.docker.com/engine/reference/commandline/build/)
 
-```.NET CLI
+```bash
 docker build -t ali.ddns-image -f Dockerfile .
 ```
 
@@ -36,7 +36,7 @@ docker build -t ali.ddns-image -f Dockerfile .
 
 [docker create](https://docs.docker.com/engine/reference/commandline/create/)
 
-```.NET CLI
+```bash
 docker create --name neverland/ali.ddns ali.ddns-image
 ```
 
@@ -44,7 +44,7 @@ docker create --name neverland/ali.ddns ali.ddns-image
 
 [docker run](https://docs.docker.com/engine/reference/commandline/run/)
 
-```.NET CLI
+```bash
 docker run --name neverland/ali.ddns  --env=DOTNET_EnableDiagnostics=0 --env=ALIKID=111 --env=ALIKSCT=111 --env=ALIDOMAIN=ilyl.life --env=ALITTL=600  -d ali.ddns-image
 ```
 
@@ -52,7 +52,7 @@ docker run --name neverland/ali.ddns  --env=DOTNET_EnableDiagnostics=0 --env=ALI
 
 [docker start](https://docs.docker.com/engine/reference/commandline/start/)
 
-```.NET CLI
+```bash
 docker start xxx容器
 ```
 
@@ -60,7 +60,7 @@ docker start xxx容器
 
 [docker ps](https://docs.docker.com/engine/reference/commandline/ps/)
 
-```.NET CLI
+```bash
 docker ps -a
 ```
 
@@ -68,7 +68,7 @@ docker ps -a
 
 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)
 
-```.NET CLI
+```bash
 docker stop neverland/ali.ddns
 ```
 
@@ -76,7 +76,7 @@ docker stop neverland/ali.ddns
 
 [docker rm](https://docs.docker.com/engine/reference/commandline/rm/)
 
-```.NET CLI
+```bash
 docker rm neverland/ali.ddns
 ```
 
@@ -88,13 +88,13 @@ docker rm neverland/ali.ddns
 
 @tab 删除云解析镜像
 
-```.NET CLI
+```bash
 docker rmi ali.ddns-image
 ```
 
 @tab 删除.NET 镜像
 
-```.NET CLI
+```bash
 docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
 ```
 
@@ -104,13 +104,13 @@ docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
 
 ### 注销
 
-```.NET CLI
+```bash
 docker logout
 ```
 
 ### 登录账号
 
-```.NET CLI
+```bash
 docker login 127.0.0.1:5000/ali.ddns:v1
 ```
 
@@ -118,7 +118,7 @@ docker login 127.0.0.1:5000/ali.ddns:v1
 
 [Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
 
-```.NET CLI
+```bash
 docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns:v1
 ```
 
@@ -126,6 +126,6 @@ docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns:v1
 
 [Docker push](https://docs.docker.com/engine/reference/commandline/push/)
 
-```.NET CLI
+```bash
 docker push 127.0.0.1:5000/ali.ddns:v1
 ```
