@@ -1,7 +1,6 @@
 ---
 home: true
 layout: BlogHome
-icon: /assets/svg/home.svg
 title: 主页
 heroImage: 
 heroText: Neverland
