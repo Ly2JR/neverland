@@ -5,8 +5,6 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - 用友
-tag:
   - U9C
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: CheckBox 多选框
 date: 2024-05-21
-star: 2
 editLink: false
 footer: false
 isOriginal: true

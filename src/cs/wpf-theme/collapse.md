@@ -1,7 +1,6 @@
 ---
 title: Collapse 折叠面板
 date: 2024-04-25
-star: 2
 editLink: false
 footer: false
 isOriginal: true

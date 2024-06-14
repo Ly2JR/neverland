@@ -1,7 +1,6 @@
 ---
 title: Steps 步骤条
 date: 2024-05-17
-star: 2
 editLink: false
 footer: false
 isOriginal: true

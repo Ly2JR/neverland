@@ -1,7 +1,6 @@
 ---
 title: Breadcrumb 面包屑
 date: 2024-05-07
-star: 2
 editLink: false
 footer: false
 isOriginal: true

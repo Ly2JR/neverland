@@ -1,7 +1,6 @@
 ---
 title: Switch 开关
 date: 2024-03-18
-star: 5
 editLink: false
 footer: false
 isOriginal: true

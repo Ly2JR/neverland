@@ -1,7 +1,6 @@
 ---
 title: Divider 分割线
 date: 2024-03-29
-star: 5
 editLink: false
 footer: false
 isOriginal: true

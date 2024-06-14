@@ -1,7 +1,6 @@
 ---
 title: Button 按钮
 date: 2024-01-12
-star: 99
 editLink: false
 footer: false
 isOriginal: true

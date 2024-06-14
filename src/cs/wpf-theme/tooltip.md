@@ -1,7 +1,6 @@
 ---
 title: Tooltip 文字提示
 date: 2024-04-30
-star: 2
 editLink: false
 footer: false
 isOriginal: true

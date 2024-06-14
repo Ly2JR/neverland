@@ -1,7 +1,6 @@
 ---
 title: Tag 标签
 date: 2024-04-26
-star: 2
 editLink: false
 footer: false
 isOriginal: true

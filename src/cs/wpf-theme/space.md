@@ -1,7 +1,6 @@
 ---
 title: Space 间距
 date: 2024-05-15
-star: 2
 editLink: false
 footer: false
 isOriginal: true

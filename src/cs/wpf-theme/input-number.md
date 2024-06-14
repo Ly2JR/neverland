@@ -1,7 +1,6 @@
 ---
 title: Input Number 数字输入框
 date: 2024-04-28
-star: 5
 editLink: false
 footer: false
 isOriginal: true

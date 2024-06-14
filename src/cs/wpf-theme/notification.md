@@ -1,7 +1,6 @@
 ---
 title: Notification 通知
 date: 2024-05-06
-star: 4
 editLink: false
 footer: false
 isOriginal: true

@@ -1,7 +1,6 @@
 ---
 title: Pagination 分页
 date: 2024-05-08
-star: 4
 editLink: false
 footer: false
 isOriginal: true
