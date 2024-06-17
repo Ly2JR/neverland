@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![结算方式](https://nas.ilyl.life:8092/yonyou/balancetype.gif)
+![结算方式](https://nas.ilyl.life:8092/yonyou/u8/balancetype.gif)
 
 ## 资源符
 

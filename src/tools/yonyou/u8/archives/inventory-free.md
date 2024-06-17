@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![存货自由项对照表](https://nas.ilyl.life:8092/yonyou/invandfree.gif)
+![存货自由项对照表](https://nas.ilyl.life:8092/yonyou/u8/invandfree.gif)
 
 ## 资源符
 

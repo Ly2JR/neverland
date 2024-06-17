@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![成套件](https://nas.ilyl.life:8092/yonyou/assembly.gif)
+![成套件](https://nas.ilyl.life:8092/yonyou/u8/assembly.gif)
 
 ## 资源符
 

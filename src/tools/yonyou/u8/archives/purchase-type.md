@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![采购类型](https://nas.ilyl.life:8092/yonyou/purchasetype.gif)
+![采购类型](https://nas.ilyl.life:8092/yonyou/u8/purchasetype.gif)
 
 ## 资源符
 

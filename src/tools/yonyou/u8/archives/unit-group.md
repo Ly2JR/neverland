@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![计量单位组](https://nas.ilyl.life:8092/yonyou/unitgroup.gif)
+![计量单位组](https://nas.ilyl.life:8092/yonyou/u8/unitgroup.gif)
 
 ## 资源符
 

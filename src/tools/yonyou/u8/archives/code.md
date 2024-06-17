@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![会计科目](https://nas.ilyl.life:8092/yonyou/code.gif)
+![会计科目](https://nas.ilyl.life:8092/yonyou/u8/code.gif)
 
 ## 资源符
 

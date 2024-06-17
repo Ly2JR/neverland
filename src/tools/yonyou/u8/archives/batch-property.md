@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![批次档案](https://nas.ilyl.life:8092/yonyou/batchproperty.gif)
+![批次档案](https://nas.ilyl.life:8092/yonyou/u8/batchproperty.gif)
 
 ## 资源符
 

@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![职位档案](https://nas.ilyl.life:8092/yonyou/job.gif)
+![职位档案](https://nas.ilyl.life:8092/yonyou/u8/job.gif)
 
 ## 资源符
 

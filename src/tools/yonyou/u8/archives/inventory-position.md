@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![存货货位对照表](https://nas.ilyl.life:8092/yonyou/invandpos.gif)
+![存货货位对照表](https://nas.ilyl.life:8092/yonyou/u8/invandpos.gif)
 
 ## 资源符
 

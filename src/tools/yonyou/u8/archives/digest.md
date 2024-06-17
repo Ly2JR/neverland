@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![常用摘要](https://nas.ilyl.life:8092/yonyou/digest.gif)
+![常用摘要](https://nas.ilyl.life:8092/yonyou/u8/digest.gif)
 
 ## 资源符
 

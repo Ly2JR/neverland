@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![发运方式](https://nas.ilyl.life:8092/yonyou/shippingchoice.gif)
+![发运方式](https://nas.ilyl.life:8092/yonyou/u8/shippingchoice.gif)
 
 ## 资源符
 

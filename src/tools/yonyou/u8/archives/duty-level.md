@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![职务级别](https://nas.ilyl.life:8092/yonyou/dutylevel.gif)
+![职务级别](https://nas.ilyl.life:8092/yonyou/u8/dutylevel.gif)
 
 ## 资源符
 

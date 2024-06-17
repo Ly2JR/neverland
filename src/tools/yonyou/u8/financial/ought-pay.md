@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![应付单](https://nas.ilyl.life:8092/yonyou/oughtpay.gif)
+![应付单](https://nas.ilyl.life:8092/yonyou/u8/oughtpay.gif)
 
 ## 资源符
 

@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![资产类别](https://nas.ilyl.life:8092/yonyou/capitalassettypes.gif)
+![资产类别](https://nas.ilyl.life:8092/yonyou/u8/capitalassettypes.gif)
 
 ## 资源符
 

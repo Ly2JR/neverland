@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![本单位开户银行](https://nas.ilyl.life:8092/yonyou/bank.gif)
+![本单位开户银行](https://nas.ilyl.life:8092/yonyou/u8/bank.gif)
 
 ## 资源符
 

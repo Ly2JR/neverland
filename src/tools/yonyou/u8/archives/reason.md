@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![原因码档案](https://nas.ilyl.life:8092/yonyou/reason.gif)
+![原因码档案](https://nas.ilyl.life:8092/yonyou/u8/reason.gif)
 
 ## 资源符
 

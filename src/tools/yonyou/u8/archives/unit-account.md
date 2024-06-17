@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![交易单位账号](https://nas.ilyl.life:8092/yonyou/unitacc.gif)
+![交易单位账号](https://nas.ilyl.life:8092/yonyou/u8/unitacc.gif)
 
 ## 资源符
 

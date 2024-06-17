@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![供应商存货对照表](https://nas.ilyl.life:8092/yonyou/venandinv.gif)
+![供应商存货对照表](https://nas.ilyl.life:8092/yonyou/u8/venandinv.gif)
 
 ## 资源符
 

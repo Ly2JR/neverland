@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![货位档案](https://nas.ilyl.life:8092/yonyou/position.gif)
+![货位档案](https://nas.ilyl.life:8092/yonyou/u8/position.gif)
 
 ## 资源符
 

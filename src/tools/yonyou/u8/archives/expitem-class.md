@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![费用项目分类](https://nas.ilyl.life:8092/yonyou/expitemclass.gif)
+![费用项目分类](https://nas.ilyl.life:8092/yonyou/u8/expitemclass.gif)
 
 ## 资源符
 

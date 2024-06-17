@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![部门档案](https://nas.ilyl.life:8092/yonyou/department.gif)
+![部门档案](https://nas.ilyl.life:8092/yonyou/u8/department.gif)
 
 ## 资源符
 

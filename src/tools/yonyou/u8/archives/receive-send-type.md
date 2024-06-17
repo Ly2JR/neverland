@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![收发类别](https://nas.ilyl.life:8092/yonyou/receivesendtype.gif)
+![收发类别](https://nas.ilyl.life:8092/yonyou/u8/receivesendtype.gif)
 
 ## 资源符
 

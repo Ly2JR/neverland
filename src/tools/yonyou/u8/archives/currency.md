@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![外币设置](https://nas.ilyl.life:8092/yonyou/currency.gif)
+![外币设置](https://nas.ilyl.life:8092/yonyou/u8/currency.gif)
 
 ## 资源符
 

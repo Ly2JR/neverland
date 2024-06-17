@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![银行对账单](https://nas.ilyl.life:8092/yonyou/bankacc.gif)
+![银行对账单](https://nas.ilyl.life:8092/yonyou/u8/bankacc.gif)
 
 ## 资源符
 

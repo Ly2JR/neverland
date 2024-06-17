@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![材料出库单](https://nas.ilyl.life:8092/yonyou/voucher.gif)
+![材料出库单](https://nas.ilyl.life:8092/yonyou/u8/voucher.gif)
 
 ## 资源符
 

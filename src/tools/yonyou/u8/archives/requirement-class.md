@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![需求分类](https://nas.ilyl.life:8092/yonyou/requirementclass.gif)
+![需求分类](https://nas.ilyl.life:8092/yonyou/u8/requirementclass.gif)
 
 ## 资源符
 

@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![客户联系人](https://nas.ilyl.life:8092/yonyou/customerlinker.gif)
+![客户联系人](https://nas.ilyl.life:8092/yonyou/u8/customerlinker.gif)
 
 ## 资源符
 

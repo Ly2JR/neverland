@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![交易单位档案](https://nas.ilyl.life:8092/yonyou/unitdoc.gif)
+![交易单位档案](https://nas.ilyl.life:8092/yonyou/u8/unitdoc.gif)
 
 ## 资源符
 
