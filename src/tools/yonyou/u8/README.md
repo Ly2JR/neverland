@@ -1,15 +1,9 @@
 ---
-title: 关于接口
+title: U8
 date: 2023-06-19
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 isOriginal: true
-category:
-  - 用友
-tag:
-  - U8+
 ---
 
 不在维护及更新，仅此怀念。
