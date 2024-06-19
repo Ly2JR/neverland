@@ -40,7 +40,6 @@ U9C里的BE插件开发相当于在原始业务单据的按钮上进行操作前
 
 ![新增修改流程](https://nas.ilyl.life:8092/yonyou/u9c/plugin/be/u9c-be-insert-and-update.png)
 
-
 ![删除流程](https://nas.ilyl.life:8092/yonyou/u9c/plugin/be/u9c-be-delete.png)
 
 ## 项目结构
@@ -69,9 +68,9 @@ U9C里的BE插件开发相当于在原始业务单据的按钮上进行操作前
 |--|--|--So.AfterValidate.sub.xml
 ```
 
-## 引用
+### 引用
 
-### 必备引用
+#### 必备引用
 
 `System`、`System.Data`、`System.Web`、`System.Xml`前4个`System`为系统类库
 
@@ -81,33 +80,33 @@ U9C里的BE插件开发相当于在原始业务单据的按钮上进行操作前
 
 - UFIDA.U9.Base.BaseBE
 
-引用位置：`C:\yonyou\U9CE\Portal\ApplicationServer\Libs\UFIDA.U9.Base.BaseBE.dll`
+引用位置：`X:\yonyou\U9CE\Portal\ApplicationServer\Libs\UFIDA.U9.Base.BaseBE.dll`
 
 - UFIDA.U9.CBO.PubBE
 
-引用位置：`C:\yonyou\U9CE\Portal\ApplicationServer\Libs\UFIDA.U9.CBO.PubBE.dll`
+引用位置：`X:\yonyou\U9CE\Portal\ApplicationServer\Libs\UFIDA.U9.CBO.PubBE.dll`
 
 - UFIDA.UBF.AopFrame
 
-引用位置：`C:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.AopFrame.dll`
+引用位置：`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.AopFrame.dll`
 
 - UFIDA.UBF.Business
 
-引用位置：`C:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.Business.dll`
+引用位置：`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.Business.dll`
 
 - UFIDA.UBF.Execution
 
-引用位置：`C:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.Execution.dll`
+引用位置：`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.Execution.dll`
 
 - UFIDA.UBF.PL
 
-引用位置：`C:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.PL.dll`
+引用位置：`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.PL.dll`
 
 - UFIDA.UBF.Service
 
-引用位置：`C:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.Service.dll`
+引用位置：`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\UFSoft.UBF.Service.dll`
 
-### 变化引用
+#### 变化引用
 
 - UFIDA.U9.SM.SMBE
 
@@ -115,7 +114,7 @@ U9C里的BE插件开发相当于在原始业务单据的按钮上进行操作前
 
 销售订单的相关实体，不同的业务需要引用不同的实体文件
 
-## 类文件
+### 类文件
 
 `AfterValidate.cs`和`AfterValidateExend.cs`是同一个文件`AfterValidate.cs`,利用`partial`进行代码合并,加`Exend`后缀将业务实现分离出来供开发使用
 
@@ -173,10 +172,9 @@ public partial class AfterValidate
 
 So.AfterValidate.sub.xml文件参考xml结构说明
 
-
 ## xml结构
 
-文件名`单据名.事件名.sub.xml`
+约定文件名称：`单据名.事件名.sub.xml`
 
 例如销售订单保存前验证,`SO.AfterValidate.sub.xml`
 
