@@ -244,9 +244,72 @@ public partial class StandardSOMainUIFormWebPart
 }
 ```
 
+- CommonFunction.cs
+
+`CommonFunction.cs`类是辅助类，一般固定不动
+
+```cs
+public class CommonFunction 
+{                                                                                                              
+    public static void Layout(IContainer container, IUFControl ctrl, uint x, uint y)                           
+    {                                                                                                          
+        Layout(container, ctrl, x, y, 1, 1, Unit.Pixel(0), Unit.Pixel(0), true);                               
+    }                                                                                                          
+                                                                                                                
+    public static void Layout(IContainer container, IUFControl ctrl, uint x, uint y, int width, int height)    
+    {                                                                                                          
+        Layout(container, ctrl, x, y, 1, 1, Unit.Pixel(width), Unit.Pixel(height), false);                     
+    }                                                                                                          
+                                                                                                                
+                                                                                                                
+    public static void Layout(IContainer container, IUFControl ctrl, uint x, uint y, int xspan, int yspan,     
+        Unit width, Unit height, bool isAutoSize)                                                              
+    {                                                                                                          
+        IGridLayout gl = container.Layout as IGridLayout;                                                      
+        if (gl == null) return;                                                                                
+        GridLayoutInfo glInfo = new GridLayoutInfo((uint)x, (uint)y, (uint)xspan, (uint)yspan, width, height); 
+        glInfo.AutoSize = isAutoSize;                                                                          
+        gl.Controls.Add((Control)ctrl, glInfo);                                                                
+                                                                                                                
+    }                                                                                                          
+                                                                                                                
+    public static IUFControl FindControl(IPart part,string parentControl, string control)                      
+    {                                                                                                          
+        IUFCard card = (IUFCard)part.GetUFControlByName(part.TopLevelContainer, parentControl);                
+        if (card == null)                                                                                      
+            return null;                                                                                       
+                                                                                                                
+        foreach (IUFControl ctrl in card.Controls)                                                             
+        {                                                                                                      
+            if (ctrl.ID.Equals(control, StringComparison.OrdinalIgnoreCase))                                   
+            {                                                                                                  
+                return ctrl;                                                                                   
+            }                                                                                                  
+        }                                                                                                      
+        return null;                                                                                           
+    }                                                                                                          
+}             
+```
+
 - WebPartExtend_StandardSOMainUIFormWebPart.config
 
 WebPartExtend_StandardSOMainUIFormWebPart.config文件参考xml结构说明
+
+### 控件问题
+
+::: tip
+如上面的`Toolbar`,`Card`，`DDBtnOperation`并不是一成不变，通过WebTool工具查找ID
+:::
+
+- 关于为什么是`Toolbar1`、`Card0`以及`DDBtnOperation`问题?
+
+因为是Web端,通过`ID`确定控件,`Toolbar1`,`Card0`以及`DDBtnOperation`父控件的ID。
+
+![找Toolbar控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-toolbar.png)
+
+![找Card控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-card.png)
+
+![找DropButton控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-dropbutton.png)
 
 ## xml结构
 
