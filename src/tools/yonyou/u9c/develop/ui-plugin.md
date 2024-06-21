@@ -311,6 +311,16 @@ WebPartExtend_StandardSOMainUIFormWebPart.config文件参考xml结构说明
 
 ![找DropButton控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-dropbutton.png)
 
+- 怎么确定`Card0`里添加的按钮位置
+
+ 如上ID为`Card0`的控件下添加按钮代码，其中有一句
+
+ ```cs
+ CommonFunction.Layout(Card0, btnTest2, 18, 0);
+ ```
+
+ 第三个参数`18`,在ID为`Card0`的控件下，按钮是以`td`进行占位，然后在隔一个`td`，看实际页面按钮个数*2即是新按钮的位置。
+
 ## xml结构
 
 约定文件名称：`WebPartExtend_自定义单据.config`
