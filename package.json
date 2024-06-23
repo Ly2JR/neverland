@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "pnpm": "^9.4.0",
-    "vue": "^3.4.29",
+    "vue": "^3.4.30",
     "vuepress": "2.0.0-rc.14"
   },
   "devDependencies": {
@@ -24,9 +24,9 @@
     "@commitlint/cz-commitlint": "^19.2.0",
     "@vue/repl": "^4.2.1",
     "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/plugin-feed": "2.0.0-rc.36",
-    "@vuepress/plugin-pwa": "2.0.0-rc.36",
-    "@vuepress/plugin-theme-data": "2.0.0-rc.36",
+    "@vuepress/plugin-feed": "2.0.0-rc.37",
+    "@vuepress/plugin-pwa": "2.0.0-rc.37",
+    "@vuepress/plugin-theme-data": "2.0.0-rc.37",
     "@vueuse/core": "^10.11.0",
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.3",
@@ -39,8 +39,8 @@
     "patch-package": "^8.0.0",
     "prettier": "^3.3.2",
     "stylelint": "^16.6.1",
-    "vuepress-plugin-components": "2.0.0-rc.49",
-    "vuepress-theme-hope": "2.0.0-rc.49"
+    "vuepress-plugin-components": "2.0.0-rc.50",
+    "vuepress-theme-hope": "2.0.0-rc.50"
   },
   "config": {
     "commitizen": {
