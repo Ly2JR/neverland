@@ -5,6 +5,8 @@ editLink: false
 footer: false
 isOriginal: true
 category:
+  - 用友
+tag:
   - U9C
 ---
 
@@ -130,7 +132,7 @@ U9C里的UI插件开发相当于在原始业务单据上添加自己的按钮，
 
 ### 类文件
 
-`StandardSOMainUIFormWebPart.cs`和`StandardSOMainUIFormWebPartExend.cs`是同一个文件`StandardSOMainUIFormWebPart.cs`，利用`partial`进行代码合并吗，加`Exend`后缀将业务实现分离出来供开发使用
+`StandardSOMainUIFormWebPart.cs`和`StandardSOMainUIFormWebPartExend.cs`是同一个文件`StandardSOMainUIFormWebPart.cs`，利用`partial`进行代码合并，加`Exend`后缀将业务实现分离出来供开发使用
 
 - StandardSOMainUIFormWebPart.cs
 

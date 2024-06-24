@@ -14,7 +14,7 @@ category:
 2. [Microsoft SQL Server 2022 Reporting Services](https://www.microsoft.com/zh-cn/download/details.aspx?id=104502)
 3. [SSMS](https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
 4. [U9C](https://yonbip.diwork.com/yonbip-ec-minor/rest/pub_article/yonbip/upesn/esn/3922109/20210609/1637/342d99ae-b5c1-44be-bcd6-7b91c50ccba7.html?random=0175cf3c-815d-47ba-9eb5-01a91f710607#view)
-5. [Visual Studio 2015](https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/)
+5. [Visual Studio 2019](https://learn.microsoft.com/zh-cn/visualstudio/releases/2019/redistribution#--download)
 6. [Everything](https://www.voidtools.com/downloads/)
 
 ## 环境要求
@@ -62,7 +62,7 @@ Windows8系统以上，具体看软件下载相关软件的系统要求。
 5. `加密密钥`点击`删除`即删除加密的内容，在点击`更改`
 
 
-### Visual Studio 2015
+### Visual Studio 2019
 
   U9C使用.NETFramework 4.5框架，使用该版本开发
 
