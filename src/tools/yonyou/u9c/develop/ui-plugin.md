@@ -300,7 +300,7 @@ WebPartExtend_StandardSOMainUIFormWebPart.config文件参考xml结构说明
 ### 控件问题
 
 ::: tip
-如上面的`Toolbar`,`Card`，`DDBtnOperation`并不是一成不变，通过WebTool工具查找ID
+如上面的`Toolbar`,`Card`，`DDBtnOperation`并不是一成不变，通过DevTool工具查找ID
 :::
 
 - 关于为什么是`Toolbar1`、`Card0`以及`DDBtnOperation`问题?

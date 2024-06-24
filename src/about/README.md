@@ -15,7 +15,7 @@ copy: true
 
 ```component VPCard
 title: VuePress
-logo: https://vuepress.vuejs.org/hero.png
+logo: https://v2.vuepress.vuejs.org/images/hero.png
 desc: Vue 驱动的静态网站生成器
 link: https://v2.vuepress.vuejs.org/zh/
 background: rgba(253, 230, 138, 0.15)
