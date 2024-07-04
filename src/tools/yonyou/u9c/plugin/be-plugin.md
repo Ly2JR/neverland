@@ -207,9 +207,9 @@ So.AfterValidate.sub.xml文件参考xml结构说明
 
 ## 部署
 
-- 将项目的dll文件拷贝到`yonyou\U9CE\Portal\ApplicationServer\Libs`目录下
+- 将项目的dll文件拷贝到`x:\yonyou\U9CE\Portal\ApplicationServer\Libs`目录下
 
-- 将项目里的`XXX.sub.xml`拷贝到`yonyou\U9CE\Portal\bin`目录下
+- 将项目里的`XXX.sub.xml`拷贝到`x:\yonyou\U9CE\Portal\bin`目录下
 
 ## 效果
 

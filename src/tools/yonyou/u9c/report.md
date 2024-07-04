@@ -1,5 +1,5 @@
 ---
-title: U9C报表开发
+title: 报表开发
 date: 2024-06-17
 editLink: false
 footer: false

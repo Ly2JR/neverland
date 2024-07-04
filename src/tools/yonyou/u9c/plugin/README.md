@@ -1,5 +1,5 @@
 ---
-title: 开发教程
+title: 插件开发
 breadcrumb: false
 article: false
 index: false

@@ -351,9 +351,9 @@ xml节点配置大部分固定，只需更改`ExtendedPart`节点下的属性值
 
 ## 部署
 
-- 将项目的dll文件拷贝到`yonyou\U9CE\Portal\UILib`目录下
+- 将项目的dll文件拷贝到`x:\yonyou\U9CE\Portal\UILib`目录下
 
-- 将项目里的`WebPartExtend_XXX.config`拷贝到`yonyou\U9CE\Portal`目录下
+- 将项目里的`WebPartExtend_XXX.config`拷贝到`x:\yonyou\U9CE\Portal`目录下
 
 ## 预览
 
