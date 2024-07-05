@@ -26,7 +26,7 @@ importers:
         version: 19.2.2
       '@commitlint/cz-commitlint':
         specifier: ^19.2.0
-        version: 19.2.0(@types/node@20.14.9)(commitizen@4.3.0(@types/node@20.14.9)(typescript@5.4.5))(inquirer@9.3.3)(typescript@5.4.5)
+        version: 19.2.0(@types/node@20.14.9)(commitizen@4.3.0(@types/node@20.14.9)(typescript@5.4.5))(inquirer@9.3.4)(typescript@5.4.5)
       '@vue/repl':
         specifier: ^4.3.1
         version: 4.3.1
@@ -58,8 +58,8 @@ importers:
         specifier: ^9.0.11
         version: 9.0.11
       inquirer:
-        specifier: ^9.3.3
-        version: 9.3.3
+        specifier: ^9.3.4
+        version: 9.3.4
       mathjax-full:
         specifier: ^3.2.2
         version: 3.2.2
@@ -2770,8 +2770,8 @@ packages:
     resolution: {integrity: sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ==}
     engines: {node: '>=12.0.0'}
 
-  inquirer@9.3.3:
-    resolution: {integrity: sha512-Z7lAi4XUBYRa6NPB0k+0+3dyhnyp2sAqVeiyogHyue93DvE9dPxp7oi7Gg8/KfWXSrGEsyBvZbl4PdBpS7ZKkg==}
+  inquirer@9.3.4:
+    resolution: {integrity: sha512-Hp6meNSDzp+Oc9JNUUlYsK81dxaPrrBRa7H/s3+yebCDRJe4UNKYSkEUZoIcuKJjNipBLPKsuc7BvO6tLzo/KA==}
     engines: {node: '>=18'}
 
   internal-slot@1.0.7:
@@ -4256,8 +4256,8 @@ packages:
       '@vuepress/bundler-webpack':
         optional: true
 
-  watermark-js-plus@1.5.1:
-    resolution: {integrity: sha512-fj82XgrJkqP0a7kcG6U591YT6E0GFq9zdUrqbijbkE9l8aHhOpOogQwk5jaoTaWVqQsBSNFRIc6QWRkHBfHNsA==}
+  watermark-js-plus@1.5.2:
+    resolution: {integrity: sha512-iqgSeAfwnCKNpClmyjl7rhj0SEbt8j+MqZc6C3YKY5xjMdxlRMIOcnYdBYBiznzILVyJ6YbwxD5OMajK1D+uCA==}
     engines: {node: '>=16.0.0'}
 
   wcwidth@1.0.1:
@@ -5224,14 +5224,14 @@ snapshots:
       '@commitlint/types': 19.0.3
       ajv: 8.16.0
 
-  '@commitlint/cz-commitlint@19.2.0(@types/node@20.14.9)(commitizen@4.3.0(@types/node@20.14.9)(typescript@5.4.5))(inquirer@9.3.3)(typescript@5.4.5)':
+  '@commitlint/cz-commitlint@19.2.0(@types/node@20.14.9)(commitizen@4.3.0(@types/node@20.14.9)(typescript@5.4.5))(inquirer@9.3.4)(typescript@5.4.5)':
     dependencies:
       '@commitlint/ensure': 19.0.3
       '@commitlint/load': 19.2.0(@types/node@20.14.9)(typescript@5.4.5)
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       commitizen: 4.3.0(@types/node@20.14.9)(typescript@5.4.5)
-      inquirer: 9.3.3
+      inquirer: 9.3.4
       lodash.isplainobject: 4.0.6
       word-wrap: 1.2.5
     transitivePeerDependencies:
@@ -6225,7 +6225,7 @@ snapshots:
       '@vuepress/helper': 2.0.0-rc.37(typescript@5.4.5)(vuepress@2.0.0-rc.14(@vuepress/bundler-vite@2.0.0-rc.14(@types/node@20.14.9)(jiti@1.21.6)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(yaml@2.4.5))(typescript@5.4.5)(vue@3.4.31(typescript@5.4.5)))
       vue: 3.4.31(typescript@5.4.5)
       vuepress: 2.0.0-rc.14(@vuepress/bundler-vite@2.0.0-rc.14(@types/node@20.14.9)(jiti@1.21.6)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(yaml@2.4.5))(typescript@5.4.5)(vue@3.4.31(typescript@5.4.5))
-      watermark-js-plus: 1.5.1
+      watermark-js-plus: 1.5.2
     transitivePeerDependencies:
       - typescript
 
@@ -7543,7 +7543,7 @@ snapshots:
       through: 2.3.8
       wrap-ansi: 7.0.0
 
-  inquirer@9.3.3:
+  inquirer@9.3.4:
     dependencies:
       '@inquirer/figures': 1.0.3
       ansi-escapes: 4.3.2
@@ -9091,7 +9091,7 @@ snapshots:
       - supports-color
       - typescript
 
-  watermark-js-plus@1.5.1: {}
+  watermark-js-plus@1.5.2: {}
 
   wcwidth@1.0.1:
     dependencies:
