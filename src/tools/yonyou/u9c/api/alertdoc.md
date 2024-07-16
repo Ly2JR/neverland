@@ -43,29 +43,43 @@ private List<ISV.FA.ImportFAAlterDocHeadDTO> QueryAlterDoc(string docNo,string o
 }
 ```
 
-## 新增
+## 新增资产类别变更
 
 ```cs
 /// <summary>
-/// 修改资产变更
+/// 新增资产资产类别变更
 /// </summary>
 /// <param name="alterReason">表头：变更原因编码或名称</param>
 /// <param name="assetCarad">表体：资产卡片</param>
 /// <param name="assetCarad">表体：变更后资产类别</param>
-private void ModifyAlterDoc(string alterReason,string assetCarad,string assetCategory)
+private List<ISV.FA.ImportFAAlterDocResultDTO> CreateAlterDoc01(string alterReason, string assetCard, string assetCategory)
 {
     try
     {
-        var enumValue = UFIDA.UBF.MD.Business.ExtEnumValue.Finder.Find(" ExtEnumType.Code='UFIDA.U9.FA.FA_AlterDocBE.AlterReasonUDCEnum' and (Code=@Code or Name=@Name)", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(alterReason), new UFSoft.UBF.PL.OqlParam(alterReason)});
+        Organization org = Base.Context.LoginOrg;
+
+        var findOrg = UFIDA.U9.CBO.FA.FA_AssetOwnerRelation.AssetOwnerRelation.Finder.Find(" OwnerOrg.Code=@OrgCode", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(org.Code) });
+        if (findOrg is null)
+        {
+            throw new Exception($"未找到货主组织[{org.Code}]");
+        }
+
+        var enumValue = UFIDA.UBF.MD.Business.ExtEnumValue.Finder.Find(" ExtEnumType.Code='UFIDA.U9.FA.FA_AlterDocBE.AlterReasonUDCEnum' and (Code=@Code or Name=@Name)", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(alterReason), new UFSoft.UBF.PL.OqlParam(alterReason) });
         if (enumValue is null)
         {
             throw new Exception($"未找到变更原因,{alterReason}");
         }
 
-        var assetCard= FA.FA_AssetCardBE.AssetCard.Finder.Find(" DocNo=@DocNo",new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCard) });
-        if(assetCard is null)
+        var findAssetCard = FA.FA_AssetCardBE.AssetCard.Finder.Find(" DocNo=@DocNo", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCard) });
+        if (findAssetCard is null)
         {
-            throw new Exception($"未找到资产卡片编号[{input.AssetCard}]");
+            throw new Exception($"未找到资产卡片编号[{assetCard}]");
+        }
+
+        var findAssetCategory = UFIDA.U9.CBO.FA.FA_AssetCategoryBE.AssetCategory.Finder.Find(" Code=@Code or Name=@Name", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCategory), new UFSoft.UBF.PL.OqlParam(assetCategory) });
+        if (findAssetCategory is null)
+        {
+            throw new Exception($"未找到变更后资产类别[{assetCategory}]");
         }
 
         UFIDA.U9.ISV.FA.CreateImportFAAlterDocSV proxy = new ISV.FA.CreateImportFAAlterDocSV();
@@ -78,13 +92,13 @@ private void ModifyAlterDoc(string alterReason,string assetCarad,string assetCat
             },
             AlterReason = enumValue.EValue,//变更原因
             BusinessDate = DateTime.Now,//日期
-            AlterStyle = new List<int>() { UFIDA.U9.FA.FA_Enum.FA_AlterStyleEnum.AlterAssetCategory.Value},//变更类型
+            AlterStyle = new List<int>() { UFIDA.U9.FA.FA_Enum.FA_AlterStyleEnum.AlterAssetCategory.Value },//变更类型
             AlterBigStyle = FA.FA_Enum.FA_AlterBigStyles.Card.Value,
             AssetOwnerRelation = new CommonArchiveDataDTO()
             {
-                ID = assetCard.AssetOwnerRelation.ID,
+                ID = findOrg.ID,
             },
-            SysState=0,
+            SysState = 0,
             FAAlterDocDetailDTOs = new List<ISV.FA.FAAlterDocDetailDTO>(),
         };
         var detail = new ISV.FA.FAAlterDocDetailDTO();
@@ -92,13 +106,13 @@ private void ModifyAlterDoc(string alterReason,string assetCarad,string assetCat
         detail.SysState = 0;
         detail.AssetCard = new CommonArchiveDataDTO()
         {
-            ID = assetCard.ID,
-            Code = assetCard.DocNo,
+            ID = findAssetCategory.ID,
+            Code = findAssetCategory.Code,
         };
         detail.OldAssetCategory = new CommonArchiveDataDTO()
         {
-            ID = assetCard.AssetCategory.ID,
-            Code = assetCard.AssetCategory.Code,
+            ID = findAssetCategory.AssetCategory.ID,
+            Code = findAssetCategory.AssetCategory.Code,
         };
         detail.AssetCategory = new CommonArchiveDataDTO()
         {
@@ -129,9 +143,219 @@ private void ModifyAlterDoc(string alterReason,string assetCarad,string assetCat
         newItem.FAAlterDocDetailDTOs.Add(detail);
         newItems.Add(newItem);
         proxy.ImportFAAlterDocHeadDTOs = newItems;
-        var retDtos = proxy.Do();
+        return proxy.Do();
     }
-    catch(Exception ex)
+    catch (Exception ex)
+    {
+        throw new Exception(ex.Message);
+    }
+}
+```
+
+## 新增资产使用信息
+
+```cs
+/// <summary>
+/// 新增资产资产使用信息变更
+/// </summary>
+/// <param name="alterReason">表头：变更原因编码或名称</param>
+/// <param name="assetCarad">表体：资产卡片</param>
+/// <param name="afterDept">表体：变更后使用部门</param>
+/// <param name="afterDeptRatio">表体：变更后部门所有权使用比例</param>
+/// <param name="lastDept">表体：最后部门</param>
+private List<ISV.FA.ImportFAAlterDocResultDTOData> CreateAlterDoc05(string alterReason, string assetCard, string afterDept, decimal afterDeptRatio, string lastDept)
+{
+    try
+    {
+        Organization org = Base.Context.LoginOrg;
+
+        var findOrg = UFIDA.U9.CBO.FA.FA_AssetOwnerRelation.AssetOwnerRelation.Finder.Find(" OwnerOrg.Code=@OrgCode", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(org.Code) });
+        if (findOrg is null)
+        {
+            throw new Exception($"未找到货主组织[{org.Code}]");
+        }
+
+        var enumValue = UFIDA.UBF.MD.Business.ExtEnumValue.Finder.Find(" ExtEnumType.Code='UFIDA.U9.FA.FA_AlterDocBE.AlterReasonUDCEnum' and (Code=@Code or Name=@Name)", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(alterReason), new UFSoft.UBF.PL.OqlParam(alterReason) });
+        if (enumValue is null)
+        {
+            throw new Exception($"未找到变更原因[{alterReason}]");
+        }
+
+        UFIDA.U9.ISV.FA.Proxy.CreateImportFAAlterDocSVProxy proxy = new ISV.FA.Proxy.CreateImportFAAlterDocSVProxy();
+        var newItems = new List<ISV.FA.ImportFAAlterDocHeadDTOData>();
+        var newItem = new ISV.FA.ImportFAAlterDocHeadDTOData
+        {
+            DocumentType = new CommonArchiveDataDTOData()
+            {
+                Code = "05",
+            },
+            AlterReason = enumValue.EValue,
+            BusinessDate = DateTime.Now,
+            AlterStyle = new List<int>() { UFIDA.U9.FA.FA_Enum.FA_AlterStyleEnum.AlterUsageInfor.Value },
+            AlterBigStyle = 4,
+            AssetOwnerRelation = new CommonArchiveDataDTOData()
+            {
+                ID = findOrg.ID,
+            },
+            SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted,
+            FAAlterDocDetailDTOs = new List<ISV.FA.FAAlterDocDetailDTOData>(),
+        };
+
+        var findAssetCard = FA.FA_AssetCardBE.AssetCard.Finder.Find("  DocNo=@DocNo", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCard) });
+        if (findAssetCard is null)
+        {
+            throw new Exception($"未找到资产卡片编号[{assetCard}]");
+        }
+
+        var findOwnerUsage = CBO.FA.FA_AssetOwnerRelation.OwnerUsageRelation.Finder.Find("UsageOrg=@OwnerOrg", new OqlParam[] { new OqlParam(findAssetCard.OwnerOrg.ID) });
+        if (findOwnerUsage is null)
+        {
+            throw new Exception($"未找到资产使用组织[{findAssetCard.OwnerOrg.ID}]");
+        }
+
+        var findAfterDept = UFIDA.U9.CBO.HR.Department.Department.Finder.Find(" Code=@Code or Name=@Name", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(afterDept), new UFSoft.UBF.PL.OqlParam(afterDept) });
+        if (findAfterDept is null)
+        {
+            throw new Exception($"未找到变更后使用部门[{afterDept}]");
+        }
+
+        var findLastDept = UFIDA.U9.CBO.HR.Department.Department.Finder.Find(" Code=@Code or Name=@Name", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(lastDept), new UFSoft.UBF.PL.OqlParam(lastDept) });
+        if (findLastDept is null)
+        {
+            throw new Exception($"未找到变更后使用部门[{lastDept}]");
+        }
+
+        var detail = new ISV.FA.FAAlterDocDetailDTOData();
+        detail.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
+        detail.AssetCard = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.ID,
+            Code = findAssetCard.DocNo,
+        };
+        detail.OldOwnerDept = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.OwnerDept.ID,
+            Code = findAssetCard.OwnerDept.Code,
+        };
+        detail.OwnerDept = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.OwnerDept.ID,
+            Code = findAssetCard.OwnerDept.Code,
+        };
+        detail.OldAuditDept = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AuditDept.ID,
+            Code = findAssetCard.AuditDept.Code,
+        };
+        detail.AccountDept = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AuditDept.ID,
+        };
+        detail.AssetAccountAlterObjDTOs = new List<ISV.FA.AssetAccountAlterObjDTOData>();
+        detail.AssetTagAlterObjDTOs = new List<ISV.FA.AssetTagAlterObjDTOData>();
+        detail.AssetTagUseInforAlterObjDTOs = new List<ISV.FA.AssetTagUseInforAlterObjDTOData>();
+
+        //资产标签
+        var newTagAlter = new ISV.FA.AssetTagAlterObjDTOData();
+        newTagAlter.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
+        newTagAlter.AssetTagCode = findAssetCard.AssetTag[0].Code;
+        newTagAlter.AssetLocation = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetTag[0].ID,
+            Code = findAssetCard.AssetTag[0].Code
+        };
+        newTagAlter.AssetTag = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetTag[0].ID,
+            Code = findAssetCard.AssetTag[0].Code,
+        };
+        detail.AssetTagAlterObjDTOs.Add(newTagAlter);
+
+        var findTagUsage = UFIDA.U9.FA.FA_AssetCardBE.AssetTagUsageInformation.Finder.Find("AssetCard=@AssetCard and OwnerUsageRelation=@OwnerUsageRelation and UsageDept=@UsageDept and UsageOrg=@UsageOrg and AssetTag=@AssetTag", new OqlParam[] {
+    new OqlParam(findAssetCard.ID),new OqlParam(findOwnerUsage.ID),new OqlParam(findAssetCard.OwnerDept.ID),new OqlParam(findAssetCard.OwnerOrg.ID),new OqlParam(newTagAlter.AssetTag.ID)
+});
+        if (findTagUsage is null)
+        {
+            throw new Exception($"没有找到资产卡片[{findAssetCard.DocNo}]标签使用信息");
+        }
+
+        //资产使用信息变更
+        var newTagUse = new ISV.FA.AssetTagUseInforAlterObjDTOData();
+        newTagUse.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
+        newTagUse.AssetTagUsageInfor = new CommonArchiveDataDTOData()
+        {
+            ID = findTagUsage.ID
+        };
+        newTagUse.AssetAccountInfor = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetAccountInfor[0].ID,
+        };
+        newTagUse.DPBook = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetAccountInfor[0].DpBook.ID,
+        };
+        newTagUse.OldUsageOrg = new CommonArchiveDataDTOData()
+        {
+            ID = findOwnerUsage.ID,
+        };
+        newTagUse.UsageOrg = new CommonArchiveDataDTOData()
+        {
+            ID = findOwnerUsage.ID,
+        };
+        newTagUse.OldUsageDept = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.OwnerDept.ID,
+            Code = findAssetCard.OwnerDept.Code,
+        };
+        newTagUse.UsageDept = new CommonArchiveDataDTOData()
+        {
+            ID = findAfterDept.ID,
+            Code = findAfterDept.Code,
+        };
+        newTagUse.AssetTag = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetTag[0].ID,
+            Code = findAssetCard.AssetTag[0].Code,
+        };
+        newTagUse.OldPercentage = findTagUsage.Percentage;
+        newTagUse.Percentage = afterDeptRatio;
+        detail.AssetTagUseInforAlterObjDTOs.Add(newTagUse);
+
+        //Last
+        var lastTagUse = new ISV.FA.AssetTagUseInforAlterObjDTOData();
+        lastTagUse.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
+        lastTagUse.AssetAccountInfor = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetAccountInfor[0].ID,
+        };
+        lastTagUse.DPBook = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetAccountInfor[0].DpBook.ID,
+        };
+        lastTagUse.UsageOrg = new CommonArchiveDataDTOData()
+        {
+            ID = findOwnerUsage.ID,
+        };
+        lastTagUse.UsageDept = new CommonArchiveDataDTOData()
+        {
+            ID = findLastDept.ID,
+            Code = findLastDept.Code,
+        };
+        lastTagUse.AssetTag = new CommonArchiveDataDTOData()
+        {
+            ID = findAssetCard.AssetTag[0].ID,
+            Code = findAssetCard.AssetTag[0].Code,
+        };
+        lastTagUse.OldPercentage = 0;
+        lastTagUse.Percentage = 1 - afterDeptRatio;//变更后所有权
+        detail.AssetTagUseInforAlterObjDTOs.Add(lastTagUse);
+        newItem.FAAlterDocDetailDTOs.Add(detail);
+
+        newItems.Add(newItem);
+        proxy.ImportFAAlterDocHeadDTOs = newItems;
+        return proxy.Do();
+    }
+    catch (Exception ex)
     {
         throw new Exception(ex.Message);
     }
