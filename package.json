@@ -29,7 +29,7 @@
     "@vuepress/plugin-theme-data": "2.0.0-rc.38",
     "@vueuse/core": "^10.11.0",
     "commitizen": "^4.3.0",
-    "cz-git": "^1.9.3",
+    "cz-git": "^1.9.4",
     "eslint": "^9.7.0",
     "husky": "^9.1.1",
     "inquirer": "^9.3.5",
