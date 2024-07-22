@@ -74,10 +74,6 @@ json参数首字母小写
 
 ### 代码调试
 
-VS新建控制台，引用右击添加`服务引用`，点击左下角`高级`按钮，在点击左下角`添加Web引用`
-
-输入带`.svc`的地址，自动生成代理
-
 ```cs
 var client = new HttpClient();
 client.BaseAddress = new Uri("http://127.0.0.1/");
