@@ -372,3 +372,20 @@ UBF开发过程中需要经常点击保存
 
 ![基础档案功能](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-64.gif)
 
+## 添加枚举
+
+```sql
+select * from UBF_Sys_ExtEnumType where code='UFIDA.U9.CUST.DocTypeBE.DeliveryDocTypeEnum'
+select * from UBF_Sys_ExtEnumType_Trl where id=1002407240150006
+insert into UBF_Sys_ExtEnumType_Trl(id ,SysMLFlag,Name)
+values(1002407240150006,'zh-CN','发货单单据类型')
+
+select * from ubf_sys_extenumvalue where ExtEnumType=1002407240150006
+select * from UBF_Sys_ExtEnumValue_Trl where id=1002407240150006
+insert into UBF_Sys_ExtEnumValue_Trl(ID,SysMLFlag,Name)
+values(1002407240150007,'zh-CN','发货单')
+insert into UBF_Sys_ExtEnumValue_Trl(ID,SysMLFlag,Name)
+values(1002407240150008,'zh-CN','调拨单')
+insert into UBF_Sys_ExtEnumValue_Trl(ID,SysMLFlag,Name)
+values(1002407240150009,'zh-CN','其他')
+```

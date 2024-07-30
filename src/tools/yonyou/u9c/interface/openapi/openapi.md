@@ -64,7 +64,7 @@ U9C自带OPENAPI，可以满足一些开发需求。
 
 ![增加部门](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/department-url.png)
 
-接口DTO缺少参数描述，可以参考[官网OPENAPI](https://interface/openapi.yyu9c.com/doc.html#)或者数据字典进行相关参数赋值
+接口DTO缺少参数描述，可以参考[官网OPENAPI](https://openapi.yyu9c.com/doc.html#/home)或者数据字典进行相关参数赋值
 
 最简单的一个创建部门DTO
 

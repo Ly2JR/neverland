@@ -254,6 +254,7 @@ private List<ImportFAAlterDocResultDTOData> CreateAlterDoc(string alterReason,st
         foreach(var assetTag in findAssetCard.AssetTag)
         {
             var newTagAlter = new ISV.FA.AssetTagAlterObjDTOData();
+            newTagAlter.ID=assetTag.ID;
             newTagAlter.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
             newTagAlter.AssetTagCode = assetTag.Code;
             newTagAlter.AssetLocation = new CommonArchiveDataDTOData()
