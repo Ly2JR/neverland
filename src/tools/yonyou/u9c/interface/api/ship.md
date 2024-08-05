@@ -122,65 +122,86 @@ List<DocKeyDTOData> Create(string customer,string wh,string itemCode,decimal qty
 ## 参照销售订单
 
 ```cs
-List<DocKeyDTOData> Create(string srcDocNo,string srcDocId,string customer,string wh,decimal qty,out string errMsg)
+List<DocKeyDTOData> Create(string operatingOrg, string shipperOrg, string documentType, string srcDoc, string srcDocId, string customer, string wh, decimal qty, out string errMsg)
 {
     errMsg = string.Empty;
     try
     {
-        var org = Base.Context.LoginOrg;
-        var findCustomer = Customer.Finder.Find("Org=@Org and Code=@Code",new OqlParam[] { new OqlParam(org.ID),new OqlParam(customer) });
+        var findOperatingOrg = Base.Organization.Organization.FindByCode(operatingOrg);
+        if (findOperatingOrg == null)
+        {
+            errMsg = $"营运组织编码:{operatingOrg}不存在";
+            return null;
+        }
+        var findShipperOrg = Base.Organization.Organization.FindByCode(shipperOrg);
+        if (findShipperOrg == null)
+        {
+            errMsg = $"货主组织编码:{shipperOrg}不存在";
+            return null;
+        }
+        var findDocType = UFIDA.U9.SM.Ship.ShipDocType.FindByCode(findOperatingOrg, documentType);
+        if (findDocType == null)
+        {
+            errMsg = $"营运组织编码:{operatingOrg},单据类型{documentType}不存在";
+            return null;
+        }
+        var findCustomer = Customer.FindByCode(findShipperOrg, customer);
         if (findCustomer == null)
         {
             errMsg = $"客户编码:{customer}不存在";
             return null;
         }
-
         UFIDA.U9.ISV.SM.Proxy.CreateShipSVProxy proxy = new ISV.SM.Proxy.CreateShipSVProxy();
         proxy.ShipDTOs = new List<ISV.SM.ShipDTOForIndustryChainData>();
-        //表头
+
         var newShip = new ISV.SM.ShipDTOForIndustryChainData();
         newShip.BusinessDate = DateTime.Now;
         newShip.IsPriceIncludeTax = findCustomer.IsTaxPrice;
         newShip.DocumentType = new CommonArchiveDataDTOData()
         {
-            Code = documentType
+            ID = findDocType.ID
+        };
+        newShip.Org = new CommonArchiveDataDTOData()
+        {
+            Code = shipperOrg
         };
         newShip.OperatingOrg = new CommonArchiveDataDTOData()
         {
-            Code = org.Code
+            Code = operatingOrg
         };
         newShip.ShipOrg = new CommonArchiveDataDTOData()
         {
-            Code = org.Code
+            Code = shipperOrg
         };
-        newShip.ShipMemo = headMemo;
         newShip.OrderBy = new CommonArchiveDataDTOData()
         {
             Code = customer
         };
-        newShip.SrcDocType = 1;//来源销售订单
-        //表体
-        var newLine = new ISV.SM.ShipLineDTOForIndustryChainData();    
+        //newShip.Seller = new CommonArchiveDataDTOData();
+        var newLine = new ISV.SM.ShipLineDTOForIndustryChainData();
+        //newLine.AC = new CommonArchiveDataDTOData();
+        //来源销售订单
+        newShip.SrcDocType = 1;
         SOShipline line = SOShipline.Finder.Find("SOLine.Org=@Org and SOLine.SO.DocNo=@SrcDoc and SOLine.ID=@SrcDocId and SOLine.SO.OrderBy.Code=@Customer",
-        new OqlParam[] { new OqlParam(org.ID), new OqlParam(srcDoc), new OqlParam(srcDocId), new OqlParam(findCustomer.Code) });
+        new OqlParam[] { new OqlParam(findOperatingOrg.ID), new OqlParam(srcDoc), new OqlParam(srcDocId), new OqlParam(findCustomer.Code) });
         if (SMTools.IsNull(line))
         {
-            errMsg = $"找不到客户:{customer},销售订单:{ srcDoc},行:{ srcDocId}";
+            errMsg = $"找不到客户:{customer},销售订单:{srcDoc},子行ID:{ srcDocId}";
             return null;
         }
-        #region Head
         newShip.IsNoCreditCheck = line.SOLine.SO.IsCreditCheck;//信用是否免检
+        newShip.KeepAccountsPeriod.ID = line.SOLine.SO.KeepAccountPeriod.ID;
         if (SMTools.IsNotNull(line.SOLine.SO.Seller))
         {
-            newShip.Seller.ID = line.SOLine.SO.Seller.ID;
+            newShip.Seller.Code = line.SOLine.SO.Seller.Code;
         }
         if (SMTools.IsNotNull(line.SOLine.SO.SaleDepartment))
         {
-            newShip.SaleDept.ID = line.SOLine.SO.SaleDepartment.ID;
+            newShip.SaleDept.Code = line.SOLine.SO.SaleDepartment.Code;
         }
         if (SMTools.IsNotNull(line.SOLine.SO.AC))
         {
-            newShip.AC.ID = line.SOLine.SO.AC.ID;
+            newShip.AC.Code = line.SOLine.SO.AC.Code;
         }
         if (line.SOLine.SO.InnerSupersede != null)
         {
@@ -204,15 +225,11 @@ List<DocKeyDTOData> Create(string srcDocNo,string srcDocId,string customer,strin
         }
         if (SMTools.IsNotNull(line.SOLine.SO.AccountOrgKey))
         {
-            newShip.AccountOrg.ID = line.SOLine.SO.AccountOrg.ID;
-        }
-        if (SMTools.IsNotNull(line.SOLine.SO.Org))
-        {
-            newShip.Org.ID = line.SOLine.SO.Org.ID;
+            newShip.AccountOrg.Code = line.SOLine.SO.AccountOrg.Code;
         }
         if (SMTools.IsNotNull(line.SOLine.SO.TaxSchedule))
         {
-            newShip.TaxSchedule.ID = line.SOLine.SO.TaxSchedule.ID;
+            newShip.TaxSchedule.Code = line.SOLine.SO.TaxSchedule.Code;
         }
         if (line.SOLine.SO.DemandType != null)
         {
@@ -224,37 +241,31 @@ List<DocKeyDTOData> Create(string srcDocNo,string srcDocId,string customer,strin
         }
         if (SMTools.IsNotNull(line.SOLine.RecTerm))
         {
-            newShip.ReceivableTerm.ID = line.SOLine.RecTerm.ID;
+            newShip.ReceivableTerm.Code = line.SOLine.RecTerm.Code;
         }
-        if(SMTools.IsNotNull(line.SOLine.SO.ConfirmAccording))
+        if (SMTools.IsNotNull(line.SOLine.SO.ConfirmAccording))
         {
-            newShip.ConfirmAccording.ID = line.SOLine.SO.ConfirmAccording.ID;
+            newShip.ConfirmAccording.Code = line.SOLine.SO.ConfirmAccording.Code;
         }
         if (SMTools.IsNotNull(line.SOLine.SO.InvoiceAccording))
         {
-            newShip.InvoiceAccording.ID = line.SOLine.SO.InvoiceAccording.ID;
+            newShip.InvoiceAccording.Code = line.SOLine.SO.InvoiceAccording.Code;
         }
         newShip.TradeMode = line.SOLine.SO.TradeMode.Value;
         newShip.ConfirmMode = line.SOLine.SO.ConfirmMode.Value;
-        #endregion
 
-        #region Body
-        newLine.WH.Code = wh;//客户编码
-        newLine.ItemInfo.ItemID = line.SOLine.ItemInfo.ItemID.ID;//料品
+        newLine.SrcDocType = 1; //来源单据为销售订单
+        newLine.WH.Code = wh;
+        newLine.ItemInfo.ItemCode = line.SOLine.ItemInfo.ItemCode;//料品
         newLine.CustomerItemCode = line.SOLine.CustomerItemNo;
         newLine.CustomerItemName = line.SOLine.CustomerItemName;
         if (SMTools.IsNotNull(line.SOLine.Project))//项目号
         {
-            newLine.Project.ID = line.SOLine.Project.ID;
+            newLine.Project.Code = line.SOLine.Project.Code;
         }
-        newLine.SrcDocType = 1; //来源单据为销售订单
         newLine.SrcSysVersion = line.SOLine.SysVersion;
-        if (SMTools.IsNotNull(line.SrcOrg))
-        {
-            newLine.SrcDocOwnedOrg.ID = line.SrcOrg.ID;
-        }
         newLine.SrcDocKey = line.SOLine.SO.ID;
-        newLine.SrcDocTransType = line.SOLine.SO.DocumentType.ID;
+        newLine.SrcDocTransType = findDocType.ID;
         newLine.SrcDocDate = line.SOLine.SO.BusinessDate;
         newLine.SrcDocNo = line.SOLine.SO.DocNo;
         newLine.SrcDocVer = line.SOLine.SO.Version;
@@ -262,43 +273,40 @@ List<DocKeyDTOData> Create(string srcDocNo,string srcDocId,string customer,strin
         newLine.SrcDocLineNo = line.SOLine.DocLineNo;
         newLine.SrcDocSubLineKey = line.ID;
         newLine.SrcDocSubLineNo = line.DocSubLineNo;
-        newLine.SrcDocOwnedOrg.ID = line.SOLine.Org.ID;
+        newLine.SrcDocOwnedOrg.ID = findOperatingOrg.ID;
 
         newLine.SOKey = line.SOLine.SO.ID;
         newLine.SONo = line.SOLine.SO.DocNo;
         newLine.SODate = line.SOLine.SO.BusinessDate;
         newLine.SOVer = line.SOLine.SO.Version;
-        newLine.SOTDocType = line.SOLine.SO.DocumentType.ID;
+        newLine.SOTDocType = findDocType.ID;
         newLine.SOLineKey = line.SOLine.ID;
         newLine.SOLineNo = line.SOLine.DocLineNo;
         newLine.SOSubLineKey = line.ID;
         newLine.SOSubLineNo = line.DocSubLineNo;
+        newLine.SOOwnedOrg.ID = findOperatingOrg.ID;
 
-        if (SMTools.IsNotNull(line.Org))
-        {
-            newLine.SOOwnedOrg.ID = line.Org.ID;
-        }
         if (line.SOLine.SO.Payer != null)
         {
-            newLine.Payer.ID = line.SOLine.SO.Payer.Customer.ID;
+            newLine.Payer.Code = line.SOLine.SO.Payer.Customer.Code;
         }
         if (line.SOLine.SO.PayerSite != null)
         {
-            newLine.PayerSite.ID = line.SOLine.SO.PayerSite.CustomerSite.ID;
+            newLine.PayerSite.Code = line.SOLine.SO.PayerSite.CustomerSite.Code;
         }
         newLine.BillSetCode = line.BillSetCode;
         newLine.ConfirmMode = line.SOLine.SO.ConfirmMode.Value;
         if (SMTools.IsNotNull(line.SOLine.SO.ConfirmTerm))
         {
-            newLine.ConfirmTerm.ID = line.SOLine.SO.ConfirmTerm.ID;
+            newLine.ConfirmTerm.Code = line.SOLine.SO.ConfirmTerm.Code;
         }
         if (SMTools.IsNotNull(line.SOLine.RecTerm))
         {
-            newLine.ReceivableTerm.ID = line.SOLine.RecTerm.ID;
+            newLine.ReceivableTerm.Code = line.SOLine.RecTerm.Code;
         }
         if (SMTools.IsNotNull(line.SOLine.SO.ConfirmAccording))
         {
-            newLine.ConfirmAccording.ID = line.SOLine.SO.ConfirmAccording.ID;
+            newLine.ConfirmAccording.Code = line.SOLine.SO.ConfirmAccording.Code;
         }
         if (line.SOLine.SO.IncomeConfirmRule != null)
         {
@@ -310,37 +318,31 @@ List<DocKeyDTOData> Create(string srcDocNo,string srcDocId,string customer,strin
         }
         if (SMTools.IsNotNull(line.SOLine.SO.ShipRule))
         {
-            newLine.ShipmentRule.ID = line.SOLine.SO.ShipRule.ID;
+            newLine.ShipmentRule.Code = line.SOLine.SO.ShipRule.Code;
         }
         newLine.TaxFreeNo = line.SOLine.SO.TaxFreeNo;
         if (SMTools.IsNotNull(line.PU))
         {
-            newLine.PriceUom.ID = line.PU.ID;
+            newLine.PriceUom.Code = line.PU.Code;
         }
         if (SMTools.IsNotNull(line.PBU))
         {
-            newLine.PriceBaseUom.ID = line.PBU.ID;
+            newLine.PriceBaseUom.Code = line.PBU.Code;
         }
         newLine.PriceRatetoBase = line.PUToPBURate;
         if (SMTools.IsNotNull(line.TU))
         {
-            newLine.TradeUom.ID = line.TU.ID;
+            newLine.TradeUom.Code = line.TU.Code;
         }
         if (SMTools.IsNotNull(line.TBU))
         {
-            newLine.TradeBaseUom.ID = line.TBU.ID;
+            newLine.TradeBaseUom.Code = line.TBU.Code;
         }
         newLine.TradeRatetoBase = line.TUToTBURate;
         if (SMTools.IsNotNull(line.TU2Key))
         {
-            newLine.TradeUom2.ID = line.TU2.ID;
+            newLine.TradeUom2.Code = line.TU2.Code;
         }
-        if (SMTools.IsNotNull(line.TBU2Key))
-        {
-            newLine.TradeUom2Associate = line.TBU2.ID;
-        }
-        newLine.TradeUom2ToTRadeUom2Associate = line.TU2toTBU2Rate;
-
         if (line.TUBaseToPUBaseRate != 0)
         {
             newLine.TUPUConvRatio = line.TUBaseToPUBaseRate;
@@ -349,21 +351,29 @@ List<DocKeyDTOData> Create(string srcDocNo,string srcDocId,string customer,strin
         {
             if (SMTools.IsNotNull(line.SOLine.WeightUOM))
             {
-                newLine.WeightUom.ID = line.SOLine.WeightUOM.ID;
+                newLine.WeightUom.Code = line.SOLine.WeightUOM.Code;
             }
             if (SMTools.IsNotNull(line.SOLine.VolumeUOM))
             {
-                newLine.VolumeUom.ID = line.SOLine.VolumeUOM.ID;
+                newLine.VolumeUom.Code = line.SOLine.VolumeUOM.Code;
             }
         }
-        if (line.SOLine.ShipToSite!=null)
+
+        if (line.SOLine.ShipToSite != null)
         {
-            newLine.ShipToSite.ID = line.SOLine.ShipToSite.CustomerSite.ID;
+            var findCustomerSize = CustomerSite.Finder.Find("Customer=@Customer and Code=@Code", new OqlParam[] { new OqlParam(findCustomer.ID), new OqlParam(line.SOLine.ShipToSite.Code) });
+            if (findCustomer == null)
+            {
+                errMsg = $"找不到客户:{findCustomer.Code},客户存储地点:{line.SOLine.ShipToSite.Code}";
+                return null;
+            }
+            newLine.ShipToSite.ID = findCustomerSize.ID;
+            newLine.ShipToSite.Code = line.SOLine.ShipToSite.Code;
         }
         newLine.ShipQtyInvAmount = qty;
         newLine.PlanQtyTUAmount = qty;
         newLine.ShipQtyTUAmount = qty;
-        
+
         newLine.SeibanAlterable = line.SOLine.SeibanAlterable.Value;
         newLine.PriceSource = line.SOLine.PriceSource.Value;
         newLine.SrcDocPriceTC = line.SOLine.OrderPriceTC;
@@ -372,14 +382,15 @@ List<DocKeyDTOData> Create(string srcDocNo,string srcDocId,string customer,strin
         newLine.TotalDiscountTC = newLine.FinallyPriceTC - newLine.OrderPriceTC;//折扣额
         if (line.IsPriceIncludeTax)//价格含税
         {
-            newLine.TotalMoneyTC =Math.Round(qty* line.SOLine.FinallyPriceTC,2); //金额
-            //税额
-            newLine.TotalTaxTC =Math.Round(qty*(line.SOLine.FinallyPriceTC / (1 + line.SOLine.TaxRate)) * line.SOLine.TaxRate,2);
+            newLine.TotalMoneyTC = Math.Round(qty * line.SOLine.FinallyPriceTC, 2); //金额
+                                                                                    //税额
+            newLine.TotalTaxTC = Math.Round(qty * (line.SOLine.FinallyPriceTC / (1 + line.SOLine.TaxRate)) * line.SOLine.TaxRate, 2);
             //未税金额
             newLine.TotalNetMoneyTC = newLine.TotalMoneyTC - newLine.TotalTaxTC;
         }
         newShip.ShipLines.Add(newLine);
         proxy.ShipDTOs.Add(newShip);
+
         return proxy.Do();
     }
     catch (Exception ex)
