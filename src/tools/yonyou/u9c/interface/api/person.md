@@ -19,9 +19,8 @@ category:
 ## 新增
 
 ```cs
-string Create(string org,string name,string id,string depCode,string employeeCategoryCode,string employeeCode,string jobCode,DateTime occupationDate,DateTime entranceDate)
-  UFIDA.U9.CBO.HR.CBOHRSV.PersonADDSV proxy = new CBO.HR.CBOHRSV.PersonADDSV();
-  proxy.PersonDTOs = new List<CBO.HR.CBOHRSV.PersonDTO>();
+void Create(string org,string name,string id,string depCode,string employeeCategoryCode,string employeeCode,string jobCode,DateTime occupationDate,DateTime entranceDate)
+
   var newPerson = new CBO.HR.CBOHRSV.PersonDTO();
   newPerson.AssgnBeginDate = occupationDate;
   newPerson.BusinessOrgCode = org;
@@ -45,6 +44,9 @@ string Create(string org,string name,string id,string depCode,string employeeCat
   //newPerson.SuperiorWorkOrgCode=
   newPerson.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
   newPerson.WorkingOrgCode = org;
+
+  UFIDA.U9.CBO.HR.CBOHRSV.PersonADDSV proxy = new CBO.HR.CBOHRSV.PersonADDSV();
+  proxy.PersonDTOs = new List<CBO.HR.CBOHRSV.PersonDTO>();
   proxy.PersonDTOs.Add(newPerson);
   return proxy.Do();
 ```

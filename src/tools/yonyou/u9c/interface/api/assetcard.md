@@ -25,7 +25,7 @@ category:
 /// <param name="docNo">资产卡片单号</param>
 /// <param name="orgCode">组织编码</param>
 /// <returns>返回资产卡片</returns>
-private List<ISV.FA.ImportAssetCardDTO> InternalQueryAssertCard(string docNo,string orgCode)
+List<ISV.FA.ImportAssetCardDTO> InternalQueryAssertCard(string docNo,string orgCode)
 {
     UFIDA.U9.ISV.FA.QueryImportAssetCardSV proxy = new ISV.FA.QueryImportAssetCardSV();
     proxy.AssetCardQueryConditionDTOList =new List<ISV.FA.FADocQueryConditionDTO>

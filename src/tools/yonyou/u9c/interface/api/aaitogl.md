@@ -24,24 +24,17 @@ category:
 /// </summary>
 /// <param name="transHeadIds">交易分录ID</param>
 /// <returns>返回总账信息</returns>
-private AcrossAAPTOGLResultDTOData CreateAAIToGL(List<long> transHeadIds)
+AcrossAAPTOGLResultDTOData CreateAAIToGL(List<long> transHeadIds)
 {
-    try
+    UFIDA.U9.AAI.Voucher.Proxy.AcrossAppAAIToGLSVProxy proxy = new UFIDA.U9.AAI.Voucher.Proxy.AcrossAppAAIToGLSVProxy
     {
-        UFIDA.U9.AAI.Voucher.Proxy.AcrossAppAAIToGLSVProxy proxy = new UFIDA.U9.AAI.Voucher.Proxy.AcrossAppAAIToGLSVProxy
+        MergeCondition = new AAI.Voucher.MergeConDTOData()
         {
-            MergeCondition = new AAI.Voucher.MergeConDTOData()
-            {
-                IsMerge = true,
-            },
-            AAIHeadKeyList = transHeadIds
-        };
-        return proxy.Do();
-    }
-    catch (Exception ex)
-    {
-        throw new Exception(ex.Message);
-    }
+            IsMerge = true,
+        },
+        AAIHeadKeyList = transHeadIds
+    };
+    return proxy.Do();
 }
 ```
 
@@ -53,17 +46,10 @@ private AcrossAAPTOGLResultDTOData CreateAAIToGL(List<long> transHeadIds)
 /// </summary>
 /// <param name="transHeadIds">交易分录ID</param>
 /// <returns>返回交易分录</returns>
-private List<TransEntryDTOData> DeleteAAIToGL(List<long> transHeadIds)
+List<TransEntryDTOData> DeleteAAIToGL(List<long> transHeadIds)
 {
-    try
-    {
-        UFIDA.U9.AAI.Voucher.Proxy.AcrossAPPDelVoucherSVProxy proxy = new UFIDA.U9.AAI.Voucher.Proxy.AcrossAPPDelVoucherSVProxy();
-        proxy.TransHeadDTO = transHeadIds.Select(x => new TransEntryDTOData() { FromTransHead = x }).ToList();
-        return proxy.Do();
-    }
-    catch (Exception ex)
-    {
-       throw new Exception(ex.Message);
-    }
+    UFIDA.U9.AAI.Voucher.Proxy.AcrossAPPDelVoucherSVProxy proxy = new UFIDA.U9.AAI.Voucher.Proxy.AcrossAPPDelVoucherSVProxy();
+    proxy.TransHeadDTO = transHeadIds.Select(x => new TransEntryDTOData() { FromTransHead = x }).ToList();
+    return proxy.Do();
 }
 ```

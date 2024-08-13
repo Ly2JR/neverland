@@ -19,154 +19,111 @@ category:
 ## 新增
 
 ```cs
-bool Create(string docType, string customer, string saleDept, string seller, string item, string wh, decimal qty, out DocKeyDTOData key, out string errMsg)
+List<DocKeyDTOData> Create(string docType, string customer, string saleDept, string seller, string item, string wh, decimal qty)
 {
-    errMsg = string.Empty;
-    key = null;
-    try
+   
+    var org = Base.Context.LoginOrg;
+    var findCustomer = Customer.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(org.ID), new OqlParam(customer) });
+    if (findCustomer == null) throw new Exception($"客户编码:{customer}不存在");
+
+    var newRma = new RMADTOData();
+    newRma.DocumentTypeDTO = new Base.DTOs.IDCodeNameDTOData()
     {
-        IContext context = ContextManager.Context;
-        var org = Base.Context.LoginOrg;
-        var findCustomer = Customer.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(org.ID), new OqlParam(customer) });
-        if (findCustomer == null)
-        {
-            errMsg = $"客户编码:{customer}不存在";
-            return false;
-        }
-
-        UFIDA.U9.ISV.SM.Proxy.CreateRMASRVProxy proxy = new UFIDA.U9.ISV.SM.Proxy.CreateRMASRVProxy();
-        proxy.ContextDTO = new CBO.Pub.Controller.ContextDTOData();
-        proxy.ContextDTO.CultureName = "zh-CN";
-        proxy.ContextDTO.EntCode = Convert.ToString(context["EnterpriseID"]);
-        proxy.ContextDTO.UserID = Convert.ToInt64(context["UserID"]);
-        proxy.ContextDTO.OrgID = Convert.ToInt64(context["OrgID"]);
-        proxy.ContextDTO.OrgCode = Convert.ToString(context["OrgCode"]);
-        proxy.ContextDTO.UserCode = Convert.ToString(context["UserCode"]);
-        proxy.RMADTOs = new List<RMADTOData>();
-        var newRma = new RMADTOData();
-        newRma.DocumentTypeDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = docType
-        };
-        newRma.CustomerDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = customer
-        };
-        newRma.BusinessDate = DateTime.Now;
-        newRma.SellerDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = seller
-        };
-        newRma.SaleDeptDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = saleDept
-        };
-        newRma.AccountOrgDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = org.Code
-        };
-        newRma.InvoiceOrgDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = org.Code
-        };
-        newRma.SettlementOrgDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = org.Code
-        };
-        newRma.RMALines = new List<RMALineDTOData>();
-        var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code1=@Code1", new OqlParam[] { new OqlParam(org.ID), new OqlParam(item) });
-        if (findItemMaster == null)
-        {
-            errMsg = $"参考料号:{item}不存在";
-            return false;
-        }
-        var newLine = new RMALineDTOData();
-        newLine.WarehouseDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = wh
-        };
-        newLine.CustomerItemCode = org.Code;
-        newLine.CustomerItemName = org.Name;
-        newLine.ItemInfo = new CBO.SCM.Item.ItemInfoData();
-        newLine.ItemInfo.ItemID = findItemMaster.ID;
-
-        newLine.ApplyQtyTU1 = qty;
-        newLine.RtnQtyTU1 = qty;
-        newLine.ApplyQtyPU = qty;
-        newLine.RtnQtyPU = qty;
-        newLine.RtnPice = 1;
-
-        newLine.OrgDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = org.Code
-        };
-        newLine.ShipperOrgDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = org.Code
-        };
-        newLine.RcvOrgDTO = new Base.DTOs.IDCodeNameDTOData()
-        {
-            Code = org.Code
-        };
-        newRma.RMALines.Add(newLine);
-        proxy.RMADTOs.Add(newRma);
-        var dto = proxy.Do();
-        if (dto.Count > 0)
-        {
-            key = dto[0];
-        }
-        return true;
-    }
-    catch (Exception ex)
+        Code = docType
+    };
+    newRma.CustomerDTO = new Base.DTOs.IDCodeNameDTOData()
     {
-        errMsg = ex.Message;
-    }
-    return false;
+        Code = customer
+    };
+    newRma.BusinessDate = DateTime.Now;
+    newRma.SellerDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = seller
+    };
+    newRma.SaleDeptDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = saleDept
+    };
+    newRma.AccountOrgDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = org.Code
+    };
+    newRma.InvoiceOrgDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = org.Code
+    };
+    newRma.SettlementOrgDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = org.Code
+    };
+    newRma.RMALines = new List<RMALineDTOData>();
+    var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(org.ID), new OqlParam(item) });
+    if (findItemMaster == null) throw new Exception($"料号:{item}不存在");
+    var newLine = new RMALineDTOData();
+    newLine.WarehouseDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = wh
+    };
+    newLine.CustomerItemCode = org.Code;
+    newLine.CustomerItemName = org.Name;
+    newLine.ItemInfo = new CBO.SCM.Item.ItemInfoData();
+    newLine.ItemInfo.ItemID = findItemMaster.ID;
+
+    newLine.ApplyQtyTU1 = qty;
+    newLine.RtnQtyTU1 = qty;
+    newLine.ApplyQtyPU = qty;
+    newLine.RtnQtyPU = qty;
+    newLine.RtnPice = 1;
+
+    newLine.OrgDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = org.Code
+    };
+    newLine.ShipperOrgDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = org.Code
+    };
+    newLine.RcvOrgDTO = new Base.DTOs.IDCodeNameDTOData()
+    {
+        Code = org.Code
+    };
+    newRma.RMALines.Add(newLine);
+
+    IContext context = ContextManager.Context;
+    UFIDA.U9.ISV.SM.Proxy.CreateRMASRVProxy proxy = new UFIDA.U9.ISV.SM.Proxy.CreateRMASRVProxy();
+    proxy.ContextDTO = new CBO.Pub.Controller.ContextDTOData();
+    proxy.ContextDTO.CultureName = "zh-CN";
+    proxy.ContextDTO.EntCode = Convert.ToString(context["EnterpriseID"]);
+    proxy.ContextDTO.UserID = Convert.ToInt64(context["UserID"]);
+    proxy.ContextDTO.OrgID = Convert.ToInt64(context["OrgID"]);
+    proxy.ContextDTO.OrgCode = Convert.ToString(context["OrgCode"]);
+    proxy.ContextDTO.UserCode = Convert.ToString(context["UserCode"]);
+    proxy.RMADTOs = new List<RMADTOData>();
+    proxy.RMADTOs.Add(newRma);
+    var dto = proxy.Do();
 }
 ```
 
 ## 审核
 
 ```cs
-bool Audit(ISV.SM.DocKeyDTOData key,out string errMsg)
+void Audit(ISV.SM.DocKeyDTOData key)
 {
-    errMsg = string.Empty;
-    try
-    {
-        UFIDA.U9.ISV.SM.Proxy.AuditRMASRVProxy proxy = new ISV.SM.Proxy.AuditRMASRVProxy();
-        proxy.RMAKeys = new List<ISV.SM.DocKeyDTOData>();
-        var dto = new ISV.SM.DocKeyDTOData();
-        proxy.RMAKeys.Add(key);
-        proxy.Do();
-        return true;
-    }
-    catch(Exception ex)
-    {
-        errMsg = ex.Message;
-    }
-    return false;
+    UFIDA.U9.ISV.SM.Proxy.AuditRMASRVProxy proxy = new ISV.SM.Proxy.AuditRMASRVProxy();
+    proxy.RMAKeys = new List<ISV.SM.DocKeyDTOData>();
+    proxy.RMAKeys.Add(key);
+    proxy.Do();
 }
 ```
 
 ## 删除
 
 ```cs
-bool Delete(ISV.SM.DocKeyDTOData key,out string errMsg)
+void Delete(ISV.SM.DocKeyDTOData key)
 {
-    errMsg = string.Empty;
-    try
-    {
-        UFIDA.U9.ISV.SM.Proxy.DeleteRMASRVProxy proxy = new ISV.SM.Proxy.DeleteRMASRVProxy();
-        proxy.RMAKeys = new List<ISV.SM.DocKeyDTOData>();
-        var dto = new ISV.SM.DocKeyDTOData();
-        proxy.RMAKeys.Add(key);
-        proxy.Do();
-        return true;
-    }
-    catch (Exception ex)
-    {
-        errMsg = ex.Message;
-    }
-    return false;
+    UFIDA.U9.ISV.SM.Proxy.DeleteRMASRVProxy proxy = new ISV.SM.Proxy.DeleteRMASRVProxy();
+    proxy.RMAKeys = new List<ISV.SM.DocKeyDTOData>();
+    proxy.RMAKeys.Add(key);
+    proxy.Do();
 } 
 ```
