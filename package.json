@@ -14,7 +14,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^9.7.0",
+    "pnpm": "^9.7.1",
     "vue": "^3.4.37",
     "vuepress": "2.0.0-rc.14"
   },
@@ -24,9 +24,9 @@
     "@commitlint/cz-commitlint": "^19.4.0",
     "@vue/repl": "^4.3.1",
     "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/plugin-feed": "2.0.0-rc.40",
-    "@vuepress/plugin-pwa": "2.0.0-rc.40",
-    "@vuepress/plugin-theme-data": "2.0.0-rc.40",
+    "@vuepress/plugin-feed": "2.0.0-rc.41",
+    "@vuepress/plugin-pwa": "2.0.0-rc.41",
+    "@vuepress/plugin-theme-data": "2.0.0-rc.41",
     "@vueuse/core": "^10.11.1",
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.4",
