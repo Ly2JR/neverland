@@ -76,7 +76,7 @@ void Create(string submitBy, string itemCategory, string code, string name, stri
     newItem.MfgInfo.IsExpandByOrder = true;
     newItem.MfgInfo.BuildShrinkageRate = 1;
     var findCostElement = UFIDA.U9.CBO.MFG.CostElement.CostElement.Finder.Find("Org=@Org and Name=@Name and IsLeaf=1", new OqlParam[] { new OqlParam(org.ID), new OqlParam("材料费") });
-    if (findCostElement == null) throw new Exception($"组织编码{org.Code}找不到成本要素[材料费]");
+    if (findCostElement == null) throw new Exception($"组织编码[{org.Code}]找不到成本要素[材料费]");
 
     newItem.MfgInfo.CostElement = findCostElement.ID;
     newItem.MfgInfo.OverFinishType = 0;

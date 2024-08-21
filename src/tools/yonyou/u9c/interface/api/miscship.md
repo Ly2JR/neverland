@@ -21,8 +21,6 @@ category:
 ```cs
 List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string ownerOrg,string benefitDept,string wh,string whMan,string item,decimal qty
 ){
-
-   
     var findOrg = Base.Organization.Organization.FindByCode(ownerOrg);
     if (findOrg == null) throw new Exception($"货主组织[{ownerOrg}]不存在");
 
@@ -43,7 +41,7 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     //表体
     input.MiscShipLs = new List<ISV.MiscShipISV.IC_MiscShipmentLDTOData>();
     var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code1=@Code", new OqlParam[] { new OqlParam(findOrg.ID), new OqlParam(item) });
-    if (findItemMaster == null) throw new Exception($"料号:{item}不存在");
+    if (findItemMaster == null) throw new Exception($"料品[{item}]不存在");
 
     var newLine = new ISV.MiscShipISV.IC_MiscShipmentLDTOData();
     newLine.BenefitDept = new CBO.Pub.Controller.CommonArchiveDataDTOData();

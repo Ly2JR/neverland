@@ -47,7 +47,7 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     
 
     var findFromItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(findOrg.ID), new OqlParam(fromItem) });
-    if (findFromItemMaster == null) throw new Excepiton($"料号:{item}不存在");
+    if (findFromItemMaster == null) throw new Excepiton($"料品[{item}]不存在");
 
     newLine.ItemInfo = new ItemInfoData();
     newLine.ItemInfo.ItemCode = findFromItemMaster.Code;
@@ -62,7 +62,7 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     newLine.TransferType = 0;
 
     var findToItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(findOrg.ID), new OqlParam(toItem) });
-    if (findToItemMaster == null) throw new Excepiton($"料号:{item}不存在");
+    if (findToItemMaster == null) throw new Excepiton($"料品[{item}]不存在");
     var subLine = new ISV.TransferFormISV.IC_TransferFormSLDTOData();
     subLine.ItemInfo = new ItemInfoData();
     subLine.ItemInfo.ItemCode = findToItemMaster.Code;

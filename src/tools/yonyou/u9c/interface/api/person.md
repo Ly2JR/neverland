@@ -20,7 +20,6 @@ category:
 
 ```cs
 void Create(string org,string name,string id,string depCode,string employeeCategoryCode,string employeeCode,string jobCode,DateTime occupationDate,DateTime entranceDate)
-
   var newPerson = new CBO.HR.CBOHRSV.PersonDTO();
   newPerson.AssgnBeginDate = occupationDate;
   newPerson.BusinessOrgCode = org;

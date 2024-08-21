@@ -21,22 +21,21 @@ category:
 ```cs
 List<CommonArchiveDataDTOData> Create(string docType, string transInOrg, string transOutOrg, string item, decimal qty, string transInWh, string transOutWh)
 {
-    var input = new IC_TransferInDTOData();
-
     var findInOrg = Base.Organization.Organization.FindByCode(transInOrg);
-    if (findInOrg == null)
-    {
-        throw new Exception($"调入组织[{transInOrg}]不存在");
-    }
+    if (findInOrg == null) throw new Exception($"调入组织[{transInOrg}]不存在");
+
+    var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(findInOrg.ID), new OqlParam(item) });
+    if (findItemMaster == null) throw new Exception($"料号[{item}]不存在");
+    
+    //表头
+    var input = new IC_TransferInDTOData();
     input.BusinessDate = DateTime.Now;
     input.TransInDocType = new CommonArchiveDataDTOData();
     input.TransInDocType.Code = docType;
     input.Org = new CommonArchiveDataDTOData();
     input.Org.Code = transInOrg;
+    //表体
     input.TransInLines = new List<IC_TransInLineDTOData>();
-
-    var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code1=@Code", new OqlParam[] { new OqlParam(findInOrg.ID), new OqlParam(item) });
-    if (findItemMaster == null) throw new Exception($"料号:{item}不存在");
     var newLine = new IC_TransInLineDTOData();
     newLine.ItemInfo = new ItemInfoData();
     newLine.ItemInfo.ItemCode = findItemMaster.Code;
@@ -47,6 +46,7 @@ List<CommonArchiveDataDTOData> Create(string docType, string transInOrg, string 
     newLine.TransInOwnerOrg = new CommonArchiveDataDTOData();
     newLine.TransInOwnerOrg.Code = transInOrg;
     newLine.TransInSubLines = new List<IC_TransInSubLineDTOData>();
+
     var subLine = new IC_TransInSubLineDTOData();
     subLine.CostUOMQty = qty;
     subLine.StoreUOMQty = qty;

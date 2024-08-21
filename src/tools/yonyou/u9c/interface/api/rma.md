@@ -58,7 +58,7 @@ List<DocKeyDTOData> Create(string docType, string customer, string saleDept, str
     };
     newRma.RMALines = new List<RMALineDTOData>();
     var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(org.ID), new OqlParam(item) });
-    if (findItemMaster == null) throw new Exception($"料号:{item}不存在");
+    if (findItemMaster == null) throw new Exception($"料品[{item}]不存在");
     var newLine = new RMALineDTOData();
     newLine.WarehouseDTO = new Base.DTOs.IDCodeNameDTOData()
     {

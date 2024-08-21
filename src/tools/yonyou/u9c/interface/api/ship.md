@@ -21,9 +21,9 @@ category:
 ```cs
 List<DocKeyDTOData> Create(string docType,string customer,string wh,string itemCode,decimal qty)
 {
-   var org = Base.Context.LoginOrg;
+    var org = Base.Context.LoginOrg;
     var findCustomer = Customer.Finder.Find("Org=@Org and Code=@Code",new OqlParam[] { new OqlParam(org.ID),new OqlParam(customer) });
-    if (findCustomer == null) throw new Exception($"客户编码:{customer}不存在");
+    if (findCustomer == null) throw new Exception($"客户编码[{customer}]不存在");
 
     //表头
     var newShip = new ISV.SM.ShipDTOForIndustryChainData();
@@ -46,7 +46,7 @@ List<DocKeyDTOData> Create(string docType,string customer,string wh,string itemC
         Code = customer
     };
     var findItemMaster = ItemMaster.Finder.Find("Code=@Code", new OqlParam[] { new OqlParam(itemCode) });
-    if (findItemMaster == null) throw new Exception($"料号:{itemCode}不存在");
+    if (findItemMaster == null) throw new Exception($"料品[{itemCode}]不存在");
 
     newShip.SrcDocType = 0;//无来源
     newShip.Org.Code = org.Code;
@@ -110,16 +110,16 @@ List<DocKeyDTOData> Create(string docType,string customer,string wh,string itemC
 List<DocKeyDTOData> Create(string operatingOrg, string shipperOrg, string docType, string srcDoc, string srcDocId, string customer, string wh, decimal qty)
 {
     var findOperatingOrg = Base.Organization.Organization.FindByCode(operatingOrg);
-    if (findOperatingOrg == null) throw new Exception($"营运组织编码:{operatingOrg}不存在");
+    if (findOperatingOrg == null) throw new Exception($"营运组织编码[{operatingOrg}]不存在");
 
     var findShipperOrg = Base.Organization.Organization.FindByCode(shipperOrg);
-    if (findShipperOrg == null) throw new Exception($"货主组织编码:{shipperOrg}不存在");
+    if (findShipperOrg == null) throw new Exception($"货主组织编码[{shipperOrg}]不存在");
 
     var findDocType = UFIDA.U9.SM.Ship.ShipDocType.FindByCode(findOperatingOrg, docType);
-    if (findDocType == null) throw new Exception($"营运组织编码:{operatingOrg},单据类型{docType}不存在");
+    if (findDocType == null) throw new Exception($"营运组织编码[{operatingOrg}],单据类型[{docType}]不存在");
 
     var findCustomer = Customer.FindByCode(findShipperOrg, customer);
-    if (findCustomer == null) throw new Exception($"客户编码:{customer}不存在");
+    if (findCustomer == null) throw new Exception($"客户编码[{customer}]不存在");
 
     //表头
     var newShip = new ISV.SM.ShipDTOForIndustryChainData();
@@ -152,7 +152,7 @@ List<DocKeyDTOData> Create(string operatingOrg, string shipperOrg, string docTyp
     newShip.SrcDocType = 1;
     SOShipline line = SOShipline.Finder.Find("SOLine.Org=@Org and SOLine.SO.DocNo=@SrcDoc and SOLine.ID=@SrcDocId and SOLine.SO.OrderBy.Code=@Customer",
     new OqlParam[] { new OqlParam(findOperatingOrg.ID), new OqlParam(srcDoc), new OqlParam(srcDocId), new OqlParam(findCustomer.Code) });
-    if (SMTools.IsNull(line)) throw new Exception($"找不到客户:{customer},销售订单:{srcDoc},子行ID:{ srcDocId}");
+    if (SMTools.IsNull(line)) throw new Exception($"找不到客户[{customer}],销售订单[{srcDoc}],子行ID[{srcDocId}]");
 
     newShip.IsNoCreditCheck = line.SOLine.SO.IsCreditCheck;//信用是否免检
     newShip.KeepAccountsPeriod.ID = line.SOLine.SO.KeepAccountPeriod.ID;
@@ -327,7 +327,7 @@ List<DocKeyDTOData> Create(string operatingOrg, string shipperOrg, string docTyp
     if (line.SOLine.ShipToSite != null)
     {
         var findCustomerSize = CustomerSite.Finder.Find("Customer=@Customer and Code=@Code", new OqlParam[] { new OqlParam(findCustomer.ID), new OqlParam(line.SOLine.ShipToSite.Code) });
-        if (findCustomer == null) throw new Exception($"找不到客户:{findCustomer.Code},客户存储地点:{line.SOLine.ShipToSite.Code}");
+        if (findCustomer == null) throw new Exception($"找不到客户[{findCustomer.Code}],客户存储地点[{line.SOLine.ShipToSite.Code}]");
 
         newLine.ShipToSite.ID = findCustomerSize.ID;
         newLine.ShipToSite.Code = line.SOLine.ShipToSite.Code;

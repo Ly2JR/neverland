@@ -24,10 +24,10 @@ List<ISV.MO.CompRptKeyDTOData> Create(string docType,int direction,string perfor
     var input = new CompRptDTOData();
 
     var findPerformingOrg = Base.Organization.Organization.FindByCode(performingOrg);
-    if (findPerformingOrg == null) throw new Exception($"执行组织{performingOrg}不存在");
+    if (findPerformingOrg == null) throw new Exception($"执行组织[{performingOrg}]不存在");
 
     var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(findPerformingOrg.ID), new OqlParam(item) });
-    if (findItemMaster == null) throw new Exception($"料号:{item}不存在");
+    if (findItemMaster == null) throw new Exception($"料号[{item}]不存在");
 
     //input.SourceDoc = new MOSourceDocData();
     //input.SourceDoc.SrcDocNo = srcDoc;
@@ -116,7 +116,7 @@ List<ISV.MO.CompRptKeyDTOData> Create(string docType,int direction,string perfor
 ## 审核
 
 ```cs
-vod Approve(ISV.MO.CompRptKeyDTOData key){
+void Approve(ISV.MO.CompRptKeyDTOData key){
     UFIDA.U9.ISV.MO.Proxy.ApproveCompleteRpt4ExternalSrvProxy proxy = new ISV.MO.Proxy.ApproveCompleteRpt4ExternalSrvProxy();
     proxy.DocNoList = new List<CompRptKeyDTOData>();
     proxy.DocNoList.Add(key);

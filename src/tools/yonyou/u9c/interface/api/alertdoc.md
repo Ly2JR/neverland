@@ -57,29 +57,16 @@ List<ISV.FA.ImportFAAlterDocResultDTO> CreateAlterDoc01(string alterReason, stri
     Organization org = Base.Context.LoginOrg;
 
     var findOrg = UFIDA.U9.CBO.FA.FA_AssetOwnerRelation.AssetOwnerRelation.Finder.Find(" OwnerOrg.Code=@OrgCode", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(org.Code) });
-    if (findOrg is null)
-    {
-        throw new Exception($"未找到货主组织[{org.Code}]");
-    }
+    if (findOrg is null) throw new Exception($"未找到货主组织[{org.Code}]");
 
     var enumValue = UFIDA.UBF.MD.Business.ExtEnumValue.Finder.Find(" ExtEnumType.Code='UFIDA.U9.FA.FA_AlterDocBE.AlterReasonUDCEnum' and (Code=@Code or Name=@Name)", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(alterReason), new UFSoft.UBF.PL.OqlParam(alterReason) });
-    if (enumValue is null)
-    {
-        throw new Exception($"未找到变更原因,{alterReason}");
-    }
+    if (enumValue is null)  throw new Exception($"未找到变更原因,{alterReason}");
 
     var findAssetCard = FA.FA_AssetCardBE.AssetCard.Finder.Find(" DocNo=@DocNo", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCard) });
-    if (findAssetCard is null)
-    {
-        throw new Exception($"未找到资产卡片编号[{assetCard}]");
-    }
+    if (findAssetCard is null) throw new Exception($"未找到资产卡片编号[{assetCard}]");
 
     var findAssetCategory = UFIDA.U9.CBO.FA.FA_AssetCategoryBE.AssetCategory.Finder.Find(" Code=@Code or Name=@Name", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCategory), new UFSoft.UBF.PL.OqlParam(assetCategory) });
-    if (findAssetCategory is null)
-    {
-        throw new Exception($"未找到变更后资产类别[{assetCategory}]");
-    }
-
+    if (findAssetCategory is null) throw new Exception($"未找到变更后资产类别[{assetCategory}]");
   
     var newItems = new List<ISV.FA.ImportFAAlterDocHeadDTO>();
     var newItem = new ISV.FA.ImportFAAlterDocHeadDTO
@@ -166,17 +153,10 @@ List<ImportFAAlterDocResultDTOData> CreateAlterDoc(string alterReason,string ass
     Organization org = Base.Context.LoginOrg;
 
     var findOrg = UFIDA.U9.CBO.FA.FA_AssetOwnerRelation.AssetOwnerRelation.Finder.Find(" OwnerOrg.Code=@OrgCode", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(org.Code) });
-    if (findOrg is null)
-    {
-        throw new Exception($"未找到货主组织[{org.Code}]");
-    }
+    if (findOrg is null) throw new Exception($"未找到货主组织[{org.Code}]");
 
     var enumValue = UFIDA.UBF.MD.Business.ExtEnumValue.Finder.Find(" ExtEnumType.Code='UFIDA.U9.FA.FA_AlterDocBE.AlterReasonUDCEnum' and (Code=@Code or Name=@Name)", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(alterReason), new UFSoft.UBF.PL.OqlParam(alterReason) });
-    if (enumValue is null)
-    {
-        throw new Exception($"未找到变更原因[{alterReason}]");
-    }
-
+    if (enumValue is null) throw new Exception($"未找到变更原因[{alterReason}]");
     
     var newItems = new List<ISV.FA.ImportFAAlterDocHeadDTOData>();
     var newItem = new ISV.FA.ImportFAAlterDocHeadDTOData
@@ -198,21 +178,13 @@ List<ImportFAAlterDocResultDTOData> CreateAlterDoc(string alterReason,string ass
     };
 
     var findAssetCard = FA.FA_AssetCardBE.AssetCard.Finder.Find("  DocNo=@DocNo", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCard) });
-    if (findAssetCard is null)
-    {
-        throw new Exception($"未找到资产卡片编号[{assetCard}]");
-    }
+    if (findAssetCard is null) throw new Exception($"未找到资产卡片编号[{assetCard}]");
 
     var findDeptB = UFIDA.U9.CBO.HR.Department.Department.Finder.Find(" Code=@Code or Name=@Name", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(deptB), new UFSoft.UBF.PL.OqlParam(deptB) });
-    if(findDeptB is null)
-    {
-        throw new Exception($"未找到变更后使用部门[{deptB}]");
-    }
+    if(findDeptB is null) throw new Exception($"未找到变更后使用部门[{deptB}]");
+
     var findDeptC = UFIDA.U9.CBO.HR.Department.Department.Finder.Find(" Code=@Code or Name=@Name", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(deptC), new UFSoft.UBF.PL.OqlParam(deptC) });
-    if (findDeptC is null)
-    {
-        throw new Exception($"未找到变更后使用部门[{deptC}]");
-    }
+    if (findDeptC is null) throw new Exception($"未找到变更后使用部门[{deptC}]");
 
     var detail = new ISV.FA.FAAlterDocDetailDTOData();
     detail.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;

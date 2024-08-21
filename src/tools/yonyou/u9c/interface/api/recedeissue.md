@@ -22,21 +22,15 @@ category:
 List<string> Create(string docType,string issueOrg,string handleDept,string handlePerson,string srcDoc,long srcDocId,decimal issueQty,string wh)
 {
     var findOrg = Base.Organization.Organization.FindByCode(issueOrg);
-    if (findOrg == null)
-    {
-        errMsg = $"发料组织[{issueOrg}]不存在";
-        return false;
-    }
+    if (findOrg == null) throw new Exception($"发料组织[{issueOrg}]不存在");
+
     var findWh = UFIDA.U9.CBO.SCM.Warehouse.Warehouse.FindByCode(findOrg, wh);
-    if (findWh == null)
-    {
-        errMsg = $"发料组织[{issueOrg}]仓库[{wh}]不存在";
-        return false;
-    }
+    if (findWh == null) throw new Exception($"发料组织[{issueOrg}]仓库[{wh}]不存在";)
     //表体
     var input = new List<RecedeItemAndSnDTOData>();
     var findMo = UFIDA.U9.MO.MO.MO.Finder.Find("DocNo=@DocNo", new OqlParam[] { new OqlParam(srcDoc) });
-    if (findMo == null) throw new exception($"生产订单[{srcDoc}]不存在");
+    if (findMo == null) throw new Exception($"生产订单[{srcDoc}]不存在");
+
     MO.MO.MOPickList findPickList = null;
     foreach (var piclList in findMo.MOPickLists)
     {
