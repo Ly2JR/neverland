@@ -30,7 +30,7 @@
     "@vueuse/core": "^10.11.1",
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.4",
-    "eslint": "^9.9.0",
+    "eslint": "^9.9.1",
     "husky": "^9.1.5",
     "inquirer": "^9.3.6",
     "mathjax-full": "^3.2.2",
