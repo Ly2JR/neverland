@@ -26,6 +26,13 @@ List<string> Create(string docType,string issueOrg,string handleDept,string hand
 
     var findWh = UFIDA.U9.CBO.SCM.Warehouse.Warehouse.FindByCode(findOrg, wh);
     if (findWh == null) throw new Exception($"发料组织[{issueOrg}]仓库[{wh}]不存在";)
+
+    var findDept = UFIDA.U9.CBO.HR.Department.Department.FindByCode(findOrg,handleDept);
+    if (findDept == null) throw new Exception($"发料组织[{issueOrg}]发料部门[{handleDept}]不存在");
+    
+    var findOperator = CBO.HR.Operator.Operators.FindByCode(handlePerson);
+    if (findOperator == null) throw new Exception($"发料人[{handleDept}]不存在");
+
     //表体
     var input = new List<RecedeItemAndSnDTOData>();
     var findMo = UFIDA.U9.MO.MO.MO.Finder.Find("DocNo=@DocNo", new OqlParam[] { new OqlParam(srcDoc) });
@@ -54,21 +61,18 @@ List<string> Create(string docType,string issueOrg,string handleDept,string hand
     input.Add(newLine);
 
     UFIDA.U9.ISV.MO.Proxy.CreatRecedeIssueDocSVProxy proxy = new ISV.MO.Proxy.CreatRecedeIssueDocSVProxy();
-    if (!string.IsNullOrEmpty(handleDept))//有BUG
-    {
-        proxy.HandleDept = new CBO.HR.Department.DepartmentData();
-        proxy.HandleDept.Code = handleDept;
-    }
-    if (!string.IsNullOrEmpty(handlePerson))
-    {
-        proxy.HandlePerson = new CBO.HR.Operator.OperatorsData();
-        proxy.HandlePerson.Code = handlePerson;
-    }
+    proxy.HandleDept = new CBO.HR.Department.DepartmentData();
+    proxy.HandleDept.ID = findDept.ID;
+    //proxy.HandleDept.Code = handleDept;       //有BUG，不能传Code，传ID
+    
+    proxy.HandlePerson = new CBO.HR.Operator.OperatorsData();
+    proxy.HandlePerson.ID = findOperator.ID;
+    //proxy.HandlePerson.Code = handlePerson;   //有BUG，不能传Code，传ID
+
     proxy.IssueDocType = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     proxy.IssueDocType.Code = docType;
     proxy.IsAutoIssued = true;//自动发料
-    //proxy.TargetOrgCode = findOrg.Code;
-    //proxy.TargetOrgName = findOrg.Name;
+
     proxy.RecedeItemAndSnDTOList = new List<ISV.MO.RecedeItemAndSnDTOData>();
     proxy.RecedeItemAndSnDTOList.AddRange(input);
     return proxy.Do();
@@ -78,6 +82,11 @@ List<string> Create(string docType,string issueOrg,string handleDept,string hand
 ## 审核
 
 ```cs
+/// <summary>
+/// 生产退料审核
+/// </summary>
+/// <param name="docNo">生产退料单号</param>
+/// <returns>Count=0默认审核成功,否则判断内部明细具体单据是否成功</returns>
 List<ApproveIssueDoc4ExternalDTOData> Approve(string docNo){
     UFIDA.U9.ISV.MO.Proxy.ApproveIssueDoc4ExternalSrvProxy proxy = new ISV.MO.Proxy.ApproveIssueDoc4ExternalSrvProxy();
     proxy.DocNoList = new List<ISV.MO.ApproveIssueDoc4ExternalDTOData>();

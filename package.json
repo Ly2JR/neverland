@@ -14,13 +14,13 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^9.8.0",
+    "pnpm": "^9.9.0",
     "vue": "^3.4.38",
     "vuepress": "2.0.0-rc.15"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@commitlint/cz-commitlint": "^19.4.0",
     "@vue/repl": "^4.3.1",
     "@vuepress/bundler-vite": "2.0.0-rc.15",

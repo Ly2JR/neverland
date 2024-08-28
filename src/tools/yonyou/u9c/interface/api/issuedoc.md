@@ -86,6 +86,11 @@ List<IssueKeyDTOData> Create(string docType,string issueOrg,string handleDept,st
 ## 审核
 
 ```cs
+/// <summary>
+/// 生产领料审核
+/// </summary>
+/// <param name="docNo">生产领料单号</param>
+/// <returns>Count=0默认审核成功,否则判断内部明细具体单据是否成功</returns>
 List<ApproveIssueDoc4ExternalDTOData> Approve(string docNo){
     UFIDA.U9.ISV.MO.Proxy.ApproveIssueDoc4ExternalSrvProxy proxy = new ISV.MO.Proxy.ApproveIssueDoc4ExternalSrvProxy();
     proxy.DocNoList = new List<ISV.MO.ApproveIssueDoc4ExternalDTOData>();
