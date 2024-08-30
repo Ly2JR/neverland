@@ -8,7 +8,7 @@ export const markdown: MarkdownEnhanceOptions = {
   demo: true,
   echarts: false,
   figure: true,
-  flowchart: false,
+  flowchart: true,
   gfm: false,
   imgLazyload: true,
   imgSize: true,

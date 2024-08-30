@@ -31,6 +31,7 @@
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.4",
     "eslint": "^9.9.1",
+    "flowchart.ts": "^3.0.1",
     "husky": "^9.1.5",
     "inquirer": "^9.3.6",
     "mathjax-full": "^3.2.2",
@@ -38,7 +39,7 @@
     "nano-staged": "^0.8.0",
     "patch-package": "^8.0.0",
     "prettier": "^3.3.3",
-    "stylelint": "^16.8.2",
+    "stylelint": "^16.9.0",
     "vuepress-plugin-components": "2.0.0-rc.52",
     "vuepress-theme-hope": "2.0.0-rc.52"
   },
