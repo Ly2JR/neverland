@@ -1,6 +1,6 @@
 ---
-title: 采购订单
-date: 2024-09-02
+title: 请购单
+date: 2024-09-05
 editLink: false
 footer: false
 isOriginal: true
@@ -10,11 +10,11 @@ tag:
   - U8+
 ---
 
-![采购订单](https://nas.ilyl.life:8092/yonyou/u8/pu/purchaseorder.gif)
+![请购单](https://nas.ilyl.life:8092/yonyou/u8/pu/purchaseapp.gif)
 
 ## 资源符
 
-`purchaseorder`
+`purchaseapp`
 
 ## 新增
 
@@ -24,19 +24,15 @@ tag:
 
 |参数|类型|参数路径|是否必填|描述|
 |:-|:-|:-|:-|:-|
-|cpoid|string||true|采购订单号|
-|dpodate|datetime||true|日期|
+|ccode|string||true|单据号号|
+|ddate|datetime|true|日期|
 |cptcode|string||true|采购类型编码|
 |cbustype|string||true|业务类型|
-|cexch_name|string||true|币种|
-|nflat|float||true|汇率|
-|itaxrate|float||true|税率|
-|cdepcode|string||true|部门编码|
-|cvencode|string||true|供应商编码|
-|idiscounttaxtype|int||true|扣税类别|
+|cdepcode|string||true|请购部门编码|
+|cpersoncode|string||false|请购人员编码|
 |cmarker|string||true|制单人|
+|cmaketime|datetime|false|制单时间|
 |cmemo|string||否|备注|
-|cpoid|string||false|采购订单号|
 |cdefine1|string||false|表头自定义项1|
 |cdefine2|string||false|表头自定义项2|
 |cdefine3|string||false|表头自定义项3|
@@ -53,20 +49,26 @@ tag:
 |cdefine14|string||false|表头自定义项14|
 |cdefine15|int||false|表头自定义项15|
 |cdefine16|float||false|表头自定义项16|
+|cvencode|string||true|供应商编码|
 |cinvcode|string|entry|true|存货编码|
-|iquantity|float|entry|true|数量|
-|inum|int|entry|true|件数|
+|fquantity|float|entry|true|数量|
+|cexch_name|string|entry|true|币种|
+|fnum|int|entry|true|件数|
 |ipertaxrate|float|entry|true|税率|
-|darrivedate|datetime|entry|true|计划到货日期|
+|iexchrate|float|entry|true|汇率|
+|darrivedate|datetime|entry|true|建议订货日期|
+|drequirdate|datetime|entry|true|需求日期|
 |ivouchrowno|int|entry|true|行号|
-|iunitprice|float|entry|false|原币无税单价|
-|imoney|float|entry|false|原币无税金额|
-|itax|float|entry|false|原币税额|
-|isum|float|entry|false|原币价税合计|
-|inatunitprice|float|entry|false|本币无税单价|
-|inatmoney|float|entry|false|本币无税金额|
-|inattax|float|entry|false|本币税额|
-|inatsum|float|entry|false|本币价税合计|
+|ioricost|float|entry|false|原币无税单价|
+|ioritaxcost|float|entry|false|原币含税单价|
+|iorimoney|float|entry|false|原币无税金额|
+|ioritaxprice|float|entry|false|原币税额|
+|iorisum|float|entry|false|原币价税合计|
+|funitprice|float|entry|false|本币无税单价|
+|ftaxprice|float|entry|false|本币含税单价|
+|imoney|float|entry|false|本币无税金额|
+|itaxprice|float|entry|false|本币税额|
+|fmoney|float|entry|false|本币价税合计|
 |cdefine22|string|entry|false|表体自定义项1|
 |cdefine23|string|entry|false|表体自定义项2|
 |cdefine24|string|entry|false|表体自定义项3|
@@ -188,7 +190,7 @@ const string ADDRESS="127.0.0.1";
 //账套号
 const string ACCOUNT="999";
 //资源
-const string RESOURCE="purchaseorder/edit";
+const string RESOURCE="purchaseapp/edit";
 //修改单据ID
 var id=1000000001;
 //修改的json数据
@@ -214,7 +216,7 @@ private const ADDRESS as String="127.0.0.1"
 '账套号
 private const ACCOUNT as String="999"
 '资源
-private const RESOURCE as String="purchaseorder/delete"
+private const RESOURCE as String="purchaseapp/delete"
 '单据ID
 dim id as Long
 id=1000000001
@@ -268,7 +270,7 @@ const string ADDRESS="127.0.0.1";
 //账套号
 const string ACCOUNT="999";
 //资源
-const string RESOURCE="purchaseorder/delete";
+const string RESOURCE="purchaseapp/delete";
 //单据ID
 var id=1000000001;
 //唯一号
@@ -292,7 +294,7 @@ private const ADDRESS as String="127.0.0.1"
 '账套号
 private const ACCOUNT as String="999"
 '资源
-private const RESOURCE as String="purchaseorder/delete"
+private const RESOURCE as String="purchaseapp/delete"
 '单据ID
 dim id as Long
 id=1000000001
@@ -343,7 +345,7 @@ const string ADDRESS="127.0.0.1";
 //账套号
 const string ACCOUNT="999";
 //资源
-const string RESOURCE="purchaseorder/verify";
+const string RESOURCE="purchaseapp/verify";
 //单据ID
 var id=1000000001;
 //唯一号
@@ -367,7 +369,7 @@ private const ADDRESS as String="127.0.0.1"
 '账套号
 private const ACCOUNT as String="999"
 '资源
-private const RESOURCE as String="purchaseorder/verify"
+private const RESOURCE as String="purchaseapp/verify"
 '单据ID
 dim id as Long
 id=1000000001
@@ -418,7 +420,7 @@ const string ADDRESS="127.0.0.1";
 //账套号
 const string ACCOUNT="999";
 //资源
-const string RESOURCE="purchaseorder/unverify";
+const string RESOURCE="purchaseapp/unverify";
 //单据ID
 var id=1000000001;
 //唯一号
@@ -442,7 +444,7 @@ private const ADDRESS as String="127.0.0.1"
 '账套号
 private const ACCOUNT as String="999"
 '资源
-private const RESOURCE as String="purchaseorder/unverify"
+private const RESOURCE as String="purchaseapp/unverify"
 '单据ID
 dim id as Long
 id=1000000001
