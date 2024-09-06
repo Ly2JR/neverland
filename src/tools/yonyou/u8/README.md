@@ -1,12 +1,32 @@
 ---
-title: U8接口说明
+title: U8通用接口
 date: 2023-06-19
 editLink: false
 footer: false
 isOriginal: true
 ---
 
-不在维护及更新，仅此怀念。
+## U8下载
+
+[U818.0](https://pan.yonyou.com/s/8sqHQcYvQB0) 提取密码：`f8x0`
+
+[U816.5](https://pan.yonyou.com/web/share.html?hash=gYGfikoyRCQ) 提取密码：`tpcv`
+
+[U816.1](https://pan.yonyou.com/web/share.html?hash=j7UAr9kQQD4)
+
+[U816.0](https://pan.yonyou.com/web/share.html?hash=9w7J6vYT5A) 提取密码：`kn6l`
+
+[U815.1](https://pan.yonyou.com/web/share.html?hash=Keu5uoGRFg)
+
+[U815.0](https://pan.yonyou.com/web/share.html?hash=Ovm1JV8gTrk)
+
+[U813.0](https://pan.yonyou.com/web/share.html?hash=zIgn57b7QrQ)
+
+[U812.51](https://pan.yonyou.com/web/share.html?hash=k33cyw9LTZo)
+
+[U812.5](https://pan.yonyou.com/web/share.html?hash=XqSYBCpGR1o)
+
+[行业插件](http://pan.yonyou.com/s/ucX519hcTeo) 提取密码：`qo10`
 
 ## 通用接口
 
