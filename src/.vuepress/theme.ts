@@ -10,7 +10,14 @@ import {
   COPYRIGHT,
   DESCRIPTION,
 } from "./consts";
-import { pwa, copyright, markdown, componentOptions } from "./plugins/index";
+import {
+  pwa,
+  copyright,
+  markdown,
+  componentOptions,
+  shiki,
+  prismjs,
+} from "./plugins/index";
 
 export default hopeTheme(
   {
@@ -84,6 +91,17 @@ export default hopeTheme(
        * 启用复制时的版权信息
        */
       copyright,
+
+      // /**
+      //  * shiki代码高亮
+      //  */
+      // shiki:shiki
+
+      // /**
+      //  * prismjs插件
+      //  * 显示代码行号
+      //  */
+      // prismjs:prismjs
     },
   },
   {
@@ -91,5 +109,5 @@ export default hopeTheme(
      * 自定义组件启用
      */
     custom: true,
-  }
+  },
 );

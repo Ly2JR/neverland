@@ -1,5 +1,5 @@
 ---
-title: UI插件开发
+title: UI插件
 date: 2024-06-19
 editLink: false
 footer: false
@@ -11,6 +11,10 @@ tag:
 ---
 
 U9C里的UI插件开发相当于在原始业务单据上添加自己的按钮，执行按钮下的业务逻辑
+
+::: warning
+确保关闭热插件，即x:\yongyou\U9CE\Portal\bin\environment.xml中的`uipluging`属性必须为`false`
+:::
 
 ## UI插件事件种类
 
@@ -354,6 +358,14 @@ xml节点配置大部分固定，只需更改`ExtendedPart`节点下的属性值
 - 将项目的dll文件拷贝到`x:\yonyou\U9CE\Portal\UILib`目录下
 
 - 将项目里的`WebPartExtend_XXX.config`拷贝到`x:\yonyou\U9CE\Portal`目录下
+
+## 调试
+
+利用[xcopy](https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/xcopy)设置每次编译成功自动拷贝
+
+在生成后事件行里添加`xcopy $(TargetPath) C:\yonyou\U9CE\Portal\UILib /y`命令
+
+每次先重启IIS，在编译，VS附加进程到`W3WP.EXE`，实时开发代码即可。
 
 ## 预览
 
