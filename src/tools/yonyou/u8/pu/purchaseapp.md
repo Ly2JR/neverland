@@ -25,14 +25,14 @@ tag:
 |参数|类型|参数路径|是否必填|描述|
 |:-|:-|:-|:-|:-|
 |ccode|string||true|单据号号|
-|ddate|datetime|true|日期|
+|ddate|datetime||true|日期|
 |cptcode|string||true|采购类型编码|
 |cbustype|string||true|业务类型|
 |cdepcode|string||true|请购部门编码|
 |cpersoncode|string||false|请购人员编码|
 |cmarker|string||true|制单人|
-|cmaketime|datetime|false|制单时间|
-|cmemo|string||否|备注|
+|cmaketime|datetime||false|制单时间|
+|cmemo|string||false|备注|
 |cdefine1|string||false|表头自定义项1|
 |cdefine2|string||false|表头自定义项2|
 |cdefine3|string||false|表头自定义项3|
@@ -160,6 +160,7 @@ tag:
 }
 
 ```
+:::
 
 ## 修改
 

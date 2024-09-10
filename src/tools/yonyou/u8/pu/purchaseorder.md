@@ -35,7 +35,7 @@ tag:
 |cvencode|string||true|供应商编码|
 |idiscounttaxtype|int||true|扣税类别|
 |cmarker|string||true|制单人|
-|cmemo|string||否|备注|
+|cmemo|string||false|备注|
 |cpoid|string||false|采购订单号|
 |cdefine1|string||false|表头自定义项1|
 |cdefine2|string||false|表头自定义项2|
@@ -158,6 +158,7 @@ tag:
 }
 
 ```
+:::
 
 ## 修改
 
