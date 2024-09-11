@@ -1,7 +1,7 @@
 # node 构建
 FROM node:22.8-alpine AS build-stage
 # 署名
-LABEL maintainer="乌龙茶有点甜 <982474256@qq.com>"
+LABEL maintainer="乌龙茶有点甜 <ly2@ilyl.life>"
 # 指定目录
 WORKDIR /neverland
 # 将当前所有目录拷贝到工作目录

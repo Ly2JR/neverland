@@ -12,7 +12,7 @@ category:
 
 作为一名普通的C#开发者，有必要自己来实现，以及顺便学习下Docker，[原代码地址](https://github.com/Ly2JR/aliyun.ddns)。
 
-已升级到.NET 8,AOT对Web开发很好,本机AOT限制很多....
+已升级到.NET 8，AOT对Web开发很好，本机AOT限制很多....
 
 - [x] .NET 8
 - [x] 获取公网地址
@@ -97,7 +97,7 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["./neverland.aliyun.ddns"]
 
-LABEL MAINTAINER=乌龙茶有点甜<982474256@qq.com>
+LABEL MAINTAINER=乌龙茶有点甜<ly2@ilyl.life>
 
 ENV ALIKID= \
     ALIKSCT= \

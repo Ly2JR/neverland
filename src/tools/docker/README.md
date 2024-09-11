@@ -32,6 +32,12 @@ docker login XXX
 docker build -t ali.ddns-image -f Dockerfile .
 ```
 
+## 拉取镜像
+
+```bash
+docker pull ali.ddns-image:latest
+```
+
 ## 创建容器
 
 [docker create](https://docs.docker.com/engine/reference/commandline/create/)
@@ -99,6 +105,12 @@ docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
 ```
 
 :::
+
+## [docker compose](https://docs.docker.com/reference/cli/docker/compose/)
+
+```bash
+docker compose -f c:\\docker-compose.yml -p aliyun-ddns up -d
+```
 
 ## 私有仓库
 

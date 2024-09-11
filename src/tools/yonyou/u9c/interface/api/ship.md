@@ -145,9 +145,7 @@ List<DocKeyDTOData> Create(string operatingOrg, string shipperOrg, string docTyp
     {
         Code = customer
     };
-    //newShip.Seller = new CommonArchiveDataDTOData();
     var newLine = new ISV.SM.ShipLineDTOForIndustryChainData();
-    //newLine.AC = new CommonArchiveDataDTOData();
     //来源销售订单
     newShip.SrcDocType = 1;
     SOShipline line = SOShipline.Finder.Find("SOLine.Org=@Org and SOLine.SO.DocNo=@SrcDoc and SOLine.ID=@SrcDocId and SOLine.SO.OrderBy.Code=@Customer",
@@ -342,14 +340,15 @@ List<DocKeyDTOData> Create(string operatingOrg, string shipperOrg, string docTyp
     newLine.OrderPriceTC = line.SOLine.OrderPriceTC;//定价
     newLine.FinallyPriceTC = line.SOLine.FinallyPriceTC;//最终价
     newLine.TotalDiscountTC = newLine.FinallyPriceTC - newLine.OrderPriceTC;//折扣额
-    if (line.IsPriceIncludeTax)//价格含税
-    {
-        newLine.TotalMoneyTC = Math.Round(qty * line.SOLine.FinallyPriceTC, 2); //金额
-                                                                                //税额
-        newLine.TotalTaxTC = Math.Round(qty * (line.SOLine.FinallyPriceTC / (1 + line.SOLine.TaxRate)) * line.SOLine.TaxRate, 2);
-        //未税金额
-        newLine.TotalNetMoneyTC = newLine.TotalMoneyTC - newLine.TotalTaxTC;
-    }
+    //其他金额会自动算，不需要再次计算
+    // if (line.IsPriceIncludeTax)//价格含税
+    // {
+    //     newLine.TotalMoneyTC = Math.Round(qty * line.SOLine.FinallyPriceTC, 2); //金额
+    //     //税额
+    //     newLine.TotalTaxTC = Math.Round(qty * (line.SOLine.FinallyPriceTC / (1 + line.SOLine.TaxRate)) * line.SOLine.TaxRate, 2);
+    //     //未税金额
+    //     newLine.TotalNetMoneyTC = newLine.TotalMoneyTC - newLine.TotalTaxTC;
+    // }
     newShip.ShipLines.Add(newLine);
 
     UFIDA.U9.ISV.SM.Proxy.CreateShipSVProxy proxy = new ISV.SM.Proxy.CreateShipSVProxy();
