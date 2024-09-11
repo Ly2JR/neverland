@@ -23,7 +23,7 @@ category:
 
 ## 资料
 
-- [Dokcer](https://docs.docker.com/language/dotnet/)
+- [Docker](https://docs.docker.com/language/dotnet/)
 
 - [阿里云OPENAPI](https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09&language=csharp-tea&tab=primer-doc)
 
@@ -36,8 +36,6 @@ category:
 ## docker-compose.yml
 
 ```yml
-version: '3.4'
-
 services:
   neverland.aliyun.ddns:
     image: ${DOCKER_REGISTRY-}ali.ddns:1.0.0
@@ -49,8 +47,6 @@ services:
 ### docker-compose.override.yml
 
 ```yml
-version: '3.8'
-
 services:
   neverland.aliyun.ddns:
     container_name: ALIYUN-DDNS

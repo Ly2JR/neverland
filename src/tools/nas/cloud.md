@@ -24,20 +24,20 @@ title: 流程
 flowchart LR
 
   subgraph DNS
-    域名 --显性URL--> 子域名:公网端口
-    子域名:公网端口 --> 公网IP:公网端口
+    域名 --显性URL--> 子域名：公网端口
+    子域名:公网端口 --> 公网IP：公网端口
   end
 
   subgraph 路由器
-    公网端口 --端口转发--> 内网IP:内网端口
+    公网端口 --端口转发--> 内网IP：内网端口
   end
 
   subgraph NAS
-    内网IP:内网端口
+    内网IP：内网端口
   end
 
   subgraph PC
-    内网IP:内网端口
+    内网IP：内网端口
   end 
 
   DNS --> 路由器
@@ -56,7 +56,7 @@ flowchart LR
 域名绑定的是静态IP，但是私有云是动态的，体现在重启光猫后IP地址变动。
 
 1. 在套件中心选择`Docker`安装
-2. 在注册表搜索`chenhw2/aliyun-ddns-cli:latest`,并安装
+2. 在注册表搜索`chenhw2/aliyun-ddns-cli:latest`，或者[参考阿里云ddns](../docker/aliyun-ddns.md)并安装
 3. 进入阿里云[RAM访问控制](https://ram.console.aliyun.com/overview)添加新用户，勾选`OpenApi调用访问`
 
     ![添加新用户](https://nas.ilyl.life:8092/network/cloud1.png)
@@ -128,7 +128,7 @@ flowchart LR
 
 不能直接访问可以间接访问，通过输入主域名，跳转到子域名+端口上
 
-例如：域名`a.com`，子域名`aa.a.com`，私有云内网IP`192.168.173.3:88`,公网域名:`aa.a.com:88`
+例如：域名`a.com`，子域名`aa.a.com`，私有云内网IP`192.168.173.3:88`，公网域名:`aa.a.com:88`
 
 在浏览器上输入`a.com`自动跳转`aa.a.com:88`，也就解决了`域名无法访问私有云`的问题。
 
@@ -138,6 +138,6 @@ flowchart LR
 
 主机记录：`@`
 
-记录值：`302`:`子域名加端口`
+记录值：`302`：`子域名加端口`
 
 ![显性URL](https://nas.ilyl.life:8092/network/cloud6.png)

@@ -35,13 +35,13 @@ copy: true
 
 显示`Login:`，输入`root`;
 
-显示`Password`,输入`admin`;
+显示`Password`，输入`admin`;
 
-显示`WAP>`,输入`shell`;
+显示`WAP>`，输入`shell`;
 
-显示`WAP(Doprea Linux) #`,输入`cd /mnt/jffs2`;
+显示`WAP(Doprea Linux) #`，输入`cd /mnt/jffs2`;
 
-显示`WAP(Doprea Linux) #`,输入`grep telecomadmin hw_ctree.xml`;
+显示`WAP(Doprea Linux) #`，输入`grep telecomadmin hw_ctree.xml`;
 
 显示`.....Password="XXXXXXX".....`;
 
@@ -51,24 +51,24 @@ copy: true
 
 ![光猫设置](https://nas.ilyl.life:8092/wan.jpg)
 
-使用账户`telcomadmin`,密码是刚刚获取到的登录设备。
+使用账户`telcomadmin`，密码是刚刚获取到的登录设备。
 
-找到网络/宽带设置,对所有WAN口参数配置，进行拍照`备份`；
+找到网络/宽带设置，对所有WAN口参数配置，进行拍照`备份`；
 
 找到默认`2_INTETNET_B_VID`的连接名，进行删除,记得`备份`;
 
 新键
 
-使能WAN连接:`勾选`
+使能WAN连接：`勾选`
 
-连接类型:`桥接`
+连接类型：`桥接`
 
-服务列表:`INTERNET`
+服务列表：`INTERNET`
 
-使能VLAN:`勾选`
+使能VLAN：`勾选`
 
-VLAN ID:与之前配置的值一致
+VLAN ID：与之前配置的值一致
 
-桥类型:`IP桥接`
+桥类型：`IP桥接`
 
 至此，光猫IPv4改造支持IPv6完成。
