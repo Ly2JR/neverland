@@ -1,11 +1,11 @@
 ---
-title: Signalr
+title: SignalR
 date: 2023-11-28
 editLink: false
 footer: false
 isOriginal: true
 category:
-  - Signalr
+  - SignalR
 tag:
   - C#
 ---
@@ -62,7 +62,7 @@ flowchart TD
 
 常见的有:
 
-发起者客户端:`Clients.Caller`
+发起者客户端：`Clients.Caller`
 
 除发起者外的所有客户端：`Clients.Others`
 
@@ -149,7 +149,7 @@ flowchart TD
     Console.WriteLine(clientB);
     ```
 
-    客户端A向客户端B发送消息，调用`Hub`中心的`SendToClientB`方法，发送内容为`Hello`,并接收`Hub`的响应。
+    客户端A向客户端B发送消息，调用`Hub`中心的`SendToClientB`方法，发送内容为`Hello`，并接收`Hub`的响应。
 
   - PC客户端B`接收者`
 
@@ -191,7 +191,7 @@ flowchart TD
     });
     ```
 
-    客户端A订阅`Hub`中的`GetMessage`方法,并返回结果。
+    客户端A订阅`Hub`中的`GetMessage`方法，并返回结果。
 
   - PC客户端B`接收者`
 
@@ -201,7 +201,7 @@ flowchart TD
     });
     ```
 
-    客户端B订阅`Hub`中的`GetMessage`方法,并返回结果。
+    客户端B订阅`Hub`中的`GetMessage`方法，并返回结果。
 
 ### [强类型中心](https://learn.microsoft.com/zh-cn/aspnet/core/signalr/hubs?view=aspnetcore-8.0#strongly-typed-hubs)
 
@@ -290,7 +290,7 @@ public class ChatHub:Hub<IChatHub>
 
 在`ChatHub`里处理所有客户端之间的的交互。
 
-主要有两个，发消息和接收消息,他们都依赖`Hub`，提供了各种方法
+主要有两个，发消息和接收消息，他们都依赖`Hub`，提供了各种方法
 
 - 发送消息：`SendAsync`
 
@@ -345,7 +345,7 @@ app.UseSerilogRequestLogging();
 
 通过上下文得知，客户端连接时会自动携带一个唯一ID，例如`id=r22i63i8cd9xALATOW9HhA`。
 
-因此，继续新增两个属性`user`标识身份，`type`标识身份类型`0:普通客户端`,`1:管理员客户端`，作为简单身份验证。
+因此，继续新增两个属性`user`标识身份，`type`标识身份类型`0:普通客户端`，`1:管理员客户端`，作为简单身份验证。
 
 为了统一管理，新建`ChatManager`类，记录所有客户端的连接断开情况。
 
@@ -488,17 +488,17 @@ public override Task OnDisconnectedAsync(Exception? exception)
 
 - 向其他客户端发送消息,并返回结果
 
-`6行`:获取调用者用户,通过`user`指定用户
+`6行`：获取调用者用户，通过`user`指定用户
 
-`9行`:没法用户直接返回
+`9行`：没法用户直接返回
 
-`17`:通过重写`OnConnectedAsync`获取到当前用户的ID并且管理起来
+`17`：通过重写`OnConnectedAsync`获取到当前用户的ID并且管理起来
 
-`21`:客户端A向客户端发消息时，客户端B不在线时,需要告知客户端A。
+`21`：客户端A向客户端发消息时，客户端B不在线时，需要告知客户端A
 
-`23`:向客户端B发送消息
+`23`：向客户端B发送消息
 
-`27`:当客户端B接收消息并返回它的消息
+`27`：当客户端B接收消息并返回它的消息
 
 ```cs{6,9,17,21,23,27}
 public async Task<string> SendToClientAndReceive(string clientId, string message)
@@ -713,7 +713,7 @@ async Task CloseConnectionAsync()
 
 ### API调用
 
-虽然使用了`SignalR`,并且也提供了其他平台的支持，但是也可以对`SignalR`部分封装，通过API的方式使用。
+虽然使用了`SignalR`，并且也提供了其他平台的支持，但是也可以对`SignalR`部分封装，通过API的方式使用。
 
 - 消息载体
 

@@ -100,8 +100,6 @@ function getItem(obj, val) {
 };
 ```
 
-:::
-
 @tab vba
 
 ```vb
@@ -262,8 +260,6 @@ function setData(source,opt){
     })
 }
 ```
-
-:::
 
 @tab vba
 

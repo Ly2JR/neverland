@@ -13,7 +13,7 @@ export default {
     "type-enum": [
       2,
       "always",
-      ["feat", "style", "docs", "chore", "build", "release"],
+      ["feat", "fix", "style", "docs", "chore", "build", "release"],
     ],
   },
   prompt: {

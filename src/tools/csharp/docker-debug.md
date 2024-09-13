@@ -29,7 +29,7 @@ VS进行Docker调试时，半天卡住不动，查看日志显示`vs2017u5 exist
 
     链接`https://vsdebugger.azureedge.net/vsdbg-17-8-11212-2/vsdbg-linux-musl-x64.zip`
 
-3. 打开`vsdbg`目录,新建`vs2017u5`文件夹
+3. 打开`vsdbg`目录，新建`vs2017u5`文件夹
 
 4. 将`vsdbg-linux-x64.zip`解压到`vs2017u5`文件夹下
 

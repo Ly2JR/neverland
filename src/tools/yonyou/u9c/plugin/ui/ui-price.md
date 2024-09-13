@@ -30,10 +30,6 @@ public override void BeforeEventProcess(IPart Part, string eventName, object sen
     base.BeforeEventProcess(Part, eventName, sender, args, out executeDefault);
 }
 
-/// <summary>
-/// 改价
-/// </summary>
-/// <param name="Part"></param>
 void CalcPrice(IPart Part)
 {
     var strongPart= Part as UFIDA.U9.PM.PurchaseOrderUIModel.PurchaseOrderMainUIFormWebPart;
@@ -47,17 +43,23 @@ void CalcPrice(IPart Part)
     IDictionary<long, decimal> itemQtyDic = new Dictionary<long, decimal>();
     foreach (PM.PurchaseOrderUIModel.PurchaseOrder_POLinesRecord line in ordreLines.Records)
     {
+        var qty=line.ReqQtyTU ?? 0m;
+        if (qty == 0m) continue;
+
         var ds= GetLimitData(order.Supplier_Code, line.ItemInfo_ItemID);
         if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
         {
-            return; //没有维护货源表
+            continue; //没有维护价目表
         }
-        //额外费用
-        var cost = Convert.ToDecimal(ds.Tables[0].Rows[0]["DescFlexField_PrivateDescSeg1"]);
-        //指定数量内加上额外费用，超过不计算
+        var id = Convert.ToInt64(ds.Tables[0].Rows[0]["ID"]);
+        var totalCost = Convert.ToDecimal(ds.Tables[0].Rows[0]["DescFlexField_PrivateDescSeg1"]);
         var limitMaxQty = Convert.ToDecimal(ds.Tables[0].Rows[0]["DescFlexField_PrivateDescSeg2"]);
-        //启用日期
+        if (limitMaxQty == 0m) continue;
+        //var maxQty = Convert.ToDecimal(ds.Tables[0].Rows[0]["DescFlexField.PrivateDescSeg3"]);
         var startDate = Convert.ToDateTime(ds.Tables[0].Rows[0]["DescFlexField_PrivateDescSeg4"]);
+        if (order.BusinessDate < startDate) continue;
+
+        var cost = totalCost / limitMaxQty;//单个分摊费用
         //获取历史采购订单数量
         var sumQty = 0m;
         var poDs = GetPoQty(order.ID,order.Supplier_Code, line.ItemInfo_ItemID, startDate);
@@ -78,10 +80,10 @@ void CalcPrice(IPart Part)
             sumHistoryQty = itemQtyDic[line.ItemInfo_ItemID.Value];
         }
         var remainQty= limitMaxQty - sumQty- sumHistoryQty;
-        if (remainQty <= 0) return;
+        if (remainQty <= 0) continue;
 
         var overQty = line.ReqQtyTU.Value - remainQty;
-        if(overQty<=0) //限制内的数量取额外费用+价目表价格
+        if(overQty<=0) //限制内的数量取磨具费+价目表价格
         {
             UIActionEventArgs actionEvent = new UIActionEventArgs();
             Hashtable hash = new Hashtable();
@@ -98,6 +100,7 @@ void CalcPrice(IPart Part)
         {
             throw new Exception($"行[{line.DocLineNo}]料品[{line.ItemInfo_ItemName}]需求数量[{line.ReqQtyTU}]+累计数量[{Math.Round(sumQty,2)}]={Math.Round(line.ReqQtyTU.Value+ sumHistoryQty + sumQty,2)}超货源表上限数量[{Math.Round(limitMaxQty,2)}]，需要进行拆行处理");
         }
+
         if (itemQtyDic.ContainsKey(line.ItemInfo_ItemID.Value))
         {
             itemQtyDic[line.ItemInfo_ItemID.Value] += line.ReqQtyTU.Value;
@@ -105,6 +108,8 @@ void CalcPrice(IPart Part)
         else
         {
             itemQtyDic.Add(line.ItemInfo_ItemID.Value, line.ReqQtyTU.Value);
+
+            UpdateSupplierSource(id, line.FinallyPriceTC.Value);
         }
     }
 }

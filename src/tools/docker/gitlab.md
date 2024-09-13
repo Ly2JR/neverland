@@ -1,11 +1,13 @@
 ---
-title: Gitlab
-date: 2024-079-11
+title: GitLab
+date: 2024-09-11
 editLink: false
 footer: false
 isOriginal: true
 category:
   - DOCKER
+tag:
+  - GitLab
 ---
 
 群晖自带的Git Server没有可视化管理，因此通过docker部署[gitlab](https://about.gitlab.com/)实现代码管理
@@ -22,7 +24,7 @@ Docker Desktop 在Docker Hub里搜索`gitlab/gitlab-ce:latest`拉取即可
 
 浏览器输入`http://localhost:8888`即可现在gitlab管理页面
 
-如果浏览器不显示，重启等待即可。
+如果浏览器不显示，等待片刻或者重启等待即可。
 
 ![登陆界面](https://nas.ilyl.life:8092/gitlab/gitlab-ui-login.png)
 

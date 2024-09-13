@@ -9,10 +9,10 @@ tag:
   - TS
 ---
 
-在`ts`中使用[`Reflect.has`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/has)方法来检查对象属性,同[`in`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in)。
+在`ts`中使用[`Reflect.has`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/has)方法来检查对象属性，同[`in`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in)。
 
 ::: tip 应用场景
-在`ant-design-vue`树形组件中,获取节点的到`key`的值为`number[]|string[]`,反向显示部分节点时，往往通过`{Checked:[],halfChecked:[]}`来赋值，那么无选择时，获取到的数据值不在是原来的`number[]|string[]`而是变为了`{Checked:[],halfChecked:[]}`,这是可以通过`Reflect.has`或`in`来判断对象属性。
+在`ant-design-vue`树形组件中，获取节点的到`key`的值为`number[]|string[]`，反向显示部分节点时，往往通过`{Checked:[],halfChecked:[]}`来赋值，那么无选择时，获取到的数据值不在是原来的`number[]|string[]`而是变为了`{Checked:[],halfChecked:[]}`，这是可以通过`Reflect.has`或`in`来判断对象属性。
 :::
 
 ::: vue-demo Reflect.has

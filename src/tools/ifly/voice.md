@@ -16,7 +16,7 @@ tag:
 
 - [语音合成文档](https://www.xfyun.cn/doc/tts/online_tts/API.html)
 
-- [WebApi示例:`es6`](https://www.xfyun.cn/doc/tts/online_tts/API.html#%E8%B0%83%E7%94%A8%E7%A4%BA%E4%BE%8B)
+- [WebApi示例：`es6`](https://www.xfyun.cn/doc/tts/online_tts/API.html#%E8%B0%83%E7%94%A8%E7%A4%BA%E4%BE%8B)
 
 ## 前提
 
@@ -24,15 +24,15 @@ tag:
 
 1. `audio.js`: WebApi示例中的`index.js`文件
 
-    路径:`src\pages\index\index.js`
+    路径：`src\pages\index\index.js`
 
 2. `download.js`: WebApi示例中的`download.js`文件
 
-    路径:`src\js\download.js`
+    路径：`src\js\download.js`
 
 3. `transcode.worker.js`：WebApi示例中的`transcode.worker.js`文件
 
-    路径:`src\js\transcode.worker.js`
+    路径：`src\js\transcode.worker.js`
 
 - 引用`crypto-js`和`js-base64`两个包。
 
@@ -384,13 +384,13 @@ export default TTSRecorder;
 
 - 2行代码
 
-  直接使用`let transWorker = new TransWorker();`时,提示`default`或者`constructor`错误。
+  直接使用`let transWorker = new TransWorker();`时，提示`default`或者`constructor`错误。
   
   参考[vite web-worker](https://cn.vitejs.dev/guide/features.html#web-workers)解决。
 
 - 4-6行代码
 
-  为科大讯飞的接口鉴权,需要自己创建
+  为科大讯飞的接口鉴权，需要自己创建
 
 - 8行代码
 

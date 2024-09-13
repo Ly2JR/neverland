@@ -283,7 +283,6 @@ Marshal.FreeHGlobal(readPtr2);
 Marshal.FreeHGlobal(readValuePtr3);
 Marshal.FreeHGlobal(readValuePtr4);
 
-
 [DllImport(@".\lib\Project1.dll",CharSet =CharSet.Unicode, EntryPoint = "?Add@@YAHHH@Z")]
 static extern short Add(short a, short b);
 [DllImport(@".\lib\Project1.dll", CharSet = CharSet.Unicode)]

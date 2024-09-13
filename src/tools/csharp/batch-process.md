@@ -20,7 +20,7 @@ tag:
 
 设置基类控件为了适应不同的子控件。
 
-新增了一个属性`Key`,一个`GetValue()`和一个`SetValue()`方法。
+新增了一个属性`Key`，一个`GetValue()`和一个`SetValue()`方法。
 
 `Key`用于与数据库字段名匹配
 

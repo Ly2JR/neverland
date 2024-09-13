@@ -20,7 +20,7 @@ category:
 
 ## docker-compose.yml
 
-- `第8行`: Registry UI的域名SSL证书目录
+- `第8行`：Registry UI的域名SSL证书目录
 - `第9行`: 自己的Nginx配置文件
 - `第13行`: Registry的URL地址
 - `第29行`: Registry的仓库存储目录
@@ -241,13 +241,13 @@ docker run -d -p 8080:80 -e REGISTRY_URL=http://localhost:5000 --name docker-reg
 
 ### 添加Docker Registry UI SSL
 
-内部使用`nginx`代理，配置`.conf`文件即可,其中需要改动的地方以高亮显示。
+内部使用`nginx`代理，配置`.conf`文件即可，其中需要改动的地方以高亮显示。
 
-`5-6行`:对应的证书位置
+`5-6行`：对应的证书位置
 
-`18行`:对应Docker Registry 访问地址
+`18行`：对应Docker Registry 访问地址
 
-`26行`:对应Docker Registry UI访问地址
+`26行`：对应Docker Registry UI访问地址
 
 ```bash {5-6,18,26}
 server {

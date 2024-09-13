@@ -39,7 +39,7 @@ public class Login
 }
 ```
 
-在`DbManager`类中，初始化新建表如下,`XXXXXX`为表结构的类库文件
+在`DbManager`类中，初始化新建表如下，`XXXXXX`为表结构的类库文件
 
 ```cs
  //初始化表

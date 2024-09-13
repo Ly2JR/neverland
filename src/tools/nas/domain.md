@@ -68,7 +68,7 @@ TTL：也就是这个时间之后才能知道，域名是否能访问你的公�
 免费SSL证书每年20个，但[有效期只有三个月](https://help.aliyun.com/zh/ssl-certificate/product-overview/notice-on-adjustment-of-service-policies-for-free-certificates?spm=5176.2020520163.0.0.466537119xHn47)
 :::
 
-![SSL证书](https://nas.ilyl.life:8092/network/ssl1.png)
+![SSL证书](https://nas.ilyl.life:8092/network/ssl.png)
 
 在[数字证书管理服务](https://yundun.console.aliyun.com/)里SSL证书，选择`免费证书`，申请通过即可。
 

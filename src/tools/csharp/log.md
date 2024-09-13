@@ -10,7 +10,7 @@ tag:
   - C#
 ---
 
-日志记录有很多，如[NLog](https://nlog-project.org/),[Log4Net](https://logging.apache.org/log4net/release/manual/introduction.html),[Serilog](https://serilog.net/)等等。
+日志记录有很多，如[NLog](https://nlog-project.org/)，[Log4Net](https://logging.apache.org/log4net/release/manual/introduction.html)，[Serilog](https://serilog.net/)等等。
 
 所有的日志都由`Microsoft.Extensions.Logging`提供顶级抽象。
 

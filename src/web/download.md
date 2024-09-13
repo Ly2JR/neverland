@@ -101,7 +101,7 @@ export function downloadByUrl({
 
 1. 下载的文件无法打开
 
-   在`Axios`里设置`responseType`:`blob`
+   在`Axios`里设置`responseType`：`blob`
 
 2. 生产环境无法下载也不报错
 
