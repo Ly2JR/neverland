@@ -9,13 +9,13 @@ editLink: false
 footer: false
 ---
 
-- [x] [网盘](https://nas.ilyl.life:8090)
+- [x] 网盘
 
-- [x] [家庭影院](https://nas.ilyl.life:8091/)
+- [x] 家庭影院
 
-- [x] [图床](https://nas.ilyl.life:8092/default.png)
+- [x] 图床
 
-- [x] [Docker私库](https://docker.ilyl.life:8094)
+- [x] Docker私库
 
 - [ ] Gitlab
 - [ ] 在线工具
