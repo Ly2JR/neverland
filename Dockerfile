@@ -1,5 +1,5 @@
 # node 构建
-FROM node:22.8.0-alpine3.20 AS build-stage
+FROM node:22.9.0-alpine3.20 AS build-stage
 # 署名
 LABEL maintainer="乌龙茶有点甜 <ly2@ilyl.life>"
 # 指定目录
