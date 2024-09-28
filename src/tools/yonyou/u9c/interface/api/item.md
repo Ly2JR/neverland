@@ -16,10 +16,10 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 新增
+## 料品数据
 
 ```cs
-void Create(string submitBy, string itemCategory, string code, string name, string specs, string desc, int attribute, int uomGroup, string uom)
+CBO.SCM.Item.ItemMasterData Create(string submitBy, string itemCategory, string code, string name, string specs, string desc, int attribute, int uomGroup, string uom)
 {
     var org = Base.Context.LoginOrg;
     UFIDA.U9.CBO.SCM.Item.ItemCategory findItemCategory = null;
@@ -156,7 +156,6 @@ void Create(string submitBy, string itemCategory, string code, string name, stri
     newItem.PriceUOM = findUom.ID;
     newItem.PurchaseUOM = findUom.ID;
     newItem.SalesUOM = findUom.ID;
-    //newItem.WeightUom = findUom.ID;
     newItem.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
     newItem.Description = desc;
     newItem.SubmitOn = DateTime.Now;
@@ -164,8 +163,17 @@ void Create(string submitBy, string itemCategory, string code, string name, stri
     newItem.StateTime = DateTime.Now;
     newItem.StateUser = findUser.ID;
     newItem.State = 2;
+    return newItem;
+}
+```
+
+## 新增
+
+```cs
+void Create(CBO.SCM.Item.ItemMasterData input)
+{
     UFIDA.U9.CBO.SCM.Item.Proxy.CreateItemSRVProxy proxy = new CBO.SCM.Item.Proxy.CreateItemSRVProxy();
-    proxy.Item = newItem;
+    proxy.Item = input;
     proxy.Do();
 }
 ```

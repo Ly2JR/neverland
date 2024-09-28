@@ -16,10 +16,10 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 新增
+## 杂收数据
 
 ```cs
-List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string ownerOrg,string benefitDept,string wh,string whMan,string item,decimal qty
+ISV.MiscRcvISV.IC_MiscRcvDTOData Create(string docType,string ownerOrg,string benefitDept,string wh,string whMan,string item,decimal qty
 ){
     var findOrg = Base.Organization.Organization.FindByCode(ownerOrg);
     if (findOrg == null) throw new Exception($"货主组织[{ownerOrg}]不存在");
@@ -66,7 +66,15 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     newLine.FinishedItemGrade = -1;
     newLine.CostPrice = 1;
     input.MiscRcvTransLs.Add(newLine);
+    return input;
+}
+```
 
+## 新增
+
+```cs
+List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(ISV.MiscRcvISV.IC_MiscRcvDTOData input)
+{
     UFIDA.U9.ISV.MiscRcvISV.Proxy.CommonCreateMiscRcvProxy proxy = new ISV.MiscRcvISV.Proxy.CommonCreateMiscRcvProxy();
     proxy.MiscRcvDTOList = new List<ISV.MiscRcvISV.IC_MiscRcvDTOData>();
     proxy.MiscRcvDTOList.Add(input);
@@ -77,10 +85,10 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
 ## 审核
 
 ```cs
-void Approve(CBO.Pub.Controller.CommonArchiveDataDTOData key){
+void Approve(CBO.Pub.Controller.CommonArchiveDataDTOData input){
     UFIDA.U9.ISV.MiscRcvISV.Proxy.CommonApproveMiscRcvProxy proxy = new ISV.MiscRcvISV.Proxy.CommonApproveMiscRcvProxy();
     proxy.MiscRcvKeys = new List<CBO.Pub.Controller.CommonArchiveDataDTOData>();
-    proxy.MiscRcvKeys.Add(key);
+    proxy.MiscRcvKeys.Add(input);
     proxy.Do();
 }
 ```

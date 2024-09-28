@@ -57,9 +57,8 @@ List<ISVImportVoucherDTOData> QueryVoucher(string docNo)
 /// <param name="accountCode">科目格式</param>
 /// <param name="money">金额</param>
 /// <returns>返回凭证</returns>
-List<ISVReturnVoucherDTO> CreateVoucher(string abstracts, string accountCode, decimal money)
+List<ISVImportVoucherDTO> CreateVoucher(string abstracts, string accountCode, decimal money)
 {
- 
     List<ISVImportVoucherDTO> vouchersDto = new List<ISVImportVoucherDTO>();
     var newVoucher = new ISVImportVoucherDTO();
     newVoucher.CreateDate = DateTime.Now;
@@ -79,9 +78,16 @@ List<ISVReturnVoucherDTO> CreateVoucher(string abstracts, string accountCode, de
     newVoucher.Entries.Add(line1);
     newVoucher.Entries.Add(line2);
     vouchersDto.Add(newVoucher);
+    return vouchersDto;
+}
+```
 
+## 新增
+
+```cs
+List<ISVReturnVoucherDTO> Create(List<ISVImportVoucherDTO> input){
     UFIDA.U9.ISV.GL.ISVGLImportSV.ISVGLImportSV proxy = new UFIDA.U9.ISV.GL.ISVGLImportSV.ISVGLImportSV();
-    proxy.ImportVoucherDTOs = vouchersDto;
+    proxy.ImportVoucherDTOs = input;
     return proxy.Do();
 }
 ```

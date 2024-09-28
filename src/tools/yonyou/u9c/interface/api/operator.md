@@ -16,13 +16,12 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 新增
+## 业务员数据
 
 ```cs
-void Create(string employeeCode,string name,string depCode,string ownerOrg,int operatorType){
+ISV.DeptOperatorSV.CopyOfCopyOfOperatorsDTOData Create(string employeeCode,string name,string depCode,string ownerOrg,int operatorType){
     var newOperator = new ISV.DeptOperatorSV.CopyOfCopyOfOperatorsDTOData();
-    //业务员
-    newOperator.Code = employeeCode;
+    newOperator.Code = employeeCode; //业务员
     newOperator.Name = name;
     newOperator.Dept = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     newOperator.Dept.Code = depCode;
@@ -30,8 +29,6 @@ void Create(string employeeCode,string name,string depCode,string ownerOrg,int o
     newOperator.Effective.IsEffective = true;
     newOperator.Effective.EffectiveDate = DateTime.Now;
     newOperator.Effective.DisableDate = DateTime.MaxValue;
-    //newOperator.MasterOrg = new CBO.Pub.Controller.CommonArchiveDataDTOData();
-    //newOperator.MasterOrg.Code = org;
     newOperator.Org = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     newOperator.Org.Code = ownerOrg;
     newOperator.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
@@ -40,10 +37,18 @@ void Create(string employeeCode,string name,string depCode,string ownerOrg,int o
     line.OperatorType = operatorType;
     line.SysState = UFSoft.UBF.PL.Engine.ObjectState.Inserted;
     newOperator.OperatorLine.Add(line);
+    return newOperator;
+}
+```
 
+## 新增
+
+```cs
+void Create(ISV.DeptOperatorSV.CopyOfCopyOfOperatorsDTOData input)
+{
     UFIDA.U9.ISV.DeptOperatorSV.Proxy.BatchCreateOperatorByDTOSVProxy proxy = new ISV.DeptOperatorSV.Proxy.BatchCreateOperatorByDTOSVProxy();
     proxy.Operators = new List<ISV.DeptOperatorSV.CopyOfCopyOfOperatorsDTOData>();
-    proxy.Operators.Add(newOperator);
+    proxy.Operators.Add(input);
     proxy.Do();
 }
 ```

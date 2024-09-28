@@ -16,10 +16,10 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 新增
+## 退回处理数据
 
 ```cs
-List<DocKeyDTOData> Create(string docType, string customer, string saleDept, string seller, string item, string wh, decimal qty)
+RMADTOData Create(string docType, string customer, string saleDept, string seller, string item, string wh, decimal qty)
 {
    
     var org = Base.Context.LoginOrg;
@@ -88,7 +88,15 @@ List<DocKeyDTOData> Create(string docType, string customer, string saleDept, str
         Code = org.Code
     };
     newRma.RMALines.Add(newLine);
+    return newRma;
+}
+```
 
+## 新增
+
+```cs
+List<DocKeyDTOData> Create(RMADTOData input)
+{
     IContext context = ContextManager.Context;
     UFIDA.U9.ISV.SM.Proxy.CreateRMASRVProxy proxy = new UFIDA.U9.ISV.SM.Proxy.CreateRMASRVProxy();
     proxy.ContextDTO = new CBO.Pub.Controller.ContextDTOData();
@@ -100,7 +108,7 @@ List<DocKeyDTOData> Create(string docType, string customer, string saleDept, str
     proxy.ContextDTO.UserCode = Convert.ToString(context["UserCode"]);
     proxy.RMADTOs = new List<RMADTOData>();
     proxy.RMADTOs.Add(newRma);
-    var dto = proxy.Do();
+    proxy.Do();
 }
 ```
 

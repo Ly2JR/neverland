@@ -140,6 +140,10 @@ category:
 
 ### ReportMDD
 
+::: warning
+补丁安装后，需要再次进行报表发布
+:::
+
 放置所有报表模型，不需要子目录
 
 ### ResData

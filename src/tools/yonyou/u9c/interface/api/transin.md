@@ -19,7 +19,7 @@ category:
 ## 新增
 
 ```cs
-List<CommonArchiveDataDTOData> Create(string docType, string transInOrg, string transOutOrg, string item, decimal qty, string transInWh, string transOutWh)
+IC_TransferInDTOData Create(string docType, string transInOrg, string transOutOrg, string item, decimal qty, string transInWh, string transOutWh)
 {
     var findInOrg = Base.Organization.Organization.FindByCode(transInOrg);
     if (findInOrg == null) throw new Exception($"调入组织[{transInOrg}]不存在");
@@ -58,7 +58,14 @@ List<CommonArchiveDataDTOData> Create(string docType, string transInOrg, string 
     subLine.TransOutWh.Code = transOutWh;
     newLine.TransInSubLines.Add(subLine);
     input.TransInLines.Add(newLine);
+    return input;
+}
+```
 
+## 新增
+
+```cs
+List<CommonArchiveDataDTOData> Create(IC_TransferInDTOData input){
     UFIDA.U9.ISV.TransferInISV.Proxy.CommonCreateTransferInSVProxy proxy = new ISV.TransferInISV.Proxy.CommonCreateTransferInSVProxy();
     proxy.TransferInDTOList = new List<IC_TransferInDTOData>();
     proxy.TransferInDTOList.Add(input);
@@ -69,11 +76,11 @@ List<CommonArchiveDataDTOData> Create(string docType, string transInOrg, string 
 ## 提交
 
 ```cs
-void Submit(CommonArchiveDataDTOData key)
+void Submit(CommonArchiveDataDTOData input)
 {
     UFIDA.U9.ISV.TransferInISV.Proxy.TransferInBatchCommitSRVProxy proxy = new ISV.TransferInISV.Proxy.TransferInBatchCommitSRVProxy();
     proxy.DocList = new List<CommonArchiveDataDTOData>();
-    proxy.DocList.Add(key);
+    proxy.DocList.Add(input);
     proxy.Do();
 }       
 ```
@@ -81,11 +88,11 @@ void Submit(CommonArchiveDataDTOData key)
 ## 审核
 
 ```cs
-void Approve(CommonArchiveDataDTOData key)
+void Approve(CommonArchiveDataDTOData input)
 {
    UFIDA.U9.ISV.TransferInISV.Proxy.TransferInBatchApproveSRVProxy proxy = new ISV.TransferInISV.Proxy.TransferInBatchApproveSRVProxy();
     proxy.DocList = new List<CommonArchiveDataDTOData>();
-    proxy.DocList.Add(key);
+    proxy.DocList.Add(input);
     proxy.Do();
 }
 ```

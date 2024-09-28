@@ -10,6 +10,12 @@ category:
 
 U9C的所有接口都是该种服务，即是WCF服务。
 
+::: tip
+有时出现`500 System.ServiceModel.ServiceActivationException`错误
+
+检测内存是否超过`95%`
+:::
+
 ## 新建
 
 打开UBF，新建解决方案，选择位置及输入方案名称

@@ -19,7 +19,7 @@ category:
 ## 新增
 
 ```cs
-List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string ownerOrg,string fromWh,string fromItem,decimal fromQty,string toWh,string toItem,decimal toQty)
+ISV.TransferFormISV.IC_TransferFormDTOData Create(string docType,string ownerOrg,string fromWh,string fromItem,decimal fromQty,string toWh,string toItem,decimal toQty)
 {
     var input =new ISV.TransferFormISV.IC_TransferFormDTOData();
     var findOrg = Base.Organization.Organization.FindByCode(ownerOrg);
@@ -37,7 +37,6 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     input.Org = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     input.Org.Code = ownerOrg;
 
-    //var sob= UFIDA.U9.Base.SOB.SOBAccountingPeriod.Finder.Find();
     input.SOBAccountPeriod = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     input.SOBAccountPeriod.Code = sap.Code;
     input.TransferFormLine = new List<ISV.TransferFormISV.IC_TransferFormLDTOData>();
@@ -45,7 +44,6 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     var newLine = new ISV.TransferFormISV.IC_TransferFormLDTOData();
     newLine.TransferFormSubLine = new List<ISV.TransferFormISV.IC_TransferFormSLDTOData>();
     
-
     var findFromItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(findOrg.ID), new OqlParam(fromItem) });
     if (findFromItemMaster == null) throw new Excepiton($"料品[{item}]不存在");
 
@@ -76,13 +74,20 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     subLine.TransferType = 1;
     newLine.TransferFormSubLine.Add(subLine);
     input.TransferFormLine.Add(newLine);
+    return input;
+}
+```
 
+## 新增
+
+```cs
+List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(ISV.TransferFormISV.IC_TransferFormDTOData input)
+{
     UFIDA.U9.ISV.TransferFormISV.Proxy.CommonCreateTransferFormSRVProxy proxy = new ISV.TransferFormISV.Proxy.CommonCreateTransferFormSRVProxy();
     proxy.TransferFormDTOList = new List<ISV.TransferFormISV.IC_TransferFormDTOData>();
     proxy.TransferFormDTOList.Add(input);
     return proxy.Do();
 }
-
 ```
 
 ## 提交

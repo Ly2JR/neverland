@@ -19,7 +19,7 @@ category:
 ## 新增
 
 ```cs
-List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string ownerOrg,string benefitDept,string wh,string whMan,string item,decimal qty
+ISV.MiscShipISV.IC_MiscShipmentDTOData Create(string docType,string ownerOrg,string benefitDept,string wh,string whMan,string item,decimal qty
 ){
     var findOrg = Base.Organization.Organization.FindByCode(ownerOrg);
     if (findOrg == null) throw new Exception($"货主组织[{ownerOrg}]不存在");
@@ -63,7 +63,15 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
     newLine.ItemInfo = new ItemInfoData();
     newLine.ItemInfo.ItemCode = findItemMaster.Code;
     input.MiscShipLs.Add(newLine);
+    return input;
+}
+```
 
+## 新增
+
+```cs
+List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(ISV.MiscShipISV.IC_MiscShipmentDTOData input)
+{
     UFIDA.U9.ISV.MiscShipISV.Proxy.CommonCreateMiscShipProxy proxy = new ISV.MiscShipISV.Proxy.CommonCreateMiscShipProxy();
     proxy.MiscShipmentDTOList = new List<ISV.MiscShipISV.IC_MiscShipmentDTOData>();
     proxy.MiscShipmentDTOList.Add(input);
@@ -74,10 +82,10 @@ List<CBO.Pub.Controller.CommonArchiveDataDTOData> Create(string docType,string o
 ## 审核
 
 ```cs
-void Approve(CBO.Pub.Controller.CommonArchiveDataDTOData key){
+void Approve(CBO.Pub.Controller.CommonArchiveDataDTOData input){
     UFIDA.U9.ISV.MiscShipISV.Proxy.CommonApproveMiscShipSVProxy proxy = new ISV.MiscShipISV.Proxy.CommonApproveMiscShipSVProxy();
     proxy.MiscShipmentKeyList = new List<CBO.Pub.Controller.CommonArchiveDataDTOData>();
-    proxy.MiscShipmentKeyList.Add(key);
+    proxy.MiscShipmentKeyList.Add(input);
     proxy.Do();
 }
 ```

@@ -16,10 +16,10 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 新增
+## 完工报告数据
 
 ```cs
-List<ISV.MO.CompRptKeyDTOData> Create(string docType,int direction,string performingOrg,int whShipmentReason,string rcvOrg,string rcvWh, string srcDoc,string srcCompDoc,decimal eligibleQty,decimal scrapQty, string item){
+CompRptDTOData Create(string docType,int direction,string performingOrg,int whShipmentReason,string rcvOrg,string rcvWh, string srcDoc,string srcCompDoc,decimal eligibleQty,decimal scrapQty, string item){
 
     var input = new CompRptDTOData();
 
@@ -29,8 +29,6 @@ List<ISV.MO.CompRptKeyDTOData> Create(string docType,int direction,string perfor
     var findItemMaster = ItemMaster.Finder.Find("Org=@Org and Code=@Code", new OqlParam[] { new OqlParam(findPerformingOrg.ID), new OqlParam(item) });
     if (findItemMaster == null) throw new Exception($"料号[{item}]不存在");
 
-    //input.SourceDoc = new MOSourceDocData();
-    //input.SourceDoc.SrcDocNo = srcDoc;
     input.BusinessDate = DateTime.Now;
     input.MO = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     input.MO.Code = srcDoc;
@@ -106,15 +104,11 @@ List<ISV.MO.CompRptKeyDTOData> Create(string docType,int direction,string perfor
         newLine.RcvQtyByCostUOM = input.ScrapQty;
     }
     input.CompleteRptRcvLines.Add(newLine);
-
-    UFIDA.U9.ISV.MO.Proxy.CreateCompRptSrvProxy proxy = new ISV.MO.Proxy.CreateCompRptSrvProxy();
-    proxy.CompRptDTOs = new List<CompRptDTOData>();
-    proxy.CompRptDTOs.Add(input);
-    return proxy.Do();
+    return input;
 }
 ```
 
-## 根据生产订单反推完工报告
+## 根据生产订单反推完工报告数据
 
 ```cs
 class CompleteRptSort : IComparer<MO.Complete.CompleteRpt>
@@ -138,7 +132,7 @@ class CompleteRptSort : IComparer<MO.Complete.CompleteRpt>
 ```
 
 ```cs
-List<ISV.MO.CompRptKeyDTOData> Create(string docType,int direction,string performingOrg,int whShipmentReason,string rcvOrg,string rcvWh, string srcDoc,decimal eligibleQty,decimal scrapQty, string item)
+CompRptDTOData Create(string docType,int direction,string performingOrg,int whShipmentReason,string rcvOrg,string rcvWh, string srcDoc,decimal eligibleQty,decimal scrapQty, string item)
 {
     input = new CompRptDTOData();
 
@@ -267,23 +261,29 @@ List<ISV.MO.CompRptKeyDTOData> Create(string docType,int direction,string perfor
         }
         if (input.CompleteRptRcvLines.Count == 0) throw new Exception("没有可以出库的记录,请检查");
     }
+    return input;
+}
+```
 
-    return true;
-}
-catch (Exception ex)
+## 新增
+
+```cs
+List<ISV.MO.CompRptKeyDTOData> Create(CompRptDTOData input)
 {
-    errMsg = ex.Message;
+    UFIDA.U9.ISV.MO.Proxy.CreateCompRptSrvProxy proxy = new ISV.MO.Proxy.CreateCompRptSrvProxy();
+    proxy.CompRptDTOs = new List<CompRptDTOData>();
+    proxy.CompRptDTOs.Add(input);
+    return proxy.Do();
 }
-return false;
 ```
 
 ## 审核
 
 ```cs
-void Approve(ISV.MO.CompRptKeyDTOData key){
+void Approve(ISV.MO.CompRptKeyDTOData input){
     UFIDA.U9.ISV.MO.Proxy.ApproveCompleteRpt4ExternalSrvProxy proxy = new ISV.MO.Proxy.ApproveCompleteRpt4ExternalSrvProxy();
     proxy.DocNoList = new List<CompRptKeyDTOData>();
-    proxy.DocNoList.Add(key);
+    proxy.DocNoList.Add(input);
     proxy.Do();
 }
 ```

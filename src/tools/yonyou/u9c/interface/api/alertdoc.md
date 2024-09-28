@@ -16,43 +16,16 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 查询
+## 资产类别变更数据
 
 ```cs
 /// <summary>
-/// 查询资产变更
-/// </summary>
-/// <param name="docNo">资产变更单号</param>
-/// <param name="orgCode">组织编码</param>
-/// <returns>返回资产变更</returns>
-List<ISV.FA.ImportFAAlterDocHeadDTO> QueryAlterDoc(string docNo,string orgCode)
-{
-    UFIDA.U9.ISV.FA.QueryImportFAAlterDocSV proxy = new ISV.FA.QueryImportFAAlterDocSV();
-    proxy.ImportFAAlterDocQueryConditionDTOs=new List<ISV.FA.ImportFAAlterDocQueryConditionDTO>()
-    {
-        new ISV.FA.ImportFAAlterDocQueryConditionDTO()
-        {
-            DocNo=docNo,
-            Org=new CommonArchiveDataDTO()
-            {
-                Code=orgCode
-            },
-        }
-    };
-    return proxy.Do();
-}
-```
-
-## 新增资产类别变更
-
-```cs
-/// <summary>
-/// 新增资产资产类别变更
+/// 资产资产类别变更
 /// </summary>
 /// <param name="alterReason">表头：变更原因编码或名称</param>
 /// <param name="assetCarad">表体：资产卡片</param>
 /// <param name="assetCarad">表体：变更后资产类别</param>
-List<ISV.FA.ImportFAAlterDocResultDTO> CreateAlterDoc01(string alterReason, string assetCard, string assetCategory)
+ISV.FA.ImportFAAlterDocHeadDTO CreateAlterDoc01(string alterReason, string assetCard, string assetCategory)
 {
     Organization org = Base.Context.LoginOrg;
 
@@ -67,8 +40,7 @@ List<ISV.FA.ImportFAAlterDocResultDTO> CreateAlterDoc01(string alterReason, stri
 
     var findAssetCategory = UFIDA.U9.CBO.FA.FA_AssetCategoryBE.AssetCategory.Finder.Find(" Code=@Code or Name=@Name", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(assetCategory), new UFSoft.UBF.PL.OqlParam(assetCategory) });
     if (findAssetCategory is null) throw new Exception($"未找到变更后资产类别[{assetCategory}]");
-  
-    var newItems = new List<ISV.FA.ImportFAAlterDocHeadDTO>();
+
     var newItem = new ISV.FA.ImportFAAlterDocHeadDTO
     {
         DocumentType = new CommonArchiveDataDTO()//单据类型
@@ -125,20 +97,17 @@ List<ISV.FA.ImportFAAlterDocResultDTO> CreateAlterDoc01(string alterReason, stri
     detail.AssetAccountAlterObjDTOs = new List<ISV.FA.AssetAccountAlterObjDTO>();
     detail.AssetTagAlterObjDTOs = new List<ISV.FA.AssetTagAlterObjDTO>();
     detail.AssetTagUseInforAlterObjDTOs = new List<ISV.FA.AssetTagUseInforAlterObjDTO>();
-    newItem.FAAlterDocDetailDTOs.Add(detail);
-    newItems.Add(newItem);
 
-    UFIDA.U9.ISV.FA.CreateImportFAAlterDocSV proxy = new ISV.FA.CreateImportFAAlterDocSV();
-    proxy.ImportFAAlterDocHeadDTOs = newItems;
-    return proxy.Do();
+    newItem.FAAlterDocDetailDTOs.Add(detail);
+    return newItem;
 }
 ```
 
-## 新增资产使用信息
+## 资产使用信息数据
 
 ```cs
 /// <summary>
-/// 新增资产变更使用信息
+/// 资产变更使用信息
 /// 1.A部门100%转B部门40%和C部门60%
 /// 2.B部门40%转B部门20%
 ///   C部门60%转C部门80%
@@ -148,7 +117,7 @@ List<ISV.FA.ImportFAAlterDocResultDTO> CreateAlterDoc01(string alterReason, stri
 /// <param name="deptB">表体资产卡片：变更后部门</param>
 /// <param name="deptBRatio">表体资产卡片：变更后部门所有权</param>
 /// <param name="deptC">表体资产卡片：变更后部门</param>
-List<ImportFAAlterDocResultDTOData> CreateAlterDoc(string alterReason,string assetCard,string deptB,decimal deptBRatio,string deptC)
+ISV.FA.ImportFAAlterDocHeadDTOData CreateAlterDoc(string alterReason,string assetCard,string deptB,decimal deptBRatio,string deptC)
 {
     Organization org = Base.Context.LoginOrg;
 
@@ -157,8 +126,7 @@ List<ImportFAAlterDocResultDTOData> CreateAlterDoc(string alterReason,string ass
 
     var enumValue = UFIDA.UBF.MD.Business.ExtEnumValue.Finder.Find(" ExtEnumType.Code='UFIDA.U9.FA.FA_AlterDocBE.AlterReasonUDCEnum' and (Code=@Code or Name=@Name)", new UFSoft.UBF.PL.OqlParam[] { new UFSoft.UBF.PL.OqlParam(alterReason), new UFSoft.UBF.PL.OqlParam(alterReason) });
     if (enumValue is null) throw new Exception($"未找到变更原因[{alterReason}]");
-    
-    var newItems = new List<ISV.FA.ImportFAAlterDocHeadDTOData>();
+
     var newItem = new ISV.FA.ImportFAAlterDocHeadDTOData
     {
         DocumentType = new CommonArchiveDataDTOData()
@@ -316,10 +284,44 @@ List<ImportFAAlterDocResultDTOData> CreateAlterDoc(string alterReason,string ass
         
     }
     newItem.FAAlterDocDetailDTOs.Add(detail);
-    newItems.Add(newItem);
+    return newItem
+}
+```
 
+## 查询
+
+```cs
+/// <summary>
+/// 查询资产变更
+/// </summary>
+/// <param name="docNo">资产变更单号</param>
+/// <param name="orgCode">组织编码</param>
+/// <returns>返回资产变更</returns>
+List<ISV.FA.ImportFAAlterDocHeadDTO> QueryAlterDoc(string docNo,string orgCode)
+{
+    UFIDA.U9.ISV.FA.QueryImportFAAlterDocSV proxy = new ISV.FA.QueryImportFAAlterDocSV();
+    proxy.ImportFAAlterDocQueryConditionDTOs=new List<ISV.FA.ImportFAAlterDocQueryConditionDTO>()
+    {
+        new ISV.FA.ImportFAAlterDocQueryConditionDTO()
+        {
+            DocNo=docNo,
+            Org=new CommonArchiveDataDTO()
+            {
+                Code=orgCode
+            },
+        }
+    };
+    return proxy.Do();
+}
+```
+
+## 新增
+
+```cs
+List<ImportFAAlterDocResultDTOData> Create(ISV.FA.ImportFAAlterDocHeadDTOData input){
     UFIDA.U9.ISV.FA.Proxy.CreateImportFAAlterDocSVProxy proxy = new ISV.FA.Proxy.CreateImportFAAlterDocSVProxy();
-    proxy.ImportFAAlterDocHeadDTOs = newItems;
+    proxy.ImportFAAlterDocHeadDTOs=new List<ISV.FA.ImportFAAlterDocHeadDTOData>();
+    proxy.ImportFAAlterDocHeadDTOs.Add(input);
     return proxy.Do();
 }
 ```

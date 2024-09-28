@@ -19,7 +19,7 @@ category:
 ## 参照生产订单退料并确认
 
 ```cs
-List<string> Create(string docType,string issueOrg,string handleDept,string handlePerson,string srcDoc,long srcDocId,decimal issueQty,string wh)
+List<RecedeItemAndSnDTOData> Create(string docType,string issueOrg,string handleDept,string handlePerson,string srcDoc,long srcDocId,decimal issueQty,string wh)
 {
     var findOrg = Base.Organization.Organization.FindByCode(issueOrg);
     if (findOrg == null) throw new Exception($"发料组织[{issueOrg}]不存在");
@@ -59,14 +59,22 @@ List<string> Create(string docType,string issueOrg,string handleDept,string hand
     newLine.WhCode = findWh.Code;
     newLine.WhName = findWh.Name;
     input.Add(newLine);
+    return input;
+}
+```
 
+## 新增
+
+```cs
+List<string> Create(long dept,long person,string docType, CBO.HR.Department.DepartmentData input)
+{
     UFIDA.U9.ISV.MO.Proxy.CreatRecedeIssueDocSVProxy proxy = new ISV.MO.Proxy.CreatRecedeIssueDocSVProxy();
     proxy.HandleDept = new CBO.HR.Department.DepartmentData();
-    proxy.HandleDept.ID = findDept.ID;
+    proxy.HandleDept.ID = dept;
     //proxy.HandleDept.Code = handleDept;       //有BUG，不能传Code，传ID
     
     proxy.HandlePerson = new CBO.HR.Operator.OperatorsData();
-    proxy.HandlePerson.ID = findOperator.ID;
+    proxy.HandlePerson.ID = person;
     //proxy.HandlePerson.Code = handlePerson;   //有BUG，不能传Code，传ID
 
     proxy.IssueDocType = new CBO.Pub.Controller.CommonArchiveDataDTOData();
@@ -87,7 +95,8 @@ List<string> Create(string docType,string issueOrg,string handleDept,string hand
 /// </summary>
 /// <param name="docNo">生产退料单号</param>
 /// <returns>Count=0默认审核成功,否则判断内部明细具体单据是否成功</returns>
-List<ApproveIssueDoc4ExternalDTOData> Approve(string docNo){
+List<ApproveIssueDoc4ExternalDTOData> Approve(string docNo)
+{
     UFIDA.U9.ISV.MO.Proxy.ApproveIssueDoc4ExternalSrvProxy proxy = new ISV.MO.Proxy.ApproveIssueDoc4ExternalSrvProxy();
     proxy.DocNoList = new List<ISV.MO.ApproveIssueDoc4ExternalDTOData>();
     proxy.IsNotNewTransaction = true;

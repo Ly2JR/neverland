@@ -16,7 +16,7 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 新增
+## 成本调整数据
 
 ```cs
 /// <summary>
@@ -26,9 +26,8 @@ category:
 /// <param name="orgCode">组织编码</param>
 /// <param name="money">金额</param>
 /// <returns>返回成本调整</returns>
-List<CommonArchiveDataDTO> CreateCostAdjust(string itemCode, string orgCode, decimal money)
+ISV.CostAdjustISV.IC_CostAdjustDTO CreateCostAdjust(string itemCode, string orgCode, decimal money)
 {
-    
     var costAdjustDto = new ISV.CostAdjustISV.IC_CostAdjustDTO()
     {
         CostAdjustDocType = new CommonArchiveDataDTO()
@@ -48,7 +47,15 @@ List<CommonArchiveDataDTO> CreateCostAdjust(string itemCode, string orgCode, dec
         AdjustAmt = money,
     };
     costAdjustDto.CostAdjustL.Add(newItem);
+    return costAdjustDto；
+}
+```
 
+## 新增
+
+```cs
+List<CommonArchiveDataDTO> Create(ISV.CostAdjustISV.IC_CostAdjustDTO input)
+{
     ISV.CostAdjustISV.CommonCreateCostAdjust proxy = new ISV.CostAdjustISV.CommonCreateCostAdjust();
     proxy.ContextFrom = new ContextDTO()
     {
@@ -60,7 +67,7 @@ List<CommonArchiveDataDTO> CreateCostAdjust(string itemCode, string orgCode, dec
         UserCode = PlatformContext.Current.UserCode,
     };
     proxy.CostAdjustDTOList = new List<ISV.CostAdjustISV.IC_CostAdjustDTO>();
-    proxy.CostAdjustDTOList.Add(costAdjustDto);
+    proxy.CostAdjustDTOList.Add(input);
     return proxy.Do();
 }
 ```

@@ -16,10 +16,10 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 参照生产订单领料
+## 参照生产订单领料数据
 
 ```cs
-List<IssueKeyDTOData> Create(string docType,string issueOrg,string handleDept,string handlePerson,string srcDoc,long srcDocId,decimal issueQty,string wh)
+IssueDTOData Create(string docType,string issueOrg,string handleDept,string handlePerson,string srcDoc,long srcDocId,decimal issueQty,string wh)
 {
     var input = new IssueDTOData();
     input.BusinessDate = DateTime.Now;
@@ -75,18 +75,15 @@ List<IssueKeyDTOData> Create(string docType,string issueOrg,string handleDept,st
     newLine.IssueUOM.Code = findPickList.IssueUOM.Code;
     newLine.WhUOM = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     input.PickListDTOs.Add(newLine);
-
-    UFIDA.U9.ISV.MO.Proxy.CreateIssue4ExternalProxy proxy = new ISV.MO.Proxy.CreateIssue4ExternalProxy();
-    proxy.IssueDTOs = new List<IssueDTOData>();
-    proxy.IssueDTOs.Add(input);
-    return proxy.Do();
+    
+    return input;
 }
 ```
 
 ## 未备料领料
 
 ```cs
-List<IssueKeyDTOData> Create(string docType,string issueOrg,string handleDept,string handlePerson,string srcDoc,string itemCode,decimal issueQty,string wh)
+IssueDTOData Create(string docType,string issueOrg,string handleDept,string handlePerson,string srcDoc,string itemCode,decimal issueQty,string wh)
 {
     var findIssueOrg = Base.Organization.Organization.FindByCode(issueOrg);
     if (findIssueOrg == null) throw new Exception($"发料组织[{issueOrg}]不存在");
@@ -140,7 +137,15 @@ List<IssueKeyDTOData> Create(string docType,string issueOrg,string handleDept,st
     newLine.IssueUOM.Code = findItemMaster.MaterialOutUOM.Code;
     newLine.WhUOM = new CBO.Pub.Controller.CommonArchiveDataDTOData();
     input.PickListDTOs.Add(newLine);
+    return input;
+}
+```
 
+## 新增
+
+```cs
+List<IssueKeyDTOData> Create (IssueDTOData input)
+{
     UFIDA.U9.ISV.MO.Proxy.CreateIssue4ExternalProxy proxy = new ISV.MO.Proxy.CreateIssue4ExternalProxy();
     proxy.IssueDTOs = new List<IssueDTOData>();
     proxy.IssueDTOs.Add(input);

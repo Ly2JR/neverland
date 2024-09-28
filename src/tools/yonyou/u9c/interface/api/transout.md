@@ -16,10 +16,10 @@ category:
 
 其他缺失文件按提示引用即可。
 
-## 新增
+## 调出数据
 
 ```cs
-List<CommonArchiveDataDTOData> Create(string docType, string transOutOrg,string transOutWh，string transInOrg, string transInWh, string item, decimal qty)
+ISV.TransferOutISV.IC_TransferOutDTOData Create(string docType, string transOutOrg,string transOutWh，string transInOrg, string transInWh, string item, decimal qty)
 {
     var findOutOrg = Base.Organization.Organization.FindByCode(transOutOrg);
     if (findOutOrg == null) throw new Exception($"调出组织[{transOutOrg}]不存在");
@@ -60,11 +60,7 @@ List<CommonArchiveDataDTOData> Create(string docType, string transOutOrg,string 
     subLine.TransInWh.Code = transInWh;
     newLine.TransOutSubLines.Add(subLine);
     input.TransOutLines.Add(newLine);
-
-    UFIDA.U9.ISV.TransferOutISV.Proxy.CreateTransferOutSRVProxy proxy = new ISV.TransferOutISV.Proxy.CreateTransferOutSRVProxy();
-    proxy.TransferOutDOCList = new List<ISV.TransferOutISV.IC_TransferOutDTOData>();
-    proxy.TransferOutDOCList.Add(input);
-    return proxy.Do();
+    return input;
 }
 ```
 
@@ -135,14 +131,26 @@ List<InvDoc.TransferApply.TransApplyToTransOutResultDTO> RefTransApplyToTransOut
 }
 ```
 
+## 新增
+
+```cs
+List<CommonArchiveDataDTOData> Create(ISV.TransferOutISV.IC_TransferOutDTOData input)
+{
+    UFIDA.U9.ISV.TransferOutISV.Proxy.CreateTransferOutSRVProxy proxy = new ISV.TransferOutISV.Proxy.CreateTransferOutSRVProxy();
+    proxy.TransferOutDOCList = new List<ISV.TransferOutISV.IC_TransferOutDTOData>();
+    proxy.TransferOutDOCList.Add(input);
+    return proxy.Do();
+}
+```
+
 ## 提交
 
 ```cs
-void Submit(CommonArchiveDataDTOData key)
+void Submit(CommonArchiveDataDTOData input)
 {
     UFIDA.U9.ISV.TransferOutISV.Proxy.TransferOutBatchCommitSRVProxy proxy = new ISV.TransferOutISV.Proxy.TransferOutBatchCommitSRVProxy();
     proxy.DocList = new List<CommonArchiveDataDTOData>();
-    proxy.DocList.Add(key);
+    proxy.DocList.Add(input);
     proxy.Do();
 }       
 ```
@@ -150,11 +158,11 @@ void Submit(CommonArchiveDataDTOData key)
 ## 审核
 
 ```cs
-void Approve(CommonArchiveDataDTOData key)
+void Approve(CommonArchiveDataDTOData input)
 {
     UFIDA.U9.ISV.TransferOutISV.Proxy.TransferOutBatchApproveSRVProxy proxy = new ISV.TransferOutISV.Proxy.TransferOutBatchApproveSRVProxy();
     proxy.DocList = new List<CommonArchiveDataDTOData>();
-    proxy.DocList.Add(key);
+    proxy.DocList.Add(input);
     proxy.Do();
 }
 ```
