@@ -14,33 +14,33 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "@vuepress/plugin-redirect": "2.0.0-rc.51",
-    "pnpm": "^9.11.0",
-    "vue": "^3.5.10",
-    "vuepress": "2.0.0-rc.15"
+    "@vuepress/plugin-redirect": "2.0.0-rc.52",
+    "pnpm": "^9.12.0",
+    "vue": "^3.5.11",
+    "vuepress": "2.0.0-rc.17"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/cz-commitlint": "^19.5.0",
     "@vue/repl": "^4.4.2",
-    "@vuepress/bundler-vite": "2.0.0-rc.15",
-    "@vuepress/plugin-feed": "2.0.0-rc.47",
-    "@vuepress/plugin-pwa": "2.0.0-rc.47",
-    "@vuepress/plugin-theme-data": "2.0.0-rc.47",
+    "@vuepress/bundler-vite": "2.0.0-rc.17",
+    "@vuepress/plugin-feed": "2.0.0-rc.52",
+    "@vuepress/plugin-pwa": "2.0.0-rc.52",
+    "@vuepress/plugin-theme-data": "2.0.0-rc.52",
     "@vueuse/core": "^10.11.1",
     "commitizen": "^4.3.1",
-    "cz-git": "^1.9.4",
-    "eslint": "^9.11.1",
+    "cz-git": "^1.10.1",
+    "eslint": "^9.12.0",
     "husky": "^9.1.6",
     "inquirer": "^9.3.7",
     "mathjax-full": "^3.2.2",
-    "mermaid": "^11.2.1",
+    "mermaid": "^11.3.0",
     "nano-staged": "^0.8.0",
     "prettier": "^3.3.3",
     "stylelint": "^16.9.0",
-    "vuepress-plugin-components": "2.0.0-rc.54",
-    "vuepress-theme-hope": "2.0.0-rc.56"
+    "vuepress-plugin-components": "2.0.0-rc.57",
+    "vuepress-theme-hope": "2.0.0-rc.58"
   },
   "config": {
     "commitizen": {
