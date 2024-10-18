@@ -93,6 +93,13 @@ export const zhSidebar = sidebar({
           collapsible: true,
         },
         {
+          text: "Git",
+          icon: "/assets/svg/github.svg",
+          prefix: "github/",
+          children: "structure",
+          collapsible: true,
+        },
+        {
           text: "TypeScript",
           icon: "/assets/svg/ts.svg",
           prefix: "ts/",

@@ -18,6 +18,9 @@ export const markdown: MarkdownEnhanceOptions = {
   mermaid: true,
   tasklist: true,
   component: true,
+  markdownTabs: {
+    tabs: true,
+  },
   playground: {
     presets: ["ts", "vue"],
   },

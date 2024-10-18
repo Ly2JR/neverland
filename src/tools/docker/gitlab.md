@@ -12,6 +12,10 @@ tag:
 
 群晖自带的Git Server没有可视化管理，因此通过docker部署[gitlab](https://about.gitlab.com/)实现代码管理
 
+::: tips
+相关问题参考[git命令](../github/command.md)
+:::
+
 ## Docker Desktop
 
 Docker Desktop 在Docker Hub里搜索`gitlab/gitlab-ce:latest`拉取即可
@@ -78,5 +82,50 @@ gitlab-rake "gitlab:password:reset[root]"
 ## docker compose
 
 ```yml
+services:
+  gitlab:
+    container_name: GITLAB
+    image: 'gitlab/gitlab-ce:17.4.2-ce.0'
+    restart: always
+    hostname: '127.0.0.1'
+    environment:
+      TZ: Asia/Beijing
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://127.0.0.1:8888'
+        nginx['enable']=true
+        nginx['client_max_body_size']='1024m'
+        nginx['redirect_http_to_https']=true
+        nginx['ssl_certificate']='/etc/gitlab/ssl/XXX.crt'
+        nginx['ssl_certificate_key']='/etc/gitlab/ssl/XXX.key'
+        gitlab_rails['time_zone']='Beijing'
+        gitlab_rails['backup_path']='/var/opt/gitlab/backups'
+        gitlab_rails['backup_keep_time']=604800
+        gitlab_rails['backup_pg_schema']='public'
+        gitlab_rails['backup_archive_permissions']=0644
+        gitlab_rails['smtp_enable'] = true
+        gitlab_rails['smtp_address'] = 'XXX'
+        gitlab_rails['smtp_port'] = 465
+        gitlab_rails['smtp_user_name'] = 'XXX'
+        gitlab_rails['smtp_password'] = 'XXX'
+        gitlab_rails['smtp_authentication'] = 'login'
+        gitlab_rails['smtp_tls'] = true
+        gitlab_rails['gitlab_email_from'] = 'XXX'
+        letsencrypt['enable'] = false
+        letsencrypt['auto_renew'] = false
+    ports:
+      - '8888:8888'
+    volumes:
+      - X:/Gitlab/data:/var/opt/gitlab
+      - X:/Gitlab/config:/etc/gitlab
+      - X:/Gitlab/log:/var/log/gitlab
+```
 
+### 重置密码
+
+```bash
+gitlab-rail console -e production
+u=User.where(id:1).first
+u.passwird='newpassword'
+u.password_confirmation='newpassword'
+u.save!
 ```
