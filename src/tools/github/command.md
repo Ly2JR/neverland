@@ -20,7 +20,7 @@ git config --list
 
 ### 配置ssl
 
-::: tips
+::: tip
 出现`SSL certificate problem:unable to get local issuer certificate`错误时使用
 :::
 
@@ -96,6 +96,12 @@ git remote -v
 
 ```bash
 git remote add orgin http://XXXX.git
+```
+
+## 删除url
+
+```bash
+git remote remove orgin
 ```
 
 ## 推送

@@ -12,16 +12,17 @@ category:
 
 以[阿里云解析](aliyun-ddns.md)为例，镜像：`ali.ddns-image`，容器：`neverland/ali.ddns`
 
-## 注销登录
-
-```bash
-docker logout
-```
 
 ## 登录
 
 ```bash
 docker login XXX
+```
+
+## 注销登录
+
+```bash
+docker logout
 ```
 
 ## [docker build](https://docs.docker.com/engine/reference/commandline/build/)生成镜像
@@ -72,6 +73,12 @@ docker stop neverland/ali.ddns
 docker rm neverland/ali.ddns
 ```
 
+## [docker images](https://docs.docker.com/reference/cli/docker/image/ls/)查看镜像
+
+```bash
+docker images
+```
+
 ## [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/)删除镜像
 
 ::: tabs
@@ -113,11 +120,11 @@ docker login 127.0.0.1:5000/ali.ddns:v1
 ### [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)标记镜像
 
 ```bash
-docker tag ali.ddns-image 127.0.0.1:5000/ali.ddns:v1
+docker tag ali.ddns-image:1.0.1 127.0.0.1:5000/ali.ddns:1.0.1
 ```
 
 ### [docker push](https://docs.docker.com/engine/reference/commandline/push/)上传镜像
 
 ```bash
-docker push 127.0.0.1:5000/ali.ddns:v1
+docker push 127.0.0.1:5000/ali.ddns:1.0.1
 ```

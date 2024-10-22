@@ -12,7 +12,7 @@ tag:
 
 群晖自带的Git Server没有可视化管理，因此通过docker部署[gitlab](https://about.gitlab.com/)实现代码管理
 
-::: tips
+::: tip
 相关问题参考[git命令](../github/command.md)
 :::
 
