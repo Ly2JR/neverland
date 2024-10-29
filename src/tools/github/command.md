@@ -36,6 +36,12 @@ git config --global http.sslCAInfo X:\\XXX.crt
 git config --global http.sslVerify false
 ```
 
+`gitlab`如果与其他冲突产生证书问题
+
+```bash
+git config --global http.sslBackend schannel
+```
+
 ## 配置accesstoken
 
 access token:`xxxxxxx`
