@@ -80,6 +80,18 @@ git init -b main
 git branch -v
 ```
 
+## 重命名分支
+
+```bash
+git branch -m <new-branch>
+```
+
+## 删除分支
+
+```bash
+git branch -d <old-branch>
+```
+
 ## 添加文件
 
 ```bash
@@ -101,25 +113,25 @@ git remote -v
 ## 添加url
 
 ```bash
-git remote add orgin http://XXXX.git
+git remote add origin http://XXXX.git
 ```
 
 ## 删除url
 
 ```bash
-git remote remove orgin
+git remote remove origin
 ```
 
 ## 推送
 
 ```bash
-git push orgin main
+git push origin main
 ```
 
 ## 拉取
 
 ```bash
-git pull orgin main
+git pull origin main
 ```
 
 ## 更改远程url
