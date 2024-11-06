@@ -1,8 +1,6 @@
 ---
 title: 命令模式
 date: 2023-06-17
-dir.order: 6
-order: 6
 editLink: false
 footer: false
 category:

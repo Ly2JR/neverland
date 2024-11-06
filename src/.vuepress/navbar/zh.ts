@@ -38,7 +38,7 @@ export const zhNavbar = navbar([
       },
       {
         text: "工具箱",
-        link: "tools/regular-expressions.md",
+        link: "tools/regular_expressions.md",
       },
     ],
   },

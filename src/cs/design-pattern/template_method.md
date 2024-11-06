@@ -1,8 +1,6 @@
 ---
 title: 模板方法
 date: 2023-06-17
-dir.order: 22
-order: 22
 editLink: false
 footer: false
 category:

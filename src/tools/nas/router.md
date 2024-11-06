@@ -2,8 +2,6 @@
 title: 路由
 date: 2023-05-22
 isOriginal: true
-dir.order: 3
-order: 3
 category:
   - 工具箱
 tag:

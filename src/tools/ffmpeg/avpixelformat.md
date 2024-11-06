@@ -1,7 +1,6 @@
 ---
 title: 像素格式
 date: 2023-06-16
-dir.order: 1
 editLink: false
 footer: false
 isOriginal: true

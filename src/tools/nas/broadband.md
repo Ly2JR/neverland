@@ -1,8 +1,6 @@
 ---
 title: 宽带
 date: 2023-05-22
-dir.order: 1
-order: 1
 isOriginal: true
 category:
   - 工具箱

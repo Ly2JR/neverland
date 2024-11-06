@@ -1,8 +1,6 @@
 ---
 title: 互操作
 date: 2023-06-25
-dir.order: 3
-order: 3
 editLink: false
 footer: false
 category:

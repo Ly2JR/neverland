@@ -1,8 +1,6 @@
 ---
 title: 启动虚拟化错误
 date: 2023-05-23
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 isOriginal: true

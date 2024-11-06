@@ -1,8 +1,6 @@
 ---
 title: Windows10组策略
 date: 2024-06-14
-dir.order: 2
-order: 2
 editLink: false
 footer: false
 isOriginal: true

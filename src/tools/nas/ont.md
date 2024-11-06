@@ -2,8 +2,6 @@
 title: 光猫
 date: 2023-05-20
 isOriginal: true
-dir.order: 2
-order: 2
 category:
   - 工具箱
 tag:

@@ -1,8 +1,6 @@
 ---
 title: 中介者模式
 date: 2023-06-17
-dir.order: 14
-order: 14
 editLink: false
 footer: false
 category:

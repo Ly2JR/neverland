@@ -1,8 +1,6 @@
 ---
 title: 外观模式
 date: 2023-06-17
-dir.order: 9
-order: 9
 editLink: false
 footer: false
 category:

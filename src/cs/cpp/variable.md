@@ -1,8 +1,6 @@
 ---
 title: 类型变量
 date: 2023-06-01
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 isOriginal: true

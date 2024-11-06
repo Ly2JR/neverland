@@ -1,8 +1,6 @@
 ---
 title: 语音合成
 date: 2023-08-04
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 isOriginal: true

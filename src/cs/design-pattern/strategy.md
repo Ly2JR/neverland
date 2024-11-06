@@ -1,8 +1,6 @@
 ---
 title: 策略模式
 date: 2023-06-17
-dir.order: 21
-order: 21
 editLink: false
 footer: false
 category:

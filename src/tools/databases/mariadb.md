@@ -1,8 +1,6 @@
 ---
 title: Mariadb
 date: 2023-08-19
-dir.order: 2
-order: 2
 editLink: false
 footer: false
 isOriginal: true

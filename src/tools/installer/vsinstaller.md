@@ -1,8 +1,6 @@
 ---
 title: VS打包工具
 date: 2023-10-7
-dir.order: 1
-order: 1
 category:
   - 打包
 isOriginal: true

@@ -1,8 +1,6 @@
 ---
 title: 考勤迟到早退统计
 date: 2023-06-19
-dir.order: 3
-order: 3
 editLink: false
 footer: false
 isOriginal: true

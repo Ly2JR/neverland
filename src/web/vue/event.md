@@ -1,8 +1,6 @@
 ---
 title: 禁止事件
 date: 2023-07-14
-dir.order: 4
-order: 4
 editLink: false
 footer: false
 isOriginal: true

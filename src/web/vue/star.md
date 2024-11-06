@@ -1,8 +1,6 @@
 ---
 title: 必填项*
 date: 2023-07-28
-dir.order: 5
-order: 5
 editLink: false
 footer: false
 isOriginal: true

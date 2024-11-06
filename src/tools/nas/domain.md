@@ -1,8 +1,6 @@
 ---
 title: 域名
 date: 2023-06-17
-dir.order: 4
-order: 4
 isOriginal: true
 category:
   - 工具箱

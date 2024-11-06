@@ -1,8 +1,6 @@
 ---
 title: 解释器模式
 date: 2023-06-17
-dir.order: 12
-order: 12
 editLink: false
 footer: false
 category:

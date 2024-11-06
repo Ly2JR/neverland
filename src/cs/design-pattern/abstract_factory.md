@@ -1,8 +1,6 @@
 ---
 title: 抽象工厂
 date: 2023-06-17
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 category:

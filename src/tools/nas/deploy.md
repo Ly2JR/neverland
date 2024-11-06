@@ -1,8 +1,6 @@
 ---
 title: 部署
 date: 2023-06-17
-dir.order: 6
-order: 6
 isOriginal: true
 category:
   - 工具箱

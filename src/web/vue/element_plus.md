@@ -1,8 +1,6 @@
 ---
 title: element-plus
 date: 2023-07-28
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 isOriginal: true

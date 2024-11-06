@@ -1,8 +1,6 @@
 ---
 title: 装饰模式
 date: 2023-06-17
-dir.order: 8
-order: 8
 editLink: false
 footer: false
 category:

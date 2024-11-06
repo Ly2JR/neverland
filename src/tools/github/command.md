@@ -1,8 +1,6 @@
 ---
 title: 常用命令
 date: 2024-10-14
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 isOriginal: true

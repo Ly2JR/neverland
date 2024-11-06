@@ -1,8 +1,6 @@
 ---
 title: 工厂方法模式
 date: 2023-06-17
-dir.order: 10
-order: 10
 editLink: false
 footer: false
 category:

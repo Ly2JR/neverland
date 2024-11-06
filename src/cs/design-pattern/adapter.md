@@ -1,8 +1,6 @@
 ---
 title: 适配器模式
 date: 2023-06-17
-dir.order: 2
-order: 2
 editLink: false
 footer: false
 category:

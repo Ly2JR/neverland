@@ -1,8 +1,6 @@
 ---
 title: 代理模式
 date: 2023-06-17
-dir.order: 18
-order: 18
 editLink: false
 footer: false
 category:

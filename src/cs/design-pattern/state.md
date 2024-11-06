@@ -1,8 +1,6 @@
 ---
 title: 状态模式
 date: 2023-06-17
-dir.order: 20
-order: 20
 editLink: false
 footer: false
 category:

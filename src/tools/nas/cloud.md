@@ -1,8 +1,6 @@
 ---
 title: 私有云
 date: 2023-06-17
-dir.order: 5
-order: 5
 category:
   - 工具箱
 tag:
@@ -56,7 +54,7 @@ flowchart LR
 域名绑定的是静态IP，但是私有云是动态的，体现在重启光猫后IP地址变动。
 
 1. 在套件中心选择`Docker`安装
-2. 在注册表搜索`chenhw2/aliyun-ddns-cli:latest`，或者[参考阿里云ddns](../docker/aliyun-ddns.md)并安装
+2. 在注册表搜索`chenhw2/aliyun-ddns-cli:latest`，或者[参考阿里云ddns](../docker/aliyun_ddns.md)并安装
 3. 进入阿里云[RAM访问控制](https://ram.console.aliyun.com/overview)添加新用户，勾选`OpenApi调用访问`
 
     ![添加新用户](https://nas.ilyl.life:8092/network/cloud1.png)

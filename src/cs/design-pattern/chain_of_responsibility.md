@@ -1,8 +1,6 @@
 ---
 title: 职责链模式
 date: 2023-06-17
-dir.order: 5
-order: 5
 editLink: false
 footer: false
 category:

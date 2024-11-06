@@ -1,8 +1,6 @@
 ---
 title: 私有仓库
 date: 2023-07-17
-dir.order: 2
-order: 2
 editLink: false
 footer: false
 isOriginal: true

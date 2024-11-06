@@ -1,8 +1,6 @@
 ---
 title: 建造者模式
 date: 2023-06-17
-dir.order: 4
-order: 4
 editLink: false
 footer: false
 category:

@@ -1,8 +1,6 @@
 ---
 title: 单例模式
 date: 2023-06-17
-dir.order: 19
-order: 19
 editLink: false
 footer: false
 category:

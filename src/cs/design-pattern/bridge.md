@@ -1,8 +1,6 @@
 ---
 title: 桥接模式
 date: 2023-06-17
-dir.order: 3
-order: 3
 editLink: false
 footer: false
 category:

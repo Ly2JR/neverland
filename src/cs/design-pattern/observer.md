@@ -1,8 +1,6 @@
 ---
 title: 观察者模式
 date: 2023-06-17
-dir.order: 16
-order: 16
 editLink: false
 footer: false
 category:

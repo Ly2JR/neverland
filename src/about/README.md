@@ -2,7 +2,6 @@
 title: 关于
 icon: /assets/svg/me.svg
 date: 2023-05-23
-dir.order: 1
 lastUpdated: false
 editLink: false
 footer: false

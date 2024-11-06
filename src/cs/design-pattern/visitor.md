@@ -1,8 +1,6 @@
 ---
 title: 访问者模式
 date: 2023-06-17
-dir.order: 23
-order: 23
 editLink: false
 footer: false
 category:

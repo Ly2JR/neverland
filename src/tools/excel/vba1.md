@@ -1,8 +1,6 @@
 ---
 title: 考勤时间间隔统计
 date: 2023-06-19
-dir.order: 1
-order: 1
 editLink: false
 footer: false
 isOriginal: true

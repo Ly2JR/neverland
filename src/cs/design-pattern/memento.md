@@ -1,8 +1,6 @@
 ---
 title: 备忘录模式
 date: 2023-06-17
-dir.order: 15
-order: 15
 editLink: false
 footer: false
 category:

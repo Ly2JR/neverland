@@ -1,8 +1,6 @@
 ---
 title: 组合模式
 date: 2023-06-17
-dir.order: 7
-order: 7
 editLink: false
 footer: false
 category:

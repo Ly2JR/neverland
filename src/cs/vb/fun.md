@@ -1,8 +1,6 @@
 ---
 title: 函数、类、模块
 date: 2023-06-25
-dir.order: 2
-order: 2
 editLink: false
 footer: false
 category:

@@ -1,8 +1,6 @@
 ---
 title: 原型模式
 date: 2023-06-17
-dir.order: 17
-order: 17
 editLink: false
 footer: false
 category:
