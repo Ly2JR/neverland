@@ -32,24 +32,23 @@ Add=0
 Add=1
 End Function
 ```
-
 :::
 
 将CRUD操作中的对数据库部分进行提取为`Function`函数，事件本身就是一个`Sub`函数
 
 ```vb
 Public Function CRUD(ByVal sSql As String) As Integer
-Dim conn As New ADODB.Connection
-Dim connString As String
-Dim affected As Integer
-CRUD = 0
-connString = "Provider=SQLOLEDB.1;Data Source=...;Initial Catalog=...;Uid=...;Password=..."
-conn.Open connString
+    Dim conn As New ADODB.Connection
+    Dim connString As String
+    Dim affected As Integer
+    CRUD = 0
+    connString = "Provider=SQLOLEDB.1;Data Source=...;Initial Catalog=...;Uid=...;Password=..."
+    conn.Open connString
 
-conn.Execute sSql, CRUD
+    conn.Execute sSql, CRUD
 
-conn.Close
-Set conn = Nothing
+    conn.Close
+    Set conn = Nothing
 End Function
 ```
 
@@ -86,7 +85,6 @@ Public Property Set TestRecordSet(vData As ADODB.Recordset)
     Set rest = vData
 End Property
 ```
-
 :::
 
 完整的类定义如下：
@@ -184,40 +182,40 @@ Private Const g_connString As String = "Provider=SQLOLEDB.1;Data Source=...;Init
 Private g_conn As ADODB.Connection
 
 Public Sub ConnectDb()
-If g_conn Is Nothing Then
-    Set g_conn = New ADODB.Connection
-End If
-If g_conn.State <> 1 Then
-    g_conn.Open g_connString
-End If
+    If g_conn Is Nothing Then
+        Set g_conn = New ADODB.Connection
+    End If
+    If g_conn.State <> 1 Then
+        g_conn.Open g_connString
+    End If
 End Sub
 
 Public Sub CloseDb()
-If g_conn.State = 1 Then g_conn.Close
- Set g_conn = Nothing
+    If g_conn.State = 1 Then g_conn.Close
+    Set g_conn = Nothing
 End Sub
 
 
 Public Function G_CRUD(ByVal sSql As String) As Integer
 On Error GoTo ErrHandler:
-Dim affected As Integer
-G_CRUD = 0
-ConnectDb
-g_conn.Execute sSql, G_CRUD
-finally:
-    Exit Function
-ErrHandler:
-    MsgBox VBA.Err.Description
-    GoTo finally
+    Dim affected As Integer
+    G_CRUD = 0
+    ConnectDb
+    g_conn.Execute sSql, G_CRUD
+    finally:
+        Exit Function
+    ErrHandler:
+        MsgBox VBA.Err.Description
+        GoTo finally
 End Function
 
 Public Function G_Query(ByVal sSql As String) As ADODB.Recordset
 On Error GoTo ErrHandler:
-Dim rest As New ADODB.Recordset
-If rest.State = 1 Then rest.Close
-ConnectDb
-rest.Open sSql, g_conn, adOpenStatic, adLockReadOnly
-Set G_Query = rest
+    Dim rest As New ADODB.Recordset
+    If rest.State = 1 Then rest.Close
+    ConnectDb
+    rest.Open sSql, g_conn, adOpenStatic, adLockReadOnly
+    Set G_Query = rest
 finally:
     Exit Function
 ErrHandler:

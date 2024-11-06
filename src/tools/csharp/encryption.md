@@ -11,7 +11,116 @@ tag:
   - JAVA
 ---
 
-## AES
+## [AES](https://learn.microsoft.com/zh-cn/dotnet/api/system.security.cryptography.aes?view=net-8.0)
+
+```cs
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Unicode;
+
+string original = "Here is some data to encrypt!";
+string key = "aecsesexs2mjsxg3d98sjrtzdw469sjv";
+byte[] v =
+           {
+                0x12, 0x34, 0x56, 0x78, 0x90, 
+                0xAB, 0xCD, 0xEF, 0x12, 0x34, 
+                0x56, 0x78, 0x90, 0xAB, 0xCD,
+                0xEF
+            };
+// Create a new instance of the Aes
+// class.  This generates a new key and initialization
+// vector (IV).
+using (Aes myAes = Aes.Create())
+{
+    myAes.Key=UTF8Encoding.UTF8.GetBytes(key);
+    myAes.IV = v;
+    // Encrypt the string to an array of bytes.
+    byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
+    // Decrypt the bytes to a string.
+    string roundtrip = DecryptStringFromBytes_Aes(encrypted, myAes.Key, myAes.IV);
+
+    //Display the original data and the decrypted data.
+    Console.WriteLine("Original:   {0}", original);
+    Console.WriteLine("Encrypt:   {0}", Convert.ToBase64String(encrypted));
+    Console.WriteLine("Round Trip: {0}", roundtrip);
+}
+
+static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
+{
+    // Check arguments.
+    if (plainText == null || plainText.Length <= 0)
+        throw new ArgumentNullException("plainText");
+    if (Key == null || Key.Length <= 0)
+        throw new ArgumentNullException("Key");
+    if (IV == null || IV.Length <= 0)
+        throw new ArgumentNullException("IV");
+    byte[] encrypted;
+
+    // Create an Aes object
+    // with the specified key and IV.
+    using (Aes aesAlg = Aes.Create())
+    {
+        aesAlg.Key = Key;
+        aesAlg.IV = IV;
+        // Create an encryptor to perform the stream transform.
+        ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+        // Create the streams used for encryption.
+        using (MemoryStream msEncrypt = new MemoryStream())
+        {
+            using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+            {
+                using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                {
+                    //Write all data to the stream.
+                    swEncrypt.Write(plainText);
+                }
+                encrypted = msEncrypt.ToArray();
+            }
+        }
+    }
+    // Return the encrypted bytes from the memory stream.
+    return encrypted;
+}
+
+static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
+{
+    // Check arguments.
+    if (cipherText == null || cipherText.Length <= 0)
+        throw new ArgumentNullException("cipherText");
+    if (Key == null || Key.Length <= 0)
+        throw new ArgumentNullException("Key");
+    if (IV == null || IV.Length <= 0)
+        throw new ArgumentNullException("IV");
+
+    // Declare the string used to hold
+    // the decrypted text.
+    string plaintext = null;
+
+    // Create an Aes object
+    // with the specified key and IV.
+    using (Aes aesAlg = Aes.Create())
+    {
+        aesAlg.Key = Key;
+        aesAlg.IV = IV;
+        // Create a decryptor to perform the stream transform.
+        ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+        // Create the streams used for decryption.
+        using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+        {
+            using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+            {
+                using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                {
+                    // Read the decrypted bytes from the decrypting stream
+                    // and place them in a string.
+                    plaintext = srDecrypt.ReadToEnd();
+                }
+            }
+        }
+    }
+    return plaintext;
+}
+```
 
 ### CBC加密
 
@@ -116,3 +225,34 @@ private static byte[] aesDecode(byte[] content,String pkey,String secretSalt) th
 ```
 
 :::
+
+## [MD5](https://learn.microsoft.com/zh-cn/dotnet/api/system.security.cryptography.md5?view=net-8.0)
+
+```cs
+static string Encrypt(string plainText)
+{
+    string hash;
+    using (MD5 md5Hash = MD5.Create())
+    {
+        hash = GetMd5Hash(md5Hash, plainText);
+    }
+    return hash;
+}
+
+static string GetMd5Hash(MD5 md5Hash, string input)
+{
+    // Convert the input string to a byte array and compute the hash.
+    var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+    // Create a new Stringbuilder to collect the bytes
+    // and create a string.
+    var sBuilder = new StringBuilder();
+    // Loop through each byte of the hashed data 
+    // and format each one as a hexadecimal string.
+    for (int i = 0; i < data.Length; i++)
+    {
+        sBuilder.Append(data[i].ToString("x2"));
+    }
+    // Return the hexadecimal string.
+    return sBuilder.ToString();
+}
+```

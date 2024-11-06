@@ -92,6 +92,13 @@ export default hopeTheme(
        */
       copyright,
 
+      /**
+       * 启用Markdown Tabs
+       */
+      markdownTab: {
+        tabs: true,
+      },
+
       // /**
       //  * shiki代码高亮
       //  */
