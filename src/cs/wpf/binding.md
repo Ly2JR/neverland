@@ -284,10 +284,10 @@ public class ColorConverter : IValueConverter
 
 多重绑定常与转换器结合使用，将多个值转换为目标单一值。
 
-具体示例可以参考[按钮权限](./static-button-auth.md)
+具体示例可以参考[按钮权限](./static_button_auth.md)
 
 ## [IMultiValueConverter](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.imultivalueconverter?view=windowsdesktop-8.0&viewFallbackFrom=net-8.0)
 
 存在`Binding`、`MultiBinding`、`IValueConverter`，那么肯定也存在`IMultiValueConverter`。
 
-具体示例可以参考[按钮权限](./static-button-auth.md)
+具体示例可以参考[按钮权限](./static_button_auth.md)

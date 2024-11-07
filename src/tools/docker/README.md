@@ -10,7 +10,7 @@ category:
 
 [Docker Cli](https://docs.docker.com/engine/reference/commandline/docker/)
 
-以[阿里云解析](aliyun-ddns.md)为例，镜像：`ali.ddns-image`，容器：`neverland/ali.ddns`
+以[阿里云解析](aliyun_ddns.md)为例，镜像：`ali.ddns-image`，容器：`neverland/ali.ddns`
 
 
 ## 登录

@@ -16,7 +16,7 @@ tag:
 
 实际案例，标准采购价格需要加上额外费用，额外费用维护在货源表字段字段中
 
-前提参考[UI插件](ui-plugin.md)
+前提参考[UI插件](ui_plugin.md)
 
 ```cs {6}
 public override void BeforeEventProcess(IPart Part, string eventName, object sender, EventArgs args, out bool executeDefault)

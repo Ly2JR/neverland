@@ -8,7 +8,7 @@ category:
   - DOCKER
 ---
 
-为了使用自己开发的[阿里云解析](aliyun-ddns.md)而生。
+为了使用自己开发的[阿里云解析](aliyun_ddns.md)而生。
 
 同时解决无法登录及发布Docker Hub的问题。
 

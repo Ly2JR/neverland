@@ -99,6 +99,13 @@ export default hopeTheme(
         tabs: true,
       },
 
+      /**
+       * 启用Markdown Math
+       */
+      markdownMath: {
+        type: "mathjax",
+      },
+
       // /**
       //  * shiki代码高亮
       //  */

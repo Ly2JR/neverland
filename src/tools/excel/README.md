@@ -1,5 +1,5 @@
 ---
-title: 读写操作
+title: Excel开发
 date: 2023-06-19
 editLink: false
 footer: false
@@ -50,3 +50,83 @@ using (OleDbConnection conn = new OleDbConnection(ConnString))
 ```
 
 ## [OPEN-XML](https://learn.microsoft.com/zh-cn/office/open-xml/open-xml-sdk)
+
+## VBA操作
+
+### 设置行高
+
+```vb
+Private Function SetRowHeight(cell1Row As Integer, cell1Col As Integer, cell2Row As Integer, cell2Col As Integer, height As Integer)
+     Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row, cell2Col)).RowHeight = height
+End Function
+```
+
+### 设置列宽
+
+```vb
+Private Function SetColumnWidth(column1 As Integer, column2 As Integer, width As Integer)
+    Sheet1.Range(Cells(1, column1), Cells(1, column2)).ColumnWidth = width
+End Function
+```
+
+### 合并单元格
+
+```vb
+Private Function SetMerger(cell1Row As Integer, cell1Col As Integer, cell2Row As Integer, cell2Col As Integer)
+    Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row, cell2Col)).MergeCells = True
+End Function
+```
+
+### 合并上下两个单元格
+
+```vb
+Private Function SetMergerTopBottom(cell1Row As Integer, cell1Col As Integer, cell2Row As Integer, cell2Col As Integer)
+    For i = cell1Row To cell2Row
+        For j = cell1Col To cell2Col
+            Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row + 1, cell2Col)).MergeCells = True
+        Next j
+        i = i + 1
+    Next i
+End Function
+```
+
+### 设置背景颜色
+
+```vb
+Private Function SetBgRed(cell1Row As Integer, cell1Col As Integer, cell2Row As Integer, cell2Col As Integer)
+    Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row, cell2Col)).Interior.Color = RGB(255, 0, 0)
+End Function
+```
+
+### 设置单元格加粗
+
+```vb
+Private Function SetTableBorderBold(cell1Row As Integer, cell1Col As Integer, cell2Row As Integer, cell2Col As Integer)
+    Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row, cell2Col)).BorderAround , 3, 1
+End Function
+```
+
+### 设置字体加粗
+
+```vb
+Private Function SetFontBold(cell1Row As Integer, cell1Col As Integer, cell2Row As Integer, cell2Col As Integer)
+    Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row, cell2Col)).Font.Bold = True
+End Function
+```
+
+### 设置字体居中
+
+```vb
+Private Function SetFontCenter(cell1Row As Integer, cell1Col As Integer, cell2Row As Integer, cell2Col As Integer)
+    Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row, cell2Col)).HorizontalAlignment = xlCenter
+    Sheet1.Range(Cells(cell1Row, cell1Col), Cells(cell2Row, cell2Col)).VerticalAlignment = xlCenter
+End Function
+```
+
+## 设置单元格内容
+
+```vb
+Private Function SetCellContent(cellRow As Integer, cellCol As Integer, content As String)
+    Sheet1.Cells(cellRow, cellCol).Value = content
+End Function
+```

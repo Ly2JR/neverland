@@ -30,6 +30,52 @@ Nuget需要引用[System.Text.Encoding.CodePages](https://www.nuget.org/packages
 
 特殊区域`D7F0`~`D7F9`
 
+## 打印GB2312
+
+```cs
+List<string> strings = new List<string>();
+for (var i = 11; i < 16; i++)
+{
+    var cha = string.Empty;
+    cha = hexSeed[i];
+    var max2 = i == 15 ? 8 : 16;
+    for (var j = 0; j < max2; j++)
+    {
+        var c2 = hexSeed[j];
+        var temp2 = cha;
+        temp2 += c2;
+        for (var k = 10; k < 16; k++)
+        {
+            var c3 = hexSeed[k];
+            var temp3 = temp2;
+            temp3 += c3;
+            var max4 = 16;
+            if (temp3 == "D7F")
+            {
+                max4 = 10;
+            }
+            else
+            {
+               max4= k == 15 ? 15 : 16;
+            }
+            for (var z = 0; z < max4; z++)
+            {
+                var c4 = hexSeed[z];
+                var temp4 = temp3;
+                temp4 += c4;
+                strings.Add(temp4);
+                Console.Write(temp4+" ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+    }
+}
+Console.WriteLine($"汉字共:{strings.Count}个");
+```
+
+
+## 随机生成指定位数汉字
 ```cs
 using System.Security.Cryptography;
 using System.Text;
@@ -46,48 +92,6 @@ Tuple<int, int, int, int>[] zhHans = [
     new Tuple<int,int,int,int>(10,16,0,0),
     new Tuple<int,int,int,int>(0,16,15,15),
 ];
-
-//打印GB2312
-// List<string> strings = new List<string>();
-// for (var i = 11; i < 16; i++)
-// {
-//     var cha = string.Empty;
-//     cha = hexSeed[i];
-//     var max2 = i == 15 ? 8 : 16;
-//     for (var j = 0; j < max2; j++)
-//     {
-//         var c2 = hexSeed[j];
-//         var temp2 = cha;
-//         temp2 += c2;
-//         for (var k = 10; k < 16; k++)
-//         {
-//             var c3 = hexSeed[k];
-//             var temp3 = temp2;
-//             temp3 += c3;
-//             var max4 = 16;
-//             if (temp3 == "D7F")
-//             {
-//                 max4 = 10;
-//             }
-//             else
-//             {
-//                max4= k == 15 ? 15 : 16;
-//             }
-//             for (var z = 0; z < max4; z++)
-//             {
-//                 var c4 = hexSeed[z];
-//                 var temp4 = temp3;
-//                 temp4 += c4;
-//                 strings.Add(temp4);
-//                 Console.Write(temp4+" ");
-//             }
-//             Console.WriteLine();
-//         }
-//         Console.WriteLine();
-//     }
-// }
-// Console.WriteLine($"汉字共:{strings.Count}个");
-
 var zh = GetZhHans(10);
 Console.Write(zh);
 
@@ -104,8 +108,11 @@ string GetZhHans(int len)
     }
     return sb.ToString();
 }
+```
 
-//随机一个十六进制的汉字
+## 随机一个十六进制的汉字
+
+```cs
 byte[] GeneratorZhHans()
 {
     byte[] charBytes = new byte[2];
@@ -143,3 +150,32 @@ byte[] GeneratorZhHans()
     return charBytes;
 }
 ```
+
+## 返回汉字的区位码
+
+::: tabs
+
+@tab 区位码
+
+```cs
+string zh = "啊";
+var b = new byte[2];
+byte[] p_bt_array = Encoding.GetEncoding("GB2312").GetBytes(zh);
+b[0] = (byte)(p_bt_array[0] - '\0');
+b[1] = (byte)(p_bt_array[1] - '\0');
+Console.WriteLine(b);
+//[176,161]==B0A1
+```
+
+@tab 汉字编码
+
+```cs
+string zh = "啊";
+var zhBinary = Encoding.GetEncoding("GB2312").GetBytes(zh);//使用GB2312编码方式获得字节序列
+var n = zhBinary[0] << 8;//将字节序列的第一个字节向左移动8位
+n += zhBinary[1];//第一个字节移8位后与第二个字节相加得到汉字编码
+Console.WriteLine($"{zh}汉字编码值：{n}");
+//啊汉字编码值：45217
+```
+
+:::

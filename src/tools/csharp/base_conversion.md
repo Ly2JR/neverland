@@ -10,7 +10,110 @@ tag:
   - C#
 ---
 
+## 二进制
+
+### 二进制转八进制
+
+```cs
+var zh = "1010";
+var zhBinary = Convert.ToInt32(zh, 2);
+var eight = Convert.ToString(zhBinary, 8);
+Console.WriteLine($"二进制字符串:{zh},十进制值:{zhBinary},八进制字符串:{eight}");
+//output
+//二进制字符串:10101,十进制值:21,八进制字符串:25
+```
+
+### 二进制转十进制
+
+```cs
+var zh = "10101";
+var zhBinary = Convert.ToInt32(zh, 2);
+var ten = Convert.ToString(zhBinary, 10);
+Console.WriteLine($"二进制字符串:{zh},十进制值:{zhBinary},十进制字符串:{ten}");
+//output
+//二进制字符串:10101,十进制值:21,十进制字符串:21
+```
+
+### 二进制转十六进制
+
+```cs
+var zh = "10101";
+var zhBinary = Convert.ToInt32(zh, 2);
+var hex= Convert.ToString(zhBinary, 16);
+Console.WriteLine($"二进制字符串:{zh},十进制值:{zhBinary},十六进制字符串:{hex}");
+//output
+//二进制字符串:10101,十进制值:21,十六进制字符串:15
+```
+
+## 八进制
+
+### 八进制转二进制
+
+```cs
+var zh = "10101";
+var zhBinary = Convert.ToInt32(zh, 8);
+var binary = Convert.ToString(zhBinary, 2);
+Console.WriteLine($"八进制字符串:{zh},十进制值:{zhBinary},二进制字符串:{binary}");
+//output
+//八进制字符串:10101,十进制值:4161,二进制字符串:1000001000001
+```
+
+### 八进制转十进制
+
+```cs
+var zh = "10101";
+var zhBinary = Convert.ToInt32(zh, 8);
+var ten = Convert.ToString(zhBinary, 10);
+Console.WriteLine($"八进制字符串:{zh},十进制值:{zhBinary},十进制字符串:{ten}");
+//output
+//八进制字符串:10101,十进制值:4161,十进制字符串:4161
+```
+
+### 八进制转十六进制
+
+```cs
+var zh = "10101";
+var zhBinary = Convert.ToInt32(zh, 8);
+var hex = Convert.ToString(zhBinary, 16);
+Console.WriteLine($"八进制字符串:{zh},十进制值:{zhBinary},十六进制字符串:{hex}");
+//output
+//八进制字符串:10101,十进制值:4161,十六进制字符串:1041
+```
+
 ## 十六进制
+
+### 十六进制转二进制
+
+```cs
+var zh = "A1B2";
+var zhBinary = Convert.ToInt32(zh, 16);
+var binary = Convert.ToString(zhBinary, 2);
+Console.WriteLine($"十六进制字符串:{zh},十进制值:{zhBinary},二进制字符串:{binary}");
+//output
+//十六进制字符串:A1B2,十进制值:41394,二进制字符串:1010000110110010
+```
+
+### 十六进制转八进制
+
+```cs
+var zh = "A1B2";
+var zhBinary = Convert.ToInt32(zh, 16);
+var eight = Convert.ToString(zhBinary, 8);
+Console.WriteLine($"十六进制字符串:{zh},十进制值:{zhBinary},八进制字符串:{eight}");
+//output
+//十六进制字符串:A1B2,十进制值:41394,八进制字符串:120662
+```
+
+### 十六进制转十进制
+
+```cs
+var zh = "A1B2";
+var zhBinary = Convert.ToInt32(zh, 16);
+var ten = Convert.ToString(zhBinary, 10);
+Console.WriteLine($"十六进制字符串:{zh},十进制值:{zhBinary},十进制字符串:{ten}");
+//output
+//十六进制字符串:A1B2,十进制值:41394,十进制字符串:41394
+```
 
 ::: tabs
 @tab csharp
@@ -58,7 +161,7 @@ public byte[] parseHexStr2Byte(string hexStr)
 
 ``` java
 /**
-* 将十六进制转换成16进制
+* 将十六进制转换成十六进制
 * @param buf 十六进制
 * @return 转换后字符串
 */
