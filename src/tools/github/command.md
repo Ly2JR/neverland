@@ -111,7 +111,7 @@ git remote -v
 ## 添加url
 
 ```bash
-git remote add origin http://XXXX.git
+git remote add origin https://XXXX.git
 ```
 
 ## 删除url
@@ -135,5 +135,11 @@ git pull origin main
 ## 更改远程url
 
 ```bash
-git remote set-url origin http://xxx.git
+git remote set-url origin https://xxx.git
+```
+
+## 指定分支克隆
+
+```bash
+git clone -b <new branch> https://xxx.git
 ```

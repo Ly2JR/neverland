@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@vuepress/plugin-redirect": "2.0.0-rc.60",
-    "pnpm": "^9.12.3",
+    "pnpm": "^9.13.0",
     "vue": "^3.5.12",
     "vuepress": "2.0.0-rc.18"
   },
@@ -30,7 +30,7 @@
     "@vuepress/plugin-theme-data": "2.0.0-rc.60",
     "@vueuse/core": "^10.11.1",
     "commitizen": "^4.3.1",
-    "cz-git": "^1.10.1",
+    "cz-git": "^1.11.0",
     "eslint": "^9.14.0",
     "husky": "^9.1.6",
     "inquirer": "^9.3.7",
@@ -38,7 +38,7 @@
     "mermaid": "^11.4.0",
     "nano-staged": "^0.8.0",
     "prettier": "^3.3.3",
-    "sass-embedded": "^1.80.6",
+    "sass-embedded": "^1.80.7",
     "stylelint": "^16.10.0",
     "vuepress-plugin-components": "2.0.0-rc.59",
     "vuepress-theme-hope": "2.0.0-rc.59"

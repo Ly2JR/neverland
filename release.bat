@@ -1,3 +1,5 @@
+REM 声明采用UTF-8编码
+chcp 65001
 docker build -t neverland -f Dockerfile .
 echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 docker tag neverland nas.ilyl.life:8093/nas/neverland
