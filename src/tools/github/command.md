@@ -143,3 +143,12 @@ git remote set-url origin https://xxx.git
 ```bash
 git clone -b <new branch> https://xxx.git
 ```
+
+## 代理
+
+如果有科学上网工具，配置代理端口`1`即可
+
+```bash
+git config --global http.proxy http://127.0.0.1:1
+git config --global https.proxy http://127.0.0.1:1
+```
