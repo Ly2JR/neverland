@@ -1,5 +1,5 @@
 # node 构建
-FROM node:23.1.0-slim AS build-stage
+FROM node:23.3.0-slim AS build-stage
 # 署名
 LABEL maintainer="乌龙茶有点甜 <ly2@ilyl.life>"
 # 指定目录
