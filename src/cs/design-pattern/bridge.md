@@ -9,6 +9,8 @@ tag:
   - 设计模式
 ---
 
+![bridge](https://nas.ilyl.life:8092/design-pattern/bridge.png)
+
 参与此模式的类和对象包括：
 
 - Abstraction(`BusinessObject`)

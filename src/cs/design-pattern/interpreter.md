@@ -9,12 +9,14 @@ tag:
   - 设计模式
 ---
 
+![interpreter](https://nas.ilyl.life:8092/design-pattern/interpreter.png)
+
 参与此模式的类和对象包括：
 
 - AbstractExpression(`Expression`)
   - 声明一个用于执行操作的接口
 
-- TerminalExpression(`ThousandExpression`,`HUndredExpression`,`TenExpression`,`OneExpression`)
+- TerminalExpression(`ThousandExpression`，`HUndredExpression`，`TenExpression`，`OneExpression`)
   - 实现与语法中的终结符合关联的解释操作。
   - 句子中的每个终结符号都需要一个实例。
 

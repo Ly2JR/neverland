@@ -9,6 +9,8 @@ tag:
   - 设计模式
 ---
 
+![memento](https://nas.ilyl.life:8092/design-pattern/memento.png)
+
 参与此模式的类和对象包括：
 
 - Memento(`Memento`)

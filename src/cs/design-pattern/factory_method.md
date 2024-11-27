@@ -9,19 +9,21 @@ tag:
   - 设计模式
 ---
 
+![factory](https://nas.ilyl.life:8092/design-pattern/factory.png)
+
 参与此模式的类和对象包括：
 
 - Product(`Page`)
   - 定义工厂方法创建的对象的接口。
 
-- ConcreteProduct(`SkillsPage`,`EducationPage`,`ExperiencePage`)
+- ConcreteProduct(`SkillsPage`，`EducationPage`，`ExperiencePage`)
   - 实现产品接口。
 
 - Creator(`Document`)
   - 声明工厂方法，它返回一个Product类型的对象。Creator还可以定义返回默认ConcreteProduct对象的工厂方法的默认实现。
   - 可以调用工厂方法来创建Product对象。
 
-- ConcreteCreator(`Report`,`Resume`)
+- ConcreteCreator(`Report`，`Resume`)
 
   - 重写工厂方法以返回ConcreteProduct的实例。
 

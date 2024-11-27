@@ -9,6 +9,8 @@ tag:
   - 设计模式
 ---
 
+![proxy](https://nas.ilyl.life:8092/design-pattern/proxy.png)
+
 参与此模式的类和对象包括：
 
 - Proxy(`MathProxy`)

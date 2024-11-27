@@ -9,18 +9,20 @@ tag:
   - 设计模式
 ---
 
+![abstract](https://nas.ilyl.life:8092/design-pattern/abstract.png)
+
 参与此模式的类和对象包括：
 
 - AbstractFactory(`ContinentFactory`)
   - 为创建抽象产品的操作声明一个接口。
 
-- ConcreteFactory(`AfricaFacotry`,`AmericaFactory`)
+- ConcreteFactory(`AfricaFacotry`，`AmericaFactory`)
   - 实现创建具体产品对象的操作。
 
-- AbstractProduct(`Herbivore`,`Carnivore`)
+- AbstractProduct(`Herbivore`，`Carnivore`)
   - 声明一种产品对象的接口。
 
-- Product(`Wildebeest`,`Lion`,`Bison`,`Wolf`)
+- Product(`Wildebeest`，`Lion`，`Bison`，`Wolf`)
   - 定义要由相应的具体工厂创建的产品对象。
   - 实现AbstractProduct接口。
 

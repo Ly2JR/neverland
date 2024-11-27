@@ -9,6 +9,8 @@ tag:
   - 设计模式
 ---
 
+![command](https://nas.ilyl.life:8092/design-pattern/command.png)
+
 参与此模式的类和对象包括：
 
 - Command(`Command`)

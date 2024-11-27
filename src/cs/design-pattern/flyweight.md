@@ -9,6 +9,8 @@ tag:
   - 设计模式
 ---
 
+![flyweight](https://nas.ilyl.life:8092/design-pattern/flyweight.png)
+
 参与此模式的类和对象包括：
 
 - Flyweight(`Character`)

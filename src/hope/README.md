@@ -9,15 +9,22 @@ editLink: false
 footer: false
 ---
 
+- [x] 图床
+
 - [x] 网盘
+
+- [x] Docker
+
+- [x] Gitlab
+  
+- [x] 云数据库
+
+- [x] 邮箱
 
 - [x] 家庭影院
 
-- [x] 图床
-
-- [x] Docker私库
-
-- [ ] Gitlab
 - [ ] 在线工具
+
 - [ ] 密码管理
-- [ ] 基于NAS接口的移动端APP
+
+- [ ] 移动端APP

@@ -9,12 +9,14 @@ tag:
   - 设计模式
 ---
 
+![builder](https://nas.ilyl.life:8092/design-pattern/builder.png)
+
 参与此模式的类和对象包括：
 
 - Builder(`VehicleBuilder`)
   - 指定用于创建Product对象的部分的抽象接口。
 
-- ConcreteBuilder(`MotorCycleBuilder`,`CarBuilder`,`ScooterBuilder`)
+- ConcreteBuilder(`MotorCycleBuilder`，`CarBuilder`，`ScooterBuilder`)
   - 通过实现Builder接口来构造和组装产品的各个部分。
   - 定义并跟踪它创建的表示。
   - 提供检索产品的接口。

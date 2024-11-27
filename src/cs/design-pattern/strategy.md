@@ -9,12 +9,14 @@ tag:
   - 设计模式
 ---
 
+![strategy](https://nas.ilyl.life:8092/design-pattern/strategy.png)
+
 参与此模式的类和对象包括：
 
 - Strategy(`SortStrategy`)
   - 声明所有支持的算法通用的接口。Context使用这个接口调用一个ConcreteStrategy定义的算法。
 
-- ConcreteStrategy(`QuickSort`,`ShellSort`,`MergeSort`)
+- ConcreteStrategy(`QuickSort`，`ShellSort`，`MergeSort`)
   - 使用Strategy接口实现算法。
 
 - Context(`SortedList`)
