@@ -12,11 +12,11 @@ tag:
 
 ## 登陆UBF
 
-打开UBFStudio,点击文件找到登录
+打开UBFStudio，点击文件找到登录
 
 ![登录](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step1.png)
 
-如果没有显示`登录`,点击`报表打印个性化切换`
+如果没有显示`登录`，点击`报表打印个性化切换`
 
 ![报表打印个性化切换](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step2.png)
 
@@ -50,23 +50,23 @@ tag:
 
 显示`测试报表(用户定义)`
 
-4. 右击新建的报表容器`测试报表`,选择`创建报表`
+4. 右击新建的报表容器`测试报表`，选择`创建报表`
 
 ![新建报表](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step9.png)
 
-这里选择`报表`,输入任意名称,这里与报表容器保持一致
+这里选择`报表`，输入任意名称，这里与报表容器保持一致
 
 ![录入报表](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step10.png)
 
 ## 设计报表数据源
 
-默认显示`布局`，点击`数据`切换到数据源,
+默认显示`布局`，点击`数据`切换到数据源
 
 ![数据](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step11.png)
 
 ### 新增数据源
 
-点击`添加数据源`按钮,输入任意名称,如`Db`,提供者类型选择`UFRPT`
+点击`添加数据源`按钮，输入任意名称，如`Db`，提供者类型选择`UFRPT`
 
 ![数据源](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step12.png)
 
@@ -74,13 +74,13 @@ tag:
 
 ![连接串](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step13.png)
 
-服务器选择实际的安装数据库名称,录入登录口令，选择相应的数据库。
+服务器选择实际的安装数据库名称，录入登录口令，选择相应的数据库。
 
 ![新增数据源](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step14.png)
 
 ### 新增数据查询
 
-点击`新增数据查询`按钮，输入任意名称,如`DbQuery`，提供者类型选择`Text`,数据源选择新添加的`Db`
+点击`新增数据查询`按钮，输入任意名称，如`DbQuery`，提供者类型选择`Text`，数据源选择新添加的`Db`
 
 ![新增数据查询](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step15.png)
 
@@ -90,15 +90,15 @@ tag:
 
 ## 设计报表布局
 
-点击`布局`,选择`工具箱`里的`报表控件`，找到`表`，拖拽到布局里的`明细`里
+点击`布局`，选择`工具箱`里的`报表控件`，找到`表`，拖拽到布局里的`明细`里
 
 ![布局](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step17.png)
 
-点击`工具箱`里的`字段`,显示数据源的列,如果显示的是`Column1`，将SQL语句以`;`结尾，重新预览数据即可
+点击`工具箱`里的`字段`，显示数据源的列，如果显示的是`Column1`，将SQL语句以`;`结尾，重新预览数据即可
 
 ![字段](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step18.png)
 
-将`工具箱`里的`字段`,拖拽到`表`里的标题行位置，同事调整表头显示的值
+将`工具箱`里的`字段`，拖拽到`表`里的标题行位置，同事调整表头显示的值
 
 ![表格值](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step19.png)
 
@@ -114,7 +114,7 @@ tag:
 
 ![报表类型](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step21.png)
 
-如果显示的不是`用户定义`而是系统定义,存在UBF安装问题或者文件不全导致
+如果显示的不是`用户定义`而是系统定义，存在UBF安装问题或者文件不全导致
 
 用户程序集部署，如果显示的不是自己的电脑，这是报表服务器未配置正确。
 
@@ -154,11 +154,11 @@ tag:
 
 ### 添加报表条件
 
-打开UBF,找到开发的报表，双击显示设计界面,选择数据
+打开UBF，找到开发的报表，双击显示设计界面，选择数据
 
 ![添加条件](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step29.png)
 
-找到工具栏上的`报表`,点击`报表参数`
+找到工具栏上的`报表`，点击`报表参数`
 
 ![报表参数](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step30.png)
 
@@ -174,7 +174,7 @@ tag:
 
 ![修改当前数据查询](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step33.png)
 
-找到`查询参数`页签,点击中间的按钮，选择当前输入的条件项，左边的名称对应SQL脚本的字段名称或者存储过程的参数名称
+找到`查询参数`页签，点击中间的按钮，选择当前输入的条件项，左边的名称对应SQL脚本的字段名称或者存储过程的参数名称
 
 ![添加条件](https://nas.ilyl.life:8092/yonyou/u9c/report/report_step34.png)
 

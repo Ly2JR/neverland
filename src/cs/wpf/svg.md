@@ -26,7 +26,7 @@ tag:
                   Source="{Binding SvgUrl}" />
 ```
 
-另一种将SVG转换为PATH,对于复杂的SVG，可以使用提供的[SvgXaml](https://github.com/ElinamLLC/SvgXaml)进行转换,将转换的xaml文件拷贝包装为`DrawingImage`。
+另一种将SVG转换为PATH，对于复杂的SVG，可以使用提供的[SvgXaml](https://github.com/ElinamLLC/SvgXaml)进行转换，将转换的xaml文件拷贝包装为`DrawingImage`。
 
 ```xml
 <ResourceDictionary ...

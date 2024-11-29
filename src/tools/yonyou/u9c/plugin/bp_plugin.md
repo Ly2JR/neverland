@@ -86,7 +86,7 @@ BP插件开发相当于系统在执行服务时，在执行服务前后添加的
 
 ### 类文件
 
-`LoginBP.cs`和`LoginBPExend.cs`是同一个文件`LoginBP.cs`,利用`partial`进行代码合并,加`Exend`后缀将业务实现分离出来供开发使用
+`LoginBP.cs`和`LoginBPExend.cs`是同一个文件`LoginBP.cs`，利用`partial`进行代码合并，加`Exend`后缀将业务实现分离出来供开发使用
 
 - LoginBP.cs
 

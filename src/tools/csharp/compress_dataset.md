@@ -14,7 +14,7 @@ tag:
 
 原理就是对DataSet进行序列化，然后对序列化后的数据进行压缩
 
-压缩所需算法，这里使用[GZipStream](https://learn.microsoft.com/zh-cn/dotnet/api/system.io.compression.gzipstream?view=net-8.0)进行压缩,[DataSet.WriteXml](https://learn.microsoft.com/zh-cn/dotnet/api/system.data.dataset.writexml?view=net-8.0)输出XML，[DataSet.ReadXml](https://learn.microsoft.com/zh-cn/dotnet/api/system.data.dataset.readxml?view=net-8.0)读取XML
+压缩所需算法，这里使用[GZipStream](https://learn.microsoft.com/zh-cn/dotnet/api/system.io.compression.gzipstream?view=net-8.0)进行压缩，[DataSet.WriteXml](https://learn.microsoft.com/zh-cn/dotnet/api/system.data.dataset.writexml?view=net-8.0)输出XML，[DataSet.ReadXml](https://learn.microsoft.com/zh-cn/dotnet/api/system.data.dataset.readxml?view=net-8.0)读取XML
 
 ## 模拟DataSet
 

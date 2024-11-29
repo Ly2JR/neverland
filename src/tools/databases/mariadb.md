@@ -14,13 +14,13 @@ tag:
 
 1. NAS->控制面板->终端机和SNMP->终端机->勾选`启动SSH功能`
 2. 利用Xshell登录系统
-3. 进入Mariadb目录,`volume1`为安装目录
+3. 进入Mariadb目录，`volume1`为安装目录
 
     ```cmd
     cd /volume1/@appstore/MariaDB10/usr/local/mariadb10/bin
     ```
 
-4. 进入marialdb,输入以下命令，之后输入密码，登录成功显示`MariaDB[(none)]>`
+4. 进入marialdb，输入以下命令，之后输入密码，登录成功显示`MariaDB[(none)]>`
 
     ```cmd
     ./mysql -u root -p

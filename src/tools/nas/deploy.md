@@ -34,7 +34,7 @@ Https默认443端口可以不输入，其他端口需要加上端口号
 3. 右击`test`选择`管理网站`、选择`浏览`，浏览器出现`Web 服务器被配置为不列出此目录的内容。`，通过`目录浏览`启用它即可，这里不这么做，在浏览器地址之后输入`/1.jpg`，显示图片
 
     ::: tip
-    出现问题不要慌，IIS默认为网站服务的,地址之后隐藏了一个首页地址`Index.html`
+    出现问题不要慌，IIS默认为网站服务的，地址之后隐藏了一个首页地址`Index.html`
     :::
 
     ![新建网站](https://nas.ilyl.life:8092/network/iis2.png)
@@ -151,7 +151,7 @@ server {
   listen 80;
   location /  {
 
-    # Force HTTPS,更改自己的域名
+    # Force HTTPS，更改自己的域名
     return 301 https://blog.ilyl.life:8088;
   }
 }

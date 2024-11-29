@@ -17,7 +17,7 @@ tag:
 ::: tip
 C#调用VB：在开发环境生产xxx.dll时自动注册，生产环境需要[regsvr32](https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/regsvr32)进行注册
 
-VB调用C#：需要将C#类库设置为互COM操作,开发环境自动注册，生产环境需要[regasm](https://learn.microsoft.com/zh-cn/dotnet/framework/tools/regasm-exe-assembly-registration-tool)生成tlb文件。
+VB调用C#：需要将C#类库设置为互COM操作，开发环境自动注册，生产环境需要[regasm](https://learn.microsoft.com/zh-cn/dotnet/framework/tools/regasm-exe-assembly-registration-tool)生成tlb文件。
 :::
 
 ![效果](https://nas.ilyl.life:8092/vb/vb5.gif)

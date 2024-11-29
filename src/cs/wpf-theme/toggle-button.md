@@ -48,7 +48,7 @@ tag:
 
 ### 尺寸
 
-通过`Size`控制ToggleButton大小,默认提供三种效果选项`Small`、`Default`以及`Large`
+通过`Size`控制ToggleButton大小，默认提供三种效果选项`Small`、`Default`以及`Large`
 
 ![Size](https://nas.ilyl.life:8092/wpf-theme/toggle-button/togglebutton-size.gif)
 

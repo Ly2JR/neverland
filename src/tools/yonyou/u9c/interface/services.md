@@ -26,15 +26,15 @@ U9C的所有接口都是该种服务，即是WCF服务。
 
 ![服务项目](https://nas.ilyl.life:8092/yonyou/u9c/interface/services/services2.png)
 
-切换`模型视图`页签选择顶级节点`RestSV`,然后切换到`属性`页签，更改`配件名`
+切换`模型视图`页签选择顶级节点`RestSV`，然后切换到`属性`页签，更改`配件名`
 
 ![更改配件名](https://nas.ilyl.life:8092/yonyou/u9c/interface/services/services3.gif)
 
-切换`模型视图`页签选择倒数第二节点命名空间`RestSV`,然后切换到`属性`页签，更改`名称`
+切换`模型视图`页签选择倒数第二节点命名空间`RestSV`，然后切换到`属性`页签，更改`名称`
 
 ![更改名称](https://nas.ilyl.life:8092/yonyou/u9c/interface/services/services4.gif)
 
-切换`模型视图`页签，双击打开末级节点类图`RestSV`,将工具箱`服务`拖拽到类图中。
+切换`模型视图`页签，双击打开末级节点类图`RestSV`，将工具箱`服务`拖拽到类图中。
 
 右击`服务`属性，更改`名称`、`显示名称`
 

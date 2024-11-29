@@ -52,7 +52,7 @@ private void AlertItem_Close(object sender, RoutedEventArgs e)
 
 你可以通过为Alert组件添加图标来提高可读性。
 
-通过设置`ShowIcon`属性来显示Alert的Icon,这能更有效地向用户展示你的显示意图。
+通过设置`ShowIcon`属性来显示Alert的Icon，这能更有效地向用户展示你的显示意图。
 
 ![showicon](https://nas.ilyl.life:8092/wpf-theme/alert/alert-showicon.png)
 

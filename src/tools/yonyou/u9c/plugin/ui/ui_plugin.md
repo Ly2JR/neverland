@@ -304,12 +304,12 @@ WebPartExtend_StandardSOMainUIFormWebPart.config文件参考xml结构说明
 ### 控件问题
 
 ::: tip
-如上面的`Toolbar`,`Card`，`DDBtnOperation`并不是一成不变，通过DevTool工具查找ID
+如上面的`Toolbar`，`Card`，`DDBtnOperation`并不是一成不变，通过DevTool工具查找ID
 :::
 
 - 关于为什么是`Toolbar1`、`Card0`以及`DDBtnOperation`问题?
 
-因为是Web端,通过`ID`确定控件,`Toolbar1`,`Card0`以及`DDBtnOperation`父控件的ID。
+因为是Web端，通过`ID`确定控件，`Toolbar1`，`Card0`以及`DDBtnOperation`父控件的ID。
 
 ![找Toolbar控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-toolbar.png)
 
@@ -325,13 +325,13 @@ WebPartExtend_StandardSOMainUIFormWebPart.config文件参考xml结构说明
  CommonFunction.Layout(Card0, btnTest2, 18, 0);
  ```
 
- 第三个参数`18`,在ID为`Card0`的控件下，按钮是以`td`进行占位，然后在隔一个`td`，看实际页面按钮个数*2即是新按钮的位置。
+ 第三个参数`18`，在ID为`Card0`的控件下，按钮是以`td`进行占位，然后在隔一个`td`，看实际页面按钮个数*2即是新按钮的位置。
 
 ## xml结构
 
 约定文件名称：`WebPartExtend_自定义单据.config`
 
-例如销售订单UI,`WebPartExtend_StandardSOMainUIFormWebPart.config`
+例如销售订单UI，`WebPartExtend_StandardSOMainUIFormWebPart.config`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -351,7 +351,7 @@ xml节点配置大部分固定，只需更改`ExtendedPart`节点下的属性值
 
 `extendedPartAssemblyName`:插件的程序集
 
-`extendedPartFullName`：插件类全名,格式`项目名.类名`
+`extendedPartFullName`：插件类全名，格式`项目名.类名`
 
 ## 部署
 

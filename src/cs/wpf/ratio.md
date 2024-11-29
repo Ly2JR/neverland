@@ -18,7 +18,7 @@ tag:
 
 屏幕比例即屏幕的宽度和高度的比例。
 
-常见的有:`4:3`,`16:9`。
+常见的有:`4:3`，`16:9`。
 
 这里需要用到它们的比值即：
 
@@ -39,7 +39,7 @@ tag:
 
 这里又涉及到另外一个问题，[Image.Stretch](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.image.stretch?view=windowsdesktop-7.0)属性，[Stretch枚举](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.media.stretch?view=windowsdesktop-7.0#system-windows-media-stretch-uniform)效果。
 
-上部分显示视频通过装饰器调整显示比例，下部分视频为原始视频大小,只调整了Stretch模式。
+上部分显示视频通过装饰器调整显示比例，下部分视频为原始视频大小，只调整了Stretch模式。
 
 1. `Stretch="None"`：Image比输出源区域小，不能完整的显示视频源大小
 

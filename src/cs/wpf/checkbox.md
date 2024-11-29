@@ -30,7 +30,7 @@ tag:
  </Border>
 ```
 
-最里层的"√"也是使用Border,并对它进行旋转
+最里层的"√"也是使用Border，并对它进行旋转
 
 ```xml
 <Border

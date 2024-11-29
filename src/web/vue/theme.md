@@ -107,11 +107,11 @@ function changeVar() {
 - 使用[setProperty](https://developer.mozilla.org/zh-CN/docs/Web/API/CSSStyleDeclaration/setProperty)
 
 ::: warning
-麻了,[`vue-demo`](https://plugin-md-enhance.vuejs.press/zh/guide/demo/vue.html#%E6%A0%BC%E5%BC%8F)使用[`ShadowDom`](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components/Using_shadow_DOM)隔离，无法使用[`ref`](https://cn.vuejs.org/guide/essentials/template-refs.html#ref-on-component)。
+麻了，[`vue-demo`](https://plugin-md-enhance.vuejs.press/zh/guide/demo/vue.html#%E6%A0%BC%E5%BC%8F)使用[`ShadowDom`](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components/Using_shadow_DOM)隔离，无法使用[`ref`](https://cn.vuejs.org/guide/essentials/template-refs.html#ref-on-component)。
 
-通过直接对`document`操作。使用[`document.querySelector`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector),[`document.getElementById`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/getElementById)来获取元素 Dom。
+通过直接对`document`操作。使用[`document.querySelector`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector)，[`document.getElementById`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/getElementById)来获取元素 Dom。
 
-`ShadowDom`内访问外部元素，请加上`window`,使用`window.document`即可。
+`ShadowDom`内访问外部元素，请加上`window`，使用`window.document`即可。
 :::
 
 ::: vue-demo setProperty
@@ -168,7 +168,7 @@ export default {
 - 使用[CSS](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics)
 
 ::: info 场景
-有一个现成的框架,实现了`深色模式`,现在要添加自己的页面，如何让自定义页面随着深色模式开启而自动启动。
+有一个现成的框架，实现了`深色模式`，现在要添加自己的页面，如何让自定义页面随着深色模式开启而自动启动。
 :::
 
 ::: vue-demo CSS

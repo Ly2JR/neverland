@@ -23,7 +23,7 @@ tag:
 |2|[prettier](https://prettier.io/)|格式化代码|
 |3|[stylelint](https://stylelint.io/)|检查css问题并修复|
 |4|[husky](https://typicode.github.io/husky/)|Git钩子|
-|5|[nano-staged](https://github.com/usmanyunusov/nano-staged#readme)|轻量级的,将检查范围定位在提交的文件中,同[lint-staged](https://github.com/okonet/lint-staged#readme)|
+|5|[nano-staged](https://github.com/usmanyunusov/nano-staged#readme)|轻量级的，将检查范围定位在提交的文件中，同[lint-staged](https://github.com/okonet/lint-staged#readme)|
 |6|[commitlint](https://commitlint.js.org/#/)|配置提交约定|
 |7|[cz-commitlint](https://www.npmjs.com/package/@commitlint/cz-commitlint)|提交时选择|
 

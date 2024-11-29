@@ -422,7 +422,7 @@ select @str;
 drop trigger if exists mysql_test.customers_insert_trigger;
 ```
 
-创建触发器  insert 用new 虚拟表,delete 用OLD 虚拟表，UPDATE 用OLD虚拟表之前的数据，NEW 虚拟表更新的值
+创建触发器  insert 用new 虚拟表，delete 用OLD 虚拟表，UPDATE 用OLD虚拟表之前的数据，NEW 虚拟表更新的值
 
 ```sql
 create trigger mysql_test.customers_insert_trigger after insert 
@@ -490,7 +490,7 @@ on mysql_test.customers
 to 'zhangsan'@'localhost';
 ```
 
-### 分配用户及权限(已过时),用户和权限分开不在合并一起
+### 分配用户及权限(已过时)，用户和权限分开不在合并一起
 
 ```sql
 grant select,update on mysql_test.customers
@@ -510,7 +510,7 @@ grant all on mysql_test.* to 'wangwu'@'localhost';
 grant create user on *.* to 'wangwu'@'localhost';
 ```
 
-### 授予表权限时,语法项“priv_type” 可以指定维以下值
+### 授予表权限时，语法项“priv_type” 可以指定维以下值
 
 SELECT:
 INSERT:
@@ -524,7 +524,7 @@ DROP:
 ALL或ALL PRIVILEGES
 
 授予列权限时，语法项"priv_type"的值只能指定为SELECT、INSERT、UPDATE
-授予数据库权限时,语法项"priv_type"的值指定为以下值
+授予数据库权限时，语法项"priv_type"的值指定为以下值
 SELECT:
 INSERT:
 DELETE:

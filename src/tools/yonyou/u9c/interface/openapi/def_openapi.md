@@ -15,7 +15,7 @@ tag:
 这时支持两种OPENAPI方式，一种是带鉴权的与标准OPENAPI一致，另外一种是不带鉴权的。
 
 ::: tip
-自定义控制器不能与现有控制器重名,并需要安装相关补丁
+自定义控制器不能与现有控制器重名，并需要安装相关补丁
 :::
 
 ## 鉴权
@@ -79,7 +79,7 @@ public class TestController: OpenAPIController
 
 ## 不带鉴权
 
-不带鉴权与带鉴权类似，继承`ApiController`,在调试时少一步获取授权码接口。
+不带鉴权与带鉴权类似，继承`ApiController`，在调试时少一步获取授权码接口。
 
 引用四个文件`UFSoft.UBF.MVC`、`System.Web.Http`、`UFIDA.U9.CBO.PubSV`和`UFSoft.UBF.AopFrame`
 

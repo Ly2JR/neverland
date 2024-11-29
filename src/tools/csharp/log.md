@@ -82,7 +82,7 @@ protected override void OnExit(ExitEventArgs e)
 创建一个新类
 
 ::: tip
-在Prism中,构造函数里的`ILogger<T>`无法注入，改为`ILogger`即可
+在Prism中，构造函数里的`ILogger<T>`无法注入，改为`ILogger`即可
 :::
 
 ```cs{3}

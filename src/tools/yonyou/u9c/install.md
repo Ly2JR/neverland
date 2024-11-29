@@ -27,7 +27,7 @@ Windows8系统以上，具体看软件下载相关软件的系统要求。
 
 1. 打开`控制面板`
 2. 找到`程序`
-3. 打开`程序和功能`,快捷方式在`运行`里输入`appwiz.cpl`
+3. 打开`程序和功能`，快捷方式在`运行`里输入`appwiz.cpl`
 4. 打开`启动或关闭Windows功能`
 5. 全选`Internet Information Services`和`Internet Information Services可承载的Web核心`
 
@@ -56,9 +56,9 @@ Windows8系统以上，具体看软件下载相关软件的系统要求。
 - 配置报表服务器
 
 1. `服务账户`改为`使用其他账户`即当前电脑登陆账户`电脑名\账户名`
-2. `Web服务URL`点击应用,生成报表服务,地址形式`http://电脑名:80/ReportServer`
+2. `Web服务URL`点击应用，生成报表服务，地址形式`http://电脑名:80/ReportServer`
 3. `数据库`点击更改数据库，新建数据库，凭证使用`SQL凭证`
-4. `Web门户URL`点击应用,生成门户URL，地址形式`http://电脑名:90/Reports`
+4. `Web门户URL`点击应用，生成门户URL，地址形式`http://电脑名:90/Reports`
 5. `加密密钥`点击`删除`即删除加密的内容，在点击`更改`
 
 
@@ -92,10 +92,10 @@ U9C和UBF以管理员方式运行安装，相关配置见相关文档，各种�
 
 1. U9C打开报表提示各种未能加载程序集
 
-例如"报表查询过程报错assembly. Details: 未能加载文件或程序集“UFSoft.UBF.Report.Base,"
+例如"报表查询过程报错assembly. Details: 未能加载文件或程序集“UFSoft.UBF.Report.Base"
 
-使用`Everything`搜索`UFSoft.UBF.Report.base.dll`,赋值其中一个放到`Sql Server 2022 Reporting Servers`安装下`C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer`放在`Bin`目录下即可
+使用`Everything`搜索`UFSoft.UBF.Report.base.dll`，赋值其中一个放到`Sql Server 2022 Reporting Servers`安装下`C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer`放在`Bin`目录下即可
 
 2. UBF无法发布报表，删除用户方案失败
 
-使用`Everything`搜索提示的文件错误,如`UFSOFT.UBF.View.Query.dll`，找到最大或者最新的一个文件，替换UBF安装目录下的文件即可
+使用`Everything`搜索提示的文件错误，如`UFSOFT.UBF.View.Query.dll`，找到最大或者最新的一个文件，替换UBF安装目录下的文件即可

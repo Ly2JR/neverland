@@ -81,8 +81,7 @@ docker compose up
  server {
     listen 80;
     location /  {
-
-        # Force HTTPS,更改自己的域名
+        # Force HTTPS，更改自己的域名
         return 301 https://blog.ilyl.life:8088;
     }
  }

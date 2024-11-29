@@ -52,7 +52,7 @@ tag:
 </Style>
 ```
 
-在`PrismApplication`类注册需要导航的用户控件,VM中需要继承`INavigationAware`
+在`PrismApplication`类注册需要导航的用户控件，VM中需要继承`INavigationAware`
 
 ```cs
  protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -106,9 +106,9 @@ private void CloseTab(object obj)
 
 ![IsNavigationTarget](https://nas.ilyl.life:8092/wpf/tabcontrol3.gif)
 
-当IsNavigationTarget为`True`时，无论请求导航多少次,View和ViewModel始终为同一个实例。
+当IsNavigationTarget为`True`时，无论请求导航多少次，View和ViewModel始终为同一个实例。
 
-当IsNavigationTarget为`False`时，请求导航多少次,View和ViewModel就有多少个。
+当IsNavigationTarget为`False`时，请求导航多少次，View和ViewModel就有多少个。
 
 ## 如何关闭全部Tab页
 
@@ -164,7 +164,7 @@ public class Message
 {
     /// <summary>
     ///  空值:全部接收
-    ///  否则,指定接收
+    ///  否则，指定接收
     /// </summary>
     public string Receiver { get; set; }
 

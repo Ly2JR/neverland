@@ -177,24 +177,24 @@ tag:
 
 ### 代码
 
-以功能权限`CRUD`为例,通过[Flags](https://learn.microsoft.com/zh-cn/dotnet/api/system.flagsattribute?view=net-7.0)实现
+以功能权限`CRUD`为例，通过[Flags](https://learn.microsoft.com/zh-cn/dotnet/api/system.flagsattribute?view=net-7.0)实现
 
 ![权限](https://nas.ilyl.life:8092/dotnet/flags.png)
 
 ```cs
 AuthFlag menu = AuthFlag.None;
 var suc = HasAuth(menu, "1");
-Console.WriteLine($"检查新增权限:1,检查结果:{suc}");
+Console.WriteLine($"检查新增权限:1，检查结果:{suc}");
 
 Console.WriteLine("添加新增权限:1");
 AddAuth(ref menu, "1");
 suc = HasAuth(menu, "1");
-Console.WriteLine($"检查新增权限:1,检查结果:{suc}");
+Console.WriteLine($"检查新增权限:1，检查结果:{suc}");
 
 Console.WriteLine("移除新增权限:1");
 RemoveAuth(ref menu, "1");
 suc = HasAuth(menu, "1");
-Console.WriteLine($"检查新增权限:1,检查结果:{suc}");
+Console.WriteLine($"检查新增权限:1，检查结果:{suc}");
 
 AuthFlag allMenu = AuthFlag.Query| AuthFlag.Add|AuthFlag.Update|AuthFlag.Delete| AuthFlag.Output;
 Console.WriteLine($"所有权限值:{(int)allMenu}");

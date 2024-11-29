@@ -75,7 +75,7 @@ await PrintTaskAsync(3);
 // PrintTaskAsync---12:11:14
 ```
 
-方法`PrintAsync`应该输出三次,但实际只输出了一次，为何？
+方法`PrintAsync`应该输出三次，但实际只输出了一次，为何？
 
 断点调试，发现执行`await Task.Delay(1000);`时程序结束了，这里又产生了一个问题，为何结束了，不继续执行？
 
@@ -134,7 +134,7 @@ PrintAsync(3);
 Print();
 ```
 
-由于`PrintAsync`执行输出第一条信息时，等待`await Task.Delay(1000);`执行前，代码继续执行之后的`Print`方法，由于`Print`需要耗时3秒，在等待`Print`输出结果时,`PrintAsync`又继续输出了第二条信息，甚至第三条。
+由于`PrintAsync`执行输出第一条信息时，等待`await Task.Delay(1000);`执行前，代码继续执行之后的`Print`方法，由于`Print`需要耗时3秒，在等待`Print`输出结果时，`PrintAsync`又继续输出了第二条信息，甚至第三条。
 
 当`Print`耗时时间小于`PrintAsync`时，`PrintAsync`输出记录数是不全的。
 
@@ -165,13 +165,13 @@ Print();
 
 如果不想使用`await Task.Delay(1000);`输出三次那么使用`Thread.Sleep(1000);`达到目标。
 
-如果非要使用`await Task.Delay(1000)`实现间隔等待，将`void`返回类型改为`Task`即可,这也是为什么推荐无参数返回时推荐使用`Task`的原因。
+如果非要使用`await Task.Delay(1000)`实现间隔等待，将`void`返回类型改为`Task`即可，这也是为什么推荐无参数返回时推荐使用`Task`的原因。
 
 另外也可以将`Print`方法改为异步。
 
 ## 异步
 
-在上面同步使用时,分析得出了`await`、`async`就是异步执行。
+在上面同步使用时，分析得出了`await`、`async`就是异步执行。
 
 那么如何
 将一个同步方法改为异步。

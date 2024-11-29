@@ -28,7 +28,7 @@ Https证书:`XXX.crt`
 git config --global http.sslCAInfo X:\\XXX.crt
 ```
 
-如果是低版本的Git,可以关闭ssl验证
+如果是低版本的Git，可以关闭ssl验证
 
 ```bash
 git config --global http.sslVerify false

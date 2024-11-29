@@ -111,7 +111,7 @@ tag:
 
 ![旋转30°](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step2.png)
 
-通过改变`Angle`的值,产生了让圆点按圆形运动的效果，并且WPF支持动画。
+通过改变`Angle`的值，产生了让圆点按圆形运动的效果，并且WPF支持动画。
 
 ## 匀速运动
 
@@ -127,9 +127,9 @@ tag:
 
 `Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"`：附加属性设置目标元素下的具体属性
 
-`<LinearDoubleKeyFrame KeyTime="0" Value="0" />`：设置在`0`秒时,圆点的`Angle`的角度为`0`
+`<LinearDoubleKeyFrame KeyTime="0" Value="0" />`：设置在`0`秒时，圆点的`Angle`的角度为`0`
 
-`<LinearDoubleKeyFrame KeyTime="00:00:4" Value="720" />`：设置在`4`秒时,圆点的`Angle`的角度为`720`
+`<LinearDoubleKeyFrame KeyTime="00:00:4" Value="720" />`：设置在`4`秒时，圆点的`Angle`的角度为`720`
 
 ```xml{3-5}
 <Storyboard
@@ -307,7 +307,7 @@ tag:
 
 发现在运动一段时间后，圆点重叠了，虽然每个点的动画在起时时角度不一样，但是在终止时间4秒的角度都是`720`度。
 
-因此需要调整每个圆点在`4`秒时的角度，设置`RepeatBehavior`为`Forever`,这样动画开始点与结束点形成完整闭环并重复运行
+因此需要调整每个圆点在`4`秒时的角度，设置`RepeatBehavior`为`Forever`，这样动画开始点与结束点形成完整闭环并重复运行
 
 ```xml{5,12,19,26,33}
 <Storyboard
@@ -410,7 +410,7 @@ tag:
 
 虽然所有圆点的角度不一样，但是所有的动画开始时间一致。
 
-因此正对每个圆点添加启动时间，最前面的先启动,每个圆点运动间隔`0.12秒`
+因此正对每个圆点添加启动时间，最前面的先启动，每个圆点运动间隔`0.12秒`
 
 `圆点1`:启动时间`0秒`
 
@@ -461,13 +461,13 @@ tag:
 
 通过[ObjectAnimationUsingKeyFrames](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/graphics-multimedia/how-to-animate-an-object-by-using-key-frames?view=netframeworkdesktop-4.8)对元素对象进行动画处理。
 
-之前动画是在`4秒`内运动两圈，因此继续添加动画效果,由于不显示圆点，相当于吞噬效果，因此所有点的`隐藏`、`显示`、`隐藏时间`都相同
+之前动画是在`4秒`内运动两圈，因此继续添加动画效果，由于不显示圆点，相当于吞噬效果，因此所有点的`隐藏`、`显示`、`隐藏时间`都相同
 
 `0.12秒`：圆点显示
 
-`4秒`：圆点不显示,即运动两圈后隐藏
+`4秒`：圆点不显示，即运动两圈后隐藏
 
-`4.4秒`：圆点不显示,即运动两圈后隐藏`0.4`秒
+`4.4秒`：圆点不显示，即运动两圈后隐藏`0.4`秒
 
 设置所有圆点初始状态隐藏
 

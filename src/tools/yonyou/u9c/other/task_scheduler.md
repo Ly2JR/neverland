@@ -18,7 +18,7 @@ category:
 
 ![新建操作项目](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler2.png)
 
-切换到`视图模型`页签选择顶级节点`TaskScheduler`然后在切换到`属性`页签，更改`配件名称`,并将`IsImport`改为`True`
+切换到`视图模型`页签选择顶级节点`TaskScheduler`然后在切换到`属性`页签，更改`配件名称`，并将`IsImport`改为`True`
 
 ![更改配件名](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler3.png)
 
@@ -26,7 +26,7 @@ category:
 
 ![更改配件名](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler4.png)
 
-选择`操作`,切换到`属性`页签，更改名称、显示名称、事务类型
+选择`操作`，切换到`属性`页签，更改名称、显示名称、事务类型
 
 ![更改操作](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler5.png)
 
@@ -85,7 +85,7 @@ public override object Do(object obj)
 
 位置位于UBF项目里的`bulk\Unconfiged\MetadataScript`文件夹下
 
-打开`BuildupDesigner.exe`,选择菜单节点，点击`新增组件`
+打开`BuildupDesigner.exe`，选择菜单节点，点击`新增组件`
 
 位于`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio`
 

@@ -219,6 +219,6 @@ private async Task<string> DownloadAndCountBytesAsync(string name,string suffix,
 
 ## 启动器，更新主程序及模块化文件
 
-对应场景三，是场景二的升级版本,既更新了主程序也更新了其他文件，详情参考[COM](../../tools/csharp/com.md)。
+对应场景三，是场景二的升级版本，既更新了主程序也更新了其他文件，详情参考[COM](../../tools/csharp/com.md)。
 
 ![VB调用.NET Core](https://nas.ilyl.life:8092/wpf/update3.gif)

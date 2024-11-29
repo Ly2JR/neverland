@@ -41,7 +41,7 @@ category:
   <ProductPath>C:\yonyou\U9CE</ProductPath>
   <ProjectPath>C:\yonyou\补丁KK</ProjectPath>
   <FilePath/>
-  <!--重新构造时是否清空文件夹Y,N-->
+  <!--重新构造时是否清空文件夹Y，N-->
   <DelOnRebuild>Y</DelOnRebuild>
   <CustomerNo>TO_SCM</CustomerNo>
   <IsCustomer>1</IsCustomer>

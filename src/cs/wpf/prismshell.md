@@ -139,7 +139,7 @@ OnInitialized-->OnExit
     }
     ```
 
-2. 在`Bootstrapper`里初始化Shell,设置登录页启动
+2. 在`Bootstrapper`里初始化Shell，设置登录页启动
 
     ```cs
     protected override void InitializeShell(DependencyObject shell)
@@ -234,7 +234,7 @@ protected override void RegisterTypes(IContainerRegistry containerRegistry)
 
 在启动项`PrismApplication`里重写`OnInitialized`方法
 
-这里设置了`OK`代表登录成功,`None`或者`Cancel`代表退出登录窗体
+这里设置了`OK`代表登录成功，`None`或者`Cancel`代表退出登录窗体
 
 ```cs
 protected override async void OnInitialized()

@@ -143,7 +143,7 @@ RawContentLength  : 25
 
 证书从服务提供商获取，[示例](../nas/domain.md#ssl)
 
-`.crt`证书大部分包含中间证书,所以这里用`.pem`来代替
+`.crt`证书大部分包含中间证书，所以这里用`.pem`来代替
 
 ```bash {4-7}
 docker run -d \

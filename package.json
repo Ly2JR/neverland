@@ -4,7 +4,7 @@
   "description": "blog",
   "license": "MIT",
   "type": "module",
-  "author": "乌龙茶 <ly2@ilyl.life> (https://ilyl.life)",
+  "author": "乌龙茶有点甜 <ly2jr@outlook.com> (https://ilyl.life)",
   "scripts": {
     "docs:build": "vuepress-vite build src",
     "docs:clean-dev": "vuepress-vite dev src --clean-cache",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@vuepress/plugin-redirect": "2.0.0-rc.61",
-    "pnpm": "^9.14.2",
+    "pnpm": "^9.14.3",
     "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.18"
   },
@@ -35,11 +35,11 @@
     "husky": "^9.1.7",
     "inquirer": "^9.3.7",
     "mathjax-full": "^3.2.2",
-    "mermaid": "^11.4.0",
+    "mermaid": "^11.4.1",
     "nano-staged": "^0.8.0",
     "prettier": "^3.4.1",
     "sass-embedded": "^1.81.0",
-    "stylelint": "^16.10.0",
+    "stylelint": "^16.11.0",
     "vuepress-plugin-components": "2.0.0-rc.59",
     "vuepress-theme-hope": "2.0.0-rc.59"
   },

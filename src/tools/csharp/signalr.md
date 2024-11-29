@@ -35,7 +35,7 @@ flowchart TD
   Hub <-.-> IOS客户端
 ```
 
-`Hub`提供两个代理方法,
+`Hub`提供两个代理方法：
 
 - 发消息`SendAsync`
 - 发消息以及响应`InvokeAsnyc`
@@ -419,14 +419,14 @@ public class ChatManager
             o.InTime = DateTime.Now.ToString(TimeFormat);
             return new User() { ConnectionId = connectionId, UserType = type };
         });
-        _logger.LogInformation($"房间管理:用户ID:{userId},用户类型:{type}进入房间");
+        _logger.LogInformation($"房间管理:用户ID:{userId}，用户类型:{type}进入房间");
     }
 
     public void Remove(string connectionId)
     {
         if (_chatRoom.TryRemove(connectionId, out var v))
         {
-            _logger.LogInformation($"房间管理:移除用户ID:{v.UserId},用户类型:{v.UserType},进入时间:{v.InTime},离开时间:{DateTime.Now.ToString(TimeFormat)}");
+            _logger.LogInformation($"房间管理:移除用户ID:{v.UserId}，用户类型:{v.UserType}，进入时间:{v.InTime}，离开时间:{DateTime.Now.ToString(TimeFormat)}");
         }
         else
         {
@@ -461,7 +461,7 @@ public override async Task OnConnectedAsync()
         {
             type = oType.FirstOrDefault();
         }
-        _logger.LogInformation($"用户ID[{userId}],ID[{Context.ConnectionId}],用户类型:{type}连接到服务中心");
+        _logger.LogInformation($"用户ID[{userId}]，ID[{Context.ConnectionId}]，用户类型:{type}连接到服务中心");
         _chatManager.AddOrUpdate(Context.ConnectionId, userId!, string.IsNullOrEmpty(type) ? 0u : 1u);
     }
     await base.OnConnectedAsync();
@@ -478,7 +478,7 @@ public override Task OnDisconnectedAsync(Exception? exception)
     {
         if (ctx.Request.Query.TryGetValue("user", out var oName))
         {
-            _logger.LogInformation($"用户[{oName.FirstOrDefault()}],ID[{Context.ConnectionId}]断开连接");
+            _logger.LogInformation($"用户[{oName.FirstOrDefault()}]，ID[{Context.ConnectionId}]断开连接");
         }
         _chatManager.Remove(Context.ConnectionId);
     }
@@ -486,7 +486,7 @@ public override Task OnDisconnectedAsync(Exception? exception)
 }
 ```
 
-- 向其他客户端发送消息,并返回结果
+- 向其他客户端发送消息并返回结果
 
 `6行`：获取调用者用户，通过`user`指定用户
 
@@ -520,7 +520,7 @@ public async Task<string> SendToClientAndReceive(string clientId, string message
             var host = _chatManager.Get(clientId);
             if (host is null)
             {
-                _logger.LogInformation($"客户端用户[{currentClientUser}]向客户端[{clientId}]发送消息：{message},但客户端[{clientId}]不在线");
+                _logger.LogInformation($"客户端用户[{currentClientUser}]向客户端[{clientId}]发送消息：{message}，但客户端[{clientId}]不在线");
                 return $"客户端[{clientId}]不在线";
             }
             await Clients.Client(host.ConnectionId!).GetHubMessage(currentClientUser, message);

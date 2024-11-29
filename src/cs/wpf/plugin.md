@@ -266,7 +266,7 @@ private void OpenTabItem(string menuCode){
 
 ### 入口
 
-项目名称为`Demo.Plugin`,自定义一个类继承`IModule`
+项目名称为`Demo.Plugin`，自定义一个类继承`IModule`
 
 ```cs
 public void RegisterTypes(IContainerRegistry containerRegistry) {

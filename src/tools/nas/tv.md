@@ -21,7 +21,7 @@ copy: true
 
 启用智能电视里的`允许安装未知应用`。
 
-下载[Kodi v21 (Omega)](https://kodi.tv/download/android/)，选择`ARMV7A (32BIT)`，拷贝到U盘。
+下载[Kodi v21.1 (Omega)](https://kodi.tv/download/android/)，选择`ARMV7A (32BIT)`，拷贝到U盘。
 
 在TV端选择U盘，选择`Kodi`进行安装。
 
@@ -61,13 +61,13 @@ copy: true
 
 ## 启动plex
 
-首次启动plex时，需要登录关联,电脑端打开`https://plex.tv/link`即可，输入电视端的4位验证码
+首次启动plex时，需要登录关联，电脑端打开`https://plex.tv/link`即可，输入电视端的4位验证码
 
 ## 关于plex找不到电视节目问题
 
 查看[命名规则](https://support.plex.tv/articles/naming-and-organizing-your-movie-media-files/)
 
-放在`/TV Shows`文件夹下,以最近的电视剧`繁华`第一集举例。
+放在`/TV Shows`文件夹下，以最近的电视剧`繁华`第一集举例。
 
 `/TV Shows/繁华/繁华S01E01.mkv`
 

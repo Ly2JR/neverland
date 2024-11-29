@@ -57,7 +57,7 @@ getCurrentInstance().appContext.app.use(ElementPlus)
     <el-checkbox>Normal</el-checkbox>
   </el-row>
    <el-row class="mb-4">
-    <el-alert title="Checked被禁用,无法被选择" type="success" />
+    <el-alert title="Checked被禁用，无法被选择" type="success" />
     <div class="maunal">
         <el-checkbox :checked="true">Checked</el-checkbox>
     </div>
@@ -133,7 +133,7 @@ getCurrentInstance().appContext.app.use(ElementPlus)
     <el-checkbox>Normal</el-checkbox>
   </el-row>
    <el-row class="mb-4">
-    <el-alert title="Checked被禁用,无法被选择" type="success" />
+    <el-alert title="Checked被禁用，无法被选择" type="success" />
     <el-checkbox :checked="true"  @click.prevent.self>Checked</el-checkbox>
   </el-row>
    <el-row class="mb-4">

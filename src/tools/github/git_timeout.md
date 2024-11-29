@@ -18,8 +18,8 @@ tag:
     github.com IN A 140.82.112.3
     ```
 
-3. 打开`hosts`文件,路径`C:\Windows\System32\drivers\etc\hosts`
-4. 在结尾处添加`github` dns映射,并保存
+3. 打开`hosts`文件，路径`C:\Windows\System32\drivers\etc\hosts`
+4. 在结尾处添加`github` dns映射，并保存
 
     ```txt
     # github

@@ -118,7 +118,7 @@ U9C里的BE插件开发相当于在原始业务单据的按钮上进行操作前
 
 ### 类文件
 
-`AfterValidate.cs`和`AfterValidateExend.cs`是同一个文件`AfterValidate.cs`,利用`partial`进行代码合并,加`Exend`后缀将业务实现分离出来供开发使用
+`AfterValidate.cs`和`AfterValidateExend.cs`是同一个文件`AfterValidate.cs`，利用`partial`进行代码合并，加`Exend`后缀将业务实现分离出来供开发使用
 
 - AfterValidate.cs
 
@@ -178,7 +178,7 @@ So.AfterValidate.sub.xml文件参考xml结构说明
 
 约定文件名称：`单据名.事件名.sub.xml`
 
-例如销售订单保存前验证,`SO.AfterValidate.sub.xml`
+例如销售订单保存后验证：`SO.AfterValidate.sub.xml`
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -191,7 +191,7 @@ So.AfterValidate.sub.xml文件参考xml结构说明
 
 - subcription
 
-`event`: 接入点的名称,这里是销售订单,后面的`AfterValidate`表明事件名称
+`event`: 接入点的名称，这里是销售订单，后面的`AfterValidate`表明事件名称
 
 `ContactInfo`: 开发者的联系方式
 

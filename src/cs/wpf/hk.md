@@ -46,7 +46,7 @@ tag:
 
 ::: tip
 
-WPF控件没有句柄,通过[WindowsFormsIntegration](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.forms.integration?view=windowsdesktop-6.0)实现WPF与Winform互操作
+WPF控件没有句柄，通过[WindowsFormsIntegration](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.forms.integration?view=windowsdesktop-6.0)实现WPF与Winform互操作
 
 反之通过[ElementHost](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.forms.integration.elementhost?view=windowsdesktop-6.0)托管WPF控件
 
@@ -79,7 +79,7 @@ WPF控件没有句柄,通过[WindowsFormsIntegration](https://learn.microsoft.co
 
 4. 播放
 
-    这里使用Wpf中的`behaviors`,将`PictureBox`控件本身当作参数传递即可。
+    这里使用Wpf中的`behaviors`，将`PictureBox`控件本身当作参数传递即可。
 
     ```xml
      <Button Content="句柄预览">

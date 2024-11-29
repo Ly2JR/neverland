@@ -207,7 +207,7 @@ public static class ConfigService
         services.AddSingleton<IConfiguration>(configuration);
         services.AddOptions();
 
-        //注册Logger,写入Sqlite数据库
+        //注册Logger，写入Sqlite数据库
         LogProvider.IsDisabled = true;
         var providers = new LoggerProviderCollection();
         Log.Logger = new LoggerConfiguration()

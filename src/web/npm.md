@@ -18,4 +18,4 @@ category:
 
 1. 在系统环境变量`PATH`中，添加`%appdata%\npm`和`%ProgramFiles%\nodejs`路径。
 2. 删除`%ProgramFiles%\nodejs\npm`和`%ProgramFiles%\nodejs\npm.cmd`路径，如果存在的话。
-3. 使用`cmd管理员`运行模式,输入`cd %ProgramFiles%\nodejs`定位到执行目录，在执行`npm install npm@latest`进行升级即可。
+3. 使用`cmd管理员`运行模式，输入`cd %ProgramFiles%\nodejs`定位到执行目录，在执行`npm install npm@latest`进行升级即可。

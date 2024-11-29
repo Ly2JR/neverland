@@ -24,9 +24,9 @@ Nuget需要引用[System.Text.Encoding.CodePages](https://www.nuget.org/packages
 并且注册`Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);`
 :::
 
-通常所知一个`一个汉字=2Byte`，在`GB2312`中，汉字的范围在高位`B0`~`F7`,低位`A1`~`F4`
+通常所知一个`一个汉字=2Byte`，在`GB2312`中，汉字的范围在高位`B0`~`F7`，低位`A1`~`F4`
 
-`GB2312`第一个汉字`啊`，用2Byte标表示为`B0A1`,最后一个汉字`齄`表示`F7FE`
+`GB2312`第一个汉字`啊`，用2Byte标表示为`B0A1`，最后一个汉字`齄`表示`F7FE`
 
 特殊区域`D7F0`~`D7F9`
 

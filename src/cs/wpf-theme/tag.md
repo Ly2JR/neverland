@@ -50,7 +50,7 @@ private void Tag_Close(object sender, RoutedEventArgs e)
 
 Tag 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。
 
-使用`size`属性来设置额外尺寸, 可选值包括 large, default 或 small,默认`Default`
+使用`size`属性来设置额外尺寸，可选值包括`large`、`default`、`small`，默认`Default`
 
 ![size](https://nas.ilyl.life:8092/wpf-theme/tag/tag-size.png)
 

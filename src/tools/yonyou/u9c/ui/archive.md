@@ -42,7 +42,7 @@ UBF开发过程中需要经常点击保存
 
 ### UBF
 
-在U9C安装目录下`yonyou`新建UBF开发项目文件夹，例如`U9Product`，在创建五个文件夹分别为`bulk`,`Code`,`Model`,`Sql`,`UICode`
+在U9C安装目录下`yonyou`新建UBF开发项目文件夹，例如`U9Product`，在创建五个文件夹分别为`bulk`，`Code`，`Model`，`Sql`，`UICode`
 
 打开UBF，点击`工具\配置`进行配置，将相应的目录指向自己的开发项目文件夹`U9Product`，剩余路径执行U9C安装目录，如图所示
 
@@ -70,7 +70,7 @@ UBF开发过程中需要经常点击保存
 
 ![新建](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-4.png)
 
-选择实体，输入实体名称,如`ArchiveBE`，结尾默认写上`BE`
+选择实体，输入实体名称，如`ArchiveBE`，结尾默认写上`BE`
 
 ![新建实体](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-5.png)
 
@@ -108,7 +108,7 @@ UBF开发过程中需要经常点击保存
 
 ![引用](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-11.png)
 
-在切换到发布对象浏览器页签，选择目录选择`APP`,找到`UFIDA.U9.CBO.PubBE.MetaData`并双击打开
+在切换到发布对象浏览器页签，选择目录选择`APP`，找到`UFIDA.U9.CBO.PubBE.MetaData`并双击打开
 
 ![UFIDA.U9.CBO.PubBE.MetaData](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-12.png)
 
@@ -116,7 +116,7 @@ UBF开发过程中需要经常点击保存
 
 ![UFIDA.U9.CBO.PubBE.MetaData引用](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-13.png)
 
-同理，将选择目录选择`UBF`,找到`UFIDA.U9.Base.BaseBE.MetaData`并双击打开
+同理，将选择目录选择`UBF`，找到`UFIDA.U9.Base.BaseBE.MetaData`并双击打开
 
 ![UFIDA.U9.Base.BaseBE.MetaData](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-14.png)
 
@@ -202,7 +202,7 @@ UBF开发过程中需要经常点击保存
 
 ### 动作组
 
-双击打开`ArchiveUIModel.ubfuim`,选择动作组，右击
+双击打开`ArchiveUIModel.ubfuim`，选择动作组，右击
 
 ![应用缺省特性](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-29.png)
 
@@ -282,13 +282,13 @@ UBF开发过程中需要经常点击保存
 
 ![发布服务组](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-44.png)
 
-点击`发布服务组`,在解决方案目录下生成`Archive.sg`的文件
+点击`发布服务组`，在解决方案目录下生成`Archive.sg`的文件
 
 ![服务组位置](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-45.png)
 
 ## 新建菜单
 
-在UBF安装目录下`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio`,打开`BuildupDesigner.exe`
+在UBF安装目录下`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio`，打开`BuildupDesigner.exe`
 
 ![BuildupDesigner](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-46.png)
 
@@ -296,7 +296,7 @@ UBF开发过程中需要经常点击保存
 
 ![库存管理](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-47.png)
 
-点击`增加组件`按钮，在载入应用组件里点击`载入组件`,选择发布的服务组文件`Archive.sg`
+点击`增加组件`按钮，在载入应用组件里点击`载入组件`，选择发布的服务组文件`Archive.sg`
 
 ![Archive组件](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-48.png)
 
@@ -354,7 +354,7 @@ UBF开发过程中需要经常点击保存
 
 ## 用户授权
 
-进入U9C系统，打开`菜单权限`，角色选择`库存管理`,添加开发的基础档案菜单并授权访问，并保存。
+进入U9C系统，打开`菜单权限`，角色选择`库存管理`，添加开发的基础档案菜单并授权访问，并保存。
 
 ![基础档案授权](https://nas.ilyl.life:8092/yonyou/u9c/ui/archive/ui-archive-61.png)
 

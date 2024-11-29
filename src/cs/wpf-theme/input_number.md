@@ -55,7 +55,7 @@ tag:
 
 ## 精度
 
-设置`Precision`属性可以控制数值的精度，接受一个`int`,默认`0`
+设置`Precision`属性可以控制数值的精度，接受一个`int`，默认`0`
 
 ![precision](https://nas.ilyl.life:8092/wpf-theme/input-number/input-number-precision.gif)
 

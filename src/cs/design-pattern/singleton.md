@@ -61,7 +61,7 @@ public class Singleton
 @tab Real-World code
 
 ```cs
-// 将单列模式演示为LoadBalancing对象。只能创建该类的单个实例(单列),
+// 将单列模式演示为LoadBalancing对象。只能创建该类的单个实例(单列)，
 // 因为服务器可能回动态地联机或脱机，并且每个请求都必须通过一个了解(网络)农场状态的对象。
 var b1 = LoadBalancer.GetLoadBalancer();
 var b2 = LoadBalancer.GetLoadBalancer();
