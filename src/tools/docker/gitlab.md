@@ -95,8 +95,8 @@ services:
         nginx['enable']=true
         nginx['client_max_body_size']='1024m'
         nginx['redirect_http_to_https']=true
-        nginx['ssl_certificate']='/etc/gitlab/ssl/XXX.crt'
-        nginx['ssl_certificate_key']='/etc/gitlab/ssl/XXX.key'
+        nginx['ssl_certificate']='/etc/gitlab/ssl/domain_public.crt'
+        nginx['ssl_certificate_key']='/etc/gitlab/ssl/domain.key'
         gitlab_rails['time_zone']='Beijing'
         gitlab_rails['backup_path']='/var/opt/gitlab/backups'
         gitlab_rails['backup_keep_time']=604800
