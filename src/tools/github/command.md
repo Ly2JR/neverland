@@ -1,5 +1,5 @@
 ---
-title: 常用命令
+title: Git常用命令
 date: 2024-10-14
 editLink: false
 footer: false

@@ -1,5 +1,5 @@
 ---
-title: VS调试Docker
+title: VS调试Docker路径存在
 date: 2024-01-16
 editLink: false
 footer: false
@@ -7,7 +7,7 @@ isOriginal: true
 category:
   - 工具箱
 tag:
-  - C#
+  - Visual Studio
   - Docker
 ---
 

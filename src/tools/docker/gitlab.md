@@ -1,5 +1,5 @@
 ---
-title: GitLab
+title: Docker部署GitLab
 date: 2024-09-11
 editLink: false
 footer: false

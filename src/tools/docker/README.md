@@ -97,6 +97,12 @@ docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
 
 :::
 
+## [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/)进入容器
+
+```bash
+docker exec -it ContainerID /bin/sh
+```
+
 ## [docker compose](https://docs.docker.com/reference/cli/docker/compose/)
 
 ```bash

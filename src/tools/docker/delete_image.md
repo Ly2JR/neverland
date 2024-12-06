@@ -1,11 +1,13 @@
 ---
-title: 群晖镜像删除
+title: Docker删除镜像
 date: 2024-10-18
 editLink: false
 footer: false
 isOriginal: true
 category:
-  - SSH
+  - DOCKER
+tag:
+  - images
 ---
 
 私有仓库下载的镜像在页面上无法删除时
