@@ -21,6 +21,9 @@ export const markdown: MarkdownEnhanceOptions = {
   markdownTabs: {
     tabs: true,
   },
+  markdownMath: {
+    type: "mathjax",
+  },
   playground: {
     presets: ["ts", "vue"],
   },
