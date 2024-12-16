@@ -33,7 +33,7 @@ sudo -i
 查看所有镜像
 
 ```bash
-docker images -a
+docker images
 ```
 
 删除镜像

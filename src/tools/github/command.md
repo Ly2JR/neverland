@@ -63,7 +63,7 @@ git config --global user.email xxx
 ## 删除全局配置
 
 ```bash
-git config --global user.name
+git config --global --unset user.name
 ```
 
 ## 创建仓库

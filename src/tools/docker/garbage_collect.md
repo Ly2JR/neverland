@@ -10,7 +10,7 @@ tag:
   - 垃圾回收
 ---
 
-在搭建私有Registry之后，配置了`REGISTRY_STORAGE_DELETE_ENABLED:true`可以了删除，虽然通过UI进行删除，但是还会提示你运行垃圾回收
+在搭建私有Registry之后，配置了`REGISTRY_STORAGE_DELETE_ENABLED:true`之后可以删除，虽然通过UI进行删除，但是还会提示你运行垃圾回收
 
 ::: tip
 config.yml位置：/etc/distribution/config.yml
