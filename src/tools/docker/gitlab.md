@@ -102,14 +102,6 @@ services:
         gitlab_rails['backup_keep_time']=604800
         gitlab_rails['backup_pg_schema']='public'
         gitlab_rails['backup_archive_permissions']=0644
-        gitlab_rails['smtp_enable'] = true
-        gitlab_rails['smtp_address'] = 'XXX'
-        gitlab_rails['smtp_port'] = 465
-        gitlab_rails['smtp_user_name'] = 'XXX'
-        gitlab_rails['smtp_password'] = 'XXX'
-        gitlab_rails['smtp_authentication'] = 'login'
-        gitlab_rails['smtp_tls'] = true
-        gitlab_rails['gitlab_email_from'] = 'XXX'
         letsencrypt['enable'] = false
         letsencrypt['auto_renew'] = false
     ports:

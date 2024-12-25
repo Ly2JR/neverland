@@ -35,7 +35,7 @@ copy: true
 
 ![添加JSP](https://nas.ilyl.life:8092/idea/web/add-jsp.png)
 
-1. 点击右上角`Add Configuration`，添加`Tomcat Server`选择`local`
+4. 点击右上角`Add Configuration`，添加`Tomcat Server`选择`local`
 
 ![Tomcat](https://nas.ilyl.life:8092/idea/web/tomcat.jpg)
 
@@ -46,3 +46,7 @@ copy: true
 6. 点击`Deployment`页签，点击`+`选择`Artifact`
 
 7. 选择配置`Tomcat 10.1.33`，点击`Run`。
+
+## 显示乱码问题
+
+找到`apache-tomcat\config`目录，打开`logging.properties`文件，将`UTF-8`改为`GBK`，重启tomact即可。

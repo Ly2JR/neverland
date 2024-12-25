@@ -85,6 +85,10 @@ export default hopeTheme(
        */
       copyright,
     },
+    /**对齐 */
+    markdown: {
+      align: true,
+    },
   },
   {
     /**

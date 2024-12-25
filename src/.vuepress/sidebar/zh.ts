@@ -10,6 +10,13 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
+      text: "古文",
+      icon: "/assets/svg/books.svg",
+      prefix: "books/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
       text: "桌面端",
       icon: "/assets/svg/computer.svg",
       prefix: "cs/",
