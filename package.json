@@ -14,8 +14,8 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "@vuepress/plugin-redirect": "2.0.0-rc.66",
-    "pnpm": "^9.15.1",
+    "@vuepress/plugin-redirect": "2.0.0-rc.68",
+    "pnpm": "^9.15.2",
     "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.19"
   },
@@ -25,8 +25,8 @@
     "@commitlint/cz-commitlint": "^19.6.1",
     "@vue/repl": "^4.4.2",
     "@vuepress/bundler-vite": "2.0.0-rc.19",
-    "@vuepress/plugin-feed": "2.0.0-rc.66",
-    "@vuepress/plugin-pwa": "2.0.0-rc.66",
+    "@vuepress/plugin-feed": "2.0.0-rc.68",
+    "@vuepress/plugin-pwa": "2.0.0-rc.68",
     "@vuepress/plugin-theme-data": "2.0.0-rc.66",
     "@vueuse/core": "^10.11.1",
     "commitizen": "^4.3.1",

@@ -85,9 +85,11 @@ export default hopeTheme(
        */
       copyright,
     },
-    /**对齐 */
+
     markdown: {
-      align: true,
+      align: true, //对齐
+      component: true, //组件
+      tasklist: true, //任务
     },
   },
   {
