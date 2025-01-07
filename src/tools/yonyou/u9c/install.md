@@ -1,5 +1,5 @@
 ---
-title: 环境搭建
+title: U9C环境搭建
 date: 2024-06-14
 editLink: false
 footer: false

@@ -1,5 +1,5 @@
 ---
-title: BE插件开发
+title: U9C BE插件开发
 date: 2024-06-17
 editLink: false
 footer: false

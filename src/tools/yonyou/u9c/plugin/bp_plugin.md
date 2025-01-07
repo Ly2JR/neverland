@@ -1,5 +1,5 @@
 ---
-title: BP插件开发
+title: U9C BP插件开发
 date: 2024-07-04
 editLink: false
 footer: false

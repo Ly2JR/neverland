@@ -1,5 +1,5 @@
 ---
-title: UI插件
+title: U9C UI插件
 date: 2024-06-19
 editLink: false
 footer: false
