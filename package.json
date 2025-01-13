@@ -31,7 +31,7 @@
     "@vueuse/core": "^10.11.1",
     "commitizen": "^4.3.1",
     "cz-git": "^1.11.0",
-    "eslint": "^9.17.0",
+    "eslint": "^9.18.0",
     "husky": "^9.1.7",
     "inquirer": "^9.3.7",
     "mathjax-full": "^3.2.2",
@@ -39,7 +39,7 @@
     "nano-staged": "^0.8.0",
     "prettier": "^3.4.2",
     "sass-embedded": "^1.83.1",
-    "stylelint": "^16.12.0",
+    "stylelint": "^16.13.0",
     "vuepress-plugin-components": "2.0.0-rc.67",
     "vuepress-theme-hope": "2.0.0-rc.67"
   },
