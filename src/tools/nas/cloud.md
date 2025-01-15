@@ -22,20 +22,20 @@ title: 流程
 flowchart LR
 
   subgraph DNS
-    域名 --显性URL--> 子域名：公网端口
-    子域名:公网端口 --> 公网IP：公网端口
+    域名--显性URL-->子域名:公网端口
+    子域名:公网端口-->公网IP:公网端口
   end
 
   subgraph 路由器
-    公网端口 --端口转发--> 内网IP：内网端口
+    公网端口 --端口转发--> 内网IP:内网端口
   end
 
   subgraph NAS
-    内网IP：内网端口
+    内网IP:内网端口
   end
 
   subgraph PC
-    内网IP：内网端口
+    内网IP:内网端口
   end 
 
   DNS --> 路由器

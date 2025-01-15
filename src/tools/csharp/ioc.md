@@ -1,6 +1,6 @@
 ---
 title: IOC
-date: 2023-07-4
+date: 2023-07-04
 editLink: false
 footer: false
 isOriginal: true

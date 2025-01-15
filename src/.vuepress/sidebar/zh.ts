@@ -76,7 +76,7 @@ export const zhSidebar = sidebar({
         {
           text: "正则表达式",
           icon: "/assets/svg/regular-expression.svg",
-          link: "regular-expressions.md",
+          link: "regular_expressions.md",
         },
         {
           text: "C#",

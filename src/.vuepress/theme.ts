@@ -10,7 +10,7 @@ import {
   COPYRIGHT,
   DESCRIPTION,
 } from "./consts";
-import { pwa, copyright, markdown, componentOptions } from "./plugins/index";
+import { pwa, copyright, componentOptions } from "./plugins/index";
 
 export default hopeTheme(
   {
@@ -21,8 +21,6 @@ export default hopeTheme(
       url: HOST_NAME,
       email: E_MAIL,
     },
-
-    iconAssets: "iconify",
 
     logo: "/logo.svg",
 
@@ -70,10 +68,6 @@ export default hopeTheme(
        * 组件
        */
       components: componentOptions,
-      /**
-       * 启用Markdown增强
-       */
-      mdEnhance: markdown,
 
       /**
        * 启用pwa
@@ -91,6 +85,31 @@ export default hopeTheme(
       component: true, //组件
       tasklist: true, //任务
       tabs: true,
+      figure: true,
+      flowchart: true,
+      imgLazyload: true,
+      imgSize: true,
+      include: true,
+      mermaid: true,
+      vuePlayground: true,
+      demo: true,
+      playground: {
+        presets: [
+          "ts",
+          "vue",
+          "unocss",
+          {
+            name: "playground@language",
+            component: "playgroundComponent",
+            propsGetter: (playgroundData) => ({}),
+          },
+        ],
+        config: {
+          ts: {},
+          vue: {},
+          unocss: {},
+        },
+      },
     },
   },
   {

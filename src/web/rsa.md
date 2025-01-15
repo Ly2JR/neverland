@@ -85,7 +85,7 @@ function handleDecrypt(){
 </style>
 ```
 
-@file rsa.js
+@file rsa
 
 ```js
 import JSEncrypt from '/assets/js/jsencryptlong.js';

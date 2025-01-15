@@ -1,6 +1,6 @@
 ---
 title: Docker删除仓库
-date: 2024-12-6
+date: 2024-12-06
 editLink: false
 footer: false
 isOriginal: true
