@@ -1,5 +1,5 @@
 ---
-title: U8通用接口
+title: U8 通用接口
 date: 2023-06-19
 editLink: false
 footer: false

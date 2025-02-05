@@ -1,5 +1,5 @@
 ---
-title: 凭证
+title: U8 凭证
 date: 2023-06-19
 editLink: false
 footer: false

@@ -1,5 +1,5 @@
 ---
-title: 收款单
+title: U8 收款单
 date: 2023-06-19
 editLink: false
 footer: false

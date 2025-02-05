@@ -1,5 +1,5 @@
 ---
-title: 应付款管理
+title: U8 应付款管理
 breadcrumb: false
 article: false
 index: false

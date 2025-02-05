@@ -1,5 +1,5 @@
 ---
-title: U9C单点登录
+title: U9C 单点登录
 date: 2025-01-06
 editLink: false
 footer: false

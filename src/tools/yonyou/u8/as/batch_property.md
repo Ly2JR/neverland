@@ -1,5 +1,5 @@
 ---
-title: 批次档案
+title: U8 批次档案
 date: 2023-06-19
 editLink: false
 footer: false

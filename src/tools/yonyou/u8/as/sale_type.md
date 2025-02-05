@@ -1,5 +1,5 @@
 ---
-title: 销售类型
+title: U8 销售类型
 date: 2023-06-19
 editLink: false
 footer: false

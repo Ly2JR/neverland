@@ -1,5 +1,5 @@
 ---
-title: 存货自由项对照表
+title: U8 存货自由项对照表
 date: 2023-06-19
 editLink: false
 footer: false

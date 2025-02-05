@@ -1,5 +1,5 @@
 ---
-title: 单据类型与收发类别对照表
+title: U8 单据类型与收发类别对照表
 date: 2023-06-19
 editLink: false
 footer: false

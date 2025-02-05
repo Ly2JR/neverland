@@ -1,5 +1,5 @@
 ---
-title: 收发类别
+title: U8 收发类别
 date: 2023-06-19
 editLink: false
 footer: false

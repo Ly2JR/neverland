@@ -1,5 +1,5 @@
 ---
-title: 请购单
+title: U8 请购单
 date: 2024-09-05
 editLink: false
 footer: false

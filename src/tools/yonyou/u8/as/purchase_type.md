@@ -1,5 +1,5 @@
 ---
-title: 采购类型
+title: U8 采购类型
 date: 2023-06-19
 editLink: false
 footer: false

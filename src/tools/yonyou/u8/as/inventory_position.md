@@ -1,5 +1,5 @@
 ---
-title: 存货货位对照表
+title: U8 存货货位对照表
 date: 2023-06-19
 editLink: false
 footer: false

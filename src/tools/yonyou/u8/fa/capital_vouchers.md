@@ -1,5 +1,5 @@
 ---
-title: 固定资产变动单
+title: U8 固定资产变动单
 date: 2023-06-19
 editLink: false
 footer: false

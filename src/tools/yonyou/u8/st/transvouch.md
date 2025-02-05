@@ -1,5 +1,5 @@
 ---
-title: 调拨单
+title: U8 调拨单
 date: 2023-06-19
 editLink: false
 footer: false

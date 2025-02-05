@@ -1,5 +1,5 @@
 ---
-title: 会计科目
+title: U8 会计科目
 date: 2023-06-19
 editLink: false
 footer: false

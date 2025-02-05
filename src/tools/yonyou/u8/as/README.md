@@ -1,5 +1,5 @@
 ---
-title: 公共目录设置
+title: U8 公共目录设置
 breadcrumb: false
 article: false
 index: false

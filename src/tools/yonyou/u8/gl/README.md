@@ -1,5 +1,5 @@
 ---
-title: 总账
+title: U8 总账
 breadcrumb: false
 article: false
 index: false

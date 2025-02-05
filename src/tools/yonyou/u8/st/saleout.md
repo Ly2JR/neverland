@@ -1,5 +1,5 @@
 ---
-title: 销售出库单
+title: U8 销售出库单
 date: 2023-06-19
 editLink: false
 footer: false

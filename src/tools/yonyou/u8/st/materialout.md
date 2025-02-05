@@ -1,5 +1,5 @@
 ---
-title: 材料出库单
+title: U8 材料出库单
 date: 2023-06-19
 editLink: false
 footer: false

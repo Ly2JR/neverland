@@ -1,5 +1,5 @@
 ---
-title: 发运方式
+title: U8 发运方式
 date: 2023-06-19
 editLink: false
 footer: false

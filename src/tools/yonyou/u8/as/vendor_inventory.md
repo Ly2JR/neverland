@@ -1,5 +1,5 @@
 ---
-title: 供应商存货对照表
+title: U8 供应商存货对照表
 date: 2023-06-19
 editLink: false
 footer: false

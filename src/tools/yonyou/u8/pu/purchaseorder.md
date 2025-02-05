@@ -1,5 +1,5 @@
 ---
-title: 采购订单
+title: U8 采购订单
 date: 2024-09-02
 editLink: false
 footer: false

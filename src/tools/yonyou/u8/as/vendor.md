@@ -1,5 +1,5 @@
 ---
-title: 供应商档案
+title: U8 供应商档案
 date: 2023-06-19
 editLink: false
 footer: false

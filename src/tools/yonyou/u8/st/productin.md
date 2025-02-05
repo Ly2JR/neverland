@@ -1,5 +1,5 @@
 ---
-title: 产成品入库单
+title: U8 产成品入库单
 date: 2023-06-19
 editLink: false
 footer: false

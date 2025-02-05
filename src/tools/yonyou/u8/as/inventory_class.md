@@ -1,5 +1,5 @@
 ---
-title: 存货分类
+title: U8 存货分类
 date: 2023-06-19
 editLink: false
 footer: false

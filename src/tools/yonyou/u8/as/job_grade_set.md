@@ -1,5 +1,5 @@
 ---
-title: 职等设置
+title: U8 职等设置
 date: 2023-06-19
 editLink: false
 footer: false

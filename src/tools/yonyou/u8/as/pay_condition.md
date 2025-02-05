@@ -1,5 +1,5 @@
 ---
-title: 付款条件
+title: U8 付款条件
 date: 2023-06-19
 editLink: false
 footer: false

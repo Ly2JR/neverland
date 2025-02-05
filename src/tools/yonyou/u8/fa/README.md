@@ -1,5 +1,5 @@
 ---
-title: 固定资产
+title: U8 固定资产
 breadcrumb: false
 article: false
 index: false

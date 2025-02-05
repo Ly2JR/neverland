@@ -1,5 +1,5 @@
 ---
-title: 外币设置
+title: U8 外币设置
 date: 2023-06-19
 editLink: false
 footer: false

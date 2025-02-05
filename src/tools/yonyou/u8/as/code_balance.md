@@ -1,5 +1,5 @@
 ---
-title: 期初余额
+title: U8 期初余额
 date: 2023-06-19
 editLink: false
 footer: false

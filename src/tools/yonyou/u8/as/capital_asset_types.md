@@ -1,5 +1,5 @@
 ---
-title: 资产类别
+title: U8资产类别
 date: 2023-06-19
 editLink: false
 footer: false

@@ -1,5 +1,5 @@
 ---
-title: 货位档案
+title: U8 货位档案
 date: 2023-06-19
 editLink: false
 footer: false

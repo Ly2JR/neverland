@@ -1,5 +1,5 @@
 ---
-title: 原因码档案
+title: U8 原因码档案
 date: 2023-06-19
 editLink: false
 footer: false
