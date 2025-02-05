@@ -13,15 +13,24 @@ category:
 自定义开发界面，有时需要通过Excel直接导入。
 
 ::: tip
-1. 引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.UI.Controls.dll`
-2. 引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.UI.PDHelper.dll`
+1. 引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.UI.PDHelper.dll`
 :::
 
-![客开导入](https://nas.ilyl.life:8092/yonyou/u9c/ui/u9c_upload_excel.gif)
+### 上传控件
+
+引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.UI.Controls.dll`上传控件
+
+![客开导入一](https://nas.ilyl.life:8092/yonyou/u9c/ui/u9c_upload_excel.gif)
+
+引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.Collaboration.UploadFileUI.WebPart.dll`上传控件
+
+![客开导入二](https://nas.ilyl.life:8092/yonyou/u9c/ui/u9c_upload2_excel.gif)
 
 ### 替换TextBox控件为上传控件
 
-在定义界面上添加一个TextBox文本框控件并隐藏，在工具栏上添加一个上传按钮。
+在定义界面上添加一个TextBox文本框控件并隐藏
+
+使用方式一，需要在工具栏上在添加一个上传按钮。
 
 在`AfterCreateChildControls`方法里进行TextBox控件替换
 
@@ -34,11 +43,15 @@ public void AfterCreateChildControls()
 
 替换TextBox控件代码如下
 
+::: tabs
+
+@tab 方式一
+
 ```cs
-private UploadFileCtrl upload;
+private UFIDA.U9.CS.UI.Controls.UploadFileCtrl upload;
 private void RegisterTextBoxAsUploadControl(IUFControl oldControl)
 {
-    upload = new UploadFileCtrl();
+    upload = new UFIDA.U9.CS.UI.Controls.UploadFileCtrl();
     upload.ID = "UploadFileCtrl";
     upload.Parent = this.topLevelPanel;
     UFIDA.U9.CS.UI.PDHelper.WebpartHelper.ReplaceControl(oldControl, upload, this.Card2);
@@ -46,6 +59,25 @@ private void RegisterTextBoxAsUploadControl(IUFControl oldControl)
     UFIDA.U9.UI.PDHelper.PersonalizationHelper.SetPersonalizationEnable(this, true);
 }
 ```
+
+@tab 方式二
+
+```cs{7,8}
+private UFIDA.U9.CS.Collaboration.UploadFileUI.UploadFileCtrl upload;
+private void RegisterTextBoxAsUploadControl(IUFControl oldControl)
+{
+    upload = new UFIDA.U9.CS.Collaboration.UploadFileUI.UploadFileCtrl();
+    upload.ID = "UploadFileCtrl";
+    upload.Parent = this.topLevelPanel;
+    upload.InsertFile_Btn.Text = "导入数据";
+    upload.InsertFile_Btn.Click += InsertFile_Btn_Click;
+    UFIDA.U9.CS.UI.PDHelper.WebpartHelper.ReplaceControl(oldControl, upload, this.Card2);
+    ScriptManager.GetCurrent(Page).EnablePartialRendering = false;
+    UFIDA.U9.UI.PDHelper.PersonalizationHelper.SetPersonalizationEnable(this, true);
+}
+```
+
+:::
 
 ### 上传Excel文件
 
