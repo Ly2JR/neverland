@@ -17,7 +17,7 @@ tag:
 
 - 使用[v-bind-css](https://cn.vuejs.org/api/sfc-css-features.html#v-bind-in-css)
 
-::: vue-playground v-bind
+::: vue-playground Vue v-bind
 
 @file App.vue
 
@@ -49,7 +49,7 @@ function changeColor() {
 
 - 使用[useCssVar](https://vueuse.org/core/useCssVar/)
 
-::: vue-playground useCssVar
+::: vue-playground Vue useCssVar
 
 @file App.vue
 

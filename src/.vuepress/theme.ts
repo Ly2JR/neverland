@@ -1,4 +1,4 @@
-import { hopeTheme } from "vuepress-theme-hope";
+import { hopeTheme, shiki, useShikiPlugin } from "vuepress-theme-hope";
 import { zhNavbar } from "./navbar/index.js";
 import { zhSidebar } from "./sidebar/index.js";
 import {
@@ -81,6 +81,9 @@ export default hopeTheme(
     },
 
     markdown: {
+      highlighter: {
+        type: "shiki",
+      },
       align: true, //对齐
       component: true, //组件
       tasklist: true, //任务
@@ -94,21 +97,7 @@ export default hopeTheme(
       vuePlayground: true,
       demo: true,
       playground: {
-        presets: [
-          "ts",
-          "vue",
-          "unocss",
-          {
-            name: "playground@language",
-            component: "playgroundComponent",
-            propsGetter: (playgroundData) => ({}),
-          },
-        ],
-        config: {
-          ts: {},
-          vue: {},
-          unocss: {},
-        },
+        presets: ["ts", "vue", "unocss"],
       },
     },
   },
