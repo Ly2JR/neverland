@@ -28,7 +28,7 @@ tag:
 
 ```cs
 [AllowAnonymous]
-public class TestContrllor:Controller
+public class TestController:Controller
 {
     public ActionResult Index()
     {
@@ -53,17 +53,21 @@ public class TestContrllor:Controller
 
 打开`X:\yonyou\U9CE\Portal\MvcControllerConfig.config`
 
-添加自定义开发的控制器，controllerName:`小写`,不限制
+添加自定义开发的控制器
 
 ```xml
-<controller controllerName="test" assemblyType="UFIDA.U9.MVC.TEST.TestContrllor,UFIDA.U9.MVC.TEST" />
+<controller controllerName="test" assemblyType="UFIDA.U9.MVC.TEST.TestController,UFIDA.U9.MVC.TEST" />
 ```
 
 ## 创建Razor页面
 
 由于反射加载自定义控制器，因此自定义页面也是一样。
 
-因此可以先通过Visual Studio来开发Razor页面，然后将开发完成的页面部署在U9C目录下
+因此可以先通过VS Code开发Html页面，并设计调试好最终效果。
+
+将页面头部添加`@inherits System.Web.Mvc.WebViewPage`并重命名`cshtml`
+
+最终将页面部署在U9C目录下
 
 ```cshtml{1-3}
 @inherits System.Web.Mvc.WebViewPage
