@@ -1,5 +1,5 @@
 ---
-title: Docker垃圾回收
+title: Registry垃圾回收
 date: 2024-12-06
 editLink: false
 footer: false

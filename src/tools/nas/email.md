@@ -1,11 +1,12 @@
 ---
-title: 邮箱安全设置
+title: 群晖邮箱
 date: 2024-11-06
 isOriginal: true
 category:
   - 工具箱
 tag:
-  - 邮箱安全设置
+  - 群晖邮箱
+  - 安全设置
 editLink: false
 footer: false
 copy: true
@@ -82,3 +83,38 @@ TLSA传输层安全验证记录会将 TLS 服务器证书与记录所在的域�
 ::: warning
 此功能需要DNS服务器上的DNSSEC功能，DNSSEC需要收费
 :::
+
+## 第三方邮箱能收不能发
+
+例如使用手机小米邮件配置好之后，能收邮件，但是一直发不出去。
+
+可能开启了`STMP认证`，不能使用默认的邮件服务器配置
+
+需要在`stmp`认证，重新输入`用户名`和`密码`
+
+即`用户名`、`邮件账户`、`密码`保持一体。
+
+## 代码测试
+
+`SmtpClient`被弃用，请使用[MailKit](https://dotnetfoundation.org/news-events/detail/mailkit-working-with-emails)
+
+```cs
+using MailKit.Net.Smtp;
+using MimeKit;
+var message = new MimeMessage();
+message.From.Add(new MailboxAddress("Your", "Your@example.com"));
+message.To.Add(new MailboxAddress("YourFriend", "YourFriend@example.com"));
+message.Subject = "Hello";
+
+message.Body = new TextPart("plain")
+{
+    Text = "This is a message"
+};
+
+using var client = new SmtpClient();
+client.Connect("domain.com", 587,false);
+// Note: only needed if the SMTP server requires authentication  
+client.Authenticate("smtp_user_name", "smtp_user_pwd");
+client.Send(message);
+client.Disconnect(true);
+```

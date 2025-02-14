@@ -14,7 +14,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^10.2.1",
+    "pnpm": "^10.4.0",
     "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.19"
   },
@@ -25,19 +25,19 @@
     "@vue/repl": "^4.1.1",
     "@vuepress/bundler-vite": "2.0.0-rc.19",
     "@vuepress/plugin-feed": "2.0.0-rc.74",
-    "@vuepress/plugin-pwa": "2.0.0-rc.74",
+    "@vuepress/plugin-pwa": "2.0.0-rc.76",
     "@vuepress/plugin-theme-data": "2.0.0-rc.74",
     "@vueuse/core": "^12.5.0",
     "commitizen": "^4.3.1",
     "cz-git": "^1.11.0",
-    "eslint": "^9.20.0",
+    "eslint": "^9.20.1",
     "husky": "^9.1.7",
     "inquirer": "^9.3.7",
     "mathjax-full": "^3.2.2",
     "mermaid": "^11.4.1",
     "nano-staged": "^0.8.0",
-    "prettier": "^3.5.0",
-    "sass-embedded": "^1.83.4",
+    "prettier": "^3.5.1",
+    "sass-embedded": "^1.85.0",
     "stylelint": "^16.14.1",
     "vuepress-plugin-components": "2.0.0-rc.71",
     "vuepress-theme-hope": "2.0.0-rc.71"

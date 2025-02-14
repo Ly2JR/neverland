@@ -1,5 +1,5 @@
 ---
-title: Docker私有仓库
+title: Docker搭建私有仓库Registry
 date: 2023-07-17
 editLink: false
 footer: false
