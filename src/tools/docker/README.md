@@ -100,13 +100,21 @@ docker rmi mcr.microsoft.com/dotnet/aspnet:7.0
 ## [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/)进入容器
 
 ```bash
-docker exec -it ContainerID /bin/sh
+docker exec -it ContainerID /bin/bash
 ```
 
 ## [docker compose](https://docs.docker.com/reference/cli/docker/compose/)
 
 ```bash
 docker compose -f c:\\docker-compose.yml -p aliyun-ddns up -d
+```
+
+## 查看容器文件
+
+先使用`dock exec`进入容器
+
+```bash
+ls -l
 ```
 
 ## 私有仓库

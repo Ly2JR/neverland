@@ -1,5 +1,5 @@
 ---
-title: U8 职务类别
+title: U8 职务
 date: 2023-06-19
 editLink: false
 footer: false
@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![职务类别](https://nas.ilyl.life:8092/yonyou/u8/as/duty.gif)
+![职务](https://nas.ilyl.life:8092/yonyou/u8/as/duty.gif)
 
 ## 资源符
 
