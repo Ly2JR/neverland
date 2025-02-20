@@ -176,7 +176,7 @@ UBF开发过程中需要经常点击保存
 
 将程序集文件`UFIDA.U9.CUST.ArchiveBE.dll`拷贝到`X:\yonyou\U9CE\Portal\ApplicationLib`文件夹下
 
-将程序集文件`UFIDA.U9.CUST.ArchiveBE。Deploy.dll`拷贝到`X:\yonyou\U9CE\Portal\ApplicationLib`和`X:\yonyou\U9CE\Portal\ApplicationServer\Libs`文件夹下
+将程序集文件`UFIDA.U9.CUST.ArchiveBE.Deploy.dll`拷贝到`X:\yonyou\U9CE\Portal\ApplicationLib`和`X:\yonyou\U9CE\Portal\ApplicationServer\Libs`文件夹下
 
 ## 创建UI解决方案
 
