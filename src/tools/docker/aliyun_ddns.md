@@ -5,9 +5,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - DOCKER
+  - Docker
 tag:
-  - ddns
+  - DDNS
 ---
 
 在[NAS自动同步DDNS](../nas/cloud.md#私有云动态ip问题)上使用的是[chenhw2/aliyun-ddns-cli:latest](chenhw2/aliyun-ddns-cli:latest)，使用的是Go。

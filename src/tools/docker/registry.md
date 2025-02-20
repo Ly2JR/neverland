@@ -5,7 +5,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - DOCKER
+  - Docker
+tag:
+  - Registry
 ---
 
 为了使用自己开发的[阿里云解析](aliyun_ddns.md)而生。

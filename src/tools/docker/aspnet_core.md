@@ -5,11 +5,10 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - DOCKER
+  - Docker
 tag:
-  - images
   - ASP.NET Core
-  - ASP.NET Core Https
+  - HTTPS
   - NET9
 ---
 

@@ -5,7 +5,7 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - DOCKER
+  - Docker
 tag:
   - 垃圾回收
 ---

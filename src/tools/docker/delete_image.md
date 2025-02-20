@@ -5,9 +5,9 @@ editLink: false
 footer: false
 isOriginal: true
 category:
-  - DOCKER
+  - Docker
 tag:
-  - images
+  - Images
 ---
 
 私有仓库下载的镜像在页面上无法删除时

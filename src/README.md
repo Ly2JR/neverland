@@ -10,16 +10,31 @@ projects:
   - icon: /assets/svg/film.svg
     name: 家庭影音
     desc: 4K电影、无损音乐
-    link: https://nas.ilyl.life:8091/
+    link: #
 
   - icon: /assets/svg/docker.svg
     name: Docker
+    desc: 私有Docker
+    link: #
+
+  - icon: /assets/svg/gitlab.svg
+    name: Gitlab
     desc: 私有仓库
-    link: https://nas.ilyl.life:8094
+    link: #
+
+  - icon: /assets/svg/folder-images.svg
+    name: 图床
+    desc: 私有图床
+    link: #
+  
+  - icon: /assets/svg/mariadb.svg
+    name: 云数据库
+    desc: MariaDB 10
+    link: #
   
   - icon: /assets/svg/bitwarden.svg
-    name: 密码管理
-    desc: 搭建中...
+    name: Bitwarden
+    desc: 私有密码管理
     link: #
 
   - icon: /assets/svg/toolbox.svg
