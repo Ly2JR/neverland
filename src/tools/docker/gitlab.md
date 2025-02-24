@@ -193,7 +193,7 @@ ActionMailer::Base.smtp_settings
 Notify.test_email('youremail@email.com', 'Hello World', 'This is a test message').deliver_now
 ```
 
-### 备份
+### [备份](https://docs.gitlab.com/administration/backup_restore/backup_gitlab/)
 
 ::: warning
 优先备份`gitlab.rb`和`gitlab-secrets.json`两个文件
@@ -203,6 +203,15 @@ Notify.test_email('youremail@email.com', 'Hello World', 'This is a test message'
 
 ```bash
 gitlab-rake gitlab:backup:create
+```
+
+### [恢复](https://docs.gitlab.com/administration/backup_restore/restore_gitlab/)
+
+::: warning
+忽略备份文件的`_gitlab_backup.tar`名
+:::
+```bash
+gitlab-backup restore BACKUP=<备份文件名>
 ```
 
 #### 定时备份

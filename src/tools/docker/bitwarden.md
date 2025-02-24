@@ -34,7 +34,7 @@ services:
       - BW_DB_FILE=/etc/bitwarden/bitwarden.sqlite3
       # SSL
       - BW_ENABLE_SSL=true
-      - BW_SSL_CERT=<your_domain_public.crt>
+      - BW_SSL_CERT=<your_domain.pem>
       - BW_SSL_KEY=<your_domain.key>
       # Reqiured
       - BW_INSTALLATION_ID=<your_id>
@@ -43,3 +43,8 @@ services:
 
 `BW_INSTALLATION_ID`和`BW_INSTALLATION_KEY`[申请地址](https://bitwarden.com/host/)
 
+## HTTPS浏览器插件正常，移动端登录不了
+
+Bitwarden移动端登录提示无法验证服务器证书的问题，是因为配置的SSL证书不对
+
+利用[What's My Chain Cert?](https://whatsmychaincert.com/)进行验证是否正确
