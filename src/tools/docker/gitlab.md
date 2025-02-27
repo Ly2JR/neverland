@@ -127,7 +127,7 @@ services:
 ```bash
 gitlab-rails console
 u=User.where(id:1).first
-u.passwird='newpassword'
+u.password='newpassword'
 u.password_confirmation='newpassword'
 u.save!
 ```
@@ -205,15 +205,6 @@ Notify.test_email('youremail@email.com', 'Hello World', 'This is a test message'
 gitlab-rake gitlab:backup:create
 ```
 
-### [恢复](https://docs.gitlab.com/administration/backup_restore/restore_gitlab/)
-
-::: warning
-忽略备份文件的`_gitlab_backup.tar`名
-:::
-```bash
-gitlab-backup restore BACKUP=<备份文件名>
-```
-
 #### 定时备份
 
 使用`crontab`格式进行定时备份
@@ -232,4 +223,71 @@ m h dom mon dow user command
 
 ```bash
 0 2 * * * gitlab-rake gitlab:backup:create CRON=1
+```
+
+### [恢复](https://docs.gitlab.com/administration/backup_restore/restore_gitlab/)
+
+::: warning
+忽略备份文件的`_gitlab_backup.tar`名
+:::
+```bash
+gitlab-backup restore BACKUP=<备份文件名>
+```
+
+#### 禁用`2FA`
+
+在恢复时，`2FA`也会保留，通过后台进行禁用或者`gitlab-rails console`控制台
+
+使用`gitlab-rails console`控制台
+
+```bash
+gitlab-rails console
+u=User.where(id:1).first
+u.require_two_factor_authentication_from_group=false
+u.otp_required_for_login=false
+u.encrypted_otp_secret=nil
+u.save!
+exit
+```
+
+使用`gitlab-psql`控制台，进入`psql`
+
+```bash
+gitlab-psql
+```
+
+查看数据库`\l`
+
+```bash
+gitlabhq_product=# \l
+```
+
+查看所有表`\dt`
+
+```bash
+gitlabhq_product=# \dt
+```
+
+查看表结构`\d users`
+
+```bash
+gitlabhq_product=# \d users
+```
+
+查看用户表2FA
+
+```bash
+gitlabhq_product=# select name,username,otp_required_for_login,two_factor_grace_period,require_two_factor_authentication_from_group  from users;
+```
+
+禁用用户表`2FA`
+
+```bash
+gitlabhq_product=# update users set otp_required_for_login='f',encrypted_otp_secret=nil,require_two_factor_authentication_from_group='f' where username='root';
+```
+
+退出`\q`
+
+```bash
+\q
 ```
