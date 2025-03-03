@@ -9,32 +9,37 @@ tagline:
 projects:
   - icon: /assets/svg/film.svg
     name: 家庭影音
-    desc: 4K电影、无损音乐
+    desc: Plex
     link: #
 
-  - icon: /assets/svg/docker.svg
-    name: Docker
-    desc: 私有Docker
-    link: #
-
-  - icon: /assets/svg/gitlab.svg
-    name: Gitlab
-    desc: 私有仓库
+  - icon: /assets/svg/books.svg
+    name: 图书馆
+    desc: Cailibre-Web
     link: #
 
   - icon: /assets/svg/folder-images.svg
     name: 图床
-    desc: 私有图床
+    desc: 
     link: #
-  
+
+  - icon: /assets/svg/docker.svg
+    name: Docker
+    desc: 
+    link: #
+
+  - icon: /assets/svg/gitlab.svg
+    name: Gitlab
+    desc: 
+    link: #
+
   - icon: /assets/svg/mariadb.svg
     name: 云数据库
-    desc: MariaDB 10
+    desc: MariaDB
     link: #
   
   - icon: /assets/svg/bitwarden.svg
-    name: Bitwarden
-    desc: 私有密码管理
+    name: 密码管理
+    desc: Bitwarden
     link: #
 
   - icon: /assets/svg/toolbox.svg
