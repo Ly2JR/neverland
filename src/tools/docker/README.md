@@ -117,6 +117,12 @@ docker compose -f c:\\docker-compose.yml -p aliyun-ddns up -d
 ls -l
 ```
 
+## 导出镜像
+
+```bash
+docker save -o X:\Image.tar image:latest
+```
+
 ## 私有仓库
 
 ### 注销
