@@ -18,7 +18,7 @@ tag:
 ```yml
 services:
   bitwarden-self-host:
-    image: 'bitwarden/self-host:2025.1.3-beta'
+    image: 'bitwarden/self-host:2025.2.1-beta'
     restart: always
     ports:
       - 5000:8443

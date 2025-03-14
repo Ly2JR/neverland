@@ -14,7 +14,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^10.6.2",
+    "pnpm": "^10.6.3",
     "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.20"
   },
@@ -34,7 +34,7 @@
     "husky": "^9.1.7",
     "inquirer": "^12.4.3",
     "mathjax-full": "^3.2.2",
-    "mermaid": "^11.4.1",
+    "mermaid": "^11.5.0",
     "nano-staged": "^0.8.0",
     "prettier": "^3.5.3",
     "sass-embedded": "^1.85.1",
