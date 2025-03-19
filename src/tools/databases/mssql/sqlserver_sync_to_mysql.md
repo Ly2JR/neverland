@@ -8,8 +8,9 @@ isOriginal: true
 category:
   - 工具箱
 tag:
-  - MSSQL
-  - MYSQL
+  - Sql Server
+  - MySQL Server
+  - 数据同步
 ---
 
 ## 说明

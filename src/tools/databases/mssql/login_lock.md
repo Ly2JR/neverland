@@ -7,7 +7,7 @@ isOriginal: true
 category:
   - 工具箱
 tag:
-  - MSSQL
+  - Sql Server
   - 锁定
 ---
 

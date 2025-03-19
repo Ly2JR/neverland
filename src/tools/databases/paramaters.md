@@ -8,6 +8,7 @@ category:
   - 工具箱
 tag: 
   - 参数化查询
+  - Sql Server
 ---
 
 测试表`Test`，结构及数据如下:

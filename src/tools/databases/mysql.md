@@ -7,7 +7,7 @@ isOriginal: true
 category:
   - 工具箱
 tag: 
-  - MYSQL
+  - MySQL Server
 ---
 
 ## 表

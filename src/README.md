@@ -17,6 +17,16 @@ projects:
     desc: Cailibre-Web
     link: #
 
+  - icon: /assets/svg/mariadb.svg
+    name: 云数据库
+    desc: MariaDB
+    link: #
+  
+  - icon: /assets/svg/bitwarden.svg
+    name: 密码管理
+    desc: Bitwarden
+    link: #
+
   - icon: /assets/svg/folder-images.svg
     name: 图床
     desc: 
@@ -30,16 +40,6 @@ projects:
   - icon: /assets/svg/gitlab.svg
     name: Gitlab
     desc: 
-    link: #
-
-  - icon: /assets/svg/mariadb.svg
-    name: 云数据库
-    desc: MariaDB
-    link: #
-  
-  - icon: /assets/svg/bitwarden.svg
-    name: 密码管理
-    desc: Bitwarden
     link: #
 
   - icon: /assets/svg/toolbox.svg
