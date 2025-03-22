@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![付款条件](https://nas.ilyl.life:8092/yonyou/u8/as/paycondition.gif)
+![付款条件](https://image.ilyl.life:8443/yonyou/u8/as/paycondition.gif)
 
 ## 资源符
 

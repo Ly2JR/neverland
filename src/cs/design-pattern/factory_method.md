@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![factory](https://nas.ilyl.life:8092/design-pattern/factory.png)
+![factory](https://image.ilyl.life:8443/design-pattern/factory.png)
 
 参与此模式的类和对象包括：
 

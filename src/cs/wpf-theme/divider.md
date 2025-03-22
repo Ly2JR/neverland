@@ -15,7 +15,7 @@ tag:
 
 对不同段落的文本进行分割。
 
-![divider](https://nas.ilyl.life:8092/wpf-theme/divider/divider.png)
+![divider](https://image.ilyl.life:8443/wpf-theme/divider/divider.png)
 
 ```xml
 <Border Padding="24"
@@ -39,7 +39,7 @@ tag:
 
 可以在分割线上自定义文本内容。
 
-![content](https://nas.ilyl.life:8092/wpf-theme/divider/divider-content.png)
+![content](https://image.ilyl.life:8443/wpf-theme/divider/divider-content.png)
 
 ```xml
 <Border Margin="0,12"
@@ -73,7 +73,7 @@ tag:
 
 您可以设置分隔符的样式，提供`Dashed`、`Dotted`两种。
 
-![style](https://nas.ilyl.life:8092/wpf-theme/divider/divider-style.png)
+![style](https://image.ilyl.life:8443/wpf-theme/divider/divider-style.png)
 
 ```xml
 <Border Margin="0,12"
@@ -102,7 +102,7 @@ tag:
 
 ## 垂直分割线
 
-![vertical](https://nas.ilyl.life:8092/wpf-theme/divider/divider-vertical.png)
+![vertical](https://image.ilyl.life:8443/wpf-theme/divider/divider-vertical.png)
 
 ```xml
 <Border Margin="0,12"

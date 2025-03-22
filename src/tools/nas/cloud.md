@@ -57,20 +57,20 @@ flowchart LR
 2. 在注册表搜索`chenhw2/aliyun-ddns-cli:latest`，或者[参考阿里云ddns](../docker/aliyun_ddns.md)并安装
 3. 进入阿里云[RAM访问控制](https://ram.console.aliyun.com/overview)添加新用户，勾选`OpenApi调用访问`
 
-    ![添加新用户](https://nas.ilyl.life:8092/network/cloud1.png)
+    ![添加新用户](https://image.ilyl.life:8443/network/cloud1.png)
 
 4. 编辑基本信息，选择权限管理，个人权限，新增授权，选择`管理云解析(DNS)的权限`
 
-   ![授权](https://nas.ilyl.life:8092/network/cloud2.png)
+   ![授权](https://image.ilyl.life:8443/network/cloud2.png)
 
 5. 记住新用户的`AccessKey ID`和`AccessKey Secret`
 6. 在群晖Docker容器选项中，创建容器，选择`chenhw2/aliyun-ddns-cli:latest`
 
-   ![新建容器](https://nas.ilyl.life:8092/network/cloud3.png)
+   ![新建容器](https://image.ilyl.life:8443/network/cloud3.png)
 
 7. 网络，选择默认`bridge`
 
-    ![网络](https://nas.ilyl.life:8092/network/cloud4.png)
+    ![网络](https://image.ilyl.life:8443/network/cloud4.png)
 
 8. 常规设置，点击高级设置
 
@@ -80,7 +80,7 @@ flowchart LR
 
     DOMAIN：对应自己的域名
 
-    ![DNS同步](https://nas.ilyl.life:8092/network/cloud5.png)
+    ![DNS同步](https://image.ilyl.life:8443/network/cloud5.png)
 
 当前私有云地址变更时，会自动添加一条记录到阿里云的DNS解析里。
 
@@ -138,4 +138,4 @@ flowchart LR
 
 记录值：`302`：`子域名加端口`
 
-![显性URL](https://nas.ilyl.life:8092/network/cloud6.png)
+![显性URL](https://image.ilyl.life:8443/network/cloud6.png)

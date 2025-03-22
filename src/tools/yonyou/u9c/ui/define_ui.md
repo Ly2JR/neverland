@@ -14,7 +14,7 @@ tag:
 
 因此可以通过外挂的方式实现相同的功能。
 
-![MVC页面](https://nas.ilyl.life:8092/yonyou/u9c/ui/mvc/u9c_mvc.png)
+![MVC页面](https://image.ilyl.life:8443/yonyou/u9c/ui/mvc/u9c_mvc.png)
 
 ::: warning
 开发的控制器名称可能与系统自带的控制器名称重复，因此注意区分

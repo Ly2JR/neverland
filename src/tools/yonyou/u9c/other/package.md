@@ -55,19 +55,19 @@ category:
 
 打开`X:\BuildTool\UFIDA.UBF.Build.Engine.DesktopBuild.exe`
 
-![补丁版本](https://nas.ilyl.life:8092/yonyou/u9c/package/package1.png)
+![补丁版本](https://image.ilyl.life:8443/yonyou/u9c/package/package1.png)
 
 新建方案，输入方案名称
 
-![新建方案](https://nas.ilyl.life:8092/yonyou/u9c/package/package2.png)
+![新建方案](https://image.ilyl.life:8443/yonyou/u9c/package/package2.png)
 
 选择方案，点击`构造`，忽略提示
 
-![构造](https://nas.ilyl.life:8092/yonyou/u9c/package/package3.png)
+![构造](https://image.ilyl.life:8443/yonyou/u9c/package/package3.png)
 
 查看打包目录，放置相应文件
 
-![打包目录](https://nas.ilyl.life:8092/yonyou/u9c/package/package4.png)
+![打包目录](https://image.ilyl.life:8443/yonyou/u9c/package/package4.png)
 
 点击`生成安装信息`，生成`packageinfo.xml`文件
 

@@ -23,25 +23,25 @@ copy: true
 
 1. 创建一个JAVA项目
 
-![创建项目](https://nas.ilyl.life:8092/idea/web/project.png)
+![创建项目](https://image.ilyl.life:8443/idea/web/project.png)
 
 2. 点击`File`，选择`Project Structure`，点击`Modules`，点击`+`选择`Web`
 
-![添加Web](https://nas.ilyl.life:8092/idea/web/add-web.jpg)
+![添加Web](https://image.ilyl.life:8443/idea/web/add-web.jpg)
 
-![Web项目](https://nas.ilyl.life:8092/idea/web/web-project.png)
+![Web项目](https://image.ilyl.life:8443/idea/web/web-project.png)
 
 3. 点击`web`右击新建`jsp`文件
 
-![添加JSP](https://nas.ilyl.life:8092/idea/web/add-jsp.png)
+![添加JSP](https://image.ilyl.life:8443/idea/web/add-jsp.png)
 
 4. 点击右上角`Add Configuration`，添加`Tomcat Server`选择`local`
 
-![Tomcat](https://nas.ilyl.life:8092/idea/web/tomcat.jpg)
+![Tomcat](https://image.ilyl.life:8443/idea/web/tomcat.jpg)
 
 5. 点击`Configure`按钮，选择Tomcat文件夹路径
 
-![Tomcat路径](https://nas.ilyl.life:8092/idea/web/tomcat-path.png)
+![Tomcat路径](https://image.ilyl.life:8443/idea/web/tomcat-path.png)
 
 6. 点击`Deployment`页签，点击`+`选择`Artifact`
 

@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![固定资产变动单](https://nas.ilyl.life:8092/yonyou/u8/fa/capitalvouchers.gif)
+![固定资产变动单](https://image.ilyl.life:8443/yonyou/u8/fa/capitalvouchers.gif)
 
 ## 资源符
 

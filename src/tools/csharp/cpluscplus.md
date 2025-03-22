@@ -156,7 +156,7 @@ int S::Div(int a, int b) {
 
 输入`dumpbin /exports project1.dll`
 
-![导出定义](https://nas.ilyl.life:8092/cplusplus/dumpbin.png)
+![导出定义](https://image.ilyl.life:8443/cplusplus/dumpbin.png)
 
 发现通过`extern "C"`导出的名称与定义一致，这也是C#调用C++提升找不到入口点的原因之一
 

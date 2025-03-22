@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![凭证类别](https://nas.ilyl.life:8092/yonyou/u8/as/dsign.gif)
+![凭证类别](https://image.ilyl.life:8443/yonyou/u8/as/dsign.gif)
 
 ## 资源符
 

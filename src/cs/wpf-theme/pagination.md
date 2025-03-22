@@ -13,7 +13,7 @@ tag:
 
 ## 基础用法
 
-![pagination](https://nas.ilyl.life:8092/wpf-theme/pagination/pagination.gif)
+![pagination](https://image.ilyl.life:8443/wpf-theme/pagination/pagination.gif)
 
 ```xml
 <nl:Pagination Total="50" />
@@ -24,7 +24,7 @@ tag:
 
 默认情况下，当总页数超过 7 页时，Pagination 会折叠多余的页码按钮。 通过`PagerCount` 属性可以设置最大页码按钮数。
 
-![pagercount](https://nas.ilyl.life:8092/wpf-theme/pagination/pagination-pagercount.gif)
+![pagercount](https://image.ilyl.life:8443/wpf-theme/pagination/pagination-pagercount.gif)
 
 ```xml
 <nl:Pagination PageSize="20" PagerCount="11" Total="1000" />
@@ -34,7 +34,7 @@ tag:
 
 设置`IsBackground`属性可以为分页按钮添加背景色。
 
-![isbackground](https://nas.ilyl.life:8092/wpf-theme/pagination/pagination-isbackground.gif)
+![isbackground](https://image.ilyl.life:8443/wpf-theme/pagination/pagination-isbackground.gif)
 
 ```xml
 <nl:Pagination IsBackground="True" Total="1000" />
@@ -46,7 +46,7 @@ tag:
 
 只需要设置`IsSmall` 属性为 true 即可让分页变小。
 
-![issmall](https://nas.ilyl.life:8092/wpf-theme/pagination/pagination-issmall.gif)
+![issmall](https://image.ilyl.life:8443/wpf-theme/pagination/pagination-issmall.gif)
 
 ```xml
 <nl:Pagination IsSmall="True" Total="50" />
@@ -57,7 +57,7 @@ tag:
 
 当只有一页时，通过设置 hide-on-single-page 属性来隐藏分页。
 
-![hidden](https://nas.ilyl.life:8092/wpf-theme/pagination/pagination-hidden.gif)
+![hidden](https://image.ilyl.life:8443/wpf-theme/pagination/pagination-hidden.gif)
 
 ```xml
 <ToggleButton x:Name="ToggleButton"  Style="{StaticResource ToggleButtonAsSwitchStyle}" />

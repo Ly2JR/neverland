@@ -21,9 +21,9 @@ Create table Test
 
 ## 界面
 
-![界面布局](https://nas.ilyl.life:8092/vb/vb1.png)
+![界面布局](https://image.ilyl.life:8443/vb/vb1.png)
 
-![引用Microsoft ActiveX Data Objects 2.6 Library](https://nas.ilyl.life:8092/vb/vb2.png)
+![引用Microsoft ActiveX Data Objects 2.6 Library](https://image.ilyl.life:8443/vb/vb2.png)
 
 ::: tip
 新增、修改、删除代码差不多，区别在于sql语句部分
@@ -31,7 +31,7 @@ Create table Test
 
 ### 新增
 
-![代码](https://nas.ilyl.life:8092/vb/vb3.png)
+![代码](https://image.ilyl.life:8443/vb/vb3.png)
 
 ```vb
 Dim conn As New ADODB.Connection
@@ -49,7 +49,7 @@ Set conn = Nothing
 MsgBox IIf(affected = 1, "新增成功", "新增失败")
 ```
 
-![结果](https://nas.ilyl.life:8092/vb/vb4.png)
+![结果](https://image.ilyl.life:8443/vb/vb4.png)
 
 ### 修改
 

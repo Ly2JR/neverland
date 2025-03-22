@@ -16,7 +16,7 @@ WPF提供了控件样式，供自己定制化需求。
 
 以海康视频布局，一分屏、四分屏、六分屏为例。
 
-![不等布局](https://nas.ilyl.life:8092/wpf/hik_layout.gif)
+![不等布局](https://image.ilyl.life:8443/wpf/hik_layout.gif)
 
 ## 通过代码方式
 

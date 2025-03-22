@@ -279,7 +279,7 @@ public void RegisterTypes(IContainerRegistry containerRegistry) {
 
 使用了[更新](./update.md)功能，在启动时检查是否有新的DLL文件需要更新，如果有则更新，[更新代码地址](https://github.com/Ly2JR/wpf-samples/tree/main/src/update)
 
-![自动更新](https://nas.ilyl.life:8092/wpf/update2.gif)
+![自动更新](https://image.ilyl.life:8443/wpf/update2.gif)
 
 ## 结语
 

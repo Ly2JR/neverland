@@ -32,13 +32,13 @@ U9C里的UI插件开发相当于在原始业务单据上添加自己的按钮，
 |AfterDataBinding|修改控件属性后|UI|
 |AfterRender|修改控件属性后|UI|
 
-![表单流程](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-plugin-process.png)
+![表单流程](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-plugin-process.png)
 
-![表单流程](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-plugin-process2.png)
+![表单流程](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-plugin-process2.png)
 
 ## 项目结构
 
-![项目结构](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-plugin-code.png)
+![项目结构](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-plugin-code.png)
 
 ```
 |--UFIDA.U9.PluginDemo.UIPlugin.sln
@@ -311,11 +311,11 @@ WebPartExtend_StandardSOMainUIFormWebPart.config文件参考xml结构说明
 
 因为是Web端，通过`ID`确定控件，`Toolbar1`，`Card0`以及`DDBtnOperation`父控件的ID。
 
-![找Toolbar控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-toolbar.png)
+![找Toolbar控件](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-find-toolbar.png)
 
-![找Card控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-card.png)
+![找Card控件](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-find-card.png)
 
-![找DropButton控件](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-find-dropbutton.png)
+![找DropButton控件](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-find-dropbutton.png)
 
 - 怎么确定`Card0`里添加的按钮位置
 
@@ -369,4 +369,4 @@ xml节点配置大部分固定，只需更改`ExtendedPart`节点下的属性值
 
 ## 预览
 
-![预览效果](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-plugin.gif)
+![预览效果](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-plugin.gif)

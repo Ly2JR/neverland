@@ -18,7 +18,7 @@ tag:
 
 数量值接受String。通过`Type`属性控制颜色，默认`Danger`
 
-![badge](https://nas.ilyl.life:8092/wpf-theme/badge/badge.png)
+![badge](https://image.ilyl.life:8443/wpf-theme/badge/badge.png)
 
 ```xml
 <Button nl:Badge.IsShow="True" nl:Badge.Value="1">
@@ -50,7 +50,7 @@ tag:
 
 由`Max`属性定义，接受`int`值，默认`99`
 
-![max](https://nas.ilyl.life:8092/wpf-theme/badge/badge-max.png)
+![max](https://image.ilyl.life:8443/wpf-theme/badge/badge-max.png)
 
 ```xml
 <Button
@@ -65,7 +65,7 @@ tag:
 
 你也可以展示除数字以外你想要展示的任何值。
 
-![news](https://nas.ilyl.life:8092/wpf-theme/badge/badge-new.png)
+![news](https://image.ilyl.life:8443/wpf-theme/badge/badge-new.png)
 
 ```xml
 <nl:Tag nl:Badge.IsShow="True" nl:Badge.Value="new">
@@ -79,7 +79,7 @@ tag:
 
 使用`IsDot`属性。 是个布尔值。
 
-![isdot](https://nas.ilyl.life:8092/wpf-theme/badge/badge-isdot.png)
+![isdot](https://image.ilyl.life:8443/wpf-theme/badge/badge-isdot.png)
 
 ```xml
 <nl:Tag nl:Badge.IsDot="True" nl:Badge.IsShow="True" Type="Danger">
@@ -100,7 +100,7 @@ tag:
 
 设置徽章点的偏移，格式是[左，顶部]， 代表状态点从左侧和默认位置顶部的偏移。
 
-![offset](https://nas.ilyl.life:8092/wpf-theme/badge/badge-offset.png)
+![offset](https://image.ilyl.life:8443/wpf-theme/badge/badge-offset.png)
 
 ```xml
 <Button nl:Badge.IsDot="True" nl:Badge.IsShow="True" nl:Badge.Offset="10,5">
@@ -112,7 +112,7 @@ tag:
 
 设置`ShowZero`属性，控制当值未零时是否显示徽章
 
-![showzero](https://nas.ilyl.life:8092/wpf-theme/badge/badge-showzero.gif)
+![showzero](https://image.ilyl.life:8443/wpf-theme/badge/badge-showzero.gif)
 
 ```xml
 <CheckBox

@@ -19,7 +19,7 @@ tag:
 路径：`x:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio\Runtime\`
 :::
 
-![改色](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c-ui-plugin-ufgrid-color.png)
+![改色](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c-ui-plugin-ufgrid-color.png)
 
 ## 更改列颜色
 

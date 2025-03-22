@@ -15,7 +15,7 @@ tag:
 
 从顶部出现，3 秒后自动消失。
 
-![message](https://nas.ilyl.life:8092/wpf-theme/message/message.gif)
+![message](https://image.ilyl.life:8443/wpf-theme/message/message.gif)
 
 ```xml
 <Button
@@ -42,7 +42,7 @@ private void ShowMessage()
 
 当需要自定义更多属性时，Message 也可以接收一个对象为参数。 比如，设置 type 字段可以定义不同的状态，默认为info。 此时正文内容以 message 的值传入。 同时，我们也为 Message 的各种 type 注册了方法。
 
-![type](https://nas.ilyl.life:8092/wpf-theme/message/message-type.gif)
+![type](https://image.ilyl.life:8443/wpf-theme/message/message-type.gif)
 
 ```xml
 <Button Command="{Binding ShowMessageCommand}" 
@@ -105,7 +105,7 @@ private void ErrorMessage()
 
 设置`IsPlain`为Plain背景
 
-![isplain](https://nas.ilyl.life:8092/wpf-theme/message/message-isplain.gif)
+![isplain](https://image.ilyl.life:8443/wpf-theme/message/message-isplain.gif)
 
 ```xml
 <Button Command="{Binding ShowMessageCommand}" 
@@ -174,7 +174,7 @@ private void ErrorMessage()
 
 默认的 Message 是不可以被人工关闭的。 如果你需要手动关闭功能，你可以把 `ShowClose` 设置为 true 此外，和 Notification 一样，Message 拥有可控的 `Duration`， 默认的关闭时间为 `3000` 毫秒，当把这个属性的值设置为0便表示该消息不会被自动关闭。
 
-![showclose](https://nas.ilyl.life:8092/wpf-theme/message/message-showclose.gif)
+![showclose](https://image.ilyl.life:8443/wpf-theme/message/message-showclose.gif)
 
 ```xml
 <Button Command="{Binding ShowMessageCommand}" 
@@ -243,7 +243,7 @@ private void ErrorMessage()
 
 设置`IsGroup`为 true，内容相同的 message 将被合并。
 
-![isgroup](https://nas.ilyl.life:8092/wpf-theme/message/message-isgroup.gif)
+![isgroup](https://image.ilyl.life:8443/wpf-theme/message/message-isgroup.gif)
 
 ```xml
 <Button Command="{Binding ShowMessageCommand}" 

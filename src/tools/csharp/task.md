@@ -257,6 +257,6 @@ sw.Stop();
 Console.WriteLine($"总耗时:{sw.ElapsedMilliseconds}");
 ```
 
-![Task并行](https://nas.ilyl.life:8092/dotnet/task.gif)
+![Task并行](https://image.ilyl.life:8443/dotnet/task.gif)
 
 Task还提供其他方法，参考官方文档即可。

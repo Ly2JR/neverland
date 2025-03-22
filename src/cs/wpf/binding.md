@@ -23,7 +23,7 @@ WPF中[Binding](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/data/?view=
 <TextBox Text="{Binding ElementName=Slider, Path=Value}" />
 ```
 
-![绑定控件值](https://nas.ilyl.life:8092/wpf/binding/binding1.gif)
+![绑定控件值](https://image.ilyl.life:8443/wpf/binding/binding1.gif)
 
 `TextBlock`和`TextBox`的`Text`属性`Binding`到`Slider`控件的`Value`属性。`Slider`值变动，`TextBlock`和`TextBox`的值跟着变动。
 
@@ -38,7 +38,7 @@ WPF中[Binding](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/data/?view=
 <TextBox Text="{Binding ElementName=Slider, Path=Value, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
 ```
 
-![双向绑定控件值](https://nas.ilyl.life:8092/wpf/binding/binding2.gif)
+![双向绑定控件值](https://image.ilyl.life:8443/wpf/binding/binding2.gif)
 
 当添加`Binding`的[Mode](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.binding.mode?view=windowsdesktop-8.0#system-windows-data-binding-mode)和[UpdateSourceTrigger](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.binding.updatesourcetrigger?view=windowsdesktop-8.0)属性时，实现了双向`Binding`
 
@@ -63,7 +63,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 </StackPanel>
 ```
 
-![静态绑定](https://nas.ilyl.life:8092/wpf/binding/binding3.png =600x200)
+![静态绑定](https://image.ilyl.life:8443/wpf/binding/binding3.png =600x200)
 
 [Source](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.binding.source?view=windowsdesktop-8.0)属性提供对象的绑定，一般用在静态，[Path](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.binding.path?view=windowsdesktop-8.0)绑定需要的对象属性值
 
@@ -83,7 +83,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 <TextBlock Width="160" Height="160" Background="Orange" Text="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}" />
 ```
 
-![绑定自身](https://nas.ilyl.life:8092/wpf/binding/binding4.png)
+![绑定自身](https://image.ilyl.life:8443/wpf/binding/binding4.png)
 
 ### 绑定父元素
 
@@ -113,7 +113,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
  </Border>
 ```
 
-![绑定父元素](https://nas.ilyl.life:8092/wpf/binding/binding5.png)
+![绑定父元素](https://image.ilyl.life:8443/wpf/binding/binding5.png)
 
 `4行高亮`：查找的是`Button`所以值为`Orange`(`#FFFFA500`)
 
@@ -147,7 +147,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 </ItemsControl>
 ```
 
-![绑定上一个数据](https://nas.ilyl.life:8092/wpf/binding/binding6.png)
+![绑定上一个数据](https://image.ilyl.life:8443/wpf/binding/binding6.png)
 
 ## 绑定模板
 
@@ -182,7 +182,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 </Label>
 ```
 
-![模板绑定](https://nas.ilyl.life:8092/wpf/binding/binding7.png)
+![模板绑定](https://image.ilyl.life:8443/wpf/binding/binding7.png)
 
 `第4行高亮`：设置了左右居中，重写了模板，20行处使用查找绑定`TemplatedParent`进行关联
 
@@ -218,7 +218,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 </StackPanel>
 ```
 
-![转换器](https://nas.ilyl.life:8092/wpf/binding/binding8.gif)
+![转换器](https://image.ilyl.life:8443/wpf/binding/binding8.gif)
 
 这里直接能用`Red`来显示具体颜色，是系统自动做了处理，将颜色值改为数字，并添加转换器。
 
@@ -270,7 +270,7 @@ public class ColorConverter : IValueConverter
 }
 ```
 
-![自定义转换器](https://nas.ilyl.life:8092/wpf/binding/binding9.gif)
+![自定义转换器](https://image.ilyl.life:8443/wpf/binding/binding9.gif)
 
 ::: tip
 自定义转换器需要添加到`xmlns`声明上，才能在`XAML`里使用

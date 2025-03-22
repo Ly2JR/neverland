@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![adapter](https://nas.ilyl.life:8092/design-pattern/adapter.png)
+![adapter](https://image.ilyl.life:8443/design-pattern/adapter.png)
 
 参与此模式的类和对象包括：
 

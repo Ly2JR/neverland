@@ -179,7 +179,7 @@ tag:
 
 以功能权限`CRUD`为例，通过[Flags](https://learn.microsoft.com/zh-cn/dotnet/api/system.flagsattribute?view=net-7.0)实现
 
-![权限](https://nas.ilyl.life:8092/dotnet/flags.png)
+![权限](https://image.ilyl.life:8443/dotnet/flags.png)
 
 ```cs
 AuthFlag menu = AuthFlag.None;

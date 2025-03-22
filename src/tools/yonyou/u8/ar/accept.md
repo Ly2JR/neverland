@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![收款单](https://nas.ilyl.life:8092/yonyou/u8/ar/accept.gif)
+![收款单](https://image.ilyl.life:8443/yonyou/u8/ar/accept.gif)
 
 ## 资源符
 

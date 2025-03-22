@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![人员类别](https://nas.ilyl.life:8092/yonyou/u8/as/persontype.gif)
+![人员类别](https://image.ilyl.life:8443/yonyou/u8/as/persontype.gif)
 
 ## 资源符
 

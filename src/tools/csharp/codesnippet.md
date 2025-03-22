@@ -12,7 +12,7 @@ tag:
 
 VS提供了[代码片段](https://learn.microsoft.com/zh-cn/visualstudio/ide/walkthrough-creating-a-code-snippet?view=vs-2022)减少开发工作量。
 
-![自定义代码片段](https://nas.ilyl.life:8092/dotnet/codesnippet.gif)
+![自定义代码片段](https://image.ilyl.life:8443/dotnet/codesnippet.gif)
 
 ## 自定义代码片段
 

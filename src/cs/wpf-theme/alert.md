@@ -18,7 +18,7 @@ Alert组件不属于浮层元素，不会自动消失或关闭。
 
 Alert组件提供四种类型，由`Type`属性指定，默认为`Info`。
 
-![alert](https://nas.ilyl.life:8092/wpf-theme/alert/alert.png)
+![alert](https://image.ilyl.life:8443/wpf-theme/alert/alert.png)
 
 ```xml
 <nl:Alert Type="Success">Success alert</nl:Alert>
@@ -33,7 +33,7 @@ Alert组件提供四种类型，由`Type`属性指定，默认为`Info`。
 
 你可以设置 Alert 组件是否为可关闭状态， 关闭按钮的内容以及关闭时的回调函数同样可以定制。 `Closable` 属性决定 Alert 组件是否可关闭， 该属性接受一个`Boolean`，默认为`false`。 你可以设置`CloseText`属性来代替右侧的关闭图标， 需要注意的是`closetext`必须是一个字符串。 当 Alert 组件被关闭时会触发 close 事件。
 
-![closetext](https://nas.ilyl.life:8092/wpf-theme/alert/alert-closetext.gif)
+![closetext](https://image.ilyl.life:8443/wpf-theme/alert/alert-closetext.gif)
 
 ```xml
 <nl:Alert Closable="False" Type="Success">Unclosable alert</nl:Alert>
@@ -54,7 +54,7 @@ private void AlertItem_Close(object sender, RoutedEventArgs e)
 
 通过设置`ShowIcon`属性来显示Alert的Icon，这能更有效地向用户展示你的显示意图。
 
-![showicon](https://nas.ilyl.life:8092/wpf-theme/alert/alert-showicon.png)
+![showicon](https://image.ilyl.life:8443/wpf-theme/alert/alert-showicon.png)
 
 ```xml
 <nl:Alert ShowIcon="True" Type="Success">Success alert</nl:Alert>
@@ -67,7 +67,7 @@ private void AlertItem_Close(object sender, RoutedEventArgs e)
 
 使用`IsCenter`属性来让文字水平居中
 
-![iscenter](https://nas.ilyl.life:8092/wpf-theme/alert/alert-iscenter.png)
+![iscenter](https://image.ilyl.life:8443/wpf-theme/alert/alert-iscenter.png)
 
 ```xml
 <nl:Alert IsCenter="True" ShowIcon="True" Type="Success">
@@ -90,7 +90,7 @@ private void AlertItem_Close(object sender, RoutedEventArgs e)
 
 除了必填的`Title`属性外，你可以设置`Content`属性来帮助你更好地介绍，我们称之为辅助性文字。 辅助性文字只能存放文本内容，当内容超出长度限制时会自动换行显示。
 
-![title](https://nas.ilyl.life:8092/wpf-theme/alert/alert-title.png)
+![title](https://image.ilyl.life:8443/wpf-theme/alert/alert-title.png)
 
 ```xml
 <nl:Alert Title="With description" Type="Success">This is a description.</nl:Alert>
@@ -100,7 +100,7 @@ private void AlertItem_Close(object sender, RoutedEventArgs e)
 
 这是一个带有图标和描述的例子。
 
-![title-icon](https://nas.ilyl.life:8092/wpf-theme/alert/alert-title-icon.png)
+![title-icon](https://image.ilyl.life:8443/wpf-theme/alert/alert-title-icon.png)
 
 ```xml
 <nl:Alert Title="Success alert" ShowIcon="True" Type="Success">
@@ -121,7 +121,7 @@ private void AlertItem_Close(object sender, RoutedEventArgs e)
 
 `IsDark`属性设置主题样式，默认`False`，即为`Light`主题
 
-![isdark](https://nas.ilyl.life:8092/wpf-theme/alert/alert-isdark.png)
+![isdark](https://image.ilyl.life:8443/wpf-theme/alert/alert-isdark.png)
 
 ```xml
 <nl:Alert IsDark="True" Type="Success">Success alert</nl:Alert>

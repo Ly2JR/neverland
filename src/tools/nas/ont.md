@@ -47,7 +47,7 @@ copy: true
 
 ### 设置光猫
 
-![光猫设置](https://nas.ilyl.life:8092/wan.jpg)
+![光猫设置](https://image.ilyl.life:8443/wan.jpg)
 
 使用账户`telcomadmin`，密码是刚刚获取到的登录设备。
 

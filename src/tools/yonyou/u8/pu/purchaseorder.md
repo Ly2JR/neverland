@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![采购订单](https://nas.ilyl.life:8092/yonyou/u8/pu/purchaseorder.gif)
+![采购订单](https://image.ilyl.life:8443/yonyou/u8/pu/purchaseorder.gif)
 
 ## 资源符
 

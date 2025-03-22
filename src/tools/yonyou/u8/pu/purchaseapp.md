@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![请购单](https://nas.ilyl.life:8092/yonyou/u8/pu/purchaseapp.gif)
+![请购单](https://image.ilyl.life:8443/yonyou/u8/pu/purchaseapp.gif)
 
 ## 资源符
 

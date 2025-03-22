@@ -25,7 +25,7 @@ as
 go
 ```
 
-![Encryption](https://nas.ilyl.life:8092/db/sp_encrypt_demo.png)
+![Encryption](https://image.ilyl.life:8443/db/sp_encrypt_demo.png)
 
 ## 解密
 
@@ -118,4 +118,4 @@ GO
 EXEC sp_decrypt 'p_test'
 ```
 
-![Decrypt](https://nas.ilyl.life:8092/db/sp_decrypt_demo.png)
+![Decrypt](https://image.ilyl.life:8443/db/sp_decrypt_demo.png)

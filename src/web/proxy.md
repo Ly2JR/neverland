@@ -49,7 +49,7 @@ export default defineApplicationConfig({
 
 2. [Url-Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
 
-![根节点下显示](<https://nas.ilyl.life:8092/deploy/iis_proxy1.png>)
+![根节点下显示](<https://image.ilyl.life:8443/deploy/iis_proxy1.png>)
 
 ### 启动反向代理
 
@@ -58,7 +58,7 @@ export default defineApplicationConfig({
 3. 勾选`Enable proxy`
 4. 勾选`Keep alive`
 
-![启动反向代理](<https://nas.ilyl.life:8092/deploy/iis_proxy12.png>)
+![启动反向代理](<https://image.ilyl.life:8443/deploy/iis_proxy12.png>)
 
 ### 新建网站
 
@@ -72,7 +72,7 @@ export default defineApplicationConfig({
 1. 点击新建网站
 2. 进入`Url 重写`
 
-![URL 重写](<https://nas.ilyl.life:8092/deploy/iis_proxy.png>)
+![URL 重写](<https://image.ilyl.life:8443/deploy/iis_proxy.png>)
 
 #### 入站规则
 
@@ -81,7 +81,7 @@ export default defineApplicationConfig({
     1. 请求的URL(R:)：`与模式匹配`
     2. 模式：`^(.*)`
 
-    ![匹配URL](<https://nas.ilyl.life:8092/deploy/iis_proxy2.png>)
+    ![匹配URL](<https://image.ilyl.life:8443/deploy/iis_proxy2.png>)
 
 3. 条件:
     1. 逻辑分组(G)：`全部匹配`
@@ -89,17 +89,17 @@ export default defineApplicationConfig({
     3. 检查输入字符串是否：`与模式匹配`
     4. 模式(T)：`on(s)|offs`
 
-    ![条件](<https://nas.ilyl.life:8092/deploy/iis_proxy3.png>)
+    ![条件](<https://image.ilyl.life:8443/deploy/iis_proxy3.png>)
 
 4. 操作
     1. 操作类型(Y)：`重写`
     2. 重写URL(L)：`输入需要代理的地址`/{R:1}
 
-    ![操作](<https://nas.ilyl.life:8092/deploy/iis_proxy4.png>)
+    ![操作](<https://image.ilyl.life:8443/deploy/iis_proxy4.png>)
 
 5. 点击应用
 
-![URL重写规则](<https://nas.ilyl.life:8092/deploy/iis_proxy5.png>)
+![URL重写规则](<https://image.ilyl.life:8443/deploy/iis_proxy5.png>)
 
 #### 出站规则
 
@@ -110,7 +110,7 @@ export default defineApplicationConfig({
    4. 模式(T)：`.*`
    5. 操作属性值：`{HTTP_ORIGIN}`
 
-    ![Access-Control-Allow-Origin](<https://nas.ilyl.life:8092/deploy/iis_proxy7.png>)
+    ![Access-Control-Allow-Origin](<https://image.ilyl.life:8443/deploy/iis_proxy7.png>)
 
 2. 新建`Access-Control-Allow-Methods`出站规则
    1. 匹配范围：`服务器变量`
@@ -119,7 +119,7 @@ export default defineApplicationConfig({
    4. 模式(T)：`*`
    5. 操作属性值：`{HTTP_Access-Control-Request-Method}`
 
-    ![Access-Control-Allow-Methods](<https://nas.ilyl.life:8092/deploy/iis_proxy8.png>)
+    ![Access-Control-Allow-Methods](<https://image.ilyl.life:8443/deploy/iis_proxy8.png>)
 
 3. 新建`Access-Control-Allow-Headers`出站规则
    1. 匹配范围：`服务器变量`
@@ -128,7 +128,7 @@ export default defineApplicationConfig({
    4. 模式(T)：`*`
    5. 操作属性值：`{HTTP_Access-Control-Request-Headers}`
 
-    ![Access-Control-Allow-Methods](<https://nas.ilyl.life:8092/deploy/iis_proxy9.png>)
+    ![Access-Control-Allow-Methods](<https://image.ilyl.life:8443/deploy/iis_proxy9.png>)
 
 4. 新建`Access-Control-Allow-Credentials`出站规则
    1. 匹配范围：`服务器变量`
@@ -137,7 +137,7 @@ export default defineApplicationConfig({
    4. 模式(T)：`*`
    5. 操作属性值：`true`
 
-    ![Access-Control-Allow-Methods](<https://nas.ilyl.life:8092/deploy/iis_proxy10.png>)
+    ![Access-Control-Allow-Methods](<https://image.ilyl.life:8443/deploy/iis_proxy10.png>)
 
 5. 新建`Access-Control-Max-Age`出站规则
    1. 匹配范围：`服务器变量`
@@ -146,7 +146,7 @@ export default defineApplicationConfig({
    4. 模式(T)：`*`
    5. 操作属性值：`3600`
 
-    ![Access-Control-Allow-Methods](<https://nas.ilyl.life:8092/deploy/iis_proxy11.png>)
+    ![Access-Control-Allow-Methods](<https://image.ilyl.life:8443/deploy/iis_proxy11.png>)
 
 6. 新建`Access-Control-Expose-Headers`出站规则
    1. 匹配范围：`服务器变量`
@@ -155,7 +155,7 @@ export default defineApplicationConfig({
    4. 模式(T)：`*`
    5. 操作属性值:`content-disposition`
 
-    ![Access-Control-Expose-Headers](<https://nas.ilyl.life:8092/deploy/iis_proxy11.png>)
+    ![Access-Control-Expose-Headers](<https://image.ilyl.life:8443/deploy/iis_proxy11.png>)
 
 ### 快捷方式
 

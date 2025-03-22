@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![builder](https://nas.ilyl.life:8092/design-pattern/builder.png)
+![builder](https://image.ilyl.life:8443/design-pattern/builder.png)
 
 参与此模式的类和对象包括：
 

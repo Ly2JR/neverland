@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![mediator](https://nas.ilyl.life:8092/design-pattern/mediator.png)
+![mediator](https://image.ilyl.life:8443/design-pattern/mediator.png)
 
 参与此模式的类和对象包括：
 

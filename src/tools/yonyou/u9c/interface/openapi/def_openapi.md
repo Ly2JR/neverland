@@ -32,7 +32,7 @@ VS创建类选择.NETFramework 4.5版本。
 
 ### 项目结构
 
-![项目结构](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi.png)
+![项目结构](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi.png)
 
 自定义控制器
 
@@ -67,15 +67,15 @@ public class TestController: OpenAPIController
 
 部署完成之后，重启IIS，浏览`http://127.0.0.1/U9C/Swagger`查看自定义的带鉴权OPENAPI
 
-![自定义OPENAPI](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi2.png)
+![自定义OPENAPI](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi2.png)
 
-![白名单未授权](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi5.png)
+![白名单未授权](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi5.png)
 
 鉴权部分参考[openpai](openapi.md)或白名单关闭后输入`Token`后测试验证。
 
-![测试成功](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi-test1.png)
+![测试成功](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi-test1.png)
 
-![测试成功](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi-test2.png)
+![测试成功](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi-test2.png)
 
 ## 不带鉴权
 
@@ -95,7 +95,7 @@ public class TestController: OpenAPIController
 
 ### 项目结构
 
-![项目结构](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi3.png)
+![项目结构](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi3.png)
 
 自定义控制器，多的引用来源于创建部门接口
 
@@ -141,15 +141,15 @@ public class Test2Controller:ApiController
 
 部署完成之后，重启IIS，浏览`http://127.0.0.1/U9C/Swagger`查看自定义的带鉴权OPENAPI
 
-![自定义OPENAPI](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi4.png)
+![自定义OPENAPI](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi4.png)
 
 鉴权部分参考[openpai](openapi.md)
 
 输入`Token`后测试验证。
 
-![测试成功](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi-test3.png)
+![测试成功](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi-test3.png)
 
-![测试成功](https://nas.ilyl.life:8092/yonyou/u9c/interface/openapi/def/def-openapi-test4.png)
+![测试成功](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/def/def-openapi-test4.png)
 
 ## 部署
 

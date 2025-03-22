@@ -237,7 +237,7 @@ docker run -d -p 8080:80 -e REGISTRY_URL=http://localhost:5000 --name docker-reg
 
 浏览器输入`http//localhost:8080`
 
-![docker-registry-ui](https://nas.ilyl.life:8092/docker/docker-registry-ui.png)
+![docker-registry-ui](https://image.ilyl.life:8443/docker/docker-registry-ui.png)
 
 ### 添加Docker Registry UI SSL
 
@@ -338,4 +338,4 @@ RawContentLength  : 25
 
 浏览器输入`http//localhost:8080`
 
-![docker-registry-ui](https://nas.ilyl.life:8092/docker/docker-registry-ui2.png)
+![docker-registry-ui](https://image.ilyl.life:8443/docker/docker-registry-ui2.png)

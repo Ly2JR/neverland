@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![固定资产卡片](https://nas.ilyl.life:8092/yonyou/u8/as/capitalasserts.gif)
+![固定资产卡片](https://image.ilyl.life:8443/yonyou/u8/as/capitalasserts.gif)
 
 ## 资源符
 

@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![地区分类](https://nas.ilyl.life:8092/yonyou/u8/as/districtclass.gif)
+![地区分类](https://image.ilyl.life:8443/yonyou/u8/as/districtclass.gif)
 
 ## 资源符
 

@@ -40,13 +40,13 @@ U9C里的BE插件开发相当于在原始业务单据的按钮上进行操作前
 |Deleted||BE|
 |AfterDeleted||BE|
 
-![新增修改流程](https://nas.ilyl.life:8092/yonyou/u9c/plugin/be/u9c-be-insert-and-update.png)
+![新增修改流程](https://image.ilyl.life:8443/yonyou/u9c/plugin/be/u9c-be-insert-and-update.png)
 
-![删除流程](https://nas.ilyl.life:8092/yonyou/u9c/plugin/be/u9c-be-delete.png)
+![删除流程](https://image.ilyl.life:8443/yonyou/u9c/plugin/be/u9c-be-delete.png)
 
 ## 项目结构
 
-![项目结构](https://nas.ilyl.life:8092/yonyou/u9c/plugin/be/u9c-be-plugin-code.png)
+![项目结构](https://image.ilyl.life:8443/yonyou/u9c/plugin/be/u9c-be-plugin-code.png)
 
 ```
 |--UFIDA.U9.Customer.PluginBE.sln
@@ -213,4 +213,4 @@ So.AfterValidate.sub.xml文件参考xml结构说明
 
 ## 效果
 
-![预览效果](https://nas.ilyl.life:8092/yonyou/u9c/plugin/be/u9c-be-plugin.png)
+![预览效果](https://image.ilyl.life:8443/yonyou/u9c/plugin/be/u9c-be-plugin.png)

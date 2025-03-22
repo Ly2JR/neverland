@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![费用项目](https://nas.ilyl.life:8092/yonyou/u8/as/expenseitem.gif)
+![费用项目](https://image.ilyl.life:8443/yonyou/u8/as/expenseitem.gif)
 
 ## 资源符
 

@@ -16,7 +16,7 @@ WPF提供[数字墨迹](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/adv
  <InkCanvas/>
 ```
 
-![InkCanvas](https://nas.ilyl.life:8092/wpf/canvas_1.gif)
+![InkCanvas](https://image.ilyl.life:8443/wpf/canvas_1.gif)
 
 ## 右击放大
 
@@ -36,7 +36,7 @@ WPF提供[数字墨迹](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/adv
  }
 ```
 
-![放大](https://nas.ilyl.life:8092/wpf/canvas_2.gif)
+![放大](https://image.ilyl.life:8443/wpf/canvas_2.gif)
 
 ## [编辑模式](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.inkcanvas.editingmode?view=windowsdesktop-7.0)
 
@@ -90,7 +90,7 @@ public class NameList:ObservableCollection<string>{
 }
 ```
 
-![EditingModel](https://nas.ilyl.life:8092/wpf/canvas_3.gif)
+![EditingModel](https://image.ilyl.life:8443/wpf/canvas_3.gif)
 
 ## [画笔](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.inkcanvas.defaultdrawingattributes?view=windowsdesktop-7.0)
 
@@ -168,7 +168,7 @@ public class NameList:ObservableCollection<string>{
 </Grid>
 ```
 
-![画笔](https://nas.ilyl.life:8092/wpf/canvas_4.gif)
+![画笔](https://image.ilyl.life:8443/wpf/canvas_4.gif)
 
 ## [手写识别](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/handwriting-recognition?view=netframeworkdesktop-4.8)
 
@@ -208,7 +208,7 @@ using (MemoryStream ms = new MemoryStream())
 }
 ```
 
-![手写识别](https://nas.ilyl.life:8092/wpf/canvas_5.gif)
+![手写识别](https://image.ilyl.life:8443/wpf/canvas_5.gif)
 
 ## 画直线
 
@@ -294,7 +294,7 @@ using (MemoryStream ms = new MemoryStream())
   }
 ```
 
-![画直线](https://nas.ilyl.life:8092/wpf/canvas_6.gif)
+![画直线](https://image.ilyl.life:8443/wpf/canvas_6.gif)
 
 ## 画箭头
 
@@ -316,7 +316,7 @@ using (MemoryStream ms = new MemoryStream())
  };
 ```
 
-![画箭头](https://nas.ilyl.life:8092/wpf/canvas_7.gif)
+![画箭头](https://image.ilyl.life:8443/wpf/canvas_7.gif)
 
 ## 画矩形
 
@@ -333,7 +333,7 @@ using (MemoryStream ms = new MemoryStream())
  };
 ```
 
-![画箭头](https://nas.ilyl.life:8092/wpf/canvas_8.gif)
+![画箭头](https://image.ilyl.life:8443/wpf/canvas_8.gif)
 
 ## 画圆形
 
@@ -349,7 +349,7 @@ using (MemoryStream ms = new MemoryStream())
  }
 ```
 
-![画圆形](https://nas.ilyl.life:8092/wpf/canvas_9.gif)
+![画圆形](https://image.ilyl.life:8443/wpf/canvas_9.gif)
 
 ## 添加文本
 
@@ -384,7 +384,7 @@ using (MemoryStream ms = new MemoryStream())
   }
 ```
 
-![添加文本](https://nas.ilyl.life:8092/wpf/canvas_10.gif)
+![添加文本](https://image.ilyl.life:8443/wpf/canvas_10.gif)
 
 ## 保存画布
 

@@ -73,7 +73,7 @@ Label用于显示名称
 
 TextBox用于用户输入新值和显示原始值
 
-![TextControl](https://nas.ilyl.life:8092/dotnet/winform1.png)
+![TextControl](https://image.ilyl.life:8443/dotnet/winform1.png)
 
 ## 重写基类控件方法
 
@@ -128,7 +128,7 @@ public partial class Form1 : Form
 
 `Key`值对应`字段名`
 
-![配置设置](https://nas.ilyl.life:8092/dotnet/winform2.png)
+![配置设置](https://image.ilyl.life:8443/dotnet/winform2.png)
 
 ## 赋值取值
 
@@ -166,4 +166,4 @@ private void button2_Click(object sender, EventArgs e)
 }
 ```
 
-![批量处理](https://nas.ilyl.life:8092/dotnet/winform3.gif)
+![批量处理](https://image.ilyl.life:8443/dotnet/winform3.gif)

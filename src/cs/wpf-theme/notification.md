@@ -15,7 +15,7 @@ tag:
 
  在最简单的情况下，你可以通过设置`Title` 和`Message` 属性来设置通知的标题和正文内容。 默认情况下，通知在4500毫秒后自动关闭，但你可以通过设置 `Duration` 属性来自定义通知的展示时间。 如果你将它设置为 0，那么通知将不会自动关闭。 需要注意的是 `Duration` 接收一个 Int，单位为毫秒。
 
-![notification](https://nas.ilyl.life:8092/wpf-theme/notification/notification.gif)
+![notification](https://image.ilyl.life:8443/wpf-theme/notification/notification.gif)
 
 ```xml
 <Button Command="{Binding Open1Command}" Content="closes automatically" />
@@ -49,7 +49,7 @@ tag:
 
 我们提供了四种不同类型的提醒框：success、warning、info 和error。
 
-![type](https://nas.ilyl.life:8092/wpf-theme/notification/notification-type.gif)
+![type](https://image.ilyl.life:8443/wpf-theme/notification/notification-type.gif)
 
 ```xml
 <Button Command="{Binding SuccessCommand}" Content="Success" />
@@ -110,7 +110,7 @@ private void Error()
 
 使用`Position` 属性设置 Notification 的弹出位置， 支持四个选项：top-right、top-left、bottom-right 和 bottom-left， 默认为 top-right。
 
-![position](https://nas.ilyl.life:8092/wpf-theme/notification/notification-position.gif)
+![position](https://image.ilyl.life:8443/wpf-theme/notification/notification-position.gif)
 
 ```xml
 <Button Command="{Binding TopRightCommand}" Content="TopRight" />
@@ -171,7 +171,7 @@ private void TopLeft()
 
 Notification 提供设置偏移量的功能，通过设置 `Offset` 字段，可以使弹出的消息距屏幕边缘偏移一段距离。 注意在同一时刻，每一个的 Notification 实例应当具有一个相同的偏移量。
 
-![offset](https://nas.ilyl.life:8092/wpf-theme/notification/notification-offset.gif)
+![offset](https://image.ilyl.life:8443/wpf-theme/notification/notification-offset.gif)
 
 ```xml
 <Button Command="{Binding OffsetCommand}" Content="Notification with offset" />
@@ -196,7 +196,7 @@ private void Offset()
 
 将`ShowClose` 属性设置为 false 即可隐藏关闭按钮
 
-![showclose](https://nas.ilyl.life:8092/wpf-theme/notification/notification-showclose.gif)
+![showclose](https://image.ilyl.life:8443/wpf-theme/notification/notification-showclose.gif)
 
 ```xml
 <Button Command="{Binding HiddenCloseButtonCommand}" Content="Hide close button" />

@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![销售类型](https://nas.ilyl.life:8092/yonyou/u8/as/saletype.gif)
+![销售类型](https://image.ilyl.life:8443/yonyou/u8/as/saletype.gif)
 
 ## 资源符
 

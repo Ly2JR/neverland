@@ -16,7 +16,7 @@ tag:
 
 使用`Shape`和`Size`属性来设置Avatar的形状和大小。
 
-![circle](https://nas.ilyl.life:8092/wpf-theme/avatar/avatar-circle.png)
+![circle](https://image.ilyl.life:8443/wpf-theme/avatar/avatar-circle.png)
 
 ```xml
 <nl:Avatar Size="Large" Src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
@@ -24,7 +24,7 @@ tag:
 <nl:Avatar Size="Small" Src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
 ```
 
-![square](https://nas.ilyl.life:8092/wpf-theme/avatar/avatar-square.png)
+![square](https://image.ilyl.life:8443/wpf-theme/avatar/avatar-square.png)
 
 ```xml
 <nl:Avatar Shape="Square" Size="Large" Src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
@@ -36,7 +36,7 @@ tag:
 
 支持使用图片，图标或者文字作为Avatar。
 
-![type](https://nas.ilyl.life:8092/wpf-theme/avatar/avatar-type.png)
+![type](https://image.ilyl.life:8443/wpf-theme/avatar/avatar-type.png)
 
 ```xml
 <nl:Avatar Icon="{StaticResource user-icon}" />
@@ -48,7 +48,7 @@ tag:
 
 图片加载失败时的回退行为。
 
-![error](https://nas.ilyl.life:8092/wpf-theme/avatar/avatar-error.gif)
+![error](https://image.ilyl.life:8443/wpf-theme/avatar/avatar-error.gif)
 
 ```xml
 <nl:Avatar OnError="{Binding onErrorCommand}" Src="{Binding AvatarUrl}" />
@@ -69,7 +69,7 @@ private void onError()
 
 当使用图片作为用户头像时，设置该图片如何在容器中展示。与`Stretch`属性一致。
 
-![stretch](https://nas.ilyl.life:8092/wpf-theme/avatar/avatar-stretch.gif)
+![stretch](https://image.ilyl.life:8443/wpf-theme/avatar/avatar-stretch.gif)
 
 ```xml
 <nl:Avatar Width="100"

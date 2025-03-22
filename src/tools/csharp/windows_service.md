@@ -14,7 +14,7 @@ tag:
 
 以.Net Framework 4.8为例，主要使用`Serilog`、`TopShelf`、`Quartz.Net`、`Microsoft.Extensions.DependencyInjection`、`HttpClient`实现Windows服务调度
 
-![Windows服务](https://nas.ilyl.life:8092/dotnet/windows-service.png)
+![Windows服务](https://image.ilyl.life:8443/dotnet/windows-service.png)
 
 ## 配置文件
 

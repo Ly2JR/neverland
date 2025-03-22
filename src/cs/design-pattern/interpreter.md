@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![interpreter](https://nas.ilyl.life:8092/design-pattern/interpreter.png)
+![interpreter](https://image.ilyl.life:8443/design-pattern/interpreter.png)
 
 参与此模式的类和对象包括：
 

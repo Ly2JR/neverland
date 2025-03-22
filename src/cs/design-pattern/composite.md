@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![composite](https://nas.ilyl.life:8092/design-pattern/composite.png)
+![composite](https://image.ilyl.life:8443/design-pattern/composite.png)
 
 参与此模式的类和对象包括：
 

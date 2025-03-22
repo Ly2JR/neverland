@@ -17,7 +17,7 @@ tag:
 
 使用 content 属性来决定 hover 时的提示信息。 由 `Placement` 属性决定展示效果： Placement属性值为：[方向]-[对齐位置]；四个方向：top、left、right、bottom；三种对齐位置：start，end默认为空。 如 placement="left-end"，则提示信息出现在目标元素的左侧，且提示信息的底部与目标元素的底部对齐。
 
-![tooltip](https://nas.ilyl.life:8092/wpf-theme/tooltip/tooltip.gif)
+![tooltip](https://image.ilyl.life:8443/wpf-theme/tooltip/tooltip.gif)
 
 ```xml
 <nl:ToolTip Placement="TopStart" TipContent="Top Start prompts info">
@@ -68,7 +68,7 @@ ToolTip组件内置了两个主题:`Dark`和`Light`。
 
 通过设置`Theme`属性来修改主题，默认为`Dark`
 
-![theme](https://nas.ilyl.life:8092/wpf-theme/tooltip/tooltip-theme.gif)
+![theme](https://image.ilyl.life:8443/wpf-theme/tooltip/tooltip-theme.gif)
 
 ```xml
 <nl:ToolTip
@@ -83,7 +83,7 @@ ToolTip组件内置了两个主题:`Dark`和`Light`。
 
 展示多行文本或者是设置文本内容的格式
 
-![multi](https://nas.ilyl.life:8092/wpf-theme/tooltip/tooltip-multi.gif)
+![multi](https://image.ilyl.life:8443/wpf-theme/tooltip/tooltip-multi.gif)
 
 ```xml
 <nl:ToolTip

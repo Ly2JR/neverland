@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![客户档案](https://nas.ilyl.life:8092/yonyou/u8/as/customer.gif)
+![客户档案](https://image.ilyl.life:8443/yonyou/u8/as/customer.gif)
 
 ## 资源符
 

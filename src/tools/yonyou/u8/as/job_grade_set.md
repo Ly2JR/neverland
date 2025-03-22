@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![职等设置](https://nas.ilyl.life:8092/yonyou/u8/as/jobgradeset.gif)
+![职等设置](https://image.ilyl.life:8443/yonyou/u8/as/jobgradeset.gif)
 
 ## 资源符
 

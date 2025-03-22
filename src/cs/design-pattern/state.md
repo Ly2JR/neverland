@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![state](https://nas.ilyl.life:8092/design-pattern/state.png)
+![state](https://image.ilyl.life:8443/design-pattern/state.png)
 
 参与此模式的类和对象包括：
 

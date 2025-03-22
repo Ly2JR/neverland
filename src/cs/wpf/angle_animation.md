@@ -15,7 +15,7 @@ tag:
 
 发现HC的Loading是通过代码方式实现，为了学习以及简化的目的，通过XAML方式一步一步梳理。
 
-![Loading](https://nas.ilyl.life:8092/wpf/controls/loading/loading-animation.gif)
+![Loading](https://image.ilyl.life:8443/wpf/controls/loading/loading-animation.gif)
 
 ## 添加[Canvas](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/controls/canvas?view=netframeworkdesktop-4.8)
 
@@ -62,7 +62,7 @@ tag:
 </Border>
 ```
 
-![基本元素](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step1.png)
+![基本元素](https://image.ilyl.life:8443/wpf/controls/loading/loading-step1.png)
 
 通过[RenderTransformOrigin](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.uielement.rendertransformorigin?view=windowsdesktop-8.0)属性设置旋转的中心点。
 
@@ -109,7 +109,7 @@ tag:
  </Border>
 ```
 
-![旋转30°](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step2.png)
+![旋转30°](https://image.ilyl.life:8443/wpf/controls/loading/loading-step2.png)
 
 通过改变`Angle`的值，产生了让圆点按圆形运动的效果，并且WPF支持动画。
 
@@ -141,7 +141,7 @@ tag:
 </Storyboard>
 ```
 
-![旋转动画](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step3.gif)
+![旋转动画](https://image.ilyl.life:8443/wpf/controls/loading/loading-step3.gif)
 
 按照第一个点，在添加其他4个点，并且设置每个点的初始角度。
 
@@ -253,11 +253,11 @@ tag:
 </Border>
 ```
 
-![其余圆点](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step4.png)
+![其余圆点](https://image.ilyl.life:8443/wpf/controls/loading/loading-step4.png)
 
 按上面步骤设置每个点的动画。
 
-![圆点运动](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step5.gif)
+![圆点运动](https://image.ilyl.life:8443/wpf/controls/loading/loading-step5.gif)
 
 ### 初具成效
 
@@ -303,7 +303,7 @@ tag:
 </Storyboard>
 ```
 
-![初具效果](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step6.gif)
+![初具效果](https://image.ilyl.life:8443/wpf/controls/loading/loading-step6.gif)
 
 发现在运动一段时间后，圆点重叠了，虽然每个点的动画在起时时角度不一样，但是在终止时间4秒的角度都是`720`度。
 
@@ -347,7 +347,7 @@ tag:
 </Storyboard>
 ```
 
-![优化后](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step7.gif)
+![优化后](https://image.ilyl.life:8443/wpf/controls/loading/loading-step7.gif)
 
 ## 加减速运动
 
@@ -404,7 +404,7 @@ tag:
 
 其他四个点也是一样设置，注意每个原点的角度。
 
-![加减速运动](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step8.gif)
+![加减速运动](https://image.ilyl.life:8443/wpf/controls/loading/loading-step8.gif)
 
 ### 设置启动时间
 
@@ -455,7 +455,7 @@ tag:
 </Storyboard>
 ```
 
-![先后加减速运动](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step9.gif)
+![先后加减速运动](https://image.ilyl.life:8443/wpf/controls/loading/loading-step9.gif)
 
 ### 关键帧动画
 
@@ -514,7 +514,7 @@ tag:
 </ObjectAnimationUsingKeyFrames>
 ```
 
-![运动动画](https://nas.ilyl.life:8092/wpf/controls/loading/loading-step10.gif)
+![运动动画](https://image.ilyl.life:8443/wpf/controls/loading/loading-step10.gif)
 
 ## 完整示例
 

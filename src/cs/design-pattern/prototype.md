@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![prototype](https://nas.ilyl.life:8092/design-pattern/prototype.png)
+![prototype](https://image.ilyl.life:8443/design-pattern/prototype.png)
 
 参与此模式的类和对象包括：
 

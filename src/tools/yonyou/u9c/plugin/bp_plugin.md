@@ -14,7 +14,7 @@ BP插件开发相当于系统在执行服务时，在执行服务前后添加的
 
 ## 项目结构
 
-![项目结构](https://nas.ilyl.life:8092/yonyou/u9c/plugin/bp/u9c-bp-plugin-code.png)
+![项目结构](https://image.ilyl.life:8443/yonyou/u9c/plugin/bp/u9c-bp-plugin-code.png)
 
 ```
 |--UFIDA.U9.Customer.PluginBE.sln
@@ -155,4 +155,4 @@ LoginBP.UFIDA.UBF.BPSVExtend.config文件参考xml结构说明
 
 ## 效果
 
-![预览效果](https://nas.ilyl.life:8092/yonyou/u9c/plugin/bp/u9c-bp-plugin.gif)
+![预览效果](https://image.ilyl.life:8443/yonyou/u9c/plugin/bp/u9c-bp-plugin.gif)

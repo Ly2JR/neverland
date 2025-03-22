@@ -27,7 +27,7 @@ tag:
 |Large Radius|4|
 |Round Radius|20|
 
-![Radius](https://nas.ilyl.life:8092/wpf-theme/border/border-radius.png)
+![Radius](https://image.ilyl.life:8443/wpf-theme/border/border-radius.png)
 
 ```xml
 <Border Width="160"
@@ -54,7 +54,7 @@ tag:
 
 另外提供`AutoRoundRadius`选择，根据高度自动计算
 
-![AutoRound](https://nas.ilyl.life:8092/wpf-theme/border/border-auto-radius.png)
+![AutoRound](https://image.ilyl.life:8443/wpf-theme/border/border-auto-radius.png)
 
 ```xml
 <Border Width="160"
@@ -71,7 +71,7 @@ tag:
 
 使用`BorderColor`更改虚拟边框颜色
 
-![Dash](https://nas.ilyl.life:8092/wpf-theme/border/border-dash.png)
+![Dash](https://image.ilyl.life:8443/wpf-theme/border/border-dash.png)
 
 ```xml
 <Border Width="160"
@@ -99,7 +99,7 @@ tag:
 |Lighter  Shadow|Lighter|
 |Dark  Shadow|Dark|
 
-![Shadow](https://nas.ilyl.life:8092/wpf-theme/border/border-shadow.png)
+![Shadow](https://image.ilyl.life:8443/wpf-theme/border/border-shadow.png)
 
 ```xml
 <Border Width="160"

@@ -9,7 +9,7 @@ tag:
   - 设计模式
 ---
 
-![decorator](https://nas.ilyl.life:8092/design-pattern/decorator.png)
+![decorator](https://image.ilyl.life:8443/design-pattern/decorator.png)
 
 参与此模式的类和对象包括：
 

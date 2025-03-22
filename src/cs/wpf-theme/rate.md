@@ -16,13 +16,13 @@ tag:
 评分默认被分为三个等级，可以利用颜色数组对分数及情感倾向进行分级（默认情况下不区分颜色）。
 
 
-![rate](https://nas.ilyl.life:8092/wpf-theme/rate/rate.gif)
+![rate](https://image.ilyl.life:8443/wpf-theme/rate/rate.gif)
 
 ```xml
 <nl:Rate/>
 ```
 
-![color](https://nas.ilyl.life:8092/wpf-theme/rate/rate-color.gif)
+![color](https://image.ilyl.life:8443/wpf-theme/rate/rate-color.gif)
 
 ```xml
 <x:Array x:Key="Colors" Type="{x:Type Brush}">
@@ -36,7 +36,7 @@ tag:
 
 ## 尺寸
 
-![size](https://nas.ilyl.life:8092/wpf-theme/rate/rate-size.gif)
+![size](https://image.ilyl.life:8443/wpf-theme/rate/rate-size.gif)
 
 ```xml
 <nl:Rate Size="Large" />
@@ -48,7 +48,7 @@ tag:
 
 属性`AllowHalf`允许出现半星
 
-![allowhalf](https://nas.ilyl.life:8092/wpf-theme/rate/rate-allowhalf.gif)
+![allowhalf](https://image.ilyl.life:8443/wpf-theme/rate/rate-allowhalf.gif)
 
 ```xml
  <nl:Rate AllowHalf="True" />
@@ -60,7 +60,7 @@ tag:
 
 为组件设置`IsShowText` 属性会在右侧显示辅助文字。 通过设置 texts 可以为每一个分值指定对应的辅助文字。 texts 为一个数组，长度应等于最大值 max。
 
-![isshowtext](https://nas.ilyl.life:8092/wpf-theme/rate/rate-isshowtext.gif)
+![isshowtext](https://image.ilyl.life:8443/wpf-theme/rate/rate-isshowtext.gif)
 
 ```xml
 <x:Array x:Key="Texts" Type="{x:Type system:String}">

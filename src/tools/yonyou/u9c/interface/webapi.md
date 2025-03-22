@@ -18,43 +18,43 @@ json参数首字母小写
 
 打开UBF，新建解决方案，选择位置及输入方案名称
 
-![新建解决方案](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi1.png)
+![新建解决方案](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi1.png)
 
 打开解决方案页签，选择顶级节点`RestSrv`，右击新建，选择`轻量服务项目`
 
-![轻量服务项目](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi2.png)
+![轻量服务项目](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi2.png)
 
 切换`模型视图`页签选择顶级节点`RestSrv`，然后切换到`属性`页签，更改`配件名`
 
-![更改配件名](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi3.gif)
+![更改配件名](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi3.gif)
 
 切换`模型视图`页签选择倒数第二节点命名空间`RestSrv`，然后切换到`属性`页签，更改`名称`
 
-![更改名称](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi4.gif)
+![更改名称](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi4.gif)
 
 切换`模型视图`页签，双击打开末级节点类图`RestSrv`，将工具箱`服务`拖拽到类图中。
 
 右击`服务`属性，更改`名称`、`显示名称`
 
-![服务](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi5.png)
+![服务](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi5.png)
 
 拖拽`数据传输对象`到`RestSrv`类图，右击属性，更改`名称`和`显示名称`，然后在`详细信息`页签里添加相应属性
 
-![返回DTO](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi6.png)
+![返回DTO](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi6.png)
 
 选择`服务`，更改`返回类型`选择`返回消息DTO`，更改`事务类型`为`Required`
 
-![调整服务](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi7.png)
+![调整服务](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi7.png)
 
 切换`解决方案`选择顶级节点，右击构造
 
-![构造](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi8.png)
+![构造](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi8.png)
 
 ## 业务逻辑
 
 用VS打开`UFIDA.U9.CUST.RestSrv.sln`，在`DeleteDepartmentExtend.cs`文件里的`Do`方法写业务的逻辑。
 
-![项目结构](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi9.png)
+![项目结构](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi9.png)
 
 ## 部署
 
@@ -70,7 +70,7 @@ json参数首字母小写
 
 ### 调试工具
 
-![调试](https://nas.ilyl.life:8092/yonyou/u9c/interface/webapi/webapi10.gif)
+![调试](https://image.ilyl.life:8443/yonyou/u9c/interface/webapi/webapi10.gif)
 
 ### 代码调试
 

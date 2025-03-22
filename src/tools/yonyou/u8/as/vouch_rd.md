@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![单据类型与收发类别对照表](https://nas.ilyl.life:8092/yonyou/u8/as/vouchandrd.gif)
+![单据类型与收发类别对照表](https://image.ilyl.life:8443/yonyou/u8/as/vouchandrd.gif)
 
 ## 资源符
 

@@ -12,27 +12,27 @@ category:
 
 打开UBF，新建解决方案，录入名称
 
-![新建解决方案](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler1.png)
+![新建解决方案](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler1.png)
 
 右击解决方案`TaskScheduler`新建，选择`操作项目`，录入名称
 
-![新建操作项目](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler2.png)
+![新建操作项目](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler2.png)
 
 切换到`视图模型`页签选择顶级节点`TaskScheduler`然后在切换到`属性`页签，更改`配件名称`，并将`IsImport`改为`True`
 
-![更改配件名](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler3.png)
+![更改配件名](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler3.png)
 
 切换到`视图模型`页签双击选择最末级`TaskScheduler`，然后将工具箱的`操作`，拖拽到页面上
 
-![更改配件名](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler4.png)
+![更改配件名](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler4.png)
 
 选择`操作`，切换到`属性`页签，更改名称、显示名称、事务类型
 
-![更改操作](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler5.png)
+![更改操作](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler5.png)
 
 切换到`视图模型`页签右击最顶级`TaskScheduler`，先点击`构造`，之后在点击`发布服务组`
 
-![构造](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler6.png)
+![构造](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler6.png)
 
 ## 业务
 
@@ -57,7 +57,7 @@ Create Table Time_Log
 
 打开`RunExtend.cs`进行业务逻辑编写
 
-![自定义逻辑](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler7.png)
+![自定义逻辑](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler7.png)
 
 在Do方法里写上
 
@@ -89,25 +89,25 @@ public override object Do(object obj)
 
 位于`X:\yonyou\UBFCE\U9.VOB.Product.UBF\UBFStudio`
 
-![应用组装工具](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler8.png)
+![应用组装工具](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler8.png)
 
 点击`载入组件`，选择UBF项目生成的`发布服务组`文件`TaskScheduler.sg`
 
-![应用组装工具](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler9.png)
+![应用组装工具](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler9.png)
 
 点击`工具\发布`即可
 
-![应用组装工具](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler10.png)
+![应用组装工具](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler10.png)
 
 ## 配置
 
 登录U9C，打开`调度方案`，配置调度方案
 
-![调度方案](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler11.png)
+![调度方案](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler11.png)
 
 打开`服务权限`,添加定时任务权限
 
-![服务权限](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler12.png)
+![服务权限](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler12.png)
 
 在数据库执行脚本
 
@@ -119,10 +119,10 @@ INSERT INTO  UBF_JOB_NoParaRunableBPSVList(ID,FullName,memo) VALUES( NewID(), 'T
 
 保存之后，点击执行请求即可。
 
-![请求管理](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler13.png)
+![请求管理](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler13.png)
 
 ## 测试
 
 打开`请求执行结果`
 
-![请求执行结果](https://nas.ilyl.life:8092/yonyou/u9c/taskscheduler/taskscheduler14.png)
+![请求执行结果](https://image.ilyl.life:8443/yonyou/u9c/taskscheduler/taskscheduler14.png)

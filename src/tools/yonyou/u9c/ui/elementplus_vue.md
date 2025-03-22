@@ -14,7 +14,7 @@ tag:
 
 既然U9C可以集成MVC页面，那么也应该可以集成ElementPlus和Vue。
 
-![ElementPlus和VUE](https://nas.ilyl.life:8092/yonyou/u9c/ui/mvc/u9c_elementplus_vue_ui.gif)
+![ElementPlus和VUE](https://image.ilyl.life:8443/yonyou/u9c/ui/mvc/u9c_elementplus_vue_ui.gif)
 
 ::: warning
 最终还是Razor页面，在集成ElementPlus和Vue时，可能需要部分转换

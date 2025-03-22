@@ -10,7 +10,7 @@ tag:
   - U8+
 ---
 
-![期初余额](https://nas.ilyl.life:8092/yonyou/u8/as/codebalance.gif)
+![期初余额](https://image.ilyl.life:8443/yonyou/u8/as/codebalance.gif)
 
 ## 资源符
 

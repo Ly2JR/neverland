@@ -12,7 +12,7 @@ tag:
 
 U9C除了本身的`实体扩展字段`进行扩展自外，还可以人为添加字段进行扩展，针对实体扩展字段不够用的情况
 
-![扩展字段](https://nas.ilyl.life:8092/yonyou/u9c/plugin/ui/u9c_ui_filedextend.png)
+![扩展字段](https://image.ilyl.life:8443/yonyou/u9c/plugin/ui/u9c_ui_filedextend.png)
 
 ## 插件
 

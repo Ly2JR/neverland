@@ -17,7 +17,7 @@ tag:
 
 通过间距组件来给多个组件之间提供间距
 
-![space](https://nas.ilyl.life:8092/wpf-theme/space/space.png)
+![space](https://image.ilyl.life:8443/wpf-theme/space/space.png)
 
 ```xml
 <nl:Space>
@@ -70,7 +70,7 @@ tag:
 
 使用`Direction`来控制布局的方式
 
-![vertical](https://nas.ilyl.life:8092/wpf-theme/space/space-vertical.png)
+![vertical](https://image.ilyl.life:8443/wpf-theme/space/space-vertical.png)
 
 ```xml
 <nl:Space Direction="Vertical">
@@ -113,7 +113,7 @@ tag:
 
 您也可以通过自定义的 size 来控制大小， 参见下一个部分。
 
-![size](https://nas.ilyl.life:8092/wpf-theme/space/space-size.gif)
+![size](https://image.ilyl.life:8443/wpf-theme/space/space-size.gif)
 
 ```xml
 <nl:Space Direction="Vertical" Size="30">
@@ -159,7 +159,7 @@ tag:
 
 很多时候，内建的大小不满足设计师的要求，我们可以通过传入自己定义的大小 (数值类型) 来设置。
 
-![define-size](https://nas.ilyl.life:8092/wpf-theme/space/space-definesize.gif)
+![define-size](https://image.ilyl.life:8443/wpf-theme/space/space-definesize.gif)
 
 ```xml
 <nl:Space Direction="Vertical" Size="30">
@@ -204,7 +204,7 @@ tag:
 
 利用`Wrap`属性控制换行
 
-![iswrap](https://nas.ilyl.life:8092/wpf-theme/space/space-iswrap.png)
+![iswrap](https://image.ilyl.life:8443/wpf-theme/space/space-iswrap.png)
 
 ```xml
 <nl:Space IsWrap="True">

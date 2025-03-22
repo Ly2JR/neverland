@@ -29,7 +29,7 @@ Https默认443端口可以不输入，其他端口需要加上端口号
     `Default Web Site`默认80端口，可以将相关资源放在该目录下，这里将其停止
     :::
 
-    ![新建网站](https://nas.ilyl.life:8092/network/iis1.png)
+    ![新建网站](https://image.ilyl.life:8443/network/iis1.png)
 
 3. 右击`test`选择`管理网站`、选择`浏览`，浏览器出现`Web 服务器被配置为不列出此目录的内容。`，通过`目录浏览`启用它即可，这里不这么做，在浏览器地址之后输入`/1.jpg`，显示图片
 
@@ -37,7 +37,7 @@ Https默认443端口可以不输入，其他端口需要加上端口号
     出现问题不要慌，IIS默认为网站服务的，地址之后隐藏了一个首页地址`Index.html`
     :::
 
-    ![新建网站](https://nas.ilyl.life:8092/network/iis2.png)
+    ![新建网站](https://image.ilyl.life:8443/network/iis2.png)
 
 4. 防火墙出入站规则，添加当前网站的端口
 
@@ -49,11 +49,11 @@ Https默认443端口可以不输入，其他端口需要加上端口号
 
 1. 打开`IIS`，找到`服务器证书`，导入下载的SSL证书
 
-    ![服务器证书](https://nas.ilyl.life:8092/network/iis3.png)
+    ![服务器证书](https://image.ilyl.life:8443/network/iis3.png)
 
 2. 选择部署的网站`test`，选择`编辑绑定`，看到类型http。新添加一个，选择类型https，下方SSL证书选择导入的`服务器证书`
 
-    ![设置SSL](https://nas.ilyl.life:8092/network/iis4.png)
+    ![设置SSL](https://image.ilyl.life:8443/network/iis4.png)
 
 3. 浏览器输入`https://localhost/1.jpg`，显示图片，但是提示不安全，将`localhost`替换成域名，一切完美
 
@@ -67,21 +67,21 @@ Https默认443端口可以不输入，其他端口需要加上端口号
 
 1. 下载[Web平台组件](https://learn.microsoft.com/en-us/iis/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release)
 
-    ![Web平台组件](https://nas.ilyl.life:8092/network/iis5.png)
+    ![Web平台组件](https://image.ilyl.life:8443/network/iis5.png)
 
 2. 在`Web平台组件`搜索[Url重定向](https://www.iis.net/downloads/microsoft/url-rewrite)并下载
 
-    ![Url重定向](https://nas.ilyl.life:8092/network/iis6.png)
+    ![Url重定向](https://image.ilyl.life:8443/network/iis6.png)
 
 3. 配置Url重定向
 
-    ![Url重定向](https://nas.ilyl.life:8092/network/iis11.png)
+    ![Url重定向](https://image.ilyl.life:8443/network/iis11.png)
 
     1. 添加规则
 
-        ![添加规则](https://nas.ilyl.life:8092/network/iis7.png)
+        ![添加规则](https://image.ilyl.life:8443/network/iis7.png)
 
-        ![空白规则](https://nas.ilyl.life:8092/network/iis8.png)
+        ![空白规则](https://image.ilyl.life:8443/network/iis8.png)
 
     2. 名称：`https`
     3. 匹配URL：模式(T)：`(.*)`
@@ -93,7 +93,7 @@ Https默认443端口可以不输入，其他端口需要加上端口号
 
         其他默认
 
-        ![条件输入](https://nas.ilyl.life:8092/network/iis9.png)
+        ![条件输入](https://image.ilyl.life:8443/network/iis9.png)
 
     5. 操作：
 
@@ -103,7 +103,7 @@ Https默认443端口可以不输入，其他端口需要加上端口号
 
         重定向URL：`已找到(302)`
 
-        ![操作](https://nas.ilyl.life:8092/network/iis10.png)
+        ![操作](https://image.ilyl.life:8443/network/iis10.png)
 
 ## NAS端docker部署
 

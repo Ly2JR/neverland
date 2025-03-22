@@ -20,11 +20,11 @@ category:
 
 引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.UI.Controls.dll`上传控件
 
-![客开导入一](https://nas.ilyl.life:8092/yonyou/u9c/ui/u9c_upload_excel.gif)
+![客开导入一](https://image.ilyl.life:8443/yonyou/u9c/ui/u9c_upload_excel.gif)
 
 引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.Collaboration.UploadFileUI.WebPart.dll`上传控件
 
-![客开导入二](https://nas.ilyl.life:8092/yonyou/u9c/ui/u9c_upload2_excel.gif)
+![客开导入二](https://image.ilyl.life:8443/yonyou/u9c/ui/u9c_upload2_excel.gif)
 
 ### 替换TextBox控件为上传控件
 
@@ -112,7 +112,7 @@ private void Upload(){
 2. 引用`X:\yonyou\U9CE\Portal\UILib\UFIDA.U9.CS.UI.Controls.dll`
 :::
 
-![标准导入](https://nas.ilyl.life:8092/yonyou/u9c/ui/u9c_browser_excel_upload.gif)
+![标准导入](https://image.ilyl.life:8443/yonyou/u9c/ui/u9c_browser_excel_upload.gif)
 
 ### 添加客开按钮
 
