@@ -10,6 +10,11 @@ editLink: false
 footer: false
 copy: true
 ---
+  - Plex
+editLink: false
+footer: false
+copy: true
+---
 
 Plex最新版本，使用自定义证书发现无论如何都识别不到。相关问题在[官方论坛](https://forums.plex.tv/t/plex-media-server-1-32-0-6918-custom-certificate-must-be-regenerated-with-new-openssl-arguments/837643)讨论过，解决方式如下。
 
