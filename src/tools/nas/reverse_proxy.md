@@ -55,15 +55,20 @@ copy: true
       3. 端口：填写`443`或者其他端口
       4. 启用HSTS，`勾选`
    2. 目的地
-      1. 协议：选择`https`
+      1. 协议：选择`http`
       2. 主机名：填写主机地址，如`192.168.1.255`
       3. 端口：填写主机暴露端口，如`81`
 5. 打开`安全性\证书\新增`，导入配置的方向代理规则对应的证书`docs.example.com`
-6. 打开`安全性\证书\设置`，将配置的反向代理`docs.exmaple.com:443`规则，选择对应的`docs.example.com`即可
+6. 打开`安全性\证书\设置`，将配置的反向代理`docs.exmaple.com:443`规则，选择对应的`docs.example.com`证书即可
 
 配置反向代理之前，通过`example.com:82`或`api.example.com:82`访问API服务，`example.com:90`或`docs.example.com:90`访问文档服务
 
 配置反向代理之后，通过`api.example.com:80`访问API服务，`docs.example.com:80`访问文档服务
+
+::: tip
+目的地协议选择`http`还是`https`取决于本身服务提供的协议，在没有反向代理时，如设置了`ssl`并可以通过`https://docs.example.com:90`访问，即选`https`
+:::
+
 
 ## 其他
 
