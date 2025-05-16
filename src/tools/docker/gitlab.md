@@ -85,7 +85,7 @@ gitlab-rake "gitlab:password:reset[root]"
 services:
   gitlab:
     container_name: GITLAB
-    image: 'gitlab/gitlab-ce:17.9.2-ce.0'
+    image: 'gitlab/gitlab-ce:18.0.0-ce.0'
     restart: always
     hostname: '127.0.0.1'
     environment:

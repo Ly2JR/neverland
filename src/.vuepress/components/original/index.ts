@@ -1,6 +1,6 @@
 import { type VNode, defineComponent, h } from "vue";
 
-import { useMetaLocale } from "@theme-hope/modules/info/composables/index";
+import { useMetaLocale } from "@theme-hope/composables/info/useMetaLocale";
 
 import "./original.scss";
 
@@ -23,7 +23,11 @@ export default defineComponent({
 
     return (): VNode | null =>
       props.isOriginal
-        ? h("span", { class: 'nl-original-wrap nl-original','data-theme':'light' }, metaLocale.value.origin)
+        ? h(
+            "span",
+            { class: "nl-original-wrap nl-original", "data-theme": "light" },
+            metaLocale.value.origin,
+          )
         : null;
   },
 });

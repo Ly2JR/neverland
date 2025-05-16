@@ -1,7 +1,6 @@
 ---
 title: Avatar 头像
 date: 2024-03-28
-star: 5
 editLink: false
 footer: false
 isOriginal: true

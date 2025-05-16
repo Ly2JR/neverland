@@ -1,7 +1,6 @@
 ---
 title: Alert 提示
 date: 2024-04-29
-star: 2
 editLink: false
 footer: false
 isOriginal: true

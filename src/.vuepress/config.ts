@@ -38,7 +38,7 @@ export default defineUserConfig({
   theme,
 
   alias: {
-    "@theme-hope/modules/info/components/OriginalInfo": OriginalInfo,
+    "@theme-hope/components/info/OriginalInfo": OriginalInfo,
   },
 
   // Enable it with pwa

@@ -45,7 +45,7 @@ git config --global http.sslBackend schannel
 access token:`xxxxxxx`
 
 ```bash
-git config --global url."https://oauth2:xxxxxxx@nas.ilyl.life".insteadof "https://nas.ilyl.life"
+git config --global url."https://oauth2:xxxxxxx@gitlab.ilyl.life".insteadof "https://gitlab.ilyl.life"
 ```
 
 ## 配置全局用户

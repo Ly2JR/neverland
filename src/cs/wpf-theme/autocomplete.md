@@ -1,7 +1,6 @@
 ---
 title: Autocomplete 自动补全输入框
 date: 2024-05-12
-star: 2
 editLink: false
 footer: false
 isOriginal: true

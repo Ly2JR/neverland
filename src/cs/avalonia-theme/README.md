@@ -12,7 +12,7 @@ category:
 仿照[element plus](https://element-plus.org/zh-CN/guide/design.html)的一款Avalonia主题控件
 :::
 
-由原先的WPF控件，迁移到Avalonia
+由原先的WPF控件，迁移到Avalonia。
 
 ## 指南
 
