@@ -98,7 +98,7 @@ tag:
 
 ![字段](https://image.ilyl.life:8443/yonyou/u9c/report/report_step18.png)
 
-将`工具箱`里的`字段`，拖拽到`表`里的标题行位置，同事调整表头显示的值
+将`工具箱`里的`字段`，拖拽到`表`里的标题行位置，同时调整表头显示的值
 
 ![表格值](https://image.ilyl.life:8443/yonyou/u9c/report/report_step19.png)
 
