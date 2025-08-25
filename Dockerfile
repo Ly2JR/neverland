@@ -1,5 +1,5 @@
 # node 构建
-FROM node:jod-slim AS build-stage
+FROM node:trixie-slim AS build-stage
 # 署名
 LABEL maintainer="乌龙茶有点甜 <ly2@ilyl.life>"
 # 指定目录
@@ -17,7 +17,7 @@ RUN npm install pnpm -g && \
 # node部分结束
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 # nginx 部署
-FROM nginx:1.27.3-alpine3.20-slim AS production-stage
+FROM nginx:1.29.1-alpine3.22-slim AS production-stage
 # 拷贝编译后的文件
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 # 配置nginx
