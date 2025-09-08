@@ -69,7 +69,7 @@ public class TestController:Controller
 
 最终将页面部署在U9C目录下
 
-```cshtml{1-3}
+```razor{1-3}
 @inherits System.Web.Mvc.WebViewPage
 @using System.Web.Mvc.Html;
 @using UFSoft.UBF.MVC;

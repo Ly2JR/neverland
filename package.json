@@ -23,7 +23,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/cz-commitlint": "^19.8.1",
-    "@vue/repl": "^4.6.3",
+    "@vue/repl": "^4.7.0",
     "@vuepress/bundler-vite": "2.0.0-rc.24",
     "@vuepress/plugin-feed": "2.0.0-rc.112",
     "@vuepress/plugin-pwa": "2.0.0-rc.112",
@@ -31,15 +31,15 @@
     "@vueuse/core": "^12.8.2",
     "commitizen": "^4.3.1",
     "cz-git": "^1.12.0",
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "husky": "^9.1.7",
     "inquirer": "^12.9.4",
     "mathjax-full": "^3.2.2",
-    "mermaid": "^11.10.1",
+    "mermaid": "^11.11.0",
     "nano-staged": "^0.8.0",
     "prettier": "^3.6.2",
-    "sass-embedded": "^1.92.0",
-    "stylelint": "^16.23.1",
+    "sass-embedded": "^1.92.1",
+    "stylelint": "^16.24.0",
     "vuepress-plugin-components": "2.0.0-rc.94",
     "vuepress-theme-hope": "2.0.0-rc.94"
   },
@@ -50,6 +50,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@parcel/watcher",
       "esbuild"
     ]
   }
