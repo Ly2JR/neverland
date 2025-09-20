@@ -18,7 +18,7 @@ tag:
 ```yml{6,7,9,10,12,13,15}
 services:
   calibre-web:
-    image: linuxserver/calibre-web:0.6.24
+    image: linuxserver/calibre-web:0.6.25
     container_name: calibre-web
     environment:
       - PUID=1000
