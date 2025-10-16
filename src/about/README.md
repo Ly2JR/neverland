@@ -34,7 +34,6 @@ background: rgba(253, 230, 138, 0.15)
 
 <div class="image-preview">
   <img src="https://image.ilyl.life:8443/wechat.jpg" />
-  <img src="https://image.ilyl.life:8443/alipay.jpg" />
 </div>
 
 <style>
