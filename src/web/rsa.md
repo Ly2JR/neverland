@@ -58,7 +58,7 @@ function handleDecrypt(){
 
 <template>
  <el-alert title="私钥和公钥为JSEncrypt里的DEMO" type="success" effect="dark"/>
-<el-input
+ <el-input
     v-model="data.publicKey"
     :rows="3"
     type="textarea"
@@ -85,7 +85,7 @@ function handleDecrypt(){
 </style>
 ```
 
-@file rsa
+@file rsa.js
 
 ```js
 import JSEncrypt from '/assets/js/jsencryptlong.js';

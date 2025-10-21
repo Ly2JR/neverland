@@ -1,4 +1,4 @@
-import { hopeTheme, shiki, useShikiPlugin } from "vuepress-theme-hope";
+import { hopeTheme } from "vuepress-theme-hope";
 import { zhNavbar } from "./navbar/index.js";
 import { zhSidebar } from "./sidebar/index.js";
 import {
@@ -26,7 +26,7 @@ export default hopeTheme(
 
     repo: REPO,
 
-    docsDir: "docs",
+    docsDir: "src",
 
     fullscreen: true,
 
@@ -36,6 +36,7 @@ export default hopeTheme(
         GitHub: GITHUB,
       },
     },
+
     locales: {
       /**
        * Chinese locale config
@@ -81,24 +82,40 @@ export default hopeTheme(
     },
 
     markdown: {
-      highlighter: {
-        type: "shiki",
-      },
       align: true, //对齐
+      codeTabs: true,
       component: true, //组件
       tasklist: true, //任务
       tabs: true,
       figure: true,
+      gfm: true,
       flowchart: true,
       imgLazyload: true,
       imgSize: true,
       include: true,
       mermaid: true,
+      preview: true,
       vuePlayground: true,
       demo: true,
+      mark: true,
+      plantuml: true,
+      spoiler: true,
       playground: {
-        presets: ["ts", "vue", "unocss"],
+        presets: ["ts", "vue"],
       },
+      stylize: [
+        {
+          matcher: "Recommended",
+          replacer: ({ tag }) => {
+            if (tag === "em")
+              return {
+                tag: "Badge",
+                attrs: { type: "tip" },
+                content: "Recommended",
+              };
+          },
+        },
+      ],
     },
   },
   {
