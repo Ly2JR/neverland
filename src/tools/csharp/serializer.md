@@ -35,7 +35,7 @@ public class Dog
 
 正常情况使用足够应付大部分情况，但是还有一些特殊情况需要处理。
 
-## 继承的序列化与反序列化
+## [序列化的多态](https://learn.microsoft.com/zh-cn/dotnet/standard/serialization/system-text-json/polymorphism)
 
 当序列化涉及到继承类时，需要考虑到转换后也应该得到相应的信息。
 
@@ -44,8 +44,8 @@ Animal dog =new Dog() { Name = "旺财",Desc="黑色"};
 var json = JsonSerializer.Serialize(dog);
 Console.WriteLine("序列化字符串:{0}",json);
 var newAnimal = JsonSerializer.Deserialize<Animal>(json);
-var newDog = JsonSerializer.Deserialize<Dog>(json);
 Console.WriteLine("反序列化:{0}", newAnimal?.Name);
+var newDog = JsonSerializer.Deserialize<Dog>(json);
 Console.WriteLine("反序列化:{0}，{1}",newDog?.Name,newDog?.Desc);
 
 public class Animal
@@ -65,7 +65,7 @@ public class Dog:Animal
 
 发现当父类序列化时，丢失了部分信息，这不是想要的结果。
 
-因此需要添加序列化，反序列化选项
+因此需要添加序列化选项
 
 ```cs
 JsonSerializerOptions options = new JsonSerializerOptions
@@ -74,14 +74,14 @@ JsonSerializerOptions options = new JsonSerializerOptions
 };
 Animal dog = new Dog() { Name = "旺财", Desc = "黑色" };
 var json = JsonSerializer.Serialize(dog, options);
-Console.WriteLine("新序列化字符串:{0}", json);
+Console.WriteLine("序列化字符串:{0}", json);
 var newAnimal = JsonSerializer.Deserialize<Animal>(json);
+Console.WriteLine("反序列化:{0}", newAnimal?.Name);
 var newDog = JsonSerializer.Deserialize<Dog>(json);
-Console.WriteLine("新反序列化:{0}", newAnimal?.Name);
-Console.WriteLine("新反序列化:{0}，{1}", newDog?.Name, newDog?.Desc);
-if(dog is Dog newDog1)
+Console.WriteLine("反序列化:{0}，{1}", newDog?.Name, newDog?.Desc);
+if(newAnimal is Dog newDog1)
 {
-    Console.WriteLine("新反序列化:{0}，{1}", newDog1?.Name, newDog1?.Desc);
+    Console.WriteLine("反序列化:{0}，{1}", newDog1?.Name, newDog1?.Desc);
 }
 
 class DefineJsonTypeInfoResolver : DefaultJsonTypeInfoResolver
@@ -107,8 +107,7 @@ class DefineJsonTypeInfoResolver : DefaultJsonTypeInfoResolver
     }
 }
 //output
-//新序列化字符串:{"Desc":"\u9ED1\u8272","Name":"\u65FA\u8D22"}
-//新反序列化:旺财
-//新反序列化:旺财，黑色
-//新反序列化:旺财，黑色
+//序列化字符串:{"Desc":"\u9ED1\u8272","Name":"\u65FA\u8D22"}
+//反序列化:旺财
+//反序列化:旺财，黑色
 ```
