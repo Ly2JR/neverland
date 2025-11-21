@@ -24,38 +24,28 @@ tag:
 
 ![登录界面](https://image.ilyl.life:8443/yonyou/u9c/report/report_step3.png)
 
-## 报表资源管理器
+### 报表资源管理器
 
 在UBF的右边，或者点击工具栏`查看`选择`报表资源管理器`
 
 ![报表元数据库](https://image.ilyl.life:8443/yonyou/u9c/report/report_step4.png)
 
 1. 点击`连接`选择`报表元数据库`
-
 ![新建报表目录](https://image.ilyl.life:8443/yonyou/u9c/report/report_step5.png)
 
 2. 点击`ReportRootCatalog`右击新建报表目录
-
 ![创建新的报表分类目录](https://image.ilyl.life:8443/yonyou/u9c/report/report_step6.png)
-
 输入任意名称，如`KK`，显示`KK(用户自定义)`
 
 3. 右击新建的报表目录`KK`，选择`新建报表容器`
-
 ![新建报表容器](https://image.ilyl.life:8443/yonyou/u9c/report/report_step7.png)
-
 点击`新建报表容器`，输入任意报表名称，如`测试报表`
-
 ![输入报表容器名称](https://image.ilyl.life:8443/yonyou/u9c/report/report_step8.png)
-
 显示`测试报表(用户定义)`
 
 4. 右击新建的报表容器`测试报表`，选择`创建报表`
-
 ![新建报表](https://image.ilyl.life:8443/yonyou/u9c/report/report_step9.png)
-
 这里选择`报表`，输入任意名称，这里与报表容器保持一致
-
 ![录入报表](https://image.ilyl.life:8443/yonyou/u9c/report/report_step10.png)
 
 ## 设计报表数据源
@@ -70,7 +60,9 @@ tag:
 
 ![数据源](https://image.ilyl.life:8443/yonyou/u9c/report/report_step12.png)
 
-点击连接字符串右边的按钮
+点击连接字符串右边的按钮，演示用`model`，实际使用相应的`U9数据库`
+
+可见U9报表可以查询其他数据库
 
 ![连接串](https://image.ilyl.life:8443/yonyou/u9c/report/report_step13.png)
 
@@ -88,7 +80,7 @@ tag:
 
 ![模拟数据](https://image.ilyl.life:8443/yonyou/u9c/report/report_step16.png)
 
-## 设计报表布局
+### 设计报表布局
 
 点击`布局`，选择`工具箱`里的`报表控件`，找到`表`，拖拽到布局里的`明细`里
 
@@ -101,6 +93,22 @@ tag:
 将`工具箱`里的`字段`，拖拽到`表`里的标题行位置，同时调整表头显示的值
 
 ![表格值](https://image.ilyl.life:8443/yonyou/u9c/report/report_step19.png)
+
+### 添加查询条件
+
+U9C报表必须有条件。
+
+点击工具栏`报表`选择`报表参数`
+
+![报表参数](https://image.ilyl.life:8443/yonyou/u9c/report/report_step191.png)
+
+在左边空白地方右击，选择`添加条件项`
+
+![添加条件项](https://image.ilyl.life:8443/yonyou/u9c/report/report_step31.png)
+
+输入`名称`和`标签`，针对视图报表，在`条件表达式里`选择视图字段
+
+![报表参数](https://image.ilyl.life:8443/yonyou/u9c/report/report_step192.png)
 
 ## 发布报表
 
@@ -152,38 +160,10 @@ tag:
 
 打开开发的`测试报表`时，发现不显示任何数据，因为报表必须要有条件。
 
-### 添加报表条件
-
-打开UBF，找到开发的报表，双击显示设计界面，选择数据
-
-![添加条件](https://image.ilyl.life:8443/yonyou/u9c/report/report_step29.png)
-
-找到工具栏上的`报表`，点击`报表参数`
-
-![报表参数](https://image.ilyl.life:8443/yonyou/u9c/report/report_step30.png)
-
-在左边空白地方右击，选择`添加条件项`
-
-![添加条件项](https://image.ilyl.life:8443/yonyou/u9c/report/report_step31.png)
-
-编辑条件项，输入必要的信息
-
-![编辑条件项](https://image.ilyl.life:8443/yonyou/u9c/report/report_step32.png)
-
-点击`修改当前数据查询`按钮
-
-![修改当前数据查询](https://image.ilyl.life:8443/yonyou/u9c/report/report_step33.png)
-
-找到`查询参数`页签，点击中间的按钮，选择当前输入的条件项，左边的名称对应SQL脚本的字段名称或者存储过程的参数名称
-
-![添加条件](https://image.ilyl.life:8443/yonyou/u9c/report/report_step34.png)
-
-再次点击`预览结果`，输入参数值，显示正常的结果后，点击保存即可，无需再次发布。
-
-![测试条件](https://image.ilyl.life:8443/yonyou/u9c/report/report_step35.png)
+## 预览报表
 
 重新登陆U9C，打开开发报表`测试报表`，这时显示出了条件
 
 ![报表条件](https://image.ilyl.life:8443/yonyou/u9c/report/report_step36.png)
 
-演示的SQL语句可能不能显示结果，请调整sql语句或更新UBF。
+![报表](https://image.ilyl.life:8443/yonyou/u9c/report/report_step37.png)
