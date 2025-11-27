@@ -55,7 +55,9 @@ MarialDB10安装后，提示`1130`
     FLUSH PRIVILEGES;
     ```
 
-8. 开启MarialDB端口防火墙
+8. 启用TCP/IP连接
+
+    即打开`MariaDB 10`页面上，勾选`启用TCP/IP连接`
 
 9. 设置端口转发
 
@@ -69,4 +71,63 @@ create user 'your_user'@'your_ip' identified by 'your_password';
 
 ```bash
 grant all privileges on database_name.your_new_database to 'your_user'@'your_password';
+```
+
+## 测试
+
+项目程序安装[MySqlConnector](https://mysqlconnector.net/)包。
+
+```cs
+using MySqlConnector;
+
+Console.WriteLine("MariaDB 示例：连接并查询（异步）");
+
+var builder = new MySqlConnectionStringBuilder
+{
+    Server = "127.0.0.1",
+    Port = 3306,
+    UserID = "root",
+    Password = "<your_password>",
+    Database = "mysql",
+    CharacterSet = "utf8mb4",
+    // 可根据需要启用 SSLMode = MySqlSslMode.Required
+};
+
+var connectionString = builder.ConnectionString;
+
+try
+{
+    await using var connection = new MySqlConnection(connectionString);
+    await connection.OpenAsync();
+
+    const string sql = @"SELECT host,user FROM user where user=@user;";
+
+    await using var cmd = new MySqlCommand(sql, connection);
+    cmd.Parameters.AddWithValue("@user", "root");
+
+    await using var reader = await cmd.ExecuteReaderAsync();
+    if (!reader.HasRows)
+    {
+        Console.WriteLine("未找到记录。");
+    }
+    else
+    {
+        while (await reader.ReadAsync())
+        {
+            string host = reader.GetString("host");
+            string user = reader.GetString("user");
+            Console.WriteLine($"{host}\t{user}");
+        }
+    }
+
+    await connection.CloseAsync();
+}
+catch (MySqlException mex)
+{
+    Console.Error.WriteLine($"数据库错误：{mex.Message}");
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine($"通用错误：{ex.Message}");
+}
 ```

@@ -7,7 +7,8 @@ isOriginal: true
 category:
   - 工具箱
 tag: 
-  - MySQL Server
+  - MySQL
+  - MariaDB
 ---
 
 ## 表
