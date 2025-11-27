@@ -18,7 +18,7 @@ tag:
 ```yml
 services:
   bitwarden-self-host:
-    image: 'bitwarden/self-host:2025.2.1-beta'
+    image: 'bitwarden/lite:beta'
     restart: always
     ports:
       - 5000:8443
@@ -48,3 +48,7 @@ services:
 Bitwarden移动端登录提示无法验证服务器证书的问题，是因为配置的SSL证书不对
 
 利用[What's My Chain Cert?](https://whatsmychaincert.com/)进行验证是否正确
+
+## 权限问题导致启动不成功
+
+当文件夹映射到主机时，检查文件夹权限授予`everyone`权限
