@@ -15,12 +15,12 @@
   },
   "dependencies": {
     "neverland": "link:",
-    "pnpm": "^10.24.0"
+    "pnpm": "^10.25.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
-    "@commitlint/cz-commitlint": "^20.1.0",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@commitlint/cz-commitlint": "^20.2.0",
     "@vue/repl": "^4.7.1",
     "@vuepress/bundler-vite": "2.0.0-rc.26",
     "@vuepress/plugin-feed": "2.0.0-rc.120",
