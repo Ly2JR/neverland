@@ -16,10 +16,10 @@ tag:
 - Target(`ChemicalCompound`)
   - 定义客户端使用的特定于域的接口。
 
-- Adapter(`Compund`)
+- Adapter(`Compound`)
   - 使接口适配器适应目标接口。
 
-- Adaptee(`ChemicalDatabank`)
+- Adaptee(`ChemicalDataBank`)
 - 定义需要调整的现有接口。
 
 - Client(`AdapterApp`)
@@ -122,7 +122,7 @@ public class Compound
 public class RichCompound : Compound
 {
     private readonly string _chemical;
-    private ChemicalDatabank _bank = null;
+    private ChemicalDataBank _bank = null;
 
     public RichCompound(string chemical)
     {
@@ -131,7 +131,7 @@ public class RichCompound : Compound
 
     public override void Display()
     {
-        _bank=new ChemicalDatabank();
+        _bank=new ChemicalDataBank();
 
         BoilingPoint = _bank.GetCriticalPoint(_chemical, "B");
         MeltingPoint = _bank.GetCriticalPoint(_chemical, "M");
@@ -146,7 +146,7 @@ public class RichCompound : Compound
     }
 }
 
-public class ChemicalDatabank
+public class ChemicalDataBank
 {
     public float GetCriticalPoint(string compound, string point)
     {

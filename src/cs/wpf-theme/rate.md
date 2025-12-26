@@ -15,7 +15,6 @@ tag:
 
 评分默认被分为三个等级，可以利用颜色数组对分数及情感倾向进行分级（默认情况下不区分颜色）。
 
-
 ![rate](https://image.ilyl.life:8443/wpf-theme/rate/rate.gif)
 
 ```xml

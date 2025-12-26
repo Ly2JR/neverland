@@ -93,7 +93,7 @@ tag:
 
 使用`InlinePrompt`属性来控制文本是否显示在点内。
 
-![inlineprompt](https://image.ilyl.life:8443/wpf-theme/toggle-button/togglebutton-inlineprompt.gif)
+![InlinePrompt](https://image.ilyl.life:8443/wpf-theme/toggle-button/togglebutton-inlineprompt.gif)
 
 ```xml
 <ToggleButton nl:ToggleButtonAssist.ActiveText="是"
@@ -180,7 +180,7 @@ tag:
 
 使用`InactiveActionIcon`和`ActiveActionIcon`属性来添加图标。
 
-![actionicon](https://image.ilyl.life:8443/wpf-theme/toggle-button/togglebutton-actionicon.gif)
+![ActionIcon](https://image.ilyl.life:8443/wpf-theme/toggle-button/togglebutton-actionicon.gif)
 
 ```xml
 <ToggleButton nl:ToggleButtonAssist.ActiveActionIcon="{DynamicResource active-action-icon}"

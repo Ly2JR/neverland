@@ -12,11 +12,11 @@ category:
 ```sql
 Create Proc Test
 (
-	@a int,
-	@b int out
+    @a int,
+    @b int out
 )
 as
-	set @b=@a+100
+    set @b=@a+100
 go
 ```
 

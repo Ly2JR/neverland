@@ -47,7 +47,7 @@ DataSet.WriteXml("XXX", XmlWriteMode.WriteSchema);
 ```xml
 <?xml version="1.0" standalone="yes"?>
 <tableSet>
-  <xs:schema id="tableSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:schema id="tableSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mydata="urn:schemas-microsoft-com:xml-msdata">
     <xs:element name="tableSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
       <xs:complexType>
         <xs:choice minOccurs="0" maxOccurs="unbounded">

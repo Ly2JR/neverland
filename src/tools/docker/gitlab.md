@@ -53,6 +53,7 @@ gitlab-rake gitlab:env:info
 ```bash
 gitlab-rake "gitlab:password:reset[root]"
 ```
+
 ![重置密码](https://image.ilyl.life:8443/gitlab/gitlab-reset-password.png)
 
 ### 设置中文
@@ -85,7 +86,7 @@ gitlab-rake "gitlab:password:reset[root]"
 services:
   gitlab:
     container_name: GITLAB
-    image: 'gitlab/gitlab-ce:18.6.0-ce.0'
+    image: 'gitlab/gitlab-ce:18.7.0-ce.0'
     restart: always
     hostname: '127.0.0.1'
     environment:
@@ -120,15 +121,15 @@ services:
       - X:/Gitlab/log:/var/log/gitlab
 ```
 
-另存为`docoer-compose.yml`，`cmd`当前目录，运行`docker compose -p gitlab up -d`
+另存为`docker-compose.yml`，`cmd`当前目录，运行`docker compose -p gitlab up -d`
 
 ### 重置密码
 
 ```bash
 gitlab-rails console
 u=User.where(id:1).first
-u.password='newpassword'
-u.password_confirmation='newpassword'
+u.password='<new_password>'
+u.password_confirmation='<new_password>'
 u.save!
 ```
 
@@ -177,21 +178,21 @@ openssl s_client -connect smtp.example.com:465 -servername smtp.example.com -sho
 
 1. 进入gitlab-rails控制台
 
-```bash
-gitlab-rails console
-```
+   ```bash
+   gitlab-rails console
+   ```
 
 2. 查看邮箱配置
 
-```bash
-ActionMailer::Base.smtp_settings
-```
+   ```bash
+   ActionMailer::Base.smtp_settings
+   ```
 
 3. 发送测试邮件
 
-```bash
-Notify.test_email('youremail@email.com', 'Hello World', 'This is a test message').deliver_now
-```
+   ```bash
+   Notify.test_email('youremail@email.com', 'Hello World', 'This is a test message').deliver_now
+   ```
 
 ### [备份](https://docs.gitlab.com/administration/backup_restore/backup_gitlab/)
 
@@ -210,9 +211,11 @@ gitlab-rake gitlab:backup:create
 使用`crontab`格式进行定时备份
 
 格式:
+
 ```bash
 m h dom mon dow user command
 ```
+
 - m： 表示分钟，可以是从0到59之间的任何整数。
 - h：表示小时，可以是从0到23之间的任何整数。
 - dom：表示日期，可以是从1到31之间的任何整数。
@@ -230,6 +233,7 @@ m h dom mon dow user command
 ::: warning
 忽略备份文件的`_gitlab_backup.tar`名
 :::
+
 ```bash
 gitlab-backup restore BACKUP=<备份文件名>
 ```

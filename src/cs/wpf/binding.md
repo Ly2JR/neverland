@@ -63,7 +63,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 </StackPanel>
 ```
 
-![静态绑定](https://image.ilyl.life:8443/wpf/binding/binding3.png =600x200)
+![静态绑定](https://image.ilyl.life:8443/wpf/binding/binding3.png=600x200)
 
 [Source](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.binding.source?view=windowsdesktop-8.0)属性提供对象的绑定，一般用在静态，[Path](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.data.binding.path?view=windowsdesktop-8.0)绑定需要的对象属性值
 

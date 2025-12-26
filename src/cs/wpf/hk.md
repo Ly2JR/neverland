@@ -119,7 +119,7 @@ Winform则通过[Control.InvokeRequired](https://learn.microsoft.com/zh-cn/dotne
     ```xml
     <Image
           RenderOptions.BitmapScalingMode="HighQuality"
-          Source="{Binding VedioSource}"
+          Source="{Binding VideoSource}"
           Stretch="Fill"
           UseLayoutRounding="True" />
     ```
@@ -127,13 +127,13 @@ Winform则通过[Control.InvokeRequired](https://learn.microsoft.com/zh-cn/dotne
     @tab ViewModels
 
     ```cs
-    private ImageSource _vedioSource = null;
-    public ImageSource VedioSource
+    private ImageSource _videoSource = null;
+    public ImageSource VideoSource
     {
-        get { return _vedioSource; }
+        get { return _videoSource; }
         set
         {
-            _vedioSource = value;
+            _videoSource = value;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(VedioSource)));
         }
     }

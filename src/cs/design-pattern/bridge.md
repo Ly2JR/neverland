@@ -134,7 +134,7 @@ public class CustomerBase
     public DataObject Data
     {
         get => _dataObject;
-        set=> _dataObject = value;
+        set => _dataObject = value;
     }
 
     public virtual void Next()

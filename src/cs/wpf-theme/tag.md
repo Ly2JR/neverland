@@ -100,7 +100,7 @@ Tag 可以向按钮组件一样变为完全圆形。
 
 通过设置`IsRound`属性来改变是否圆形
 
-![isround](https://image.ilyl.life:8443/wpf-theme/tag/tag-isround.png)
+![IsRound](https://image.ilyl.life:8443/wpf-theme/tag/tag-isround.png)
 
 ```xml
 <nl:Tag IsRound="True" Theme="Dark" Type="Primary">Tag 1</nl:Tag>

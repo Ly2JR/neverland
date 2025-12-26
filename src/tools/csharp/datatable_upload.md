@@ -13,7 +13,7 @@ tag:
 .NET开发离不开DataTable，有时需要对大量数据的DataTable进行上传，这时使用[SqlBulkCopy](https://learn.microsoft.com/zh-cn/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=netframework-4.8.1)来实现
 
 ```cs
-bool DataSumbit(DataTable sourceDt, string destinationString, string destinationTableName,bool bMapping,out string errMsg)
+bool DataSubmit(DataTable sourceDt, string destinationString, string destinationTableName,bool bMapping,out string errMsg)
 {
     errMsg=string.Empty;
     try

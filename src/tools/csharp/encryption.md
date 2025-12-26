@@ -19,7 +19,7 @@ using System.Text;
 using System.Text.Unicode;
 
 string original = "Here is some data to encrypt!";
-string key = "aecsesexs2mjsxg3d98sjrtzdw469sjv";
+string key = "acsesexs2mjsxg3d98sjrtzdw469sjv";
 byte[] v =
            {
                 0x12, 0x34, 0x56, 0x78, 0x90, 

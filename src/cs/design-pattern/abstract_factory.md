@@ -16,7 +16,7 @@ tag:
 - AbstractFactory(`ContinentFactory`)
   - 为创建抽象产品的操作声明一个接口。
 
-- ConcreteFactory(`AfricaFacotry`，`AmericaFactory`)
+- ConcreteFactory(`AfricaFactory`，`AmericaFactory`)
   - 实现创建具体产品对象的操作。
 
 - AbstractProduct(`Herbivore`，`Carnivore`)
@@ -136,7 +136,7 @@ var africa = new AfricaFactory();
 var world = new AnimalWorld(africa);
 world.RunFoodChain();
 
-var america = new AmericalFactory();
+var america = new AmericaFactory();
 world = new AnimalWorld(america);
 world.RunFoodChain();
 
@@ -165,7 +165,7 @@ public class AfricaFactory:ContinentFactory
     }
 }
 
-public class AmericalFactory:ContinentFactory
+public class AmericaFactory:ContinentFactory
 {
     public override Herbivore CreateHerbivore()
     {

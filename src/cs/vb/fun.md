@@ -32,6 +32,7 @@ Add=0
 Add=1
 End Function
 ```
+
 :::
 
 将CRUD操作中的对数据库部分进行提取为`Function`函数，事件本身就是一个`Sub`函数
@@ -85,6 +86,7 @@ Public Property Set TestRecordSet(vData As ADODB.Recordset)
     Set rest = vData
 End Property
 ```
+
 :::
 
 完整的类定义如下：
