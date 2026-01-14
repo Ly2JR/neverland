@@ -1,7 +1,7 @@
 # node 构建
 FROM node:trixie-slim AS build-stage
 # 署名
-LABEL maintainer="乌龙茶有点甜 <ly2@ilyl.life>"
+LABEL maintainer="乌龙茶有点甜 <ly2jr@outlook.com>"
 # 指定目录
 WORKDIR /neverland
 # 将当前所有目录拷贝到工作目录
