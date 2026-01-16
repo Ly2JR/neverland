@@ -48,7 +48,7 @@ gitlab-rake gitlab:env:info
 
 如果登陆失败，可以[重置密码](https://docs.gitlab.com/ee/security/reset_user_password.html)
 
-### 重置密码
+### 重置默认密码
 
 ```bash
 gitlab-rake "gitlab:password:reset[root]"
@@ -86,7 +86,7 @@ gitlab-rake "gitlab:password:reset[root]"
 services:
   gitlab:
     container_name: GITLAB
-    image: 'gitlab/gitlab-ce:18.7.0-ce.0'
+    image: 'gitlab/gitlab-ce:18.8.0-ce.0'
     restart: always
     hostname: '127.0.0.1'
     environment:
@@ -123,7 +123,7 @@ services:
 
 另存为`docker-compose.yml`，`cmd`当前目录，运行`docker compose -p gitlab up -d`
 
-### 重置密码
+### 指定用户重置密码
 
 ```bash
 gitlab-rails console
