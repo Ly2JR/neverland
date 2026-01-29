@@ -14,7 +14,7 @@ tag:
 
 ::: tabs
 
-@tab CSharep
+@tab CSharp
 
 ```cs
 using System;
