@@ -31,8 +31,15 @@ export const zhSidebar = sidebar({
           children: "structure",
         },
         {
+          text: "Avalonia开发",
+          icon: "/assets/icon/avalonia.ico",
+          prefix: "avalonia/",
+          collapsible: true,
+          children: "structure",
+        },
+        {
           text: "Avalonia主题控件",
-          icon: "/assets/svg/csharp2.svg",
+          icon: "/assets/icon/avalonia.ico",
           prefix: "avalonia-theme/",
           collapsible: true,
           children: "structure",

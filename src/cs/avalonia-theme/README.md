@@ -5,7 +5,7 @@ article: false
 editLink: false
 footer: false
 category:
-  - Avalonia主题控件
+  - Avalonia 主题控件
 ---
 
 ::: tip

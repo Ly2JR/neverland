@@ -16,4 +16,8 @@ category:
 
 解决方式如下：
 
-使用`cmd管理员`运行模式，输入`cd %ProgramFiles%\nodejs`定位到执行目录，在执行`npm install npm@latest`进行升级即可。
+使用`cmd管理员`运行模式，输入`cd %ProgramFiles%\nodejs`定位到执行目录或者cd到`node`的安装目录
+
+执行`npm install npm@latest`进行升级即可。
+
+执行`npm install -g pnpm@latest`进行`pnpm`升级。
