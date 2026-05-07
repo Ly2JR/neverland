@@ -15,19 +15,19 @@
   },
   "dependencies": {
     "neverland": "link:",
-    "pnpm": "^10.33.2"
+    "pnpm": "^10.33.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.2",
-    "@commitlint/config-conventional": "^20.5.0",
-    "@commitlint/cz-commitlint": "^20.5.2",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@commitlint/cz-commitlint": "^20.5.3",
     "@vue/repl": "^4.7.2",
     "@vuepress/bundler-vite": "2.0.0-rc.28",
     "@vuepress/plugin-feed": "2.0.0-rc.128",
     "@vuepress/plugin-markdown-chart": "2.0.0-rc.128",
     "@vuepress/plugin-pwa": "2.0.0-rc.128",
     "@vuepress/plugin-theme-data": "2.0.0-rc.128",
-    "@vueuse/core": "^14.2.1",
+    "@vueuse/core": "^14.3.0",
     "commitizen": "^4.3.1",
     "cz-git": "^1.13.0",
     "eslint": "^9.39.4",
@@ -39,7 +39,7 @@
     "prettier": "^3.8.3",
     "sass-embedded": "^1.99.0",
     "stylelint": "^16.26.1",
-    "vue": "^3.5.33",
+    "vue": "^3.5.34",
     "vuepress": "2.0.0-rc.28",
     "vuepress-plugin-components": "2.0.0-rc.106",
     "vuepress-theme-hope": "2.0.0-rc.106"
