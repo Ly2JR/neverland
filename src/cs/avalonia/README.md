@@ -8,6 +8,6 @@ category:
   - Avalonia 开发
 ---
 
-[参考文档](https://docs.avaloniaui.net/zh-Hans/docs/welcome)
+[参考文档](https://docs.avaloniaui.net/docs/welcome)
 
 [Avalonia](https://github.com/AvaloniaUI/Avalonia)
