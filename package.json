@@ -14,7 +14,6 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "neverland": "link:",
     "pnpm": "^11.1.3"
   },
   "devDependencies": {

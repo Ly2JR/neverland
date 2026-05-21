@@ -1,5 +1,7 @@
 # node 构建
-FROM node:jod-trixie-slim AS build-stage
+FROM node:bullseye-slim AS build-stage
+# 跳过 husky 的 Git hooks 安装（避免构建时因缺少 .git 目录而失败）
+ENV HUSKY=0
 # 署名
 LABEL maintainer="乌龙茶有点甜 <ly2jr@outlook.com>"
 # 指定目录
