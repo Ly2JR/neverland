@@ -33,13 +33,13 @@ copy: true
 ```bash
 $env:ALICLOUD_ACCESS_KEY="abcdefghijklmnopqrstuvwx"
 $env:ALICLOUD_SECRET_KEY="your-secret-key"
-lego --email="you@example.com" --dns alidns --d="*.example.com" -d="example.com" run
+lego run --dns alidns --d="*.example.com" -d="example.com" --email="you@example.com" 
 ```
 
 ```cmd
 set ALICLOUD_ACCESS_KEY=abcdefghijklmnopqrstuvwx
 set ALICLOUD_SECRET_KEY=your-secret-key
-lego --email="you@example.com" --dns alidns --d="*.example.com" -d="example.com" run
+lego run --dns alidns --d="*.example.com" -d="example.com" --email="you@example.com" 
 ```
 
 在`.lego\certificates`目录下出现你要申请证书
