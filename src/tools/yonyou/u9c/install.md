@@ -13,8 +13,7 @@ category:
 1. [Microsoft SQL Server 2022](https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads)
 2. [Microsoft SQL Server 2022 Reporting Services](https://www.microsoft.com/zh-cn/download/details.aspx?id=104502)
 3. [SSMS](https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
-4. [U9C](https://yonbip.diwork.com/yonbip-ec-minor/rest/pub_article/yonbip/upesn/esn/3922109/20210609/1637/342d99ae-b5c1-44be-bcd6-7b91c50ccba7.html?random=0175cf3c-815d-47ba-9eb5-01a91f710607#view)
-5. [Visual Studio 2026](https://visualstudio.microsoft.com/zh-hans/downloads/)
+4. [U9C](https://pan.yonyou.com/web/share.html?hash=c4bpSk59Svs)密码`Q3ZC`
 6. [Everything](https://www.voidtools.com/downloads/)
 
 ## 环境要求

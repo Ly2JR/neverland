@@ -34,7 +34,7 @@ version: '3.8'
 services:
   registry-ui:
     container_name: REGISTRY_UI
-    image: 'joxit/docker-registry-ui:2.5.7'
+    image: 'joxit/docker-registry-ui:2.6.0'
     volumes:
       - <SSL证书目录>:/etc/nginx/certs
       - <nginx的conf.d配置目录>:/etc/nginx/conf.d/

@@ -14,7 +14,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "pnpm": "^11.5.0"
+    "pnpm": "^11.5.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
