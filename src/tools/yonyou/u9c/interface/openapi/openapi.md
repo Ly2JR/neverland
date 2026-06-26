@@ -12,10 +12,6 @@ tag:
 
 U9C自带OPENAPI，可以满足一些开发需求。
 
-::: warning
-一言难尽，能不用就不用
-:::
-
 ## 接口授权
 
 ![添加应用](https://image.ilyl.life:8443/yonyou/u9c/interface/openapi/app.png)

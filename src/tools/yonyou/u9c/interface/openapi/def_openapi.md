@@ -20,7 +20,7 @@ tag:
 
 ## 鉴权
 
-VS创建类选择.NETFramework 4.5版本。
+VS创建类选择`.NETFramework 4.8`版本。
 
 引用两个文件`UFSoft.UBF.MVC`和`System.Web.Http`
 
