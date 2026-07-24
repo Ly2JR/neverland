@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "neverland": "link:",
-    "pnpm": "^11.13.1"
+    "pnpm": "^11.16.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
@@ -36,7 +36,7 @@
     "mathjax-full": "^3.2.2",
     "mermaid": "^11.16.0",
     "nano-staged": "^0.8.0",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.6",
     "sass-embedded": "^1.100.0",
     "stylelint": "^16.26.1",
     "vue": "^3.5.40",
