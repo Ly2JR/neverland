@@ -42,6 +42,20 @@ services:
     tty: true
 ```
 
+## 重置密码
+
+[重置密码](https://www.showdoc.com.cn/help/16118)
+
+```bash
+ docker exec showdoc bash -c  "cd /var/www/html/ && php ./index.php home/common/repasswd"
+```
+
+如果在容器内直接
+
+```bash
+cd /var/www/html/ && php ./index.php home/common/repasswd
+```
+
 ## 问题
 
 1. 使用`/var/www/html`而不是`/showdoc_data/html`

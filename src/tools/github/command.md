@@ -128,8 +128,19 @@ git push origin main
 
 ## 拉取
 
+远程`A`，本地`空`，先拉取`A`，本地`A`，在`A`基础上修改
+
 ```bash
 git pull origin main
+
+```
+
+## 线性拉取
+
+远程`A`，本地`B`，先拉取`A`，本地`A`-`B`
+
+```bash
+git pull origin main --rebase
 ```
 
 ## 更改远程url
@@ -142,6 +153,15 @@ git remote set-url origin https://xxx.git
 
 ```bash
 git clone -b <new branch> https://xxx.git
+```
+
+## 克隆至指定提交日志
+
+```bash
+git clone https://xxx.git
+cd <仓库名>
+git fetch --all --tags --prune
+git checkout <commit-hash>
 ```
 
 ## 代理
