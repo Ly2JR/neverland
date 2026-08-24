@@ -26,20 +26,20 @@ copy: true
 
 以Windows 10，进行[lego阿里云DNS签发](https://go-acme.github.io/lego/dns/alidns/)证书为例。
 
-下载lego二进制文件[lego_v5.2.1_windows_amd64](https://github.com/go-acme/lego/releases)安装。
+下载lego二进制文件[lego_v5.4.0_windows_amd64](https://github.com/go-acme/lego/releases)安装。
 
 将文件夹目录放在系统环境变量目录下，或者直接在目录下使用`cmd`。
 
 ```bash
 $env:ALICLOUD_ACCESS_KEY="abcdefghijklmnopqrstuvwx"
 $env:ALICLOUD_SECRET_KEY="your-secret-key"
-lego run --dns alidns --d="*.example.com" -d="example.com" --email="you@example.com" 
+lego run --dns alidns -d="*.example.com" --email="you@example.com" 
 ```
 
 ```cmd
 set ALICLOUD_ACCESS_KEY=abcdefghijklmnopqrstuvwx
 set ALICLOUD_SECRET_KEY=your-secret-key
-lego run --dns alidns --d="*.example.com" -d="example.com" --email="you@example.com" 
+lego run --dns alidns -d="*.example.com" --email="you@example.com" 
 ```
 
 在`.lego\certificates`目录下出现你要申请证书
