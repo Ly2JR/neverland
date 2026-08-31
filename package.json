@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "neverland": "link:",
-    "pnpm": "^11.22.0"
+    "pnpm": "^11.24.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
@@ -34,12 +34,12 @@
     "husky": "^9.1.7",
     "inquirer": "^12.11.1",
     "mathjax-full": "^3.2.2",
-    "mermaid": "^11.17.0",
+    "mermaid": "^11.17.2",
     "nano-staged": "^0.8.0",
     "prettier": "^3.9.6",
     "sass-embedded": "^1.103.1",
     "stylelint": "^16.26.1",
-    "vue": "^3.5.41",
+    "vue": "^3.5.42",
     "vuepress": "2.0.0-rc.31",
     "vuepress-plugin-components": "2.0.0-rc.107",
     "vuepress-theme-hope": "2.0.0-rc.107"
