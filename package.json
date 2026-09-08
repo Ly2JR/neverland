@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "neverland": "link:",
-    "pnpm": "^11.24.0"
+    "pnpm": "^12.3.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
@@ -23,10 +23,10 @@
     "@commitlint/cz-commitlint": "^20.5.3",
     "@vue/repl": "^4.7.2",
     "@vuepress/bundler-vite": "2.0.0-rc.31",
-    "@vuepress/plugin-feed": "2.0.0-rc.132",
-    "@vuepress/plugin-markdown-chart": "2.0.0-rc.132",
-    "@vuepress/plugin-pwa": "2.0.0-rc.131",
-    "@vuepress/plugin-theme-data": "2.0.0-rc.131",
+    "@vuepress/plugin-feed": "2.0.0-rc.134",
+    "@vuepress/plugin-markdown-chart": "2.0.0-rc.134",
+    "@vuepress/plugin-pwa": "2.0.0-rc.134",
+    "@vuepress/plugin-theme-data": "2.0.0-rc.134",
     "@vueuse/core": "^14.4.0",
     "commitizen": "^4.3.2",
     "cz-git": "^1.14.0",
@@ -37,12 +37,12 @@
     "mermaid": "^11.17.2",
     "nano-staged": "^0.8.0",
     "prettier": "^3.9.6",
-    "sass-embedded": "^1.103.1",
+    "sass-embedded": "^1.104.0",
     "stylelint": "^16.26.1",
     "vue": "^3.5.42",
     "vuepress": "2.0.0-rc.31",
-    "vuepress-plugin-components": "2.0.0-rc.107",
-    "vuepress-theme-hope": "2.0.0-rc.107"
+    "vuepress-plugin-components": "2.0.0-rc.109",
+    "vuepress-theme-hope": "2.0.0-rc.109"
   },
   "config": {
     "commitizen": {
