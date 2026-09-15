@@ -14,8 +14,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "neverland": "link:",
-    "pnpm": "^12.3.4"
+    "neverland": "link:"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
