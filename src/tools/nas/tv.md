@@ -21,7 +21,7 @@ copy: true
 
 启用智能电视里的`允许安装未知应用`。
 
-下载[Kodi v21.1 (Omega)](https://kodi.tv/download/android/)，选择`ARMV7A (32BIT)`，拷贝到U盘。
+下载[Kodi v21.3 (Omega)](https://kodi.tv/download/android/)，选择`ARMV7A (32BIT)`，拷贝到U盘。
 
 在TV端选择U盘，选择`Kodi`进行安装。
 
