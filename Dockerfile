@@ -1,5 +1,5 @@
 # node 构建
-FROM node:bullseye-slim AS build-stage
+FROM node:krypton-trixie-slim AS build-stage
 # 跳过 husky 的 Git hooks 安装（避免构建时因缺少 .git 目录而失败）
 ENV HUSKY=0
 # 署名
