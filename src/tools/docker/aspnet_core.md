@@ -34,8 +34,10 @@ services:
       - ASPNETCORE_URLS=https://+:8081;http://+:8080
       - ASPNETCORE_Kestrel__Certificates__Default__Password=<your_pfx_password>
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/.aspnet/https/your_ssl_pfx.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/app/.aspnet/https/your_ssl_pfx.key
     volumes:
       - your_ssl_pfx.pfx:/app/.aspnet/https/your_ssl_pfx.pfx:ro
+      - your_ssl_pfx.Key:/app/.aspnet/https/your_ssl_pfx.key:ro
 ```
 
 Docker内的ASP.NET Core默认端口为[http:8080和https:8081](https://learn.microsoft.com/zh-cn/dotnet/core/compatibility/containers/8.0/aspnet-port)。
@@ -48,9 +50,11 @@ Docker内的ASP.NET Core默认端口为[http:8080和https:8081](https://learn.mi
 
 [ASPNETCORE_URLS](https://learn.microsoft.com/zh-cn/aspnet/core/fundamentals/servers/kestrel/endpoints?view=aspnetcore-9.0)绑定到`8080`和`8081`上，不写或者其他都有问题
 
-`ASPNETCORE_Kestrel__Certificates__Default__Password`pfx证书密码
+`ASPNETCORE_Kestrel__Certificates__Default__Password`证书密码
 
-`ASPNETCORE_Kestrel__Certificates__Default__Path`pfx存储路径，查看docker文件,`root`无法访问
+`ASPNETCORE_Kestrel__Certificates__Default__Path`证书存储路径，查看docker文件,`root`无法访问
+
+`ASPNETCORE_Kestrel__Certificates__Default__KeyPath`证书密钥存储路径，查看docker文件,`root`无法访问
 
 ::: warning
 Docker挂载本地文件夹需要授权`Everyone`，否则提示没有权限访问证书文件

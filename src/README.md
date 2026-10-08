@@ -44,7 +44,7 @@ projects:
 
   - icon: /assets/svg/toolbox.svg
     name: 在线工具
-    desc: 搭建中...
+    desc: AI实现
     link: #
 
 copyright: Copyright ©️ 2021-现在 ilyl.life 版权所有 支持IPv6

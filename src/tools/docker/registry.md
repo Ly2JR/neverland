@@ -55,7 +55,7 @@ services:
       - registry
   registry:
     container_name: REGISTRY
-    image: 'registry:3.0.0-rc.4'
+    image: 'registry:3.1.2'
     volumes:
       - <Registry存储目录>:/var/lib/registry
       - <Registry SSL证书目录>:/certs
