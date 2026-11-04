@@ -90,13 +90,25 @@ git branch -m <new-branch>
 git branch -d <old-branch>
 ```
 
-## 添加文件
+## 添加暂存文件
 
 ```bash
 git add .
 ```
 
-## 添加注释
+## 撤销全部暂存文件
+
+```bash
+git reset
+```
+
+## 撤销指定暂存文件
+
+```bash
+git reset <文件名>
+```
+
+## 添加提交说明
 
 ```bash
 git commit -m '注释'
