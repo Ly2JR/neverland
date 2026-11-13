@@ -10,10 +10,25 @@ export default {
     "subject-max-length": [2, "never", 60],
     "type-empty": [2, "never"],
     "subject-case": [0],
+    // 与下方 prompt.types 的 value 保持一致，否则交互里能选、提交时却被拒
+    // release 仅供手动发布版本时使用，不在交互选项中
     "type-enum": [
       2,
       "always",
-      ["feat", "fix", "style", "docs", "chore", "build", "release"],
+      [
+        "feat",
+        "fix",
+        "style",
+        "docs",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "chore",
+        "revert",
+        "release",
+      ],
     ],
   },
   prompt: {

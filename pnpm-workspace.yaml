@@ -13,3 +13,4 @@ minimumReleaseAgeExclude:
   - '@vue/server-renderer@3.5.39 || 3.5.40 || 3.5.43'
   - '@vue/shared@3.5.39 || 3.5.40 || 3.5.43'
   - vue@3.5.39 || 3.5.40 || 3.5.43
+  - '@vuepress/plugin-theme-data@2.0.0-rc.138'
