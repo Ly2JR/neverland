@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   neverland:
-    image: 'blog:1.0.0'
+    image: 'neverland/blog:latest'
     build:
       context: .
       dockerfile: Dockerfile

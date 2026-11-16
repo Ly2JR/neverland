@@ -1,5 +1,5 @@
 # node 构建
-FROM node:krypton-trixie-slim AS build-stage
+FROM node:24.22.3-trixie-slim AS build-stage
 # 跳过 husky 的 Git hooks 安装（避免构建时因缺少 .git 目录而失败）
 ENV HUSKY=0
 # 署名
@@ -19,7 +19,7 @@ RUN npm install pnpm -g && \
 # node部分结束
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 # nginx 部署
-FROM nginx:1.30.1-alpine-slim AS production-stage
+FROM nginx:1.31.8-alpine-slim AS production-stage
 # 拷贝编译后的文件
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 # 配置nginx
