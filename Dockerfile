@@ -44,10 +44,10 @@ RUN pnpm docs:build && \
          -o -name '*.xml' -o -name '*.txt' -o -name '*.webmanifest' \) \
       -exec gzip -9 {} +
 
-# 最后拷贝生产阶段所需的配置与证书：放在构建之后，
-# 这样仅修改 nginx 配置或证书时不会触发整站重新构建
+# 最后拷贝生产阶段所需的 nginx 配置：放在构建之后，
+# 这样仅修改 nginx 配置时不会触发整站重新构建
+# 证书不再打入镜像 —— 域名与 HTTPS 由外层反向代理负责
 COPY nginx.conf ./nginx.conf
-COPY certs ./certs
 
 RUN echo "🎉 编 🎉 译 🎉 成 🎉 功 🎉"
 
@@ -57,12 +57,12 @@ FROM nginx:1.31.8-alpine-slim AS production-stage
 # 清除基础镜像自带的默认站点文件（nginx 欢迎页/错误页），避免残留 index.html 干扰
 RUN rm -rf /usr/share/nginx/html/*
 
-# 仅拷贝运行时必需：静态站点、nginx 配置、SSL 证书
+# 仅拷贝运行时必需：静态站点 + nginx 配置（不再含 SSL 证书）
 # 构建阶段（node + node_modules）不会进入最终镜像
 COPY --from=build-stage /neverland/src/.vuepress/dist /usr/share/nginx/html
 COPY --from=build-stage /neverland/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build-stage /neverland/certs /usr/share/certs
 
-EXPOSE 80 443
+# 容器内只监听 80，TLS 由外层反向代理终结
+EXPOSE 80
 
 RUN echo "🎉 架 🎉 设 🎉 成 🎉 功 🎉"

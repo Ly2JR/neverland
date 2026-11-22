@@ -1,13 +1,12 @@
 version: '3.8'
 
+# 容器内只提供纯 HTTP（80），域名与 HTTPS 交由外层反向代理处理。
+# 反代把请求转发到容器的 80 端口即可，无需在容器内绑定域名或证书。
 services:
   neverland:
     image: 'neverland/blog:latest'
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./nginx.dev.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 8080:80
-   
