@@ -13,4 +13,15 @@ minimumReleaseAgeExclude:
   - '@vue/server-renderer@3.5.39 || 3.5.40 || 3.5.43'
   - '@vue/shared@3.5.39 || 3.5.40 || 3.5.43'
   - vue@3.5.39 || 3.5.40 || 3.5.43
-  - '@vuepress/plugin-theme-data@2.0.0-rc.138'
+  - '@vuepress/plugin-theme-data@2.0.0-rc.138 || 2.0.0-rc.142'
+  - '@vuepress/bundler-vite@2.0.0-rc.33'
+  - '@vuepress/bundlerutils@2.0.0-rc.33'
+  - '@vuepress/cli@2.0.0-rc.33'
+  - '@vuepress/client@2.0.0-rc.33'
+  - '@vuepress/core@2.0.0-rc.33'
+  - '@vuepress/helper@2.0.0-rc.142'
+  - '@vuepress/markdown@2.0.0-rc.33'
+  - '@vuepress/plugin-feed@2.0.0-rc.142'
+  - '@vuepress/shared@2.0.0-rc.33'
+  - '@vuepress/utils@2.0.0-rc.33'
+  - vuepress@2.0.0-rc.33
